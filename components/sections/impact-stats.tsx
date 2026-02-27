@@ -1,7 +1,9 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
+import Image from 'next/image'
 import { impactStats } from '@/lib/content'
+import { Heart, Leaf, Users, Calendar } from 'lucide-react'
 
 function useCountUp(end: number, duration: number = 2000) {
   const [count, setCount] = useState(0)
@@ -34,7 +36,9 @@ function useCountUp(end: number, duration: number = 2000) {
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime
       const progress = Math.min((currentTime - startTime) / duration, 1)
-      setCount(Math.floor(progress * end))
+      // Easing function for smoother animation
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setCount(Math.floor(eased * end))
 
       if (progress < 1) {
         animationFrame = requestAnimationFrame(animate)
@@ -53,41 +57,63 @@ const stats = [
     value: impactStats.animalsRescued,
     label: 'Animals Rescued',
     suffix: '+',
+    icon: Heart,
+    description: 'Lives saved and returned to the wild'
   },
   {
     value: impactStats.speciesHelped,
     label: 'Species Helped',
     suffix: '',
+    icon: Leaf,
+    description: 'Native Louisiana species cared for'
   },
   {
     value: impactStats.volunteersActive,
     label: 'Active Volunteers',
     suffix: '+',
+    icon: Users,
+    description: 'Dedicated community members'
   },
   {
     value: impactStats.yearsServing,
-    label: 'Years Serving Louisiana',
+    label: 'Years Serving',
     suffix: '',
+    icon: Calendar,
+    description: 'Protecting Louisiana wildlife'
   },
 ]
 
 export function ImpactStats() {
   return (
-    <section className="py-20 lg:py-28 gradient-brand">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-serif font-bold text-white mb-4">
-            Making a Difference
+    <section className="relative py-24 lg:py-32 overflow-hidden">
+      {/* Background image with overlay */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero-wildlife.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-accent/90 to-primary/95" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl font-serif font-bold text-white mb-6 text-balance">
+            Our Impact on Louisiana Wildlife
           </h2>
-          <p className="text-white/80 max-w-2xl mx-auto">
+          <p className="text-xl text-white/80 leading-relaxed">
             Every number represents a life saved, a species protected, and a community united 
             in caring for Louisiana&apos;s wildlife.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat) => (
-            <StatCard key={stat.label} {...stat} />
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {stats.map((stat, index) => (
+            <StatCard key={stat.label} {...stat} index={index} />
           ))}
         </div>
       </div>
@@ -95,16 +121,38 @@ export function ImpactStats() {
   )
 }
 
-function StatCard({ value, label, suffix }: { value: number; label: string; suffix: string }) {
+function StatCard({ 
+  value, 
+  label, 
+  suffix, 
+  icon: Icon, 
+  description,
+  index 
+}: { 
+  value: number
+  label: string
+  suffix: string
+  icon: typeof Heart
+  description: string
+  index: number
+}) {
   const { count, ref } = useCountUp(value)
 
   return (
-    <div ref={ref} className="text-center">
-      <p className="text-4xl lg:text-5xl font-bold text-white mb-2">
+    <div 
+      ref={ref} 
+      className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-white/20 text-center hover:bg-white/15 transition-colors"
+      style={{ animationDelay: `${index * 100}ms` }}
+    >
+      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/20 mb-4">
+        <Icon className="h-6 w-6 text-white" />
+      </div>
+      <p className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-2">
         {count}
         {suffix}
       </p>
-      <p className="text-white/70 text-sm">{label}</p>
+      <p className="text-white font-semibold text-lg mb-1">{label}</p>
+      <p className="text-white/60 text-sm">{description}</p>
     </div>
   )
 }
