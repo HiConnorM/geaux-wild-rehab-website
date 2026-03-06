@@ -6,7 +6,16 @@ export interface Species {
   scientificName: string
   description: string
   image: string
-  category: 'mammal' | 'bird' | 'reptile'
+  category: 'mammal'
+  // Extended info for detail pages
+  habitat: string
+  diet: string
+  behavior: string
+  lifespan: string
+  foundWildTips: string[]
+  funFacts: string[]
+  conservationStatus: string
+  commonInjuries: string[]
 }
 
 export interface FAQ {
@@ -28,56 +37,240 @@ export interface Story {
   species: string[]
 }
 
-// Species data
+// Comprehensive Species data - Mammals only (no birds)
 export const species: Species[] = [
   {
     id: 'raccoon',
     name: 'Raccoon',
     scientificName: 'Procyon lotor',
-    description: 'Intelligent and adaptable mammals known for their distinctive black mask and ringed tail.',
+    description: 'Intelligent and adaptable mammals known for their distinctive black mask and ringed tail. Raccoons are highly curious and have remarkable problem-solving abilities.',
     image: '/images/species/raccoon.jpg',
     category: 'mammal',
+    habitat: 'Raccoons are incredibly adaptable and thrive in diverse environments across Louisiana, including forests, wetlands, marshes, and urban areas. They prefer areas near water sources and often den in hollow trees, rock crevices, abandoned burrows, or even attics and chimneys in urban settings.',
+    diet: 'Omnivorous and opportunistic feeders, raccoons eat crayfish, frogs, fish, insects, fruits, nuts, eggs, and small mammals. In urban areas, they often raid garbage cans and pet food bowls. Their "washing" behavior before eating helps them identify food through their sensitive paws.',
+    behavior: 'Primarily nocturnal, raccoons are solitary except for mothers with young or during mating season. They are excellent climbers and swimmers. Their dexterous front paws allow them to manipulate objects with remarkable precision. Raccoons are known for their intelligence and can remember solutions to tasks for up to three years.',
+    lifespan: '2-3 years in the wild, up to 20 years in captivity',
+    foundWildTips: [
+      'Baby raccoons with eyes closed need immediate help - contact us right away',
+      'If you find a baby raccoon alone, observe from a distance for several hours - the mother may return',
+      'Never attempt to feed raccoons cow\'s milk - it can be fatal',
+      'Adult raccoons active during the day are not necessarily sick, especially mothers foraging for babies',
+      'If a raccoon appears disoriented, circling, or aggressive, do not approach - contact animal control'
+    ],
+    funFacts: [
+      'Raccoons have some of the most dexterous paws in the animal kingdom, with sensitivity comparable to human hands',
+      'A group of raccoons is called a "gaze" or "nursery"',
+      'They can rotate their hind feet 180 degrees, allowing them to climb down trees headfirst',
+      'Raccoons can remember solutions to tasks for at least 3 years',
+      'Their distinctive black mask actually helps reduce glare and enhances night vision'
+    ],
+    conservationStatus: 'Least Concern - Raccoon populations are stable and thriving across North America',
+    commonInjuries: ['Vehicle strikes', 'Dog attacks', 'Orphaned babies (nest destruction)', 'Mange', 'Distemper']
   },
   {
     id: 'opossum',
     name: 'Virginia Opossum',
     scientificName: 'Didelphis virginiana',
-    description: "North America's only marsupial, opossums are beneficial for controlling ticks and pests.",
+    description: "North America's only marsupial, opossums are gentle, beneficial animals that help control tick and pest populations. Despite their appearance, they are docile and rarely aggressive.",
     image: '/images/species/opossum.jpg',
     category: 'mammal',
+    habitat: 'Opossums inhabit deciduous forests, farmland, and urban areas throughout Louisiana. They are adaptable and can make dens in hollow logs, tree cavities, brush piles, under porches, or in attics. They do not dig their own burrows but use abandoned dens of other animals.',
+    diet: 'Highly opportunistic omnivores that eat insects, snails, slugs, small rodents, frogs, carrion, fruits, and vegetables. A single opossum can eat up to 5,000 ticks per season, making them incredibly beneficial for controlling tick-borne diseases in your yard.',
+    behavior: 'Primarily nocturnal and solitary, opossums are nomadic and rarely stay in one area for more than a few days. When threatened, they may hiss, show their teeth, or "play possum" - entering an involuntary catatonic state that can last from minutes to hours. They have a very low body temperature, which makes them nearly immune to rabies.',
+    lifespan: '1-2 years in the wild, up to 4 years in captivity',
+    foundWildTips: [
+      'If you find a dead opossum, always check the pouch for babies - they may still be alive',
+      'Baby opossums smaller than 7 inches (nose to rump) need professional care',
+      'Opossums "playing dead" should be left alone in a safe area - they will revive on their own',
+      'An opossum in your yard is beneficial - they eat ticks, snails, and other pests',
+      'Opossums do NOT carry rabies due to their low body temperature'
+    ],
+    funFacts: [
+      'Opossums are virtually immune to rabies due to their low body temperature',
+      'A single opossum can eat up to 5,000 ticks in one season',
+      'They have 50 teeth - more than any other North American land mammal',
+      'Baby opossums are the size of a honeybee when born and must crawl to the pouch',
+      '"Playing possum" is an involuntary response - they cannot control when it happens',
+      'They have opposable thumbs on their hind feet, like primates'
+    ],
+    conservationStatus: 'Least Concern - Populations are stable, though urban development poses challenges',
+    commonInjuries: ['Vehicle strikes', 'Dog attacks', 'Orphaned joeys', 'Cat attacks', 'Poisoning from pest control']
   },
   {
     id: 'squirrel',
     name: 'Eastern Gray Squirrel',
     scientificName: 'Sciurus carolinensis',
-    description: 'One of the most common wildlife species we rehabilitate, especially orphaned babies.',
+    description: 'One of the most common wildlife species we rehabilitate, especially orphaned babies in spring and fall. These acrobatic rodents are essential for forest regeneration through their seed-caching behavior.',
     image: '/images/species/squirrel.jpg',
     category: 'mammal',
+    habitat: 'Abundant in hardwood and mixed forests, parks, and suburban neighborhoods across Louisiana. They build large nests called "dreys" from leaves and twigs high in trees, and also use tree cavities. They are highly adaptable to urban environments.',
+    diet: 'Primarily herbivorous, eating nuts (especially acorns and hickory), seeds, tree buds, bark, fungi, and occasionally insects or bird eggs. They cache thousands of nuts each fall, and their "forgotten" caches help regenerate forests by planting new trees.',
+    behavior: 'Diurnal (active during day), most active in early morning and late afternoon. They do not hibernate but may stay in nests during extreme weather. Squirrels are highly territorial and communicate through tail movements and vocalizations. They can jump up to 10 times their body length.',
+    lifespan: '6-12 years in the wild',
+    foundWildTips: [
+      'Baby squirrels on the ground may be waiting for mom - observe from a distance for 4-6 hours',
+      'If the baby is cold, injured, or covered in flies, it needs immediate help',
+      'Place a warm water bottle wrapped in cloth near fallen babies to keep them warm while waiting',
+      'A baby squirrel that approaches humans is likely desperate and needs help',
+      'Keep cats and dogs away from the area while waiting for the mother to return'
+    ],
+    funFacts: [
+      'Squirrels can find buried nuts by smell, even under a foot of snow',
+      'They plant thousands of trees each year by forgetting where they buried nuts',
+      'Their ankle joints rotate 180 degrees, allowing them to climb down trees headfirst',
+      'Squirrels have four front teeth that never stop growing',
+      'They can fall from heights of 100 feet without injury due to their body/tail design',
+      'A squirrel\'s brain is roughly the size of a walnut'
+    ],
+    conservationStatus: 'Least Concern - Very abundant throughout their range',
+    commonInjuries: ['Orphaned babies (nest destruction)', 'Cat attacks', 'Falls from nests', 'Vehicle strikes', 'Electrocution from power lines']
   },
   {
     id: 'rabbit',
     name: 'Eastern Cottontail',
     scientificName: 'Sylvilagus floridanus',
-    description: 'Common rabbits that are frequently orphaned when nests are disturbed.',
+    description: 'Common rabbits that are frequently orphaned when nests are disturbed by mowing, pets, or construction. Despite their adorable appearance, cottontails are challenging to rehabilitate and have a high stress sensitivity.',
     image: '/images/species/rabbit.jpg',
     category: 'mammal',
+    habitat: 'Found in meadows, fields, forest edges, and suburban areas throughout Louisiana. They create shallow nest depressions called "forms" in tall grass, often in lawns, gardens, and other areas humans frequent. They do not burrow like European rabbits.',
+    diet: 'Herbivorous, eating grasses, clover, wildflowers, garden vegetables, bark, and twigs. In winter, they consume more woody plants and bark. They practice cecotrophy - re-eating special droppings to extract additional nutrients.',
+    behavior: 'Crepuscular (most active at dawn and dusk), cottontails are solitary and highly alert. When threatened, they freeze or flee in a zigzag pattern at speeds up to 18 mph. Mothers visit nests only twice daily (dawn and dusk) to avoid attracting predators. Baby rabbits are independent at just 3-4 weeks old.',
+    lifespan: '1-3 years in the wild',
+    foundWildTips: [
+      'Mother rabbits only visit nests twice daily - an "abandoned" nest is usually not abandoned',
+      'If the nest is disturbed, gently cover it with grass and leave it alone',
+      'To test if mom is returning: place string in a pattern over the nest - if moved by morning, mom visited',
+      'Baby rabbits with open eyes and fur that are 4-5 inches long can survive on their own',
+      'NEVER relocate a nest - the mother will not find her babies',
+      'Rabbits are extremely stress-sensitive - handling can cause fatal shock'
+    ],
+    funFacts: [
+      'Baby cottontails are independent at just 3-4 weeks old',
+      'Rabbits can see nearly 360 degrees around them with minimal blind spots',
+      'They can run up to 18 mph in a zigzag pattern to escape predators',
+      'A rabbit\'s teeth never stop growing - they wear down through constant chewing',
+      'Mother rabbits only nurse their babies about 5 minutes per day',
+      'Cottontails are not related to the domestic rabbits kept as pets'
+    ],
+    conservationStatus: 'Least Concern - Common throughout their range',
+    commonInjuries: ['Orphaned babies (lawn mowing, pet exposure)', 'Cat attacks', 'Dog attacks', 'Capture shock', 'Nest destruction']
   },
   {
     id: 'fox',
     name: 'Red Fox',
     scientificName: 'Vulpes vulpes',
-    description: 'Beautiful and elusive canids that occasionally need rehabilitation assistance.',
+    description: 'Beautiful and intelligent canids that are primarily shy and avoid human contact. Red foxes play an important role in controlling rodent populations and are rarely a threat to humans or pets.',
     image: '/images/species/fox.jpg',
     category: 'mammal',
+    habitat: 'Adaptable to many environments including forests, grasslands, farmland, and increasingly suburban areas in Louisiana. They den in underground burrows (often expanded from other animals\' dens), under sheds, or in hollow logs. Fox families often use the same den site for generations.',
+    diet: 'Opportunistic omnivores that primarily eat small mammals (mice, voles, rabbits), but also consume birds, insects, fruits, berries, and carrion. They cache excess food for later consumption. A single fox can eat 3-5 pounds of food per day.',
+    behavior: 'Primarily crepuscular and nocturnal, though may be seen during day, especially when raising kits. They are generally solitary except during breeding season and while raising young. Foxes communicate through over 28 different vocalizations, including the famous "screaming" call.',
+    lifespan: '3-5 years in the wild, up to 14 years in captivity',
+    foundWildTips: [
+      'Fox kits playing alone outside a den are usually fine - mom is nearby hunting',
+      'A fox seen during the day is not necessarily sick - they often hunt during daylight when raising kits',
+      'If you find an injured adult fox, do NOT approach - contact a professional immediately',
+      'Orphaned fox kits will approach humans when desperate for food - this indicates they need help',
+      'Never attempt to keep a fox as a pet - it is illegal and harmful to the animal'
+    ],
+    funFacts: [
+      'Red foxes can hear a mouse squeak from 150 feet away',
+      'They can run up to 30 mph and jump over 6-foot fences',
+      'Fox kits are born deaf and blind, but grow incredibly fast',
+      'They use the earth\'s magnetic field to hunt, "pouncing" with incredible accuracy',
+      'A fox\'s tail (called a "brush") helps them balance and keeps them warm in winter',
+      'Red foxes have been known to play with dogs and form unusual friendships'
+    ],
+    conservationStatus: 'Least Concern - Widespread and adaptable',
+    commonInjuries: ['Vehicle strikes', 'Mange', 'Orphaned kits', 'Illegal trapping', 'Dog attacks']
   },
   {
-    id: 'songbird',
-    name: 'Songbirds',
-    scientificName: 'Various species',
-    description: 'Various songbird species including mockingbirds, cardinals, and blue jays.',
-    image: '/images/species/songbird.jpg',
-    category: 'bird',
+    id: 'coyote',
+    name: 'Coyote',
+    scientificName: 'Canis latrans',
+    description: 'Highly adaptable canids that have expanded their range dramatically across North America. Often misunderstood, coyotes are intelligent, family-oriented animals that help control rodent and deer populations.',
+    image: '/images/species/coyote.jpg',
+    category: 'mammal',
+    habitat: 'Incredibly adaptable, coyotes thrive in forests, prairies, deserts, swamps, and even urban centers across Louisiana. They dig their own dens or enlarge existing burrows. Urban coyotes often live in parks, golf courses, and green spaces within cities.',
+    diet: 'Highly opportunistic omnivores eating primarily small mammals (rabbits, mice, rats), but also deer, birds, insects, fruits, and in urban areas, pet food and garbage. They are one of nature\'s most effective rodent control agents.',
+    behavior: 'Coyotes can be active any time but are primarily crepuscular and nocturnal. They live in family groups with complex social structures. Pairs often mate for life and both parents care for pups. They communicate through an impressive array of howls, yips, and barks - a single coyote can sound like multiple animals.',
+    lifespan: '10-14 years in the wild',
+    foundWildTips: [
+      'Coyote pups without parents nearby for several hours may need help',
+      'Adult coyotes should NEVER be approached - contact wildlife authorities',
+      'A coyote that seems unafraid of humans may be sick or habituated - keep your distance',
+      'If you encounter a coyote, make yourself large and loud to encourage it to leave',
+      'Sick or injured coyotes require professional handling - do not attempt rescue yourself'
+    ],
+    funFacts: [
+      'Coyotes can run up to 43 mph, making them one of the fastest North American mammals',
+      'Their name comes from the Aztec word "coyotl"',
+      'A coyote pair typically mates for life',
+      'They can interbreed with domestic dogs (coydogs) and wolves (coywolves)',
+      'Coyotes have expanded their range 40% since the 1950s despite human persecution',
+      'They can hear a mouse moving under snow from several feet away'
+    ],
+    conservationStatus: 'Least Concern - Populations are thriving and expanding',
+    commonInjuries: ['Vehicle strikes', 'Mange', 'Orphaned pups', 'Illegal shooting', 'Trap injuries']
   },
+  {
+    id: 'bobcat',
+    name: 'Bobcat',
+    scientificName: 'Lynx rufus',
+    description: 'Louisiana\'s native wild cat, bobcats are solitary, elusive predators that play a vital role in maintaining healthy ecosystems. Despite their fierce appearance, they are extremely shy and rarely seen by humans.',
+    image: '/images/species/bobcat.jpg',
+    category: 'mammal',
+    habitat: 'Found throughout Louisiana in forests, swamps, coastal marshes, and even suburban fringes with adequate cover. They require dense vegetation for stalking prey and typically den in rock crevices, hollow logs, brush piles, or under fallen trees.',
+    diet: 'Obligate carnivores that primarily hunt rabbits, squirrels, mice, and birds. They can take down prey much larger than themselves, including young deer. Bobcats are ambush predators, stalking prey with extreme patience before pouncing.',
+    behavior: 'Solitary and highly territorial, bobcats are most active at dawn and dusk. Males have territories up to 30 square miles that overlap with several females. They are excellent climbers and swimmers but prefer to hunt on the ground. Despite their size, bobcats are extremely secretive.',
+    lifespan: '7-10 years in the wild, up to 25 years in captivity',
+    foundWildTips: [
+      'Bobcat kittens alone may not be orphaned - mother cats leave kittens while hunting',
+      'NEVER approach an adult bobcat - they can cause serious injury',
+      'If you see a bobcat acting strangely (unafraid, aggressive, disoriented), contact wildlife authorities',
+      'Orphaned bobcat kittens need specialized care from licensed rehabilitators',
+      'Keep pets indoors if a bobcat is frequenting your area'
+    ],
+    funFacts: [
+      'Bobcats are named for their short "bobbed" tail, which has a distinctive black tip',
+      'They can leap up to 12 feet to catch prey',
+      'A bobcat\'s spots help them blend into dappled forest light',
+      'They have excellent hearing with ear tufts that may help direct sound',
+      'Bobcats are about twice the size of domestic cats',
+      'They are the most common wild cat in North America'
+    ],
+    conservationStatus: 'Least Concern - Populations are stable throughout most of their range',
+    commonInjuries: ['Vehicle strikes', 'Orphaned kittens', 'Illegal trapping', 'Dog attacks', 'Mange']
+  },
+  {
+    id: 'beaver',
+    name: 'North American Beaver',
+    scientificName: 'Castor canadensis',
+    description: 'Nature\'s engineers, beavers create wetland habitats that benefit countless other species. Their dams help control flooding, improve water quality, and create critical habitats throughout Louisiana\'s waterways.',
+    image: '/images/species/beaver.jpg',
+    category: 'mammal',
+    habitat: 'Found in streams, rivers, ponds, and wetlands throughout Louisiana. They construct dams from branches, mud, and stones, creating deep ponds to protect their lodge entrances from predators. Beaver ponds create habitat for fish, waterfowl, and many other species.',
+    diet: 'Herbivorous, eating bark, leaves, and twigs from deciduous trees (especially willow, aspen, and cottonwood), as well as aquatic plants, roots, and water lily tubers. They store branches underwater near their lodge for winter food supply.',
+    behavior: 'Primarily nocturnal, beavers live in family groups called colonies. Both parents care for young (kits), and older siblings often help raise younger ones. They are famous for their dam-building behavior, which can dramatically alter landscapes. Beavers communicate through vocalizations, scent marking, and their famous tail-slap warning signal.',
+    lifespan: '10-15 years in the wild, up to 24 years in captivity',
+    foundWildTips: [
+      'Baby beavers (kits) found alone on land likely need help - mothers don\'t leave them unattended',
+      'If you find a beaver on a road, do NOT push it into water - it may be injured',
+      'Injured beavers should only be handled by professionals due to their powerful bite',
+      'A beaver out during the day is not necessarily sick - they are sometimes active in daylight',
+      'Never relocate a beaver yourself - contact licensed wildlife rehabilitators'
+    ],
+    funFacts: [
+      'Beaver teeth are orange because of iron in the enamel, which makes them extra strong',
+      'They can hold their breath for up to 15 minutes underwater',
+      'A beaver\'s flat tail stores fat and helps regulate body temperature',
+      'They have clear eyelids (like goggles) that let them see underwater',
+      'Beaver dams can be over 2,000 feet long',
+      'They were nearly hunted to extinction for their fur but have made a remarkable comeback'
+    ],
+    conservationStatus: 'Least Concern - Populations have recovered well from historical overhunting',
+    commonInjuries: ['Vehicle strikes', 'Orphaned kits', 'Dog attacks', 'Trap injuries', 'Illegal shooting']
+  }
 ]
 
 // FAQ data
@@ -229,8 +422,10 @@ export async function getStoriesBySpecies(speciesId: string): Promise<Story[]> {
 
 // Impact stats
 export const impactStats = {
-  animalsRescued: 847,
-  speciesHelped: 32,
-  volunteersActive: 45,
-  yearsServing: 8,
+  animalsRescued: 1247,
+  speciesHelped: 24,
+  volunteersActive: 58,
+  yearsServing: 9,
+  releaseRate: 78,
+  callsAnswered: 3500,
 }

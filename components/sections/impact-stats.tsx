@@ -61,11 +61,11 @@ const stats = [
     description: 'Lives saved and returned to the wild'
   },
   {
-    value: impactStats.speciesHelped,
-    label: 'Species Helped',
-    suffix: '',
+    value: impactStats.releaseRate,
+    label: 'Release Rate',
+    suffix: '%',
     icon: Leaf,
-    description: 'Native Louisiana species cared for'
+    description: 'Successfully returned to the wild'
   },
   {
     value: impactStats.volunteersActive,

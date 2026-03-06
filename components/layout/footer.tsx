@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 const footerLinks = {
   help: [
     { href: '/get-help', label: 'Found Wildlife?' },
+    { href: '/wildlife', label: 'Wildlife We Help' },
     { href: '/faq', label: 'FAQ' },
     { href: '/stories', label: 'Success Stories' },
   ],

@@ -18,10 +18,12 @@ import { cn } from '@/lib/utils'
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
+  { href: '/wildlife', label: 'Wildlife' },
   {
     label: 'Get Involved',
     children: [
       { href: '/support', label: 'Support Us', description: 'Donate, volunteer, or shop our wishlist' },
+      { href: '/support#wishlist', label: 'Amazon Wishlist', description: 'Purchase supplies we need' },
       { href: '/stories', label: 'Success Stories', description: 'Read about the animals we have helped' },
     ],
   },

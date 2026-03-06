@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Calendar } from 'lucide-react'
@@ -7,9 +10,29 @@ import { Badge } from '@/components/ui/badge'
 
 export function FeaturedStories() {
   const featuredStories = stories.slice(0, 3)
+  const sectionRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section className="py-24 lg:py-32">
+    <section ref={sectionRef} className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
@@ -34,12 +57,13 @@ export function FeaturedStories() {
         </div>
 
         {/* Stories Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animate ${isVisible ? 'visible' : ''}`}>
           {featuredStories.map((story, index) => (
             <Link
               key={story.id}
               href={`/stories/${story.slug}`}
-              className="group block bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-border/50"
+              className="group block bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-border/50 hover:-translate-y-2"
+              style={{ transitionDelay: isVisible ? `${index * 100}ms` : '0ms' }}
             >
               {/* Image */}
               <div className="relative aspect-[4/3] overflow-hidden">
