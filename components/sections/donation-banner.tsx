@@ -62,7 +62,7 @@ export function DonationBanner() {
         <div className={`grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {/* Donate Card */}
           <div className="group bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
-            <div className="w-16 h-16 rounded-2xl bg-rose-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <Heart className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-foreground mb-3">Make a Donation</h3>
@@ -72,19 +72,19 @@ export function DonationBanner() {
             </p>
             <div className="space-y-3 mb-8">
               <div className="flex items-center gap-3 text-sm">
-                <span className="w-2 h-2 rounded-full bg-primary" />
+                <span className="w-2 h-2 rounded-full bg-brand-gold" />
                 <span className="text-foreground">$25 feeds a baby squirrel for 2 weeks</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <span className="w-2 h-2 rounded-full bg-primary" />
+                <span className="w-2 h-2 rounded-full bg-brand-gold" />
                 <span className="text-foreground">$50 covers veterinary supplies</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <span className="w-2 h-2 rounded-full bg-primary" />
+                <span className="w-2 h-2 rounded-full bg-brand-gold" />
                 <span className="text-foreground">$100 sponsors a full rehabilitation</span>
               </div>
             </div>
-            <Button asChild size="lg" className="w-full gap-2 rounded-full h-14 bg-rose-500 text-white hover:bg-rose-600 font-semibold">
+            <Button asChild size="lg" className="w-full gap-2 rounded-full h-14 bg-primary text-white hover:bg-primary/90 font-semibold">
               <Link href="/support#donate">
                 Donate Now
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -95,12 +95,12 @@ export function DonationBanner() {
           {/* Amazon Wishlist Card */}
           <div className="group bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
             {/* Featured badge */}
-            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-semibold">
+            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-accent/20 text-accent-foreground text-xs font-semibold">
               Most Needed
             </div>
             
-            <div className="w-16 h-16 rounded-2xl bg-amber-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Gift className="h-8 w-8 text-white" />
+            <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Gift className="h-8 w-8 text-accent-foreground" />
             </div>
             <h3 className="text-2xl font-bold text-foreground mb-3">Shop Our Amazon Wishlist</h3>
             <p className="text-muted-foreground mb-6">
@@ -109,19 +109,19 @@ export function DonationBanner() {
             </p>
             <div className="space-y-3 mb-8">
               <div className="flex items-center gap-3 text-sm">
-                <span className="w-2 h-2 rounded-full bg-amber-500" />
+                <span className="w-2 h-2 rounded-full bg-accent" />
                 <span className="text-foreground">Heating pads & heat lamps</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <span className="w-2 h-2 rounded-full bg-amber-500" />
+                <span className="w-2 h-2 rounded-full bg-accent" />
                 <span className="text-foreground">Kitten milk replacer (KMR)</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <span className="w-2 h-2 rounded-full bg-amber-500" />
+                <span className="w-2 h-2 rounded-full bg-accent" />
                 <span className="text-foreground">Cages, carriers & cleaning supplies</span>
               </div>
             </div>
-            <Button asChild size="lg" className="w-full gap-2 rounded-full h-14 bg-amber-500 text-white hover:bg-amber-600 font-semibold">
+            <Button asChild size="lg" className="w-full gap-2 rounded-full h-14 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
               <a href="https://www.amazon.com/hz/wishlist/ls/example" target="_blank" rel="noopener noreferrer">
                 View Wishlist
                 <ExternalLink className="h-4 w-4" />

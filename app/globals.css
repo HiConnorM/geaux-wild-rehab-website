@@ -4,100 +4,110 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Geaux Wild Rehab Brand Colors - Earthy + Teal/Purple gradient accents */
-  --background: oklch(0.985 0.002 90); /* Warm off-white */
-  --foreground: oklch(0.25 0.02 60); /* Warm charcoal */
-  --card: oklch(0.995 0.001 90); /* Slightly warmer white */
-  --card-foreground: oklch(0.25 0.02 60);
-  --popover: oklch(0.995 0.001 90);
-  --popover-foreground: oklch(0.25 0.02 60);
+  /* Geaux Wild Rehab Brand Colors - Forest Green + Warm Earth Tones */
+  --background: oklch(0.98 0.005 95); /* Warm cream white */
+  --foreground: oklch(0.22 0.03 145); /* Deep forest green-black */
+  --card: oklch(0.995 0.003 95); /* Soft cream */
+  --card-foreground: oklch(0.22 0.03 145);
+  --popover: oklch(0.995 0.003 95);
+  --popover-foreground: oklch(0.22 0.03 145);
   
-  /* Primary - Teal from logo */
-  --primary: oklch(0.65 0.15 180); /* Teal */
+  /* Primary - Forest Green from logo */
+  --primary: oklch(0.45 0.12 145); /* Deep forest green */
   --primary-foreground: oklch(0.99 0 0);
   
-  /* Secondary - Stone/Neutral */
-  --secondary: oklch(0.94 0.01 80); /* Warm stone */
-  --secondary-foreground: oklch(0.30 0.02 60);
+  /* Secondary - Sage/Soft Green */
+  --secondary: oklch(0.92 0.03 140); /* Soft sage */
+  --secondary-foreground: oklch(0.25 0.05 145);
   
-  /* Muted - Soft earthy */
-  --muted: oklch(0.96 0.008 85);
-  --muted-foreground: oklch(0.50 0.02 60);
+  /* Muted - Natural earth */
+  --muted: oklch(0.94 0.015 85);
+  --muted-foreground: oklch(0.45 0.03 80);
   
-  /* Accent - Purple from logo gradient */
-  --accent: oklch(0.55 0.18 290); /* Purple */
-  --accent-foreground: oklch(0.99 0 0);
+  /* Accent - Warm amber/gold from logo */
+  --accent: oklch(0.72 0.16 70); /* Warm golden amber */
+  --accent-foreground: oklch(0.20 0.03 60);
   
-  --destructive: oklch(0.55 0.22 25);
+  --destructive: oklch(0.55 0.20 25);
   --destructive-foreground: oklch(0.99 0 0);
   
-  --border: oklch(0.90 0.01 80);
-  --input: oklch(0.92 0.01 80);
-  --ring: oklch(0.65 0.15 180); /* Teal ring */
+  --border: oklch(0.88 0.02 100);
+  --input: oklch(0.90 0.02 100);
+  --ring: oklch(0.45 0.12 145); /* Forest green ring */
   
   /* Brand gradient colors */
-  --gradient-start: oklch(0.70 0.15 180); /* Teal */
-  --gradient-mid: oklch(0.60 0.18 250); /* Blue */
-  --gradient-end: oklch(0.55 0.20 290); /* Purple */
+  --gradient-start: oklch(0.50 0.12 145); /* Forest green */
+  --gradient-mid: oklch(0.55 0.10 130); /* Teal green */
+  --gradient-end: oklch(0.40 0.10 150); /* Deep green */
+  
+  /* Additional brand colors */
+  --brand-gold: oklch(0.72 0.16 70); /* Golden amber */
+  --brand-bark: oklch(0.40 0.06 55); /* Tree bark brown */
+  --brand-moss: oklch(0.55 0.08 135); /* Moss green */
+  --brand-cream: oklch(0.96 0.02 90); /* Natural cream */
   
   /* Surface colors */
-  --surface: oklch(0.98 0.005 85);
+  --surface: oklch(0.97 0.008 90);
   --surface-elevated: oklch(1 0 0);
   
-  --chart-1: oklch(0.65 0.15 180);
-  --chart-2: oklch(0.55 0.18 290);
-  --chart-3: oklch(0.60 0.12 140);
-  --chart-4: oklch(0.70 0.14 80);
-  --chart-5: oklch(0.65 0.10 30);
+  --chart-1: oklch(0.45 0.12 145);
+  --chart-2: oklch(0.72 0.16 70);
+  --chart-3: oklch(0.55 0.08 135);
+  --chart-4: oklch(0.40 0.06 55);
+  --chart-5: oklch(0.60 0.10 160);
   --radius: 0.75rem;
-  --sidebar: oklch(0.98 0.005 85);
-  --sidebar-foreground: oklch(0.25 0.02 60);
-  --sidebar-primary: oklch(0.65 0.15 180);
+  --sidebar: oklch(0.97 0.008 90);
+  --sidebar-foreground: oklch(0.22 0.03 145);
+  --sidebar-primary: oklch(0.45 0.12 145);
   --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.94 0.01 80);
-  --sidebar-accent-foreground: oklch(0.30 0.02 60);
-  --sidebar-border: oklch(0.90 0.01 80);
-  --sidebar-ring: oklch(0.65 0.15 180);
+  --sidebar-accent: oklch(0.92 0.03 140);
+  --sidebar-accent-foreground: oklch(0.25 0.05 145);
+  --sidebar-border: oklch(0.88 0.02 100);
+  --sidebar-ring: oklch(0.45 0.12 145);
 }
 
 .dark {
-  --background: oklch(0.18 0.015 60);
-  --foreground: oklch(0.95 0.005 90);
-  --card: oklch(0.22 0.015 60);
-  --card-foreground: oklch(0.95 0.005 90);
-  --popover: oklch(0.22 0.015 60);
-  --popover-foreground: oklch(0.95 0.005 90);
-  --primary: oklch(0.70 0.15 180);
-  --primary-foreground: oklch(0.15 0.01 60);
-  --secondary: oklch(0.30 0.02 60);
-  --secondary-foreground: oklch(0.95 0.005 90);
-  --muted: oklch(0.28 0.015 60);
-  --muted-foreground: oklch(0.70 0.01 80);
-  --accent: oklch(0.60 0.18 290);
-  --accent-foreground: oklch(0.15 0.01 60);
-  --destructive: oklch(0.45 0.20 25);
+  --background: oklch(0.16 0.02 145);
+  --foreground: oklch(0.95 0.005 95);
+  --card: oklch(0.20 0.02 145);
+  --card-foreground: oklch(0.95 0.005 95);
+  --popover: oklch(0.20 0.02 145);
+  --popover-foreground: oklch(0.95 0.005 95);
+  --primary: oklch(0.60 0.12 145);
+  --primary-foreground: oklch(0.12 0.02 145);
+  --secondary: oklch(0.28 0.03 140);
+  --secondary-foreground: oklch(0.95 0.005 95);
+  --muted: oklch(0.25 0.02 140);
+  --muted-foreground: oklch(0.70 0.02 100);
+  --accent: oklch(0.75 0.16 70);
+  --accent-foreground: oklch(0.15 0.02 60);
+  --destructive: oklch(0.50 0.20 25);
   --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(0.32 0.015 60);
-  --input: oklch(0.32 0.015 60);
-  --ring: oklch(0.70 0.15 180);
-  --gradient-start: oklch(0.70 0.15 180);
-  --gradient-mid: oklch(0.60 0.18 250);
-  --gradient-end: oklch(0.60 0.20 290);
-  --surface: oklch(0.20 0.015 60);
-  --surface-elevated: oklch(0.25 0.015 60);
-  --chart-1: oklch(0.70 0.15 180);
-  --chart-2: oklch(0.60 0.18 290);
-  --chart-3: oklch(0.65 0.12 140);
-  --chart-4: oklch(0.75 0.14 80);
-  --chart-5: oklch(0.70 0.10 30);
-  --sidebar: oklch(0.20 0.015 60);
-  --sidebar-foreground: oklch(0.95 0.005 90);
-  --sidebar-primary: oklch(0.70 0.15 180);
-  --sidebar-primary-foreground: oklch(0.15 0.01 60);
-  --sidebar-accent: oklch(0.28 0.015 60);
-  --sidebar-accent-foreground: oklch(0.95 0.005 90);
-  --sidebar-border: oklch(0.32 0.015 60);
-  --sidebar-ring: oklch(0.70 0.15 180);
+  --border: oklch(0.30 0.02 140);
+  --input: oklch(0.30 0.02 140);
+  --ring: oklch(0.60 0.12 145);
+  --gradient-start: oklch(0.55 0.12 145);
+  --gradient-mid: oklch(0.60 0.10 130);
+  --gradient-end: oklch(0.45 0.10 150);
+  --brand-gold: oklch(0.75 0.16 70);
+  --brand-bark: oklch(0.50 0.06 55);
+  --brand-moss: oklch(0.60 0.08 135);
+  --brand-cream: oklch(0.90 0.02 90);
+  --surface: oklch(0.18 0.02 145);
+  --surface-elevated: oklch(0.23 0.02 145);
+  --chart-1: oklch(0.60 0.12 145);
+  --chart-2: oklch(0.75 0.16 70);
+  --chart-3: oklch(0.60 0.08 135);
+  --chart-4: oklch(0.50 0.06 55);
+  --chart-5: oklch(0.65 0.10 160);
+  --sidebar: oklch(0.18 0.02 145);
+  --sidebar-foreground: oklch(0.95 0.005 95);
+  --sidebar-primary: oklch(0.60 0.12 145);
+  --sidebar-primary-foreground: oklch(0.12 0.02 145);
+  --sidebar-accent: oklch(0.25 0.02 140);
+  --sidebar-accent-foreground: oklch(0.95 0.005 95);
+  --sidebar-border: oklch(0.30 0.02 140);
+  --sidebar-ring: oklch(0.60 0.12 145);
 }
 
 @theme inline {
@@ -131,6 +141,10 @@
   --color-gradient-start: var(--gradient-start);
   --color-gradient-mid: var(--gradient-mid);
   --color-gradient-end: var(--gradient-end);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-bark: var(--brand-bark);
+  --color-brand-moss: var(--brand-moss);
+  --color-brand-cream: var(--brand-cream);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
   --radius-sm: calc(var(--radius) - 4px);
@@ -166,6 +180,34 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Nature-inspired gradient variations */
+.gradient-forest {
+  background: linear-gradient(135deg, oklch(0.45 0.12 145), oklch(0.40 0.10 150));
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, oklch(0.72 0.16 70), oklch(0.65 0.14 55));
+}
+
+.gradient-nature {
+  background: linear-gradient(135deg, oklch(0.45 0.12 145), oklch(0.55 0.08 135), oklch(0.72 0.16 70));
+}
+
+/* Brand color utility classes */
+.bg-brand-gold { background-color: var(--brand-gold); }
+.bg-brand-bark { background-color: var(--brand-bark); }
+.bg-brand-moss { background-color: var(--brand-moss); }
+.bg-brand-cream { background-color: var(--brand-cream); }
+
+.text-brand-gold { color: var(--brand-gold); }
+.text-brand-bark { color: var(--brand-bark); }
+.text-brand-moss { color: var(--brand-moss); }
+
+/* Accent highlight for important CTAs */
+.accent-glow {
+  box-shadow: 0 0 30px -5px var(--brand-gold);
 }
 
 /* Smooth scrolling */

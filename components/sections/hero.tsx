@@ -41,7 +41,7 @@ export function Hero() {
         <div className="max-w-3xl">
           {/* Badge */}
           <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
             <span className="text-white/90 text-sm font-medium">Louisiana Licensed Wildlife Rehabilitation</span>
           </div>
 
@@ -107,7 +107,7 @@ export function Hero() {
           rel="noopener noreferrer"
           className="group flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 py-3 border border-white/20 hover:bg-white/20 transition-all"
         >
-          <Gift className="h-5 w-5 text-amber-400" />
+          <Gift className="h-5 w-5 text-brand-gold" />
           <span className="text-white text-sm font-medium">Shop Our Wishlist</span>
           <ArrowRight className="h-4 w-4 text-white/60 group-hover:translate-x-1 transition-transform" />
         </a>

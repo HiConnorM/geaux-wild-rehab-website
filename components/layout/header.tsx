@@ -61,13 +61,13 @@ export function Header() {
               isScrolled ? "h-12" : "h-14"
             )}>
               <Image
-                src="/images/logo.png"
+                src="/images/logo.svg"
                 alt="Geaux Wild Rehab"
                 width={200}
-                height={67}
+                height={73}
                 className={cn(
                   "h-full w-auto transition-all duration-300",
-                  !isScrolled && "brightness-0 invert drop-shadow-lg"
+                  !isScrolled && "drop-shadow-lg"
                 )}
                 priority
               />
