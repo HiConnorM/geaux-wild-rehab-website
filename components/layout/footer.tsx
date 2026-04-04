@@ -14,7 +14,6 @@ const footerLinks = {
   support: [
     { href: '/support', label: 'Donate' },
     { href: '/support#wishlist', label: 'Amazon Wishlist' },
-    { href: '/support#volunteer', label: 'Volunteer' },
   ],
   about: [
     { href: '/about', label: 'Our Mission' },

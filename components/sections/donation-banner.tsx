@@ -132,12 +132,12 @@ export function DonationBanner() {
 
         {/* Additional CTA */}
         <div className={`text-center mt-10 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-white/70 mb-4">Want to help in other ways?</p>
+          <p className="text-white/70 mb-4">Have questions about donating?</p>
           <Link 
-            href="/support#volunteer" 
+            href="/faq" 
             className="inline-flex items-center gap-2 text-white font-medium hover:underline underline-offset-4"
           >
-            Become a Volunteer
+            Read our FAQ
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

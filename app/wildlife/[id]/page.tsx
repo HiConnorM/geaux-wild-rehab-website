@@ -48,19 +48,12 @@ export default async function SpeciesDetailPage({ params }: Props) {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-0 overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <Image
-            src={animal.image}
-            alt={animal.name}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/40" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
+      {/* Hero Section - Clean white with large animal */}
+      <section className="relative pt-24 pb-0 overflow-hidden bg-background">
+        {/* Subtle background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,8 +66,24 @@ export default async function SpeciesDetailPage({ params }: Props) {
             All Wildlife
           </Link>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-end pb-16">
-            <div>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center pb-16">
+            {/* Large Animal Image - Centered */}
+            <div className="order-1 lg:order-2 flex justify-center">
+              <div className="relative w-full max-w-md lg:max-w-lg aspect-square">
+                {/* Soft glow behind animal */}
+                <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent blur-2xl scale-110" />
+                <Image
+                  src={animal.image}
+                  alt={animal.name}
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* Text Content */}
+            <div className="order-2 lg:order-1">
               <Badge className="mb-4 bg-primary/10 text-primary border-0 px-4 py-1">
                 {animal.category}
               </Badge>
@@ -93,7 +102,7 @@ export default async function SpeciesDetailPage({ params }: Props) {
                 </div>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary">
                   <ShieldCheck className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-medium">{animal.conservationStatus}</span>
+                  <span className="text-sm font-medium">{animal.conservationStatus.split(' - ')[0]}</span>
                 </div>
               </div>
 
@@ -103,19 +112,6 @@ export default async function SpeciesDetailPage({ params }: Props) {
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
-            </div>
-
-            {/* Featured image card */}
-            <div className="hidden lg:block relative">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src={animal.image}
-                  alt={animal.name}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
             </div>
           </div>
         </div>

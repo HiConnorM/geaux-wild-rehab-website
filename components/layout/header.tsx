@@ -22,7 +22,7 @@ const navLinks = [
   {
     label: 'Get Involved',
     children: [
-      { href: '/support', label: 'Support Us', description: 'Donate, volunteer, or shop our wishlist' },
+      { href: '/support', label: 'Support Us', description: 'Donate or shop our wishlist' },
       { href: '/support#wishlist', label: 'Amazon Wishlist', description: 'Purchase supplies we need' },
       { href: '/stories', label: 'Success Stories', description: 'Read about the animals we have helped' },
     ],
@@ -49,7 +49,7 @@ export function Header() {
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled
           ? 'bg-white/98 backdrop-blur-xl shadow-lg shadow-black/5 py-2'
-          : 'bg-gradient-to-b from-black/40 to-transparent py-4'
+          : 'bg-white/80 backdrop-blur-sm py-4'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,12 +81,7 @@ export function Header() {
                 {navLinks.map((link) =>
                   link.children ? (
                     <NavigationMenuItem key={link.label}>
-                      <NavigationMenuTrigger className={cn(
-                        "bg-transparent font-medium transition-colors",
-                        isScrolled 
-                          ? "text-foreground/80 hover:text-foreground" 
-                          : "text-white/90 hover:text-white"
-                      )}>
+                      <NavigationMenuTrigger className="bg-transparent font-medium transition-colors text-foreground/80 hover:text-foreground">
                         {link.label}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
@@ -113,12 +108,7 @@ export function Header() {
                     <NavigationMenuItem key={link.href}>
                       <Link
                         href={link.href}
-                        className={cn(
-                          "px-4 py-2 text-sm font-medium transition-colors",
-                          isScrolled 
-                            ? "text-foreground/80 hover:text-foreground" 
-                            : "text-white/90 hover:text-white"
-                        )}
+                        className="px-4 py-2 text-sm font-medium transition-colors text-foreground/80 hover:text-foreground"
                       >
                         {link.label}
                       </Link>
@@ -135,12 +125,7 @@ export function Header() {
               asChild 
               variant="outline" 
               size="sm" 
-              className={cn(
-                "gap-2 rounded-full font-medium transition-all",
-                isScrolled 
-                  ? "border-border hover:bg-secondary" 
-                  : "border-white/30 text-white hover:bg-white/10 hover:border-white/50"
-              )}
+              className="gap-2 rounded-full font-medium transition-all border-border hover:bg-secondary"
             >
               <Link href="/support">
                 <Heart className="h-4 w-4" />
@@ -150,12 +135,7 @@ export function Header() {
             <Button 
               asChild 
               size="sm" 
-              className={cn(
-                "gap-2 rounded-full font-semibold shadow-lg transition-all",
-                isScrolled
-                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                  : "bg-white text-foreground hover:bg-white/90"
-              )}
+              className="gap-2 rounded-full font-semibold shadow-lg transition-all bg-primary text-primary-foreground hover:bg-primary/90"
             >
               <Link href="/get-help">
                 <Phone className="h-4 w-4" />
@@ -166,10 +146,7 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className={cn(
-              "lg:hidden p-2 rounded-full transition-colors",
-              isScrolled ? "text-foreground hover:bg-secondary" : "text-white hover:bg-white/10"
-            )}
+            className="lg:hidden p-2 rounded-full transition-colors text-foreground hover:bg-secondary"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >

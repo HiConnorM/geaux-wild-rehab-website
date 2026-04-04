@@ -1,8 +1,7 @@
 import { Hero } from '@/components/sections/hero'
-import { RehabTimeline } from '@/components/sections/rehab-timeline'
-import { SpeciesGrid } from '@/components/sections/species-grid'
-import { ImpactStats } from '@/components/sections/impact-stats'
+import { AnimalShowcase } from '@/components/sections/animal-showcase'
 import { DonationBanner } from '@/components/sections/donation-banner'
+import { ImpactStats } from '@/components/sections/impact-stats'
 import { FeaturedStories } from '@/components/sections/featured-stories'
 import { FAQTeaser } from '@/components/sections/faq-teaser'
 
@@ -10,8 +9,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <RehabTimeline />
-      <SpeciesGrid />
+      <AnimalShowcase />
       <DonationBanner />
       <ImpactStats />
       <FeaturedStories />

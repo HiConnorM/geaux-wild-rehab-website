@@ -1,13 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
-import { Heart, Gift, Users, DollarSign, Package, Truck, Briefcase, ArrowRight, ExternalLink, Check, Star, Sparkles } from 'lucide-react'
+import { Heart, Gift, DollarSign, Package, Truck, Briefcase, ArrowRight, ExternalLink, Check, Star, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { VolunteerForm } from '@/components/forms/volunteer-form'
 
 export const metadata: Metadata = {
   title: 'Support Our Mission',
-  description: 'Help Geaux Wild Rehab save Louisiana wildlife. Donate, shop our Amazon Wishlist, or volunteer your time.',
+  description: 'Help Geaux Wild Rehab save Louisiana wildlife. Donate or shop our Amazon Wishlist.',
 }
 
 const impactCards = [
@@ -30,24 +28,6 @@ const impactCards = [
     amount: '$250',
     impact: 'Provides a month of formula for orphans',
     icon: Star,
-  },
-]
-
-const volunteerRoles = [
-  {
-    title: 'Animal Care',
-    description: 'Help with feeding, cleaning, and monitoring animals in care.',
-    icon: Heart,
-  },
-  {
-    title: 'Transport',
-    description: 'Pick up and deliver animals, supplies, or donations.',
-    icon: Truck,
-  },
-  {
-    title: 'Administrative',
-    description: 'Help with data entry, phone calls, and social media.',
-    icon: Briefcase,
   },
 ]
 
@@ -94,7 +74,7 @@ export default function SupportPage() {
             Help Us Save Louisiana Wildlife
           </h1>
           <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Every donation, wishlist purchase, and volunteer hour makes a direct impact 
+            Every donation and wishlist purchase makes a direct impact 
             on the animals in our care. Choose how you would like to help.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -316,63 +296,6 @@ export default function SupportPage() {
         </div>
       </section>
 
-      {/* Volunteer Section */}
-      <section id="volunteer" className="py-20 lg:py-28 bg-secondary/30 scroll-mt-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-            <div>
-              <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-700 text-sm font-semibold mb-6">
-                Join Our Team
-              </span>
-              <h2 className="text-3xl lg:text-4xl font-serif font-bold text-foreground mb-6">
-                Become a Volunteer
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Join our team of dedicated volunteers! Whether you have a few hours a week 
-                or can help with occasional tasks, we have opportunities for everyone who 
-                wants to make a difference.
-              </p>
-
-              <div className="space-y-4 mb-8">
-                {volunteerRoles.map((role) => (
-                  <div
-                    key={role.title}
-                    className="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
-                      <role.icon className="h-5 w-5 text-emerald-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-1">{role.title}</h4>
-                      <p className="text-sm text-muted-foreground">{role.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="p-5 bg-amber-50 rounded-2xl border border-amber-200">
-                <p className="text-sm text-amber-800">
-                  <strong>Note:</strong> Volunteers working with animals must be 18+ and 
-                  complete our training program. We also welcome remote volunteers for 
-                  administrative and social media tasks.
-                </p>
-              </div>
-            </div>
-
-            {/* Volunteer Form */}
-            <div className="bg-white rounded-3xl border border-border shadow-sm p-6 lg:p-10">
-              <h3 className="text-2xl font-bold text-foreground mb-2">
-                Volunteer Interest Form
-              </h3>
-              <p className="text-muted-foreground mb-8">
-                Tell us about yourself and how you would like to help.
-              </p>
-              <VolunteerForm />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="py-20 gradient-brand">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -380,7 +303,7 @@ export default function SupportPage() {
             Every Contribution Makes a Difference
           </h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Whether you donate, shop our wishlist, or volunteer your time, you are helping 
+            Whether you donate or shop our wishlist, you are helping 
             give Louisiana wildlife a second chance at life in the wild.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
