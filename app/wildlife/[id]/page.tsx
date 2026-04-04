@@ -76,7 +76,7 @@ export default async function SpeciesDetailPage({ params }: Props) {
                   src={animal.image}
                   alt={animal.name}
                   fill
-                  className="object-contain drop-shadow-2xl"
+                  className="object-contain mix-blend-multiply"
                   priority
                 />
               </div>

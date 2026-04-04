@@ -88,7 +88,7 @@ export default function WildlifePage() {
                     src={animal.image}
                     alt={animal.name}
                     fill
-                    className="object-contain p-4 drop-shadow-lg group-hover:scale-105 transition-transform duration-500"
+                    className="object-contain p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 50vw, 25vw"
                   />
                 </div>
