@@ -1,19 +1,23 @@
 import { Hero } from '@/components/sections/hero'
-import { AnimalShowcase } from '@/components/sections/animal-showcase'
+import { AboutSection } from '@/components/sections/about-section'
+import { HowToHelpSection } from '@/components/sections/how-to-help-section'
+import { AnimalsWeHelpSection } from '@/components/sections/animals-we-help-section'
+import { StoriesSection } from '@/components/sections/stories-section'
+import { FAQSection } from '@/components/sections/faq-section'
 import { DonationBanner } from '@/components/sections/donation-banner'
 import { ImpactStats } from '@/components/sections/impact-stats'
-import { FeaturedStories } from '@/components/sections/featured-stories'
-import { FAQTeaser } from '@/components/sections/faq-teaser'
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <AnimalShowcase />
-      <DonationBanner />
+      <AboutSection />
+      <HowToHelpSection />
+      <AnimalsWeHelpSection />
+      <StoriesSection />
+      <FAQSection />
       <ImpactStats />
-      <FeaturedStories />
-      <FAQTeaser />
+      <DonationBanner />
     </>
   )
 }

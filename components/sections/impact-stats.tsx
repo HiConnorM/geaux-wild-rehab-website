@@ -1,9 +1,8 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
-import Image from 'next/image'
 import { impactStats } from '@/lib/content'
-import { Heart, Leaf, Users, Calendar } from 'lucide-react'
+import { Heart, Leaf, Calendar } from 'lucide-react'
 
 function useCountUp(end: number, duration: number = 2000) {
   const [count, setCount] = useState(0)
@@ -68,13 +67,6 @@ const stats = [
     description: 'Successfully returned to the wild'
   },
   {
-    value: impactStats.volunteersActive,
-    label: 'Active Volunteers',
-    suffix: '+',
-    icon: Users,
-    description: 'Dedicated community members'
-  },
-  {
     value: impactStats.yearsServing,
     label: 'Years Serving',
     suffix: '',
@@ -86,17 +78,8 @@ const stats = [
 export function ImpactStats() {
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero-wildlife.jpg"
-          alt=""
-          fill
-          className="object-cover"
-          aria-hidden="true"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-accent/90 to-primary/95" />
-      </div>
+      {/* Solid brand background */}
+      <div className="absolute inset-0 gradient-forest" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
