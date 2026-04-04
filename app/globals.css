@@ -4,110 +4,107 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Geaux Wild Rehab Brand Colors - Forest Green + Warm Earth Tones */
-  --background: oklch(0.98 0.005 95); /* Warm cream white */
-  --foreground: oklch(0.22 0.03 145); /* Deep forest green-black */
-  --card: oklch(0.995 0.003 95); /* Soft cream */
-  --card-foreground: oklch(0.22 0.03 145);
-  --popover: oklch(0.995 0.003 95);
-  --popover-foreground: oklch(0.22 0.03 145);
-  
-  /* Primary - Forest Green from logo */
-  --primary: oklch(0.45 0.12 145); /* Deep forest green */
-  --primary-foreground: oklch(0.99 0 0);
-  
-  /* Secondary - Sage/Soft Green */
-  --secondary: oklch(0.92 0.03 140); /* Soft sage */
-  --secondary-foreground: oklch(0.25 0.05 145);
-  
-  /* Muted - Natural earth */
-  --muted: oklch(0.94 0.015 85);
-  --muted-foreground: oklch(0.45 0.03 80);
-  
-  /* Accent - Warm amber/gold from logo */
-  --accent: oklch(0.72 0.16 70); /* Warm golden amber */
-  --accent-foreground: oklch(0.20 0.03 60);
-  
-  --destructive: oklch(0.55 0.20 25);
-  --destructive-foreground: oklch(0.99 0 0);
-  
-  --border: oklch(0.88 0.02 100);
-  --input: oklch(0.90 0.02 100);
-  --ring: oklch(0.45 0.12 145); /* Forest green ring */
-  
-  /* Brand gradient colors */
-  --gradient-start: oklch(0.50 0.12 145); /* Forest green */
-  --gradient-mid: oklch(0.55 0.10 130); /* Teal green */
-  --gradient-end: oklch(0.40 0.10 150); /* Deep green */
-  
-  /* Additional brand colors */
-  --brand-gold: oklch(0.72 0.16 70); /* Golden amber */
-  --brand-bark: oklch(0.40 0.06 55); /* Tree bark brown */
-  --brand-moss: oklch(0.55 0.08 135); /* Moss green */
-  --brand-cream: oklch(0.96 0.02 90); /* Natural cream */
-  
-  /* Surface colors */
-  --surface: oklch(0.97 0.008 90);
-  --surface-elevated: oklch(1 0 0);
-  
-  --chart-1: oklch(0.45 0.12 145);
-  --chart-2: oklch(0.72 0.16 70);
-  --chart-3: oklch(0.55 0.08 135);
-  --chart-4: oklch(0.40 0.06 55);
-  --chart-5: oklch(0.60 0.10 160);
+  /* Geaux Wild Rehab Brand Colors: #26C9AA teal, #3B468E navy, #F8F4F4 off-white */
+  --background: #F8F4F4;
+  --foreground: #1a1f3d;          /* near-black navy */
+  --card: #ffffff;
+  --card-foreground: #1a1f3d;
+  --popover: #ffffff;
+  --popover-foreground: #1a1f3d;
+
+  /* Primary — teal #26C9AA */
+  --primary: #26C9AA;
+  --primary-foreground: #ffffff;
+
+  /* Secondary — light teal tint */
+  --secondary: #e8faf6;
+  --secondary-foreground: #1a1f3d;
+
+  /* Muted — soft off-white grey */
+  --muted: #f0ecec;
+  --muted-foreground: #6b7280;
+
+  /* Accent — navy #3B468E */
+  --accent: #3B468E;
+  --accent-foreground: #ffffff;
+
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+
+  --border: #e2dede;
+  --input: #ece8e8;
+  --ring: #26C9AA;
+
+  /* Brand gradient — teal → navy */
+  --gradient-start: #26C9AA;
+  --gradient-mid: #2e7fbb;
+  --gradient-end: #3B468E;
+
+  /* Extra brand tokens */
+  --brand-teal: #26C9AA;
+  --brand-navy: #3B468E;
+  --brand-offwhite: #F8F4F4;
+
+  --surface: #F8F4F4;
+  --surface-elevated: #ffffff;
+
+  --chart-1: #26C9AA;
+  --chart-2: #3B468E;
+  --chart-3: #2e9fbf;
+  --chart-4: #7b8ec8;
+  --chart-5: #5dd4b8;
   --radius: 0.75rem;
-  --sidebar: oklch(0.97 0.008 90);
-  --sidebar-foreground: oklch(0.22 0.03 145);
-  --sidebar-primary: oklch(0.45 0.12 145);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.92 0.03 140);
-  --sidebar-accent-foreground: oklch(0.25 0.05 145);
-  --sidebar-border: oklch(0.88 0.02 100);
-  --sidebar-ring: oklch(0.45 0.12 145);
+  --sidebar: #F8F4F4;
+  --sidebar-foreground: #1a1f3d;
+  --sidebar-primary: #26C9AA;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e8faf6;
+  --sidebar-accent-foreground: #1a1f3d;
+  --sidebar-border: #e2dede;
+  --sidebar-ring: #26C9AA;
 }
 
 .dark {
-  --background: oklch(0.16 0.02 145);
-  --foreground: oklch(0.95 0.005 95);
-  --card: oklch(0.20 0.02 145);
-  --card-foreground: oklch(0.95 0.005 95);
-  --popover: oklch(0.20 0.02 145);
-  --popover-foreground: oklch(0.95 0.005 95);
-  --primary: oklch(0.60 0.12 145);
-  --primary-foreground: oklch(0.12 0.02 145);
-  --secondary: oklch(0.28 0.03 140);
-  --secondary-foreground: oklch(0.95 0.005 95);
-  --muted: oklch(0.25 0.02 140);
-  --muted-foreground: oklch(0.70 0.02 100);
-  --accent: oklch(0.75 0.16 70);
-  --accent-foreground: oklch(0.15 0.02 60);
-  --destructive: oklch(0.50 0.20 25);
-  --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(0.30 0.02 140);
-  --input: oklch(0.30 0.02 140);
-  --ring: oklch(0.60 0.12 145);
-  --gradient-start: oklch(0.55 0.12 145);
-  --gradient-mid: oklch(0.60 0.10 130);
-  --gradient-end: oklch(0.45 0.10 150);
-  --brand-gold: oklch(0.75 0.16 70);
-  --brand-bark: oklch(0.50 0.06 55);
-  --brand-moss: oklch(0.60 0.08 135);
-  --brand-cream: oklch(0.90 0.02 90);
-  --surface: oklch(0.18 0.02 145);
-  --surface-elevated: oklch(0.23 0.02 145);
-  --chart-1: oklch(0.60 0.12 145);
-  --chart-2: oklch(0.75 0.16 70);
-  --chart-3: oklch(0.60 0.08 135);
-  --chart-4: oklch(0.50 0.06 55);
-  --chart-5: oklch(0.65 0.10 160);
-  --sidebar: oklch(0.18 0.02 145);
-  --sidebar-foreground: oklch(0.95 0.005 95);
-  --sidebar-primary: oklch(0.60 0.12 145);
-  --sidebar-primary-foreground: oklch(0.12 0.02 145);
-  --sidebar-accent: oklch(0.25 0.02 140);
-  --sidebar-accent-foreground: oklch(0.95 0.005 95);
-  --sidebar-border: oklch(0.30 0.02 140);
-  --sidebar-ring: oklch(0.60 0.12 145);
+  --background: #111827;
+  --foreground: #F8F4F4;
+  --card: #1f2937;
+  --card-foreground: #F8F4F4;
+  --popover: #1f2937;
+  --popover-foreground: #F8F4F4;
+  --primary: #26C9AA;
+  --primary-foreground: #111827;
+  --secondary: #1e3a34;
+  --secondary-foreground: #F8F4F4;
+  --muted: #374151;
+  --muted-foreground: #9ca3af;
+  --accent: #4f5fc4;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #374151;
+  --input: #374151;
+  --ring: #26C9AA;
+  --gradient-start: #26C9AA;
+  --gradient-mid: #2e7fbb;
+  --gradient-end: #3B468E;
+  --brand-teal: #26C9AA;
+  --brand-navy: #3B468E;
+  --brand-offwhite: #F8F4F4;
+  --surface: #1f2937;
+  --surface-elevated: #2d3748;
+  --chart-1: #26C9AA;
+  --chart-2: #4f5fc4;
+  --chart-3: #2e9fbf;
+  --chart-4: #7b8ec8;
+  --chart-5: #5dd4b8;
+  --sidebar: #111827;
+  --sidebar-foreground: #F8F4F4;
+  --sidebar-primary: #26C9AA;
+  --sidebar-primary-foreground: #111827;
+  --sidebar-accent: #1e3a34;
+  --sidebar-accent-foreground: #F8F4F4;
+  --sidebar-border: #374151;
+  --sidebar-ring: #26C9AA;
 }
 
 @theme inline {
@@ -141,10 +138,9 @@
   --color-gradient-start: var(--gradient-start);
   --color-gradient-mid: var(--gradient-mid);
   --color-gradient-end: var(--gradient-end);
-  --color-brand-gold: var(--brand-gold);
-  --color-brand-bark: var(--brand-bark);
-  --color-brand-moss: var(--brand-moss);
-  --color-brand-cream: var(--brand-cream);
+  --color-brand-teal: var(--brand-teal);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-offwhite: var(--brand-offwhite);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
   --radius-sm: calc(var(--radius) - 4px);
@@ -184,26 +180,28 @@
 
 /* Nature-inspired gradient variations */
 .gradient-forest {
-  background: linear-gradient(135deg, oklch(0.45 0.12 145), oklch(0.40 0.10 150));
+  background: linear-gradient(135deg, #26C9AA, #3B468E);
 }
 
-.gradient-gold {
-  background: linear-gradient(135deg, oklch(0.72 0.16 70), oklch(0.65 0.14 55));
+.gradient-teal {
+  background: linear-gradient(135deg, #26C9AA, #1ea88e);
+}
+
+.gradient-navy {
+  background: linear-gradient(135deg, #3B468E, #2a3370);
 }
 
 .gradient-nature {
-  background: linear-gradient(135deg, oklch(0.45 0.12 145), oklch(0.55 0.08 135), oklch(0.72 0.16 70));
+  background: linear-gradient(135deg, #26C9AA, #2e7fbb, #3B468E);
 }
 
 /* Brand color utility classes */
-.bg-brand-gold { background-color: var(--brand-gold); }
-.bg-brand-bark { background-color: var(--brand-bark); }
-.bg-brand-moss { background-color: var(--brand-moss); }
-.bg-brand-cream { background-color: var(--brand-cream); }
+.bg-brand-teal { background-color: #26C9AA; }
+.bg-brand-navy { background-color: #3B468E; }
+.bg-brand-offwhite { background-color: #F8F4F4; }
 
-.text-brand-gold { color: var(--brand-gold); }
-.text-brand-bark { color: var(--brand-bark); }
-.text-brand-moss { color: var(--brand-moss); }
+.text-brand-teal { color: #26C9AA; }
+.text-brand-navy { color: #3B468E; }
 
 /* Accent highlight for important CTAs */
 .accent-glow {

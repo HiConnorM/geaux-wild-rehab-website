@@ -9,70 +9,87 @@ import { stories } from '@/lib/content'
 
 export function StoriesSection() {
   const ref = useRef<HTMLDivElement>(null)
-  const [visible, setVisible] = useState(false)
+  const [vis, setVis] = useState(false)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true) }, { threshold: 0.08 })
+    const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVis(true) }, { threshold: 0.07, rootMargin: '0px 0px -80px 0px' })
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
   }, [])
 
-  const latest = stories.slice(0, 2)
+  const b = 'transition-all duration-700'
+  const h = 'opacity-0 translate-y-6'
+  const s = 'opacity-100 translate-y-0'
+
+  const latest = stories.slice(0, 3)
 
   return (
     <div ref={ref} className="relative min-h-screen bg-white overflow-hidden">
 
-      {/* Section label */}
-      <div className={`absolute top-14 right-8 sm:right-14 md:right-20 z-20 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'}`}>
-        <span className="text-[11px] tracking-[0.25em] uppercase text-primary font-semibold">From the Field</span>
+      {/* ── Top content ── */}
+      <div className="relative z-20 grid grid-cols-2 gap-x-8 px-6 sm:px-12 md:px-20 pt-20">
+
+        {/* LEFT: section label + heading */}
+        <div className="flex flex-col gap-4">
+          <span className={`text-[11px] tracking-[0.22em] uppercase text-primary font-semibold ${b} delay-75 ${vis ? s : h}`}>
+            From the Field
+          </span>
+          <h2 className={`font-serif font-bold leading-[0.85] tracking-tight text-[3.2rem] sm:text-[5rem] md:text-[7rem] lg:text-[9rem] xl:text-[10.5rem] text-foreground ${b} delay-100 ${vis ? s : h}`}>
+            Stories &amp;<br />Updates
+          </h2>
+        </div>
+
+        {/* RIGHT: short copy + updated badge */}
+        <div className="flex flex-col items-end gap-4 text-right pt-4">
+          <p className={`text-sm text-muted-foreground leading-relaxed max-w-xs ${b} delay-150 ${vis ? s : h}`}>
+            Real stories of rescue, recovery, and release. Follow along as we share life from inside the rehab.
+          </p>
+          <div className={`inline-flex items-center gap-1.5 text-xs text-muted-foreground ${b} delay-200 ${vis ? s : h}`}>
+            <BookOpen className="h-3.5 w-3.5" />
+            Updated regularly
+          </div>
+        </div>
       </div>
 
-      {/* Giant heading - upper right */}
-      <div className={`absolute top-24 sm:top-28 right-8 sm:right-14 md:right-20 z-20 text-right transition-all duration-900 delay-100 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
-        <h2 className="text-[3.8rem] sm:text-[5.5rem] md:text-[7.5rem] lg:text-[9.5rem] xl:text-[11rem] font-serif font-bold text-foreground leading-[0.88] tracking-tight">
-          Stories &amp;<br />Updates
-        </h2>
+      {/* ── Story cards — left column, positioned above animal ── */}
+      <div className={`relative z-20 px-6 sm:px-12 md:px-20 mt-10 w-full max-w-sm ${b} delay-250 ${vis ? s : h}`}>
+        <div className="flex flex-col gap-3">
+          {latest.map((story, i) => (
+            <Link
+              key={story.id}
+              href={`/stories/${story.slug}`}
+              className="group flex gap-3 items-start p-3 rounded-xl bg-[#F8F4F4] border border-border/40 hover:border-primary/30 hover:bg-secondary/40 transition-all"
+              style={{ transitionDelay: vis ? `${i * 60}ms` : '0ms' }}
+            >
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary font-bold text-lg font-serif">
+                {String(i + 1).padStart(2, '0')}
+              </div>
+              <div className="flex flex-col gap-0.5 min-w-0">
+                <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                  {new Date(story.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                </p>
+                <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                  {story.title}
+                </p>
+                <p className="text-[11px] text-muted-foreground line-clamp-1 mt-0.5">{story.excerpt}</p>
+              </div>
+              <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary shrink-0 mt-1 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          ))}
+        </div>
       </div>
 
-      {/* Short copy - upper left */}
-      <div className={`absolute top-28 sm:top-36 left-8 sm:left-14 md:left-20 max-w-[160px] sm:max-w-[210px] z-20 transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-          Real stories of rescue, recovery, and release. Follow along as we share life from inside the rehab.
-        </p>
-      </div>
-
-      {/* Latest story titles - left, mid */}
-      <div className={`absolute top-[40%] sm:top-[38%] left-8 sm:left-14 md:left-20 max-w-[220px] sm:max-w-xs z-20 space-y-4 transition-all duration-700 delay-280 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-        {latest.map((story, i) => (
-          <Link key={story.id} href={`/stories/${story.slug}`} className="block group">
-            <p className="text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground mb-0.5">{new Date(story.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</p>
-            <p className="text-sm sm:text-base font-semibold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
-              {story.title}
-            </p>
-          </Link>
-        ))}
-      </div>
-
-      {/* Blog icon + label - right mid */}
-      <div className={`absolute top-[48%] right-8 sm:right-14 md:right-20 z-20 flex items-center gap-2 transition-all duration-700 delay-320 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-        <BookOpen className="h-4 w-4 text-muted-foreground" />
-        <span className="text-xs text-muted-foreground">Updated regularly</span>
-      </div>
-
-      {/* View all stories CTA - bottom right */}
-      <div className={`absolute bottom-32 sm:bottom-36 right-8 sm:right-14 md:right-20 z-20 transition-all duration-700 delay-400 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        <Button asChild className="rounded-full gap-2 h-12 px-7 bg-primary text-white hover:bg-primary/90 font-semibold text-sm shadow-lg shadow-primary/20">
-          <Link href="/stories">
-            Read All Stories
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+      {/* ── Read all CTA — above animal, left ── */}
+      <div className={`absolute bottom-[44%] sm:bottom-[42%] left-6 sm:left-12 md:left-20 z-20 ${b} delay-400 ${vis ? s : h}`}>
+        <Button asChild className="rounded-full h-11 px-6 bg-primary text-white hover:bg-primary/90 font-semibold text-sm shadow-lg shadow-primary/20">
+          <Link href="/stories">Read All Stories <ArrowRight className="ml-2 h-3.5 w-3.5" /></Link>
         </Button>
       </div>
 
-      {/* Coyote - large, bottom center */}
-      <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[78%] sm:w-[64%] md:w-[54%] lg:w-[44%] max-w-2xl z-10 transition-all duration-1000 delay-150 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-        <div className="relative w-full" style={{ aspectRatio: '3/4' }}>
-          <Image src="/images/animals/coyote.svg" alt="Coyote" fill className="object-contain object-bottom" sizes="(max-width: 768px) 78vw, 54vw" />
+      {/* Coyote — large, pushed to the RIGHT side bottom */}
+      <div className={`absolute bottom-0 right-0 w-[55%] sm:w-[46%] md:w-[38%] lg:w-[32%] max-w-lg z-10 ${b} delay-120 ${vis ? s : h}`}>
+        <div className="relative w-full aspect-[3/4]">
+          <Image src="/images/animals/coyote.svg" alt="Coyote" fill className="object-contain object-bottom" sizes="(max-width:768px) 55vw, 38vw" />
         </div>
       </div>
     </div>
