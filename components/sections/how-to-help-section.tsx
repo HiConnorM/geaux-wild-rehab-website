@@ -3,13 +3,37 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Heart, Gift, Megaphone } from 'lucide-react'
+import { ArrowRight, Heart, Gift, Share2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const ways = [
-  { icon: Heart,     label: 'Donate Funds',    desc: '$25 feeds a baby squirrel 2 weeks' },
-  { icon: Gift,      label: 'Shop Wishlist',    desc: '$50 covers veterinary supplies' },
-  { icon: Megaphone, label: 'Spread the Word',  desc: 'Share our mission with others' },
+  { 
+    icon: Heart, 
+    title: 'Make a Donation',
+    desc: 'Every dollar goes directly to animal care. We are 100% volunteer-run.',
+    amounts: ['$25', '$50', '$100'],
+    cta: 'Donate Now',
+    href: '/support',
+    accent: true
+  },
+  { 
+    icon: Gift, 
+    title: 'Shop Our Wishlist',
+    desc: 'Purchase supplies we need most — formula, heating pads, cages & more.',
+    amounts: null,
+    cta: 'View Wishlist',
+    href: '/support#wishlist',
+    accent: false
+  },
+  { 
+    icon: Share2, 
+    title: 'Spread the Word',
+    desc: 'Follow us on social media and share our mission with friends and family.',
+    amounts: null,
+    cta: 'Follow Us',
+    href: '/about#social',
+    accent: false
+  },
 ]
 
 export function HowToHelpSection() {
@@ -17,75 +41,96 @@ export function HowToHelpSection() {
   const [vis, setVis] = useState(false)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVis(true) }, { threshold: 0.07, rootMargin: '0px 0px -80px 0px' })
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
+    const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVis(true), { threshold: 0.15 })
+    if (ref.current) obs.observe(ref.current)
+    return () => obs.disconnect()
   }, [])
 
-  const b = 'transition-all duration-700'
-  const h = 'opacity-0 translate-y-6'
-  const s = 'opacity-100 translate-y-0'
+  const anim = (delay: number) =>
+    `transition-all duration-700 ease-out ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`
 
   return (
-    <div ref={ref} className="relative min-h-screen bg-white overflow-hidden">
+    <section ref={ref} className="relative min-h-screen bg-[#F8F4F4] overflow-hidden py-24 lg:py-32">
+      {/* Decorative blob */}
+      <div className="absolute bottom-20 right-0 w-96 h-96 bg-[#3B468E]/8 rounded-full blur-3xl pointer-events-none" />
 
-      {/* ── Top content grid ── */}
-      <div className="relative z-20 grid grid-cols-2 gap-x-8 px-6 sm:px-12 md:px-20 pt-20">
-
-        {/* RIGHT: section label + giant heading */}
-        <div className="col-start-2 flex flex-col gap-4 items-end text-right">
-          <span className={`text-[11px] tracking-[0.22em] uppercase text-primary font-semibold ${b} delay-75 ${vis ? s : h}`}>
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className={`inline-block text-sm font-semibold text-[#26C9AA] uppercase tracking-wider mb-4 ${anim(100)}`} style={{ transitionDelay: '100ms' }}>
             Make a Difference
           </span>
-          <h2 className={`font-serif font-bold leading-[0.85] tracking-tight text-[3.2rem] sm:text-[5rem] md:text-[7rem] lg:text-[9rem] xl:text-[10.5rem] text-foreground ${b} delay-100 ${vis ? s : h}`}>
-            How to<br />Help
+          <h2 className={`font-serif font-bold text-4xl sm:text-5xl lg:text-6xl text-[#1a1f3d] leading-tight mb-6 ${anim(150)}`} style={{ transitionDelay: '150ms' }}>
+            How You Can Help
           </h2>
-        </div>
-
-        {/* LEFT: short paragraph */}
-        <div className="row-start-1 col-start-1 flex items-end pb-2">
-          <p className={`text-sm text-muted-foreground leading-relaxed max-w-xs ${b} delay-150 ${vis ? s : h}`}>
-            Every dollar and item donated goes directly to the animals in our care. We are a 100% volunteer-run non-profit — no overhead, just wildlife.
+          <p className={`text-lg text-gray-600 ${anim(200)}`} style={{ transitionDelay: '200ms' }}>
+            Your support saves lives. Choose how you&apos;d like to make a difference today.
           </p>
         </div>
-      </div>
 
-      {/* ── Three ways row ── */}
-      <div className={`relative z-20 grid grid-cols-3 gap-4 px-6 sm:px-12 md:px-20 mt-8 ${b} delay-200 ${vis ? s : h}`}>
-        {ways.map(({ icon: Icon, label, desc }) => (
-          <div key={label} className="flex flex-col gap-2 p-4 rounded-2xl bg-secondary/60 border border-border/30">
-            <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-              <Icon className="h-4 w-4 text-white" />
-            </span>
-            <span className="text-sm font-bold text-foreground">{label}</span>
-            <span className="text-[11px] text-muted-foreground leading-snug">{desc}</span>
+        {/* Cards grid with animal */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left - Cards */}
+          <div className="flex flex-col gap-5">
+            {ways.map((way, i) => (
+              <div 
+                key={way.title}
+                className={`bg-white rounded-3xl p-6 shadow-lg shadow-black/5 border border-gray-100 hover:shadow-xl hover:border-[#26C9AA]/30 transition-all ${anim(250 + i * 100)}`}
+                style={{ transitionDelay: `${250 + i * 100}ms` }}
+              >
+                <div className="flex gap-5">
+                  <div className={`w-14 h-14 rounded-2xl ${way.accent ? 'bg-[#26C9AA]' : 'bg-[#3B468E]/10'} flex items-center justify-center shrink-0`}>
+                    <way.icon className={`h-6 w-6 ${way.accent ? 'text-white' : 'text-[#3B468E]'}`} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-lg text-[#1a1f3d] mb-1">{way.title}</h3>
+                    <p className="text-gray-600 text-sm mb-4">{way.desc}</p>
+                    
+                    {way.amounts && (
+                      <div className="flex gap-2 mb-4">
+                        {way.amounts.map(amt => (
+                          <span key={amt} className="px-3 py-1 rounded-full bg-[#F8F4F4] text-sm font-medium text-[#3B468E]">
+                            {amt}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    
+                    <Link 
+                      href={way.href}
+                      className={`inline-flex items-center gap-2 text-sm font-semibold ${way.accent ? 'text-[#26C9AA]' : 'text-[#3B468E]'} hover:gap-3 transition-all`}
+                    >
+                      {way.cta}
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      {/* ── Bottom CTAs above animal ── */}
-      <div className={`absolute bottom-[44%] sm:bottom-[42%] left-6 sm:left-12 md:left-20 z-20 flex gap-3 flex-wrap ${b} delay-300 ${vis ? s : h}`}>
-        <Button asChild className="rounded-full h-11 px-6 bg-primary text-white hover:bg-primary/90 font-semibold text-sm shadow-lg shadow-primary/20">
-          <Link href="/support">Donate Now <ArrowRight className="ml-2 h-3.5 w-3.5" /></Link>
-        </Button>
-        <Link href="/support#wishlist" className="inline-flex items-center gap-1.5 h-11 px-4 rounded-full border-2 border-border text-sm font-medium text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">
-          Amazon Wishlist
-        </Link>
-      </div>
+          {/* Right - Opossum */}
+          <div className={`relative ${anim(300)}`} style={{ transitionDelay: '300ms' }}>
+            <div className="relative w-full max-w-md mx-auto">
+              <div className="aspect-square relative">
+                <Image 
+                  src="/images/animals/opossum.svg" 
+                  alt="Opossum" 
+                  fill 
+                  className="object-contain drop-shadow-xl" 
+                  sizes="(max-width:768px) 100vw, 50vw" 
+                />
+              </div>
+            </div>
 
-      {/* ── Bottom-right note ── */}
-      <div className={`absolute bottom-[46%] sm:bottom-[43%] right-6 sm:right-12 md:right-20 z-20 text-right max-w-[150px] ${b} delay-350 ${vis ? s : h}`}>
-        <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
-          100% goes<br />to the animals
-        </p>
-      </div>
-
-      {/* Opossum — bottom center */}
-      <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] sm:w-[74%] md:w-[60%] lg:w-[48%] max-w-2xl z-10 ${b} delay-100 ${vis ? s : h}`}>
-        <div className="relative w-full aspect-square">
-          <Image src="/images/animals/opossum.svg" alt="Opossum" fill className="object-contain object-bottom" sizes="(max-width:768px) 90vw, 60vw" />
+            {/* Floating badge */}
+            <div className={`absolute bottom-10 right-0 bg-white rounded-2xl px-5 py-4 shadow-xl border border-gray-100 ${anim(500)}`} style={{ transitionDelay: '500ms' }}>
+              <p className="text-sm text-gray-500">Tax-deductible</p>
+              <p className="text-lg font-bold text-[#26C9AA]">501(c)(3) Nonprofit</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

@@ -2,144 +2,106 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { Heart, Gift, ExternalLink, ArrowRight, Sparkles } from 'lucide-react'
+import { Heart, Gift, ExternalLink, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export function DonationBanner() {
   const bannerRef = useRef<HTMLElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
+  const [vis, setVis] = useState(false)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.2 }
-    )
-
-    if (bannerRef.current) {
-      observer.observe(bannerRef.current)
-    }
-
-    return () => observer.disconnect()
+    const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVis(true), { threshold: 0.15 })
+    if (bannerRef.current) obs.observe(bannerRef.current)
+    return () => obs.disconnect()
   }, [])
 
-  return (
-    <section 
-      ref={bannerRef}
-      className="py-20 lg:py-28 relative overflow-hidden"
-    >
-      {/* Background gradient */}
-      <div className="absolute inset-0 gradient-brand" />
-      
-      {/* Animated decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-white/5 rounded-full blur-2xl animate-float" />
-        <div className="absolute bottom-10 right-20 w-48 h-48 bg-white/5 rounded-full blur-3xl animate-float animation-delay-300" />
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-white/5 rounded-full blur-xl animate-float animation-delay-500" />
-      </div>
+  const anim = (delay: number) =>
+    `transition-all duration-700 ease-out ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`text-center mb-12 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
-            <Sparkles className="h-4 w-4 text-white" />
-            <span className="text-white/90 text-sm font-medium">Every Gift Makes a Difference</span>
-          </div>
-          
-          <h2 className="text-3xl lg:text-5xl font-serif font-bold text-white mb-6 text-balance">
+  return (
+    <section ref={bannerRef} className="py-24 lg:py-32 bg-[#F8F4F4]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className={`inline-block text-sm font-semibold text-[#26C9AA] uppercase tracking-wider mb-4 ${anim(100)}`} style={{ transitionDelay: '100ms' }}>
+            Support Our Mission
+          </span>
+          <h2 className={`font-serif font-bold text-4xl sm:text-5xl lg:text-6xl text-[#1a1f3d] leading-tight mb-6 ${anim(150)}`} style={{ transitionDelay: '150ms' }}>
             Help Us Save More Wildlife
           </h2>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
+          <p className={`text-lg text-gray-600 ${anim(200)}`} style={{ transitionDelay: '200ms' }}>
             Your support provides food, medicine, and shelter for injured and orphaned animals. 
             Choose how you would like to help today.
           </p>
         </div>
 
         {/* Two-column CTA */}
-        <div className={`grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
           {/* Donate Card */}
-          <div className="group bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
-            <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Heart className="h-8 w-8 text-white" />
+          <div 
+            className={`group bg-white rounded-3xl p-8 shadow-lg shadow-black/5 border border-gray-100 hover:shadow-xl hover:border-[#26C9AA]/30 transition-all ${anim(250)}`}
+            style={{ transitionDelay: '250ms' }}
+          >
+            <div className="w-14 h-14 rounded-2xl bg-[#26C9AA] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Heart className="h-7 w-7 text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-foreground mb-3">Make a Donation</h3>
-            <p className="text-muted-foreground mb-6">
-              100% of your tax-deductible donation goes directly to animal care. 
-              We are an all-volunteer organization.
+            <h3 className="text-2xl font-bold text-[#1a1f3d] mb-3">Make a Donation</h3>
+            <p className="text-gray-600 mb-6">
+              100% of your tax-deductible donation goes directly to animal care. We are an all-volunteer organization.
             </p>
-            <div className="space-y-3 mb-8">
-              <div className="flex items-center gap-3 text-sm">
-                <span className="w-2 h-2 rounded-full bg-brand-gold" />
-                <span className="text-foreground">$25 feeds a baby squirrel for 2 weeks</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm">
-                <span className="w-2 h-2 rounded-full bg-brand-gold" />
-                <span className="text-foreground">$50 covers veterinary supplies</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm">
-                <span className="w-2 h-2 rounded-full bg-brand-gold" />
-                <span className="text-foreground">$100 sponsors a full rehabilitation</span>
-              </div>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {['$25', '$50', '$100', '$250'].map(amt => (
+                <span key={amt} className="px-4 py-2 rounded-full bg-[#F8F4F4] text-sm font-semibold text-[#3B468E]">
+                  {amt}
+                </span>
+              ))}
             </div>
-            <Button asChild size="lg" className="w-full gap-2 rounded-full h-14 bg-primary text-white hover:bg-primary/90 font-semibold">
+            <Button asChild size="lg" className="w-full rounded-full h-14 bg-[#26C9AA] hover:bg-[#1eb89a] text-white font-semibold">
               <Link href="/support#donate">
                 Donate Now
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
           </div>
 
           {/* Amazon Wishlist Card */}
-          <div className="group bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-            {/* Featured badge */}
-            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-accent/20 text-accent-foreground text-xs font-semibold">
+          <div 
+            className={`group bg-white rounded-3xl p-8 shadow-lg shadow-black/5 border border-gray-100 hover:shadow-xl hover:border-[#3B468E]/30 transition-all relative ${anim(350)}`}
+            style={{ transitionDelay: '350ms' }}
+          >
+            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#3B468E]/10 text-[#3B468E] text-xs font-semibold">
               Most Needed
             </div>
             
-            <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Gift className="h-8 w-8 text-accent-foreground" />
+            <div className="w-14 h-14 rounded-2xl bg-[#3B468E] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Gift className="h-7 w-7 text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-foreground mb-3">Shop Our Amazon Wishlist</h3>
-            <p className="text-muted-foreground mb-6">
-              Purchase supplies we need and have them shipped directly to our facility. 
-              Every item helps!
+            <h3 className="text-2xl font-bold text-[#1a1f3d] mb-3">Shop Our Wishlist</h3>
+            <p className="text-gray-600 mb-6">
+              Purchase supplies we need and have them shipped directly to our facility. Every item helps!
             </p>
-            <div className="space-y-3 mb-8">
-              <div className="flex items-center gap-3 text-sm">
-                <span className="w-2 h-2 rounded-full bg-accent" />
-                <span className="text-foreground">Heating pads & heat lamps</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm">
-                <span className="w-2 h-2 rounded-full bg-accent" />
-                <span className="text-foreground">Kitten milk replacer (KMR)</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm">
-                <span className="w-2 h-2 rounded-full bg-accent" />
-                <span className="text-foreground">Cages, carriers & cleaning supplies</span>
-              </div>
-            </div>
-            <Button asChild size="lg" className="w-full gap-2 rounded-full h-14 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+            <ul className="space-y-2 mb-6">
+              {['Heating pads & lamps', 'Kitten milk replacer', 'Cages & carriers'].map(item => (
+                <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#26C9AA]" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <Button asChild size="lg" className="w-full rounded-full h-14 bg-[#3B468E] hover:bg-[#2d366d] text-white font-semibold">
               <a href="https://www.amazon.com/hz/wishlist/ls/example" target="_blank" rel="noopener noreferrer">
                 View Wishlist
-                <ExternalLink className="h-4 w-4" />
+                <ExternalLink className="ml-2 h-5 w-5" />
               </a>
             </Button>
           </div>
         </div>
 
-        {/* Additional CTA */}
-        <div className={`text-center mt-10 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-white/70 mb-4">Have questions about donating?</p>
-          <Link 
-            href="/faq" 
-            className="inline-flex items-center gap-2 text-white font-medium hover:underline underline-offset-4"
-          >
-            Read our FAQ
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+        {/* Tax info */}
+        <div className={`text-center mt-12 ${anim(450)}`} style={{ transitionDelay: '450ms' }}>
+          <p className="text-sm text-gray-500">
+            Geaux Wild Rehab is a registered 501(c)(3) nonprofit. All donations are tax-deductible.
+          </p>
         </div>
       </div>
     </section>

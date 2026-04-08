@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
 import { impactStats } from '@/lib/content'
-import { Heart, Leaf, Calendar } from 'lucide-react'
+import { Heart, TrendingUp, Calendar } from 'lucide-react'
 
 function useCountUp(end: number, duration = 2000) {
   const [count, setCount] = useState(0)
@@ -34,9 +34,9 @@ function useCountUp(end: number, duration = 2000) {
 }
 
 const stats = [
-  { value: impactStats.animalsRescued, label: 'Animals Rescued', suffix: '+', icon: Heart, desc: 'Lives saved and returned to the wild' },
-  { value: impactStats.releaseRate,    label: 'Release Rate',    suffix: '%', icon: Leaf,   desc: 'Successfully returned to the wild' },
-  { value: impactStats.yearsServing,   label: 'Years Serving',   suffix: '',  icon: Calendar, desc: 'Protecting Louisiana wildlife' },
+  { value: impactStats.animalsRescued, label: 'Animals Rescued', suffix: '+', icon: Heart },
+  { value: impactStats.releaseRate, label: 'Release Rate', suffix: '%', icon: TrendingUp },
+  { value: impactStats.yearsServing, label: 'Years Serving', suffix: '+', icon: Calendar },
 ]
 
 export function ImpactStats() {
@@ -44,66 +44,84 @@ export function ImpactStats() {
   const [vis, setVis] = useState(false)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVis(true) }, { threshold: 0.07 })
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
+    const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVis(true), { threshold: 0.1 })
+    if (sectionRef.current) obs.observe(sectionRef.current)
+    return () => obs.disconnect()
   }, [])
 
-  const b = 'transition-all duration-700'
-  const h = 'opacity-0 translate-y-6'
-  const s = 'opacity-100 translate-y-0'
+  const anim = (delay: number) =>
+    `transition-all duration-700 ease-out ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`
 
   return (
-    <section ref={sectionRef} className="relative min-h-[70vh] overflow-hidden" style={{ background: 'linear-gradient(135deg, #26C9AA, #2e7fbb, #3B468E)' }}>
+    <section ref={sectionRef} className="relative overflow-hidden py-24 lg:py-32" style={{ background: 'linear-gradient(135deg, #26C9AA 0%, #2a7fb8 50%, #3B468E 100%)' }}>
+      {/* Decorative shapes */}
+      <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
+      <div className="absolute bottom-20 right-1/4 w-48 h-48 bg-white/5 rounded-full blur-3xl" />
 
-      {/* ── Top content ── */}
-      <div className="relative z-20 px-6 sm:px-12 md:px-20 pt-16">
-        <div className="grid grid-cols-2 gap-x-8 items-start">
-          <div className="flex flex-col gap-3">
-            <span className={`text-[11px] tracking-[0.22em] uppercase text-white/60 font-semibold ${b} delay-75 ${vis ? s : h}`}>
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Left - Content */}
+          <div>
+            <span className={`inline-block text-sm font-semibold text-white/70 uppercase tracking-wider mb-4 ${anim(100)}`} style={{ transitionDelay: '100ms' }}>
               By the Numbers
             </span>
-            <h2 className={`font-serif font-bold leading-tight text-3xl sm:text-4xl lg:text-5xl text-white ${b} delay-100 ${vis ? s : h}`}>
-              Our Impact on<br />Louisiana Wildlife
+            <h2 className={`font-serif font-bold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6 ${anim(150)}`} style={{ transitionDelay: '150ms' }}>
+              Our Impact on Louisiana Wildlife
             </h2>
-          </div>
-          <div className={`flex items-end justify-end ${b} delay-150 ${vis ? s : h}`}>
-            <p className="text-sm text-white/70 leading-relaxed max-w-xs text-right">
-              Every number represents a life saved, a species protected, and a community united in caring for Louisiana&apos;s native wildlife.
+            <p className={`text-lg text-white/80 mb-12 max-w-md ${anim(200)}`} style={{ transitionDelay: '200ms' }}>
+              Every number represents a life saved, a species protected, and a community united in conservation.
             </p>
+
+            {/* Stats grid */}
+            <div className="grid grid-cols-3 gap-4">
+              {stats.map((stat, i) => (
+                <StatCard key={stat.label} {...stat} delay={250 + i * 80} vis={vis} />
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Stats row */}
-        <div className={`grid grid-cols-3 gap-4 mt-10 ${b} delay-200 ${vis ? s : h}`}>
-          {stats.map((stat, i) => (
-            <StatCard key={stat.label} {...stat} index={i} />
-          ))}
-        </div>
-      </div>
+          {/* Right - Beaver */}
+          <div className={`relative ${anim(300)}`} style={{ transitionDelay: '300ms' }}>
+            <div className="relative w-full max-w-md ml-auto">
+              <div className="aspect-[3/4] relative">
+                <Image 
+                  src="/images/animals/beaver.svg" 
+                  alt="Beaver" 
+                  fill 
+                  className="object-contain drop-shadow-2xl" 
+                  sizes="(max-width:768px) 100vw, 50vw" 
+                />
+              </div>
+            </div>
 
-      {/* Beaver — right side, bottom */}
-      <div className={`absolute bottom-0 right-0 w-[42%] sm:w-[34%] md:w-[26%] max-w-xs z-10 ${b} delay-200 ${vis ? s : h}`}>
-        <div className="relative w-full aspect-[3/4]">
-          <Image src="/images/animals/beaver.svg" alt="Beaver" fill className="object-contain object-bottom" sizes="42vw" />
+            {/* Floating badge */}
+            <div className={`absolute top-10 left-0 bg-white rounded-2xl px-5 py-4 shadow-xl ${anim(500)}`} style={{ transitionDelay: '500ms' }}>
+              <p className="text-sm text-gray-500">100% of donations</p>
+              <p className="text-lg font-bold text-[#26C9AA]">Goes to animals</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   )
 }
 
-function StatCard({ value, label, suffix, icon: Icon, desc, index }: {
-  value: number; label: string; suffix: string; icon: typeof Heart; desc: string; index: number
+function StatCard({ value, label, suffix, icon: Icon, delay, vis }: {
+  value: number; label: string; suffix: string; icon: typeof Heart; delay: number; vis: boolean
 }) {
   const { count, ref } = useCountUp(value)
   return (
-    <div ref={ref} className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 lg:p-7 border border-white/20 text-center hover:bg-white/15 transition-colors" style={{ animationDelay: `${index * 100}ms` }}>
-      <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 mb-3">
+    <div 
+      ref={ref} 
+      className={`bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20 text-center transition-all duration-700 ease-out ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white/20 mb-3">
         <Icon className="h-5 w-5 text-white" />
       </div>
-      <p className="text-3xl lg:text-5xl font-bold text-white mb-1">{count}{suffix}</p>
-      <p className="text-white font-semibold text-sm mb-1">{label}</p>
-      <p className="text-white/60 text-xs">{desc}</p>
+      <p className="text-3xl lg:text-4xl font-bold text-white mb-1">{count}{suffix}</p>
+      <p className="text-white/80 text-sm font-medium">{label}</p>
     </div>
   )
 }

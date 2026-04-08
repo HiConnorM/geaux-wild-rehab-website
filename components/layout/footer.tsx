@@ -39,12 +39,10 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-[#1a1f3d] text-white">
       {/* CTA Band */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 gradient-brand" />
-        <div className="absolute inset-0 bg-[url('/images/hero-wildlife.jpg')] bg-cover bg-center opacity-10" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #26C9AA 0%, #2a7fb8 50%, #3B468E 100%)' }}>
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4 text-balance">
@@ -55,7 +53,7 @@ export function Footer() {
                 Join our community of wildlife advocates today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-white text-foreground hover:bg-white/90 gap-2 rounded-full px-8 h-14 font-semibold shadow-lg">
+                <Button asChild size="lg" className="bg-white text-[#3B468E] hover:bg-white/90 gap-2 rounded-full px-8 h-14 font-semibold shadow-lg">
                   <Link href="/support">
                     <Heart className="h-5 w-5" />
                     Donate Now
@@ -65,7 +63,7 @@ export function Footer() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white/40 text-white hover:bg-white/10 hover:border-white/60 gap-2 rounded-full px-8 h-14 font-medium"
+                  className="border-2 border-white/40 text-white hover:bg-white/10 hover:border-white/60 gap-2 rounded-full px-8 h-14 font-medium bg-transparent"
                 >
                   <a href="https://www.amazon.com/hz/wishlist/ls/example" target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="h-5 w-5" />
@@ -81,14 +79,14 @@ export function Footer() {
               <p className="text-white/80 mb-6">Get updates on our rescues and ways to help.</p>
               <form className="flex gap-3">
                 <div className="flex-1 relative">
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                   <Input 
                     type="email" 
                     placeholder="Enter your email" 
-                    className="pl-12 h-12 rounded-full bg-white border-0 text-foreground placeholder:text-muted-foreground"
+                    className="pl-12 h-12 rounded-full bg-white border-0 text-[#1a1f3d] placeholder:text-gray-400"
                   />
                 </div>
-                <Button type="submit" size="lg" className="rounded-full px-6 h-12 bg-foreground text-background hover:bg-foreground/90">
+                <Button type="submit" size="lg" className="rounded-full px-6 h-12 bg-[#1a1f3d] text-white hover:bg-[#1a1f3d]/90">
                   <ArrowRight className="h-5 w-5" />
                 </Button>
               </form>
@@ -98,7 +96,7 @@ export function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
@@ -111,7 +109,7 @@ export function Footer() {
                 className="h-16 w-auto brightness-0 invert"
               />
             </Link>
-            <p className="text-background/70 mb-6 max-w-sm leading-relaxed">
+            <p className="text-white/60 mb-6 max-w-sm leading-relaxed">
               Dedicated to the rescue, rehabilitation, and release of injured and orphaned native Louisiana wildlife.
             </p>
             <div className="flex items-center gap-3">
@@ -121,7 +119,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center text-background/60 hover:bg-background/20 hover:text-background transition-all"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-[#26C9AA] hover:text-white transition-all"
                   aria-label={social.label}
                 >
                   <social.icon className="h-5 w-5" />
@@ -132,13 +130,13 @@ export function Footer() {
 
           {/* Get Help */}
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wider mb-6">Get Help</h3>
+            <h3 className="font-bold text-sm uppercase tracking-wider mb-6 text-[#26C9AA]">Get Help</h3>
             <ul className="space-y-4">
               {footerLinks.help.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-background/70 hover:text-background transition-colors inline-flex items-center gap-1 group"
+                    className="text-white/60 hover:text-white transition-colors inline-flex items-center gap-1 group"
                   >
                     {link.label}
                     <ArrowRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -150,13 +148,13 @@ export function Footer() {
 
           {/* Support */}
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wider mb-6">Support</h3>
+            <h3 className="font-bold text-sm uppercase tracking-wider mb-6 text-[#26C9AA]">Support</h3>
             <ul className="space-y-4">
               {footerLinks.support.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-background/70 hover:text-background transition-colors inline-flex items-center gap-1 group"
+                    className="text-white/60 hover:text-white transition-colors inline-flex items-center gap-1 group"
                   >
                     {link.label}
                     <ArrowRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -168,13 +166,13 @@ export function Footer() {
 
           {/* About */}
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wider mb-6">About</h3>
+            <h3 className="font-bold text-sm uppercase tracking-wider mb-6 text-[#26C9AA]">About</h3>
             <ul className="space-y-4">
               {footerLinks.about.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-background/70 hover:text-background transition-colors inline-flex items-center gap-1 group"
+                    className="text-white/60 hover:text-white transition-colors inline-flex items-center gap-1 group"
                   >
                     {link.label}
                     <ArrowRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -186,8 +184,8 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-16 pt-8 border-t border-background/10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-background/50">
+        <div className="mt-16 pt-8 border-t border-white/10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/40">
             <p>&copy; {currentYear} Geaux Wild Rehab. All rights reserved.</p>
             <p>
               Serving Louisiana&apos;s native wildlife with love and care.
