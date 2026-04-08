@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, Phone, Heart, ChevronDown } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -31,65 +31,108 @@ export function Header() {
   return (
     <header 
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-6xl",
+        "hidden lg:block"
+      )}
+    >
+      {/* Centered pill container */}
+      <div className={cn(
+        "flex items-center justify-between px-6 py-3 rounded-full transition-all duration-300",
+        isScrolled 
+          ? "bg-white/98 backdrop-blur-lg shadow-lg shadow-black/10 border border-gray-200" 
+          : "bg-white/95 backdrop-blur-md shadow-md shadow-black/5 border border-gray-100"
+      )}>
+        {/* Logo */}
+        <Link href="/" className="shrink-0">
+          <Image
+            src="/images/logo.svg"
+            alt="Geaux Wild Rehab"
+            width={140}
+            height={44}
+            className="h-10 w-auto"
+            priority
+          />
+        </Link>
+
+        {/* Center Navigation */}
+        <nav className="flex items-center gap-1">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="px-4 py-2 text-sm font-medium text-[#1a1f3d] hover:text-[#26C9AA] transition-colors rounded-lg hover:bg-[#F8F4F4]"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Right CTAs */}
+        <div className="flex items-center gap-2 shrink-0">
+          <Button 
+            asChild 
+            size="sm" 
+            className="rounded-full bg-[#26C9AA] text-white hover:bg-[#1eb89a] font-semibold px-5 h-9 shadow-sm"
+          >
+            <Link href="/support">
+              Donate
+            </Link>
+          </Button>
+          <Button 
+            asChild 
+            variant="outline"
+            size="sm" 
+            className="rounded-full border-2 border-[#3B468E] text-[#3B468E] hover:bg-[#3B468E] hover:text-white font-semibold px-5 h-9"
+          >
+            <Link href="/get-help">
+              Get Help
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </header>
+  )
+}
+
+// Mobile header - full width, separate from desktop pill
+export function MobileHeader() {
+  const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <header 
+      className={cn(
+        "lg:hidden fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled 
           ? "bg-white/98 backdrop-blur-md shadow-sm border-b border-gray-100" 
           : "bg-white"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 md:h-[72px]">
-          {/* Logo - left */}
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
           <Link href="/" className="shrink-0">
             <Image
               src="/images/logo.svg"
               alt="Geaux Wild Rehab"
-              width={160}
-              height={50}
-              className="h-9 md:h-11 w-auto"
+              width={140}
+              height={44}
+              className="h-9 w-auto"
               priority
             />
           </Link>
 
-          {/* Center Navigation - desktop */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="px-4 py-2 text-sm font-medium text-[#1a1f3d] hover:text-[#26C9AA] transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Right side CTAs - desktop */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button 
-              asChild 
-              size="sm" 
-              className="rounded-full bg-[#26C9AA] text-white hover:bg-[#1eb89a] font-semibold px-5 h-10"
-            >
-              <Link href="/support">
-                Donate Now
-              </Link>
-            </Button>
-            <Button 
-              asChild 
-              variant="outline"
-              size="sm" 
-              className="rounded-full border-2 border-[#3B468E] text-[#3B468E] hover:bg-[#3B468E] hover:text-white font-semibold px-5 h-10"
-            >
-              <Link href="/get-help">
-                Get Help
-              </Link>
-            </Button>
-          </div>
-
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 -mr-2 text-[#1a1f3d]"
+            className="p-2 -mr-2 text-[#1a1f3d]"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >
@@ -100,7 +143,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       <div className={cn(
-        "lg:hidden fixed inset-0 top-16 bg-white z-40 transition-all duration-300",
+        "fixed inset-0 top-16 bg-white z-40 transition-all duration-300",
         isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
       )}>
         <div className="flex flex-col h-full">

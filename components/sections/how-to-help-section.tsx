@@ -19,7 +19,7 @@ export function HowToHelpSection() {
   return (
     <section ref={ref} className="relative bg-[#3B468E] overflow-hidden">
       {/* Wavy top divider - white scallop coming DOWN into navy */}
-      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none">
+      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16 md:h-20" preserveAspectRatio="none">
           <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="#F8F4F4"/>
         </svg>
@@ -117,7 +117,7 @@ export function HowToHelpSection() {
       </div>
 
       {/* Wavy bottom divider - navy scallop going INTO white */}
-      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none rotate-180">
+      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none rotate-180 z-20">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16 md:h-20" preserveAspectRatio="none">
           <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="white"/>
         </svg>
