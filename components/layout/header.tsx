@@ -31,16 +31,16 @@ export function Header() {
   return (
     <header 
       className={cn(
-        "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-6xl",
+        "fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[90%] max-w-5xl",
         "hidden lg:block"
       )}
     >
       {/* Centered pill container */}
       <div className={cn(
-        "flex items-center justify-between px-6 py-3 rounded-full transition-all duration-300",
+        "flex items-center justify-between px-8 py-4 rounded-full transition-all duration-300",
         isScrolled 
-          ? "bg-white/98 backdrop-blur-lg shadow-lg shadow-black/10 border border-gray-200" 
-          : "bg-white/95 backdrop-blur-md shadow-md shadow-black/5 border border-gray-100"
+          ? "bg-white shadow-xl shadow-black/10" 
+          : "bg-white shadow-lg shadow-black/5"
       )}>
         {/* Logo */}
         <Link href="/" className="shrink-0">

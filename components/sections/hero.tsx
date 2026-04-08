@@ -94,7 +94,7 @@ export function Hero() {
       </div>
 
       {/* Fox image - large, breaking out from bottom */}
-      <div className={`relative z-20 max-w-7xl mx-auto px-4 sm:px-6 transition-all duration-1000 delay-300 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+      <div className={`relative z-0 max-w-7xl mx-auto px-4 sm:px-6 transition-all duration-1000 delay-300 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
         <div className="relative w-[85%] sm:w-[70%] md:w-[55%] lg:w-[45%] mx-auto">
           <div className="relative aspect-[3/4]">
             <Image 
@@ -110,7 +110,7 @@ export function Hero() {
       </div>
 
       {/* Wavy bottom divider */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
+      <div className="absolute bottom-0 left-0 right-0 z-20">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16 md:h-24 lg:h-auto" preserveAspectRatio="none">
           <path d="M0 120V60C240 100 480 20 720 60C960 100 1200 20 1440 60V120H0Z" fill="#F8F4F4"/>
         </svg>
