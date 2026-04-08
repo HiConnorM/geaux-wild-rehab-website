@@ -108,7 +108,7 @@ export function HowToHelpSection() {
               src="/images/animals/opossum.svg" 
               alt="Opossum" 
               fill 
-              className="object-contain object-bottom drop-shadow-2xl" 
+              className="object-contain object-bottom drop-shadow-2xl mt-[35px]" 
               sizes="(max-width:768px) 100vw, 40vw" 
             />
           </div>

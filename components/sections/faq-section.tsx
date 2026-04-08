@@ -38,7 +38,7 @@ export function FAQSection() {
                 src="/images/animals/bobcat.svg" 
                 alt="Bobcat" 
                 fill 
-                className="object-contain object-left-bottom drop-shadow-2xl" 
+                className="object-contain object-left-bottom drop-shadow-2xl mt-[83px] mr-[9px] ml-[-25px]" 
                 sizes="(max-width:768px) 100vw, 40vw" 
               />
             </div>

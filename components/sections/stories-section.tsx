@@ -97,7 +97,7 @@ export function StoriesSection() {
                 src="/images/animals/coyote.svg" 
                 alt="Coyote" 
                 fill 
-                className="object-contain object-right-bottom drop-shadow-2xl" 
+                className="object-contain object-right-bottom drop-shadow-2xl ml-6 mt-[83px]" 
                 sizes="(max-width:768px) 100vw, 45vw" 
               />
             </div>

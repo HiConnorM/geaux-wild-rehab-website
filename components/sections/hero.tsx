@@ -47,11 +47,11 @@ export function Hero() {
 
         {/* Giant playful title */}
         <div className={`relative mb-4 transition-all duration-700 delay-100 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h1 className="font-serif font-black text-white leading-[0.85] tracking-tight">
+          <h1 className="font-serif font-black text-white leading-[1.2] tracking-tight">
             <span className="block text-[4rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem] xl:text-[12rem]">
               GEAUX
             </span>
-            <span className="block text-[4rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem] xl:text-[12rem] -mt-2 sm:-mt-4 md:-mt-6 lg:-mt-10">
+            <span className="block text-[4rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem] xl:text-[12rem] -mt-2 sm:-mt-4 md:-mt-6 lg:-mt-10" style={{ lineHeight: '1.2' }}>
               WILD
             </span>
           </h1>

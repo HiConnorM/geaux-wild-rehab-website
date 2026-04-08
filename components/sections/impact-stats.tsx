@@ -94,7 +94,7 @@ export function ImpactStats() {
                 src="/images/animals/beaver.svg" 
                 alt="Beaver" 
                 fill 
-                className="object-contain object-right-bottom drop-shadow-2xl" 
+                className="object-contain object-right-bottom drop-shadow-2xl mt-[23px]" 
                 sizes="(max-width:768px) 100vw, 40vw" 
               />
             </div>
