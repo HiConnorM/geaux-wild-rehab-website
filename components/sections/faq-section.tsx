@@ -21,7 +21,7 @@ export function FAQSection() {
   const topFaqs = faqs.filter(f => f.category === 'Found Wildlife').slice(0, 4)
 
   return (
-    <section ref={ref} className="relative bg-white overflow-hidden py-20 lg:py-28">
+    <section ref={ref} className="relative bg-white overflow-hidden py-20 lg:py-28" style={{ paddingBottom: '75px' }}>
       {/* Decorative diamonds */}
       <div className="absolute top-28 right-[8%] w-5 h-5 bg-[#26C9AA]/15 rotate-45 rounded hidden md:block" />
       <div className="absolute top-48 left-[12%] w-4 h-4 bg-[#3B468E]/15 rotate-45 rounded-sm hidden md:block" />
@@ -44,7 +44,7 @@ export function FAQSection() {
             </div>
 
             {/* Floating CTA card */}
-            <div className={`absolute bottom-4 right-0 md:right-4 bg-[#26C9AA] rounded-xl md:rounded-[1.5rem] p-4 md:p-5 shadow-xl transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className={`absolute bottom-4 right-0 md:right-4 bg-[#26C9AA] rounded-xl md:rounded-[1.5rem] p-4 md:p-5 shadow-xl transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ marginTop: '105px', marginBottom: '224px', paddingTop: '21px' }}>
               <p className="text-white/90 text-xs md:text-sm mb-2 md:mb-3">Need immediate help?</p>
               <Button asChild size="sm" className="rounded-full bg-white text-[#26C9AA] hover:bg-white/90 font-bold text-xs md:text-sm h-9 md:h-10">
                 <Link href="/get-help">

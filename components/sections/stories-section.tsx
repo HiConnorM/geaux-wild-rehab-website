@@ -21,12 +21,19 @@ export function StoriesSection() {
 
   return (
     <section ref={ref} className="relative bg-[#F8F4F4] overflow-hidden py-20 lg:py-28">
+      {/* Wavy top divider */}
+      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20" style={{ marginTop: '-22px' }}>
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16 md:h-20" preserveAspectRatio="none">
+          <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="white"/>
+        </svg>
+      </div>
+
       {/* Decorative diamonds */}
       <div className="absolute top-32 left-[5%] w-5 h-5 bg-[#3B468E]/15 rotate-45 rounded hidden md:block" />
       <div className="absolute top-48 right-[15%] w-4 h-4 bg-[#26C9AA]/20 rotate-45 rounded-sm hidden md:block" />
       <div className="absolute bottom-40 left-[12%] w-6 h-6 border-2 border-[#3B468E]/10 rotate-45 rounded hidden md:block" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-8 md:pt-28 md:pb-12">
         {/* Bento layout */}
         <div className="grid lg:grid-cols-12 gap-5 lg:gap-8">
           
@@ -97,8 +104,9 @@ export function StoriesSection() {
                 src="/images/animals/coyote.svg" 
                 alt="Coyote" 
                 fill 
-                className="object-contain object-right-bottom drop-shadow-2xl ml-6 mt-[83px]" 
-                sizes="(max-width:768px) 100vw, 45vw" 
+                className="object-contain object-right-bottom drop-shadow-2xl ml-6 mt-[114px]" 
+                sizes="(max-width:768px) 100vw, 45vw"
+                style={{ marginBottom: '4px' }}
               />
             </div>
 
