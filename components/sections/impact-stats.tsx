@@ -50,29 +50,28 @@ export function ImpactStats() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-[#26C9AA]">
-      {/* Wavy top divider - white scallop coming DOWN into teal */}
-      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16 md:h-20" preserveAspectRatio="none">
-          <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="white"/>
+    <section ref={sectionRef} className="relative overflow-hidden bg-[#26C9AA] pt-28 pb-0 md:pt-36">
+      {/* Wavy top divider - z-20 covers anything above */}
+      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-14 md:h-20" preserveAspectRatio="none">
+          <path d="M0 80H1440V40C1200 0 960 80 720 40C480 0 240 80 0 40V80Z" fill="white"/>
         </svg>
       </div>
 
       {/* Decorative diamonds */}
       <div className="absolute top-32 left-[8%] w-6 h-6 bg-white/15 rotate-45 rounded hidden md:block" />
       <div className="absolute top-48 right-[12%] w-4 h-4 bg-[#3B468E]/20 rotate-45 rounded-sm hidden md:block" />
-      <div className="absolute bottom-60 left-[15%] w-5 h-5 border-2 border-white/15 rotate-45 rounded hidden md:block" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-8 md:pt-28 md:pb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Bento grid */}
         <div className="grid lg:grid-cols-12 gap-5 lg:gap-8">
-          
+
           {/* Header + stats - 7 cols */}
           <div className="lg:col-span-7">
             <div className={`mb-8 md:mb-10 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <span className="inline-block text-sm font-bold text-white/70 uppercase tracking-wider mb-3">By the Numbers</span>
               <h2 className="font-serif font-black text-3xl sm:text-4xl md:text-5xl text-white leading-[1.1] mb-4">
-                Our Impact on<br className="hidden sm:block"/>Louisiana Wildlife
+                Our Impact on<br className="hidden sm:block" />Louisiana Wildlife
               </h2>
               <p className="text-base md:text-lg text-white/80 max-w-md">
                 Every number represents a life saved, a species protected, and a community united.
@@ -80,39 +79,39 @@ export function ImpactStats() {
             </div>
 
             {/* Stats row */}
-            <div className="grid grid-cols-3 gap-3 md:gap-4">
+            <div className="grid grid-cols-3 gap-3 md:gap-4 pb-16 md:pb-20">
               {stats.map((stat, i) => (
                 <StatCard key={stat.label} {...stat} delay={200 + i * 100} vis={vis} />
               ))}
             </div>
           </div>
 
-          {/* Beaver - 5 cols, pushed to right bottom */}
-          <div className={`lg:col-span-5 relative transition-all duration-700 delay-300 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="relative h-[280px] sm:h-[320px] md:h-[380px] lg:h-full min-h-[300px]">
-              <Image 
-                src="/images/animals/beaver.svg" 
-                alt="Beaver" 
-                fill 
-                className="object-contain object-right-bottom drop-shadow-2xl mt-[23px]" 
-                sizes="(max-width:768px) 100vw, 40vw" 
-              />
-            </div>
-
+          {/* Beaver - 5 cols, z-0 so bottom wave covers its feet */}
+          <div className={`lg:col-span-5 relative z-0 transition-all duration-700 delay-300 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {/* Floating badge */}
-            <div className={`absolute top-0 left-0 bg-white rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 shadow-xl transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className={`absolute top-0 left-0 bg-white rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 shadow-xl z-10 transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <p className="text-xs md:text-sm text-gray-500">100% of donations</p>
               <p className="text-lg md:text-xl font-black text-[#26C9AA]">Goes to animals</p>
+            </div>
+
+            <div className="relative h-[280px] sm:h-[320px] md:h-[420px] lg:h-[500px] min-h-[280px]">
+              <Image
+                src="/images/animals/beaver.svg"
+                alt="Beaver"
+                fill
+                className="object-contain object-bottom drop-shadow-2xl"
+                sizes="(max-width:768px) 100vw, 40vw"
+              />
             </div>
           </div>
 
         </div>
       </div>
 
-      {/* Wavy bottom divider - teal scallop going INTO off-white */}
-      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none rotate-180 z-20">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16 md:h-20" preserveAspectRatio="none">
-          <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="#F8F4F4"/>
+      {/* Wave at bottom - z-20 sits IN FRONT of beaver (z-0) */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 md:h-16" preserveAspectRatio="none">
+          <path d="M0 80H1440V40C1200 0 960 80 720 40C480 0 240 80 0 40V80Z" fill="#F8F4F4"/>
         </svg>
       </div>
     </section>
@@ -124,8 +123,8 @@ function StatCard({ value, label, suffix, icon: Icon, delay, vis }: {
 }) {
   const { count, ref } = useCountUp(value)
   return (
-    <div 
-      ref={ref} 
+    <div
+      ref={ref}
       className={`bg-white rounded-xl md:rounded-[1.5rem] p-4 md:p-5 shadow-lg text-center transition-all duration-700 ease-out ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       style={{ transitionDelay: `${delay}ms` }}
     >

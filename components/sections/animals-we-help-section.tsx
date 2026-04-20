@@ -18,13 +18,20 @@ export function AnimalsWeHelpSection() {
   }, [])
 
   return (
-    <section ref={ref} className="relative bg-white overflow-hidden py-16 md:py-20 lg:py-28">
+    <section ref={ref} className="relative bg-white overflow-hidden pt-28 pb-16 md:pt-36 md:pb-20 lg:pb-28">
+      {/* Wavy top divider — matches white wave from HowToHelp bottom */}
+      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-14 md:h-20" preserveAspectRatio="none">
+          <path d="M0 80H1440V40C1200 0 960 80 720 40C480 0 240 80 0 40V80Z" fill="white"/>
+        </svg>
+      </div>
+
       {/* Decorative diamonds */}
       <div className="absolute top-28 left-[6%] w-5 h-5 bg-[#26C9AA]/15 rotate-45 rounded hidden md:block" />
       <div className="absolute top-48 right-[10%] w-4 h-4 bg-[#3B468E]/15 rotate-45 rounded-sm hidden md:block" />
       <div className="absolute bottom-40 right-[8%] w-6 h-6 border-2 border-[#26C9AA]/15 rotate-45 rounded hidden md:block" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className={`text-center max-w-2xl mx-auto mb-10 md:mb-14 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-3">Native Louisiana Wildlife</span>
@@ -36,7 +43,7 @@ export function AnimalsWeHelpSection() {
           </p>
         </div>
 
-        {/* Animals grid - bento style with varying sizes */}
+        {/* Animals grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 lg:gap-5 mb-10 md:mb-12">
           {species.slice(0, 8).map((animal, i) => (
             <Link
@@ -46,17 +53,17 @@ export function AnimalsWeHelpSection() {
               style={{ transitionDelay: `${150 + i * 75}ms` }}
             >
               <div className={`${i === 0 || i === 5 ? 'aspect-[3/4]' : 'aspect-square'} relative`}>
-              <Image 
-                src={animal.image} 
-                alt={animal.name} 
-                fill 
-                className="object-contain p-2 md:p-3 group-hover:scale-105 transition-transform duration-500" 
-                sizes="(max-width:768px) 50vw, 25vw"
-                style={{
-                  marginTop: i === 1 ? '36px' : i === 2 ? '22px' : i === 3 ? '17px' : '0px',
-                  marginBottom: i === 1 ? '5px' : i === 2 ? '9px' : '0px'
-                }}
-              />
+                <Image
+                  src={animal.image}
+                  alt={animal.name}
+                  fill
+                  className="object-contain p-2 md:p-3 group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width:768px) 50vw, 25vw"
+                  style={{
+                    marginTop: i === 1 ? '36px' : i === 2 ? '22px' : i === 3 ? '17px' : '0px',
+                    marginBottom: i === 1 ? '5px' : i === 2 ? '9px' : '0px',
+                  }}
+                />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-white via-white/95 to-transparent">
                 <h3 className="font-bold text-[#1a1f3d] text-sm md:text-lg group-hover:text-[#26C9AA] transition-colors">
@@ -64,7 +71,7 @@ export function AnimalsWeHelpSection() {
                 </h3>
                 <p className="text-[10px] md:text-xs text-gray-500 italic hidden sm:block">{animal.scientificName}</p>
               </div>
-              
+
               {/* Hover arrow */}
               <div className="absolute top-2 right-2 md:top-4 md:right-4 w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#26C9AA] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <ArrowRight className="h-3 w-3 md:h-4 md:w-4 text-white" />

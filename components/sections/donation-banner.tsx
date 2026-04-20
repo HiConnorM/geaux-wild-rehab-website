@@ -16,7 +16,14 @@ export function DonationBanner() {
   }, [])
 
   return (
-    <section ref={bannerRef} className="relative py-16 md:py-20 lg:py-28 bg-[#F8F4F4] overflow-hidden">
+    <section ref={bannerRef} className="relative pt-28 pb-16 md:pt-36 md:pb-20 lg:pb-28 bg-[#F8F4F4] overflow-hidden">
+      {/* Wavy top divider */}
+      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-14 md:h-20" preserveAspectRatio="none">
+          <path d="M0 80H1440V40C1200 0 960 80 720 40C480 0 240 80 0 40V80Z" fill="#F8F4F4"/>
+        </svg>
+      </div>
+
       {/* Decorative diamonds */}
       <div className="absolute top-20 left-[10%] w-5 h-5 bg-[#26C9AA]/10 rotate-45 rounded hidden md:block" />
       <div className="absolute top-32 right-[8%] w-4 h-4 bg-[#3B468E]/10 rotate-45 rounded-sm hidden md:block" />

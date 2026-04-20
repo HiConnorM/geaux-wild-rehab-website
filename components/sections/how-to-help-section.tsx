@@ -17,11 +17,11 @@ export function HowToHelpSection() {
   }, [])
 
   return (
-    <section ref={ref} className="relative bg-[#3B468E] overflow-hidden">
-      {/* Wavy top divider - white scallop coming DOWN into navy */}
-      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16 md:h-20" preserveAspectRatio="none">
-          <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="#F8F4F4"/>
+    <section ref={ref} className="relative bg-[#3B468E] overflow-hidden pt-28 pb-0 md:pt-36">
+      {/* Wavy top divider - z-20 so it covers anything behind it */}
+      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-14 md:h-20" preserveAspectRatio="none">
+          <path d="M0 80H1440V40C1200 0 960 80 720 40C480 0 240 80 0 40V80Z" fill="#F8F4F4"/>
         </svg>
       </div>
 
@@ -30,7 +30,7 @@ export function HowToHelpSection() {
       <div className="absolute top-48 right-[12%] w-4 h-4 bg-[#26C9AA]/30 rotate-45 rounded-sm hidden md:block" />
       <div className="absolute bottom-60 left-[15%] w-5 h-5 border-2 border-white/10 rotate-45 rounded hidden md:block" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-8 md:pt-28 md:pb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className={`text-center max-w-2xl mx-auto mb-10 md:mb-14 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-3">Make a Difference</span>
@@ -44,7 +44,7 @@ export function HowToHelpSection() {
 
         {/* Bento grid */}
         <div className="grid lg:grid-cols-12 gap-4 md:gap-5">
-          
+
           {/* Donate card - large */}
           <div className={`lg:col-span-7 bg-white rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 shadow-xl transition-all duration-700 delay-100 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="flex flex-col sm:flex-row gap-4 md:gap-5 mb-6">
@@ -56,7 +56,7 @@ export function HowToHelpSection() {
                 <p className="text-gray-600 text-sm md:text-base">Every dollar goes directly to animal care. We are 100% volunteer-run.</p>
               </div>
             </div>
-            
+
             <div className="flex flex-wrap gap-2 md:gap-3 mb-6">
               {['$25', '$50', '$100', '$250'].map(amt => (
                 <button key={amt} className="px-5 md:px-6 py-2.5 md:py-3 rounded-full bg-[#F8F4F4] hover:bg-[#26C9AA] hover:text-white text-[#1a1f3d] font-bold transition-all text-sm md:text-base">
@@ -64,7 +64,7 @@ export function HowToHelpSection() {
                 </button>
               ))}
             </div>
-            
+
             <Button asChild size="lg" className="rounded-full h-12 md:h-14 px-6 md:px-8 bg-[#26C9AA] hover:bg-[#1eb89a] text-white font-bold w-full sm:w-auto">
               <Link href="/support">
                 Donate Now
@@ -95,31 +95,31 @@ export function HowToHelpSection() {
               <h3 className="font-bold text-base md:text-lg text-white mb-1">Spread the Word</h3>
               <p className="text-white/60 text-xs md:text-sm">Follow us on social media and share our mission.</p>
             </div>
-            
+
             <div className="bg-white/10 backdrop-blur-sm rounded-[1.5rem] md:rounded-[2rem] p-5 md:p-6 border border-white/10">
               <div className="text-2xl md:text-3xl font-black text-[#26C9AA] mb-2">501(c)(3)</div>
               <p className="text-white/60 text-xs md:text-sm">All donations are tax-deductible. EIN available upon request.</p>
             </div>
           </div>
 
-          {/* Opossum - 5 cols, bigger and at bottom */}
-          <div className={`lg:col-span-5 relative h-[300px] sm:h-[350px] md:h-[400px] transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <Image 
-              src="/images/animals/opossum.svg" 
-              alt="Opossum" 
-              fill 
-              className="object-contain object-bottom drop-shadow-2xl mt-[35px]" 
-              sizes="(max-width:768px) 100vw, 40vw" 
+          {/* Opossum - z-0 so bottom wave sits IN FRONT of its feet */}
+          <div className={`lg:col-span-5 relative h-[260px] sm:h-[300px] md:h-[360px] z-0 transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <Image
+              src="/images/animals/opossum.svg"
+              alt="Opossum"
+              fill
+              className="object-contain object-bottom drop-shadow-2xl"
+              sizes="(max-width:768px) 100vw, 40vw"
             />
           </div>
 
         </div>
       </div>
 
-      {/* Wavy bottom divider - navy scallop going INTO white */}
-      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none rotate-180 z-20">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16 md:h-20" preserveAspectRatio="none">
-          <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="white"/>
+      {/* Wave at bottom - z-20 sits IN FRONT of opossum (z-0) */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 md:h-16" preserveAspectRatio="none">
+          <path d="M0 80H1440V40C1200 0 960 80 720 40C480 0 240 80 0 40V80Z" fill="white"/>
         </svg>
       </div>
     </section>
