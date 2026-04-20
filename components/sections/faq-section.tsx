@@ -111,7 +111,7 @@ export function FAQSection() {
       {/* Wave at bottom - z-20 sits IN FRONT of bobcat (z-0), snug to section bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 md:h-16" preserveAspectRatio="none">
-          <path d="M0 80V50C180 20 360 60 540 40C720 20 900 60 1080 40C1260 20 1380 50 1440 50V80H0Z" fill="#F8F4F4"/>
+          <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#F8F4F4"/>
         </svg>
       </div>
     </section>

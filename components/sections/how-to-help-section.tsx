@@ -21,7 +21,7 @@ export function HowToHelpSection() {
       {/* Wavy top divider - z-20 so it covers anything behind it */}
       <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-14 md:h-20" preserveAspectRatio="none">
-          <path d="M0 80H1440V40C1200 0 960 80 720 40C480 0 240 80 0 40V80Z" fill="#F8F4F4"/>
+          <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="#F8F4F4"/>
         </svg>
       </div>
 
@@ -119,7 +119,7 @@ export function HowToHelpSection() {
       {/* Wave at bottom - z-20 sits IN FRONT of opossum (z-0) */}
       <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 md:h-16" preserveAspectRatio="none">
-          <path d="M0 80V50C180 20 360 60 540 40C720 20 900 60 1080 40C1260 20 1380 50 1440 50V80H0Z" fill="white"/>
+          <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="white"/>
         </svg>
       </div>
     </section>
