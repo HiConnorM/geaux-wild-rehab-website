@@ -46,13 +46,17 @@ export function AnimalsWeHelpSection() {
               style={{ transitionDelay: `${150 + i * 75}ms` }}
             >
               <div className={`${i === 0 || i === 5 ? 'aspect-[3/4]' : 'aspect-square'} relative`}>
-                <Image 
-                  src={animal.image} 
-                  alt={animal.name} 
-                  fill 
-                  className="object-contain p-2 md:p-3 group-hover:scale-105 transition-transform duration-500" 
-                  sizes="(max-width:768px) 50vw, 25vw" 
-                />
+              <Image 
+                src={animal.image} 
+                alt={animal.name} 
+                fill 
+                className="object-contain p-2 md:p-3 group-hover:scale-105 transition-transform duration-500" 
+                sizes="(max-width:768px) 50vw, 25vw"
+                style={{
+                  marginTop: i === 1 ? '36px' : i === 2 ? '22px' : i === 3 ? '17px' : '0px',
+                  marginBottom: i === 1 ? '5px' : i === 2 ? '9px' : '0px'
+                }}
+              />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-white via-white/95 to-transparent">
                 <h3 className="font-bold text-[#1a1f3d] text-sm md:text-lg group-hover:text-[#26C9AA] transition-colors">

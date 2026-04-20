@@ -17,7 +17,7 @@ export function AboutSection() {
   }, [])
 
   return (
-    <section ref={ref} className="relative bg-[#F8F4F4] overflow-visible py-16 md:py-20 lg:py-28">
+    <section ref={ref} className="relative bg-[#F8F4F4] overflow-visible py-16 md:py-20 lg:py-28" style={{ marginTop: '-20px', marginBottom: '-109px' }}>
       {/* Decorative diamonds - hidden on mobile */}
       <div className="hidden md:block absolute top-20 right-[10%] w-5 h-5 bg-[#26C9AA]/20 rotate-45 rounded" />
       <div className="hidden md:block absolute top-40 right-[5%] w-3 h-3 bg-[#3B468E]/20 rotate-45 rounded-sm" />

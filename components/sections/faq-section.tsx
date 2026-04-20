@@ -21,7 +21,7 @@ export function FAQSection() {
   const topFaqs = faqs.filter(f => f.category === 'Found Wildlife').slice(0, 4)
 
   return (
-    <section ref={ref} className="relative bg-white overflow-hidden py-20 lg:py-28" style={{ paddingBottom: '75px' }}>
+    <section ref={ref} className="relative bg-white overflow-hidden py-20 lg:py-28" style={{ paddingBottom: '75px', marginTop: '-46px' }}>
       {/* Decorative diamonds */}
       <div className="absolute top-28 right-[8%] w-5 h-5 bg-[#26C9AA]/15 rotate-45 rounded hidden md:block" />
       <div className="absolute top-48 left-[12%] w-4 h-4 bg-[#3B468E]/15 rotate-45 rounded-sm hidden md:block" />

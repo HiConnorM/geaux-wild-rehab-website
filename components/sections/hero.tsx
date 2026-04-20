@@ -111,7 +111,7 @@ export function Hero() {
 
       {/* Wavy bottom divider */}
       <div className="absolute bottom-0 left-0 right-0 z-20">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16 md:h-24 lg:h-auto" preserveAspectRatio="none">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16 md:h-24 lg:h-auto" preserveAspectRatio="none" style={{ marginTop: '1px' }}>
           <path d="M0 120V60C240 100 480 20 720 60C960 100 1200 20 1440 60V120H0Z" fill="#F8F4F4"/>
         </svg>
       </div>
