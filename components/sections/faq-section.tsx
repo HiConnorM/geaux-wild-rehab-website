@@ -29,8 +29,8 @@ export function FAQSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
 
-          {/* FAQ content - 7 cols, order first on mobile */}
-          <div className="lg:col-span-7 order-1 pb-16 md:pb-20">
+          {/* FAQ content - 7 cols, order last on desktop (right side) */}
+          <div className="lg:col-span-7 order-last lg:order-last pb-16 md:pb-20">
             <div className={`mb-6 md:mb-8 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-3">Quick Answers</span>
               <h2 className="font-serif font-black text-3xl sm:text-4xl md:text-5xl text-[#1a1f3d] leading-[1.1] mb-4">
@@ -70,8 +70,8 @@ export function FAQSection() {
             </Link>
           </div>
 
-          {/* Bobcat column - 5 cols RIGHT side, animal at bottom z-0, wave covers its feet */}
-          <div className={`lg:col-span-5 relative order-first lg:order-last transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* Bobcat column - 5 cols LEFT side, animal at bottom z-0, wave covers its feet */}
+          <div className={`lg:col-span-5 relative order-first lg:order-first transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
 
             {/* Hotline badge */}
             <div className={`absolute top-0 right-0 bg-white rounded-xl md:rounded-2xl px-3 md:px-4 py-2 md:py-3 shadow-lg border border-gray-100 z-10 transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
