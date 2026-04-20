@@ -119,7 +119,7 @@ export function HowToHelpSection() {
       {/* Wave at bottom - z-20 sits IN FRONT of opossum (z-0) */}
       <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 md:h-16" preserveAspectRatio="none">
-          <path d="M0 80H1440V40C1200 0 960 80 720 40C480 0 240 80 0 40V80Z" fill="white"/>
+          <path d="M0 40C240 80 480 0 720 40C960 80 1200 0 1440 40V80H0V40Z" fill="white"/>
         </svg>
       </div>
     </section>
