@@ -70,8 +70,8 @@ export function FAQSection() {
             </Link>
           </div>
 
-          {/* Bobcat column - 5 cols, animal at bottom z-0, wave covers its feet */}
-          <div className={`lg:col-span-5 relative order-2 lg:order-2 transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* Bobcat column - 5 cols RIGHT side, animal at bottom z-0, wave covers its feet */}
+          <div className={`lg:col-span-5 relative order-first lg:order-last transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
 
             {/* Hotline badge */}
             <div className={`absolute top-0 right-0 bg-white rounded-xl md:rounded-2xl px-3 md:px-4 py-2 md:py-3 shadow-lg border border-gray-100 z-10 transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -111,7 +111,7 @@ export function FAQSection() {
       {/* Wave at bottom - z-20 sits IN FRONT of bobcat (z-0), snug to section bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 md:h-16" preserveAspectRatio="none">
-          <path d="M0 40C240 80 480 0 720 40C960 80 1200 0 1440 40V80H0V40Z" fill="#F8F4F4"/>
+          <path d="M0 80V50C180 20 360 60 540 40C720 20 900 60 1080 40C1260 20 1380 50 1440 50V80H0Z" fill="#F8F4F4"/>
         </svg>
       </div>
     </section>
