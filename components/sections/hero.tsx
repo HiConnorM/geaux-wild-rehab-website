@@ -51,7 +51,7 @@ export function Hero() {
             <span className="block text-[4rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem] xl:text-[12rem]">
               GEAUX
             </span>
-            <span className="block text-[4rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem] xl:text-[12rem]" style={{ lineHeight: '1.2' }}>
+            <span className="block text-[4rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem] xl:text-[12rem]" style={{ lineHeight: '0.8' }}>
               WILD
             </span>
           </h1>
@@ -94,7 +94,7 @@ export function Hero() {
       </div>
 
       {/* Fox image - z-0 so wave (z-20) sits in front of it */}
-      <div className={`relative z-0 max-w-7xl mx-auto px-4 sm:px-6 transition-all duration-1000 delay-300 -mt-[236px] ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+      <div className={`relative z-0 max-w-7xl mx-auto px-4 sm:px-6 transition-all duration-1000 delay-300 -mt-[264px] ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
         <div className="relative w-[85%] sm:w-[70%] md:w-[55%] lg:w-[45%] mx-auto">
           <div className="relative aspect-[3/4]">
             <Image
