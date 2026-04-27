@@ -17,8 +17,6 @@ const TIKTOK_VIDEOS = [
 export function TikTokSection() {
   const ref = useRef<HTMLElement>(null)
   const [vis, setVis] = useState(false)
-  const scriptLoaded = useRef(false)
-
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([e]) => e.isIntersecting && setVis(true),
@@ -28,15 +26,7 @@ export function TikTokSection() {
     return () => obs.disconnect()
   }, [])
 
-  // Load TikTok embed script once videos are visible
-  useEffect(() => {
-    if (!vis || scriptLoaded.current) return
-    scriptLoaded.current = true
-    const script = document.createElement('script')
-    script.src = 'https://www.tiktok.com/embed.js'
-    script.async = true
-    document.body.appendChild(script)
-  }, [vis])
+
 
   return (
     <section ref={ref} className="relative bg-[#1a1f3d] overflow-hidden py-20 md:py-28">
@@ -81,37 +71,29 @@ export function TikTokSection() {
           </p>
         </div>
 
-        {/* TikTok embeds grid — 3 cols, each embed scales to fill its column */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 md:mb-16 items-start">
+        {/* TikTok embeds grid — 3 cols with fixed 9:16 aspect ratio iframes */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 md:mb-16">
           {TIKTOK_VIDEOS.map((id, i) => (
             <div
               key={id}
-              className="w-full overflow-hidden rounded-2xl"
+              className="mx-auto w-full max-w-[320px]"
               style={{
-                transitionDelay: `${100 + i * 80}ms`,
                 opacity: vis ? 1 : 0,
                 transform: vis ? 'translateY(0)' : 'translateY(2rem)',
-                transition: 'opacity 700ms, transform 700ms',
+                transition: `opacity 700ms ${100 + i * 80}ms, transform 700ms ${100 + i * 80}ms`,
               }}
             >
-              <blockquote
-                className="tiktok-embed"
-                cite={`https://www.tiktok.com/@geauxwildrehab/video/${id}`}
-                data-video-id={id}
-                data-embed-type="video"
-                style={{ margin: 0, maxWidth: '100%', minWidth: '0' }}
-              >
-                <section>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={`https://www.tiktok.com/@geauxwildrehab/video/${id}`}
-                    className="text-white/60 text-sm hover:text-white"
-                  >
-                    View on TikTok
-                  </a>
-                </section>
-              </blockquote>
+              {/* 9:16 aspect ratio wrapper */}
+              <div className="relative w-full overflow-hidden rounded-2xl" style={{ paddingBottom: '177.78%' }}>
+                <iframe
+                  src={`https://www.tiktok.com/embed/v2/${id}?lang=en-US`}
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="encrypted-media"
+                  allowFullScreen
+                  title={`TikTok video ${id}`}
+                  loading="lazy"
+                />
+              </div>
             </div>
           ))}
         </div>
