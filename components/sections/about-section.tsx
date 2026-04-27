@@ -22,7 +22,7 @@ export function AboutSection() {
       <div className="hidden md:block absolute top-20 right-[10%] w-5 h-5 bg-[#26C9AA]/20 rotate-45 rounded" />
       <div className="hidden md:block absolute top-40 right-[5%] w-3 h-3 bg-[#3B468E]/20 rotate-45 rounded-sm" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6" style={{ marginBottom: '-10px' }}>
         <div className="grid lg:grid-cols-12 gap-4 md:gap-5">
 
           {/* Raccoon - LEFT side, 5 cols, z-0 so the bottom wave sits in front of its feet */}
