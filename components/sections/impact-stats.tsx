@@ -56,7 +56,7 @@ export function ImpactStats() {
       <div className="absolute top-32 left-[8%] w-6 h-6 bg-white/15 rotate-45 rounded hidden md:block" />
       <div className="absolute top-48 right-[12%] w-4 h-4 bg-[#3B468E]/20 rotate-45 rounded-sm hidden md:block" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6" style={{ marginTop: '44px' }}>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6" style={{ marginTop: '44px', paddingTop: '28px' }}>
         {/* Bento grid */}
         <div className="grid lg:grid-cols-12 gap-5 lg:gap-8">
 
