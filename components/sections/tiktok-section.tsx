@@ -81,30 +81,32 @@ export function TikTokSection() {
           </p>
         </div>
 
-        {/* TikTok embeds grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-12 md:mb-16 items-start">
+        {/* TikTok embeds grid — 3 cols, each embed scales to fill its column */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 md:mb-16 items-start">
           {TIKTOK_VIDEOS.map((id, i) => (
             <div
               key={id}
-              className={`transition-all duration-700 min-w-0 [&>blockquote]:!m-0 [&>blockquote]:!min-w-0 [&>blockquote]:!max-w-full`}
+              className="w-full overflow-hidden rounded-2xl"
               style={{
                 transitionDelay: `${100 + i * 80}ms`,
                 opacity: vis ? 1 : 0,
                 transform: vis ? 'translateY(0)' : 'translateY(2rem)',
+                transition: 'opacity 700ms, transform 700ms',
               }}
             >
               <blockquote
                 className="tiktok-embed"
                 cite={`https://www.tiktok.com/@geauxwildrehab/video/${id}`}
                 data-video-id={id}
-                data-embed-from="embed_page"
-                style={{ maxWidth: '100%', minWidth: '0px' }}
+                data-embed-type="video"
+                style={{ margin: 0, maxWidth: '100%', minWidth: '0' }}
               >
                 <section>
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
                     href={`https://www.tiktok.com/@geauxwildrehab/video/${id}`}
+                    className="text-white/60 text-sm hover:text-white"
                   >
                     View on TikTok
                   </a>
