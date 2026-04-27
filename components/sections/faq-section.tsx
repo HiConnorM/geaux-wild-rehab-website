@@ -21,7 +21,7 @@ export function FAQSection() {
   const topFaqs = faqs.filter(f => f.category === 'Found Wildlife').slice(0, 4)
 
   return (
-    <section ref={ref} className="relative bg-white overflow-hidden pt-16 pb-0 md:pt-20 lg:pt-28">
+    <section ref={ref} className="relative z-10 bg-white overflow-hidden pt-16 pb-6 md:pt-20 md:pb-8 lg:pt-28" style={{ paddingBottom: '25px' }}>
       {/* Decorative diamonds */}
       <div className="absolute top-28 right-[8%] w-5 h-5 bg-[#26C9AA]/15 rotate-45 rounded hidden md:block" />
       <div className="absolute top-48 left-[12%] w-4 h-4 bg-[#3B468E]/15 rotate-45 rounded-sm hidden md:block" />
@@ -108,10 +108,10 @@ export function FAQSection() {
         </div>
       </div>
 
-      {/* Wave at bottom - z-20 sits IN FRONT of bobcat (z-0), snug to section bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+      {/* Wave at bottom — teal bites up, lives in z-10 FAQ so it always shows */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 md:h-16" preserveAspectRatio="none">
-          <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#F8F4F4"/>
+          <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#26C9AA"/>
         </svg>
       </div>
     </section>
