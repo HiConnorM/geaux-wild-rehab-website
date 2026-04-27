@@ -17,7 +17,7 @@ export function HowToHelpSection() {
   }, [])
 
   return (
-    <section ref={ref} className="relative bg-[#3B468E] overflow-hidden pt-20 pb-0 md:pt-24">
+    <section ref={ref} className="relative z-0 bg-[#3B468E] overflow-hidden pt-24 pb-0 md:pt-28 -mt-16 md:-mt-24">
       {/* Wavy top divider - height matches pt so no flat gap shows */}
       <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-20 md:h-24" preserveAspectRatio="none">
