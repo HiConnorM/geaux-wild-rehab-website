@@ -104,6 +104,12 @@ export function AboutSection() {
         </div>
       </div>
 
+      {/* Wave at bottom — navy bites up, lives in z-10 About so it always shows */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 md:h-16" preserveAspectRatio="none">
+          <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#3B468E"/>
+        </svg>
+      </div>
     </section>
   )
 }

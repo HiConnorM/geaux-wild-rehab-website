@@ -17,14 +17,7 @@ export function HowToHelpSection() {
   }, [])
 
   return (
-    <section ref={ref} className="relative z-0 bg-[#3B468E] overflow-hidden pt-24 pb-0 md:pt-28 -mt-16 md:-mt-24">
-      {/* Wavy top divider - height matches pt so no flat gap shows */}
-      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-20 md:h-24" preserveAspectRatio="none">
-          <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="#F8F4F4"/>
-        </svg>
-      </div>
-
+    <section ref={ref} className="relative z-0 bg-[#3B468E] overflow-hidden pt-8 pb-0 -mt-16 md:-mt-24">
       {/* Decorative diamonds */}
       <div className="absolute top-32 left-[8%] w-6 h-6 bg-white/10 rotate-45 rounded hidden md:block" />
       <div className="absolute top-48 right-[12%] w-4 h-4 bg-[#26C9AA]/30 rotate-45 rounded-sm hidden md:block" />
