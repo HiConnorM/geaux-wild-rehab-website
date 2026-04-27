@@ -17,10 +17,10 @@ export function HowToHelpSection() {
   }, [])
 
   return (
-    <section ref={ref} className="relative bg-[#3B468E] overflow-hidden pt-28 pb-0 md:pt-36">
-      {/* Wavy top divider - z-20 so it covers anything behind it */}
+    <section ref={ref} className="relative bg-[#3B468E] overflow-hidden pt-20 pb-0 md:pt-24">
+      {/* Wavy top divider - height matches pt so no flat gap shows */}
       <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-14 md:h-20" preserveAspectRatio="none">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-20 md:h-24" preserveAspectRatio="none">
           <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="#F8F4F4"/>
         </svg>
       </div>
