@@ -102,7 +102,7 @@ export function Hero() {
               alt="Red Fox"
               fill
               className="object-contain object-bottom drop-shadow-2xl"
-              style={{ marginTop: '-19px' }}
+              style={{ marginTop: '-25px' }}
               priority
               sizes="(max-width:768px) 85vw, 45vw"
             />
