@@ -94,7 +94,7 @@ export function AboutSection() {
                   <MapPin className="h-5 w-5 md:h-6 md:w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#1a1f3d] text-sm md:text-base mb-1">Baton Rouge, LA</h3>
+                  <h3 className="font-bold text-[#1a1f3d] text-sm md:text-base mb-1">Hammond, LA</h3>
                   <p className="text-xs md:text-sm text-gray-500">Serving the greater Louisiana area</p>
                 </div>
               </div>
