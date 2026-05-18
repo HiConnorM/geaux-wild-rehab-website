@@ -9,7 +9,7 @@ import { species } from '@/lib/content'
 
 export function AnimalsWeHelpSection() {
   const ref = useRef<HTMLDivElement>(null)
-  const [vis, setVis] = useState(false)
+  const [vis, setVis] = useState(true)
 
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVis(true), { threshold: 0.1, rootMargin: '50px' })

@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button'
 
 export default function WildlifePage() {
   const gridRef = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -70,7 +70,7 @@ export default function WildlifePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
             ref={gridRef}
-            className={`grid md:grid-cols-2 lg:grid-cols-4 gap-8 ${isVisible ? 'stagger-animate visible' : 'stagger-animate'}`}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {species.map((animal, index) => (
               <Link

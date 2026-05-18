@@ -102,7 +102,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
               <Image
-                src="/images/logo.svg"
+                src="/images/logo.png"
                 alt="Geaux Wild Rehab"
                 width={220}
                 height={81}
