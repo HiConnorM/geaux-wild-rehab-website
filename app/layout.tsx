@@ -20,11 +20,11 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Geaux Wild Rehab | Louisiana Native Wildlife Rehabilitation',
+    default: 'Geaux Wild Rehab | Louisiana Wildlife Rehabilitation',
     template: '%s | Geaux Wild Rehab',
   },
-  description: 'Geaux Wild Rehab is dedicated to the rescue, rehabilitation, and release of injured and orphaned native Louisiana wildlife. Found an animal? Get help now.',
-  keywords: ['wildlife rehabilitation', 'Louisiana', 'animal rescue', 'wildlife rescue', 'orphaned animals', 'injured wildlife', 'native wildlife'],
+  description: 'Geaux Wild Rehab is a 501(c)(3) nonprofit wildlife rehabilitation center based in Hammond, Louisiana, dedicated to giving Louisiana\'s native wildlife a second chance. Licensed by the Louisiana Department of Wildlife and Fisheries.',
+  keywords: ['wildlife rehabilitation', 'Louisiana', 'animal rescue', 'wildlife rescue', 'orphaned animals', 'injured wildlife', 'native wildlife', 'Hammond Louisiana', '501c3 nonprofit'],
   authors: [{ name: 'Geaux Wild Rehab' }],
   creator: 'Geaux Wild Rehab',
   openGraph: {
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://geauxwildrehab.org',
     siteName: 'Geaux Wild Rehab',
-    title: 'Geaux Wild Rehab | Louisiana Native Wildlife Rehabilitation',
-    description: 'Dedicated to the rescue, rehabilitation, and release of injured and orphaned native Louisiana wildlife.',
+    title: 'Geaux Wild Rehab | Louisiana Wildlife Rehabilitation',
+    description: 'A 501(c)(3) nonprofit dedicated to giving Louisiana\'s native wildlife a second chance. Based in Hammond, Louisiana. Licensed by the Louisiana Department of Wildlife and Fisheries.',
     images: [
       {
         url: '/images/og-image.jpg',
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Geaux Wild Rehab | Louisiana Native Wildlife Rehabilitation',
-    description: 'Dedicated to the rescue, rehabilitation, and release of injured and orphaned native Louisiana wildlife.',
+    title: 'Geaux Wild Rehab | Louisiana Wildlife Rehabilitation',
+    description: 'A 501(c)(3) nonprofit dedicated to giving Louisiana\'s native wildlife a second chance. Based in Hammond, Louisiana.',
     images: ['/images/og-image.jpg'],
   },
   robots: {
@@ -70,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable} bg-background`}>
       <head>
         <OrganizationSchema />
       </head>

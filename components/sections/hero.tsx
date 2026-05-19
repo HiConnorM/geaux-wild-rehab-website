@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Phone, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { impactStats } from '@/lib/content'
 
 export function Hero() {
   const [vis, setVis] = useState(false)
@@ -27,22 +28,26 @@ export function Hero() {
       {/* Main content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 md:pt-28 lg:pt-36 pb-0">
 
-        {/* Top bar - badge and hotline */}
+        {/* Top bar - badge and phone */}
         <div className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 mb-6 md:mb-8 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-white/20 backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
             <span className="text-xs md:text-sm font-medium text-white">Louisiana Wildlife Rehabilitation</span>
           </div>
 
-          <div className="flex items-center gap-2 md:gap-3 px-3 md:px-5 py-2 md:py-3 rounded-full bg-white shadow-lg">
+          <a
+            href="tel:5044918036"
+            className="flex items-center gap-2 md:gap-3 px-3 md:px-5 py-2 md:py-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-shadow"
+            aria-label="Call Geaux Wild Rehab at 504-491-8036"
+          >
             <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#26C9AA] flex items-center justify-center">
               <Phone className="h-3.5 w-3.5 md:h-4 md:w-4 text-white" />
             </div>
             <div>
-              <p className="text-[10px] md:text-xs text-gray-500">24/7 Hotline</p>
-              <p className="font-bold text-sm md:text-base text-[#1a1f3d]">(225) 505-5050</p>
+              <p className="text-[10px] md:text-xs text-gray-500">Contact Us</p>
+              <p className="font-bold text-sm md:text-base text-[#1a1f3d]">504-491-8036</p>
             </div>
-          </div>
+          </a>
         </div>
 
         {/* Giant playful title */}
@@ -61,7 +66,7 @@ export function Hero() {
         <div className={`flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-8 mb-6 md:mb-8 transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="max-w-md">
             <p className="text-base md:text-xl text-white/90 leading-relaxed mb-4 md:mb-6">
-              Rescuing, rehabilitating, and releasing Louisiana&apos;s native wildlife. Free of charge. Open 24/7.
+              Based in Hammond, Louisiana, Geaux Wild Rehab gives injured and orphaned native wildlife a second chance through licensed rehabilitation, compassionate care, and release back into the wild whenever possible.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Button asChild size="lg" className="rounded-full h-12 md:h-14 px-6 md:px-8 bg-white text-[#26C9AA] hover:bg-white/90 font-bold text-sm md:text-base shadow-lg w-full sm:w-auto justify-center">
@@ -79,14 +84,14 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Stats cards */}
+          {/* Stats cards — use impactStats as the single source of truth */}
           <div className="flex gap-3">
             <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-5 shadow-lg flex-1 sm:flex-initial">
-              <p className="text-2xl md:text-4xl font-black text-[#3B468E]">2,500+</p>
+              <p className="text-2xl md:text-4xl font-black text-[#3B468E]">{impactStats.animalsRescued.toLocaleString()}+</p>
               <p className="text-xs md:text-sm text-gray-500">Animals rescued</p>
             </div>
             <div className="bg-[#3B468E] rounded-2xl md:rounded-3xl p-4 md:p-5 shadow-lg flex-1 sm:flex-initial">
-              <p className="text-2xl md:text-4xl font-black text-white">87%</p>
+              <p className="text-2xl md:text-4xl font-black text-white">{impactStats.releaseRate}%</p>
               <p className="text-xs md:text-sm text-white/70">Release rate</p>
             </div>
           </div>

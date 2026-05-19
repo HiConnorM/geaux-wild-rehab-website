@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 
 export function AboutSection() {
   const ref = useRef<HTMLDivElement>(null)
-  const [vis, setVis] = useState(false)
+  const [vis, setVis] = useState(true)
 
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVis(true), { threshold: 0.1, rootMargin: '50px' })
@@ -25,11 +25,11 @@ export function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6" style={{ marginBottom: '-10px' }}>
         <div className="grid lg:grid-cols-12 gap-4 md:gap-5">
 
-          {/* Raccoon - LEFT side, 5 cols, z-0 so the bottom wave sits in front of its feet */}
+          {/* Left side image - opossum */}
           <div className={`lg:col-span-5 relative h-[260px] sm:h-[300px] md:h-[380px] z-0 order-last lg:order-first transition-all duration-700 delay-200 self-end ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Image
-              src="/images/animals/raccoon.svg"
-              alt="Raccoon"
+              src="/images/animals/opossum.svg"
+              alt="Virginia Opossum"
               fill
               className="object-contain object-bottom drop-shadow-2xl"
               sizes="(max-width:768px) 80vw, 40vw"
@@ -46,8 +46,7 @@ export function AboutSection() {
                 A Second Chance<br className="hidden sm:block" /> for Wildlife
               </h2>
               <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-5 md:mb-6 max-w-xl">
-                Geaux Wild Rehab is Louisiana&apos;s trusted wildlife rehabilitation center. We rescue injured,
-                orphaned, and displaced native wildlife, providing expert care before releasing them back to the wild.
+                Geaux Wild Rehab is a 501(c)(3) nonprofit wildlife rehabilitation center dedicated to giving Louisiana&apos;s native wildlife a second chance. We are licensed by the Louisiana Department of Wildlife and Fisheries to care for all native mammal species.
               </p>
               <Button asChild size="lg" className="rounded-full h-11 md:h-12 px-5 md:px-6 bg-[#3B468E] hover:bg-[#2d366d] text-white font-semibold w-full sm:w-auto">
                 <Link href="/about">
@@ -67,12 +66,12 @@ export function AboutSection() {
                 </div>
                 <div className="flex gap-6 md:gap-8 pt-2">
                   <div>
-                    <p className="text-3xl md:text-4xl font-black text-white">10+</p>
+                    <p className="text-3xl md:text-4xl font-black text-white">6+</p>
                     <p className="text-xs md:text-sm text-white/70">Years Active</p>
                   </div>
                   <div>
-                    <p className="text-3xl md:text-4xl font-black text-white">24/7</p>
-                    <p className="text-xs md:text-sm text-white/70">Emergency Line</p>
+                    <p className="text-3xl md:text-4xl font-black text-white">501(c)(3)</p>
+                    <p className="text-xs md:text-sm text-white/70">Nonprofit</p>
                   </div>
                 </div>
               </div>
@@ -86,7 +85,7 @@ export function AboutSection() {
                 </div>
                 <div>
                   <h3 className="font-bold text-[#1a1f3d] text-sm md:text-base mb-1">Expert Care</h3>
-                  <p className="text-xs md:text-sm text-gray-500">Trained rehabilitators with years of experience</p>
+                  <p className="text-xs md:text-sm text-gray-500">Licensed &amp; trained rehabilitators with years of experience.</p>
                 </div>
               </div>
               <div className="bg-white rounded-xl md:rounded-[2rem] p-5 md:p-6 shadow-lg shadow-black/5 border border-gray-100 flex gap-3 md:gap-4 items-start">
@@ -94,8 +93,8 @@ export function AboutSection() {
                   <MapPin className="h-5 w-5 md:h-6 md:w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#1a1f3d] text-sm md:text-base mb-1">Baton Rouge, LA</h3>
-                  <p className="text-xs md:text-sm text-gray-500">Serving the greater Louisiana area</p>
+                  <h3 className="font-bold text-[#1a1f3d] text-sm md:text-base mb-1">Hammond, LA</h3>
+                  <p className="text-xs md:text-sm text-gray-500">Serving native wildlife across Louisiana</p>
                 </div>
               </div>
             </div>

@@ -22,8 +22,8 @@ const footerLinks = {
 }
 
 const socialLinks = [
-  { href: 'https://instagram.com/geauxwildrehab', label: 'Instagram', icon: Instagram },
-  { href: 'https://facebook.com/geauxwildrehab', label: 'Facebook', icon: Facebook },
+  { href: 'https://www.instagram.com/geauxwildrehab/', label: 'Instagram', icon: Instagram },
+  { href: 'https://www.facebook.com/p/Geaux-Wild-Rehab-100087779529674/', label: 'Facebook', icon: Facebook },
   { href: 'https://tiktok.com/@geauxwildrehab', label: 'TikTok', icon: TikTokIcon },
 ]
 
@@ -65,9 +65,9 @@ export function Footer() {
                   variant="outline"
                   className="border-2 border-white/40 text-white hover:bg-white/10 hover:border-white/60 gap-2 rounded-full px-8 h-14 font-medium bg-transparent"
                 >
-                  <a href="https://www.amazon.com/hz/wishlist/ls/example" target="_blank" rel="noopener noreferrer">
+                  <a href="https://amazon.com/hz/wishlist/ls/1U43EOQ2AS8LA?ref_=wl_share" target="_blank" rel="noopener noreferrer" aria-label="Shop Our Amazon Wishlist (opens in new tab)">
                     <ExternalLink className="h-5 w-5" />
-                    Amazon Wishlist
+                    Shop Our Wishlist
                   </a>
                 </Button>
               </div>
@@ -102,16 +102,23 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
               <Image
-                src="/images/logo.svg"
+                src="/images/logo.png"
                 alt="Geaux Wild Rehab"
                 width={220}
                 height={81}
                 className="h-16 w-auto brightness-0 invert"
               />
             </Link>
-            <p className="text-white/60 mb-6 max-w-sm leading-relaxed">
-              Dedicated to the rescue, rehabilitation, and release of injured and orphaned native Louisiana wildlife.
+            <p className="text-white/60 mb-3 max-w-sm leading-relaxed">
+              A 501(c)(3) nonprofit dedicated to the rescue, rehabilitation, and release of injured and orphaned native Louisiana wildlife. Based in Hammond, Louisiana.
             </p>
+            <a
+              href="tel:5044918036"
+              className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors mb-6 text-sm"
+              aria-label="Call Geaux Wild Rehab"
+            >
+              <span>504-491-8036</span>
+            </a>
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
                 <a
@@ -188,7 +195,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/40">
             <p>&copy; {currentYear} Geaux Wild Rehab. All rights reserved.</p>
             <p>
-              Serving Louisiana&apos;s native wildlife with love and care.
+              Based in Hammond, Louisiana &mdash; serving native wildlife across the state.
             </p>
           </div>
         </div>

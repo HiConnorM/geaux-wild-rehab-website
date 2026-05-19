@@ -41,7 +41,7 @@ const stats = [
 
 export function ImpactStats() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [vis, setVis] = useState(false)
+  const [vis, setVis] = useState(true)
 
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVis(true), { threshold: 0.1, rootMargin: '50px' })

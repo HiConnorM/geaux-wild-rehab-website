@@ -9,7 +9,7 @@ import { stories } from '@/lib/content'
 
 export function StoriesSection() {
   const ref = useRef<HTMLDivElement>(null)
-  const [vis, setVis] = useState(false)
+  const [vis, setVis] = useState(true)
 
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVis(true), { threshold: 0.1, rootMargin: '50px' })
@@ -59,8 +59,8 @@ export function StoriesSection() {
                 >
                   {/* Thumbnail */}
                   <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl md:rounded-2xl bg-[#26C9AA]/10 flex items-center justify-center shrink-0 overflow-hidden">
-                    {story.image ? (
-                      <Image src={story.image} alt={story.title} width={96} height={96} className="w-full h-full object-cover" />
+                    {story.heroImage ? (
+                      <Image src={story.heroImage} alt={story.title} width={96} height={96} className="w-full h-full object-cover" />
                     ) : (
                       <span className="text-2xl md:text-3xl font-black text-[#26C9AA] font-serif">{String(i + 1).padStart(2, '0')}</span>
                     )}

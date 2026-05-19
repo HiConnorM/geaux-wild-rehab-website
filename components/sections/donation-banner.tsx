@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 
 export function DonationBanner() {
   const bannerRef = useRef<HTMLElement>(null)
-  const [vis, setVis] = useState(false)
+  const [vis, setVis] = useState(true)
 
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVis(true), { threshold: 0.1, rootMargin: '50px' })
@@ -96,8 +96,8 @@ export function DonationBanner() {
               ))}
             </ul>
             <Button asChild size="lg" className="w-full rounded-full h-12 md:h-14 bg-white text-[#3B468E] hover:bg-white/90 font-bold">
-              <a href="https://www.amazon.com/hz/wishlist/ls/example" target="_blank" rel="noopener noreferrer">
-                View Wishlist
+              <a href="https://amazon.com/hz/wishlist/ls/1U43EOQ2AS8LA?ref_=wl_share" target="_blank" rel="noopener noreferrer" aria-label="View our Amazon Wishlist (opens in new tab)">
+                Shop Our Wishlist
                 <ExternalLink className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </a>
             </Button>
