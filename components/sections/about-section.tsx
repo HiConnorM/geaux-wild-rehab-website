@@ -23,16 +23,18 @@ export function AboutSection() {
       <div className="hidden md:block absolute top-40 right-[5%] w-3 h-3 bg-[#3B468E]/20 rotate-45 rounded-sm" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6" style={{ marginBottom: '-10px' }}>
-        <div className="grid lg:grid-cols-12 gap-4 md:gap-5">
+        <div className="grid lg:grid-cols-12 gap-4 md:gap-5 lg:items-start">
 
           {/* Left side image - beaver */}
-          <div className={`lg:col-span-5 relative h-[260px] sm:h-[300px] md:h-[380px] z-0 order-last lg:order-first transition-all duration-700 delay-200 self-end ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* self-stretch + min-h makes column fill full right-column height.        */}
+          {/* overflow-visible + -mb-16 lets the bottom bleed behind the wave (z-0). */}
+          <div className={`lg:col-span-5 relative self-stretch min-h-[260px] sm:min-h-[320px] z-0 order-last lg:order-first overflow-visible -mb-16 transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Image
               src="/images/animals/beaver.svg"
               alt="Beaver"
               fill
               className="object-contain object-bottom drop-shadow-2xl"
-              sizes="(max-width:768px) 80vw, 40vw"
+              sizes="(max-width:768px) 80vw, 42vw"
             />
           </div>
 
