@@ -37,6 +37,17 @@ export interface Story {
   species: string[]
 }
 
+// Safely format a "YYYY-MM-DD" date string without timezone shifting.
+// new Date("2024-08-15") parses as midnight UTC, which shifts the day back
+// in behind-UTC timezones and causes SSR/client hydration mismatches.
+export function formatDate(
+  dateStr: string,
+  options: Intl.DateTimeFormatOptions = { month: 'long', day: 'numeric', year: 'numeric' }
+): string {
+  const [y, m, d] = dateStr.split('-').map(Number)
+  return new Date(y, m - 1, d).toLocaleDateString('en-US', options)
+}
+
 // Comprehensive Species data - Mammals only (no birds)
 export const species: Species[] = [
   {

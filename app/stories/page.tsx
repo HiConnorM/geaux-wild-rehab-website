@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Calendar, ArrowRight, Heart } from 'lucide-react'
-import { getStories } from '@/lib/content'
+import { getStories, formatDate } from '@/lib/content'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 
@@ -70,11 +70,7 @@ export default async function StoriesPage() {
                     <div className="p-6">
                       <div className="flex items-center gap-2 text-muted-foreground text-sm mb-3">
                         <Calendar className="h-4 w-4" />
-                        {new Date(story.date).toLocaleDateString('en-US', {
-                          month: 'long',
-                          day: 'numeric',
-                          year: 'numeric',
-                        })}
+                        {formatDate(story.date, { month: 'long', day: 'numeric', year: 'numeric' })}
                       </div>
                       <h2 className="text-xl font-semibold text-card-foreground mb-2 group-hover:text-primary transition-colors">
                         {story.title}

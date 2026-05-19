@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Calendar } from 'lucide-react'
-import { stories } from '@/lib/content'
+import { stories, formatDate } from '@/lib/content'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 
@@ -97,11 +97,7 @@ export function FeaturedStories() {
               <div className="p-6">
                 <div className="flex items-center gap-2 text-muted-foreground text-sm mb-3">
                   <Calendar className="h-4 w-4" />
-                  {new Date(story.date).toLocaleDateString('en-US', {
-                    month: 'long',
-                    day: 'numeric',
-                    year: 'numeric',
-                  })}
+                  {formatDate(story.date, { month: 'long', day: 'numeric', year: 'numeric' })}
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
                   {story.title}

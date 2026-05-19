@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, MapPin, Utensils, Brain, Clock, Heart, Lightbulb, ShieldCheck, AlertTriangle } from 'lucide-react'
-import { species, getStoriesBySpecies } from '@/lib/content'
+import { species, getStoriesBySpecies, formatDate } from '@/lib/content'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 
@@ -279,7 +279,7 @@ export default async function SpeciesDetailPage({ params }: Props) {
                               {story.title}
                             </h4>
                             <p className="text-sm text-muted-foreground mt-1">
-                              {new Date(story.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                            {formatDate(story.date, { month: 'short', year: 'numeric' })}
                             </p>
                           </div>
                         </div>

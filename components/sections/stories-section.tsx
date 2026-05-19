@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Calendar } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { stories } from '@/lib/content'
+import { stories, formatDate } from '@/lib/content'
 
 export function StoriesSection() {
   const ref = useRef<HTMLDivElement>(null)
@@ -69,7 +69,7 @@ export function StoriesSection() {
                   <div className="flex-1 min-w-0 py-1">
                     <div className="flex items-center gap-2 text-xs text-gray-500 mb-1 md:mb-2">
                       <Calendar className="h-3 w-3" />
-                      {new Date(story.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                      {formatDate(story.date, { month: 'short', day: 'numeric', year: 'numeric' })}
                     </div>
                     <h3 className="font-bold text-base md:text-lg text-[#1a1f3d] group-hover:text-[#26C9AA] transition-colors line-clamp-1 mb-1">
                       {story.title}
