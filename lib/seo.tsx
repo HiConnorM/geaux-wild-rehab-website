@@ -3,17 +3,18 @@ import Script from 'next/script'
 const siteConfig = {
   name: 'Geaux Wild Rehab',
   url: 'https://geauxwildrehab.org',
-  description: 'Dedicated to the rescue, rehabilitation, and release of injured and orphaned native Louisiana wildlife.',
+  description: 'Geaux Wild Rehab is a 501c3 nonprofit wildlife rehabilitation center based in Hammond, Louisiana, dedicated to giving Louisiana\'s native wildlife a second chance. Licensed by the Louisiana Department of Wildlife and Fisheries.',
   logo: 'https://geauxwildrehab.org/images/logo.png',
+  phone: '5044918036',
   address: {
     streetAddress: '',
-    addressLocality: 'Louisiana',
+    addressLocality: 'Hammond',
     addressRegion: 'LA',
     addressCountry: 'US',
   },
   socialLinks: {
-    facebook: 'https://facebook.com/geauxwildrehab',
-    instagram: 'https://instagram.com/geauxwildrehab',
+    facebook: 'https://www.facebook.com/p/Geaux-Wild-Rehab-100087779529674/',
+    instagram: 'https://www.instagram.com/geauxwildrehab/',
     tiktok: 'https://tiktok.com/@geauxwildrehab',
   },
 }

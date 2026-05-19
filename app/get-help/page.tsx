@@ -46,7 +46,7 @@ const dontList = [
   'Keep the animal as a pet',
   'Post on social media asking for advice',
   'Release the animal elsewhere',
-  'Handle bats, raccoons, or foxes without protection',
+  'Handle bats, foxes, or skunks without proper protection',
 ]
 
 const scenarios = [
@@ -237,8 +237,9 @@ export default function GetHelpPage() {
             <h2 className="text-2xl lg:text-3xl font-serif font-bold text-card-foreground mb-2">
               Submit a Help Request
             </h2>
-            <p className="text-muted-foreground mb-8">
-              Fill out this form and we will contact you as soon as possible with guidance.
+          <p className="text-muted-foreground mb-8">
+              If you have found injured or orphaned wildlife in Louisiana, follow the steps below
+              and contact us for guidance. Response times may vary depending on current animal care needs.
             </p>
             <HelpRequestForm />
           </div>
@@ -250,13 +251,13 @@ export default function GetHelpPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <h3 className="text-xl font-semibold text-white mb-1">Need Immediate Assistance?</h3>
-              <p className="text-white/80">Call or text our wildlife hotline for urgent situations.</p>
+              <h3 className="text-xl font-semibold text-white mb-1">Need Assistance?</h3>
+              <p className="text-white/80">Contact Geaux Wild Rehab for guidance on injured or orphaned wildlife.</p>
             </div>
             <Button asChild size="lg" variant="secondary" className="gap-2">
-              <a href="tel:+15551234567">
+              <a href="tel:5044918036" aria-label="Call Geaux Wild Rehab at 504-491-8036">
                 <Phone className="h-5 w-5" />
-                Call Hotline
+                504-491-8036
               </a>
             </Button>
           </div>

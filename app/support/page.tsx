@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Heart, Gift, DollarSign, Package, Truck, Briefcase, ArrowRight, ExternalLink, Check, Star, Sparkles } from 'lucide-react'
+import { Heart, Gift, Package, Briefcase, ArrowRight, ExternalLink, Check, Star, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
   title: 'Support Our Mission',
-  description: 'Help Geaux Wild Rehab save Louisiana wildlife. Donate or shop our Amazon Wishlist.',
+  description: 'Help Geaux Wild Rehab save Louisiana wildlife. Donate via Venmo or PayPal, or shop our Amazon Wishlist.',
 }
 
 const impactCards = [
@@ -64,7 +64,7 @@ export default function SupportPage() {
           <div className="absolute top-20 left-10 w-40 h-40 bg-white/5 rounded-full blur-3xl animate-float" />
           <div className="absolute bottom-10 right-20 w-60 h-60 bg-white/5 rounded-full blur-3xl animate-float animation-delay-300" />
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
             <Sparkles className="h-4 w-4 text-white" />
@@ -74,7 +74,7 @@ export default function SupportPage() {
             Help Us Save Louisiana Wildlife
           </h1>
           <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Every donation and wishlist purchase makes a direct impact 
+            Every donation and wishlist purchase makes a direct impact
             on the animals in our care. Choose how you would like to help.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -118,7 +118,7 @@ export default function SupportPage() {
         </div>
       </section>
 
-      {/* Amazon Wishlist Section - Prominent placement */}
+      {/* Amazon Wishlist Section */}
       <section id="wishlist" className="py-20 lg:py-28 bg-gradient-to-b from-amber-50 to-background scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -130,7 +130,7 @@ export default function SupportPage() {
               Shop Our Amazon Wishlist
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Purchase items we need and have them shipped directly to our facility. 
+              Purchase items we need and have them shipped directly to our facility.
               It&apos;s easy, convenient, and makes an immediate impact on the animals in our care.
             </p>
           </div>
@@ -138,7 +138,7 @@ export default function SupportPage() {
           {/* Featured Wishlist Button */}
           <div className="flex justify-center mb-16">
             <Button asChild size="lg" className="gap-3 rounded-full px-12 h-16 bg-amber-500 text-white hover:bg-amber-600 font-bold text-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
-              <a href="https://www.amazon.com/hz/wishlist/ls/example" target="_blank" rel="noopener noreferrer">
+              <a href="https://amazon.com/hz/wishlist/ls/1U43EOQ2AS8LA?ref_=wl_share" target="_blank" rel="noopener noreferrer" aria-label="View our full Amazon Wishlist (opens in new tab)">
                 <Gift className="h-6 w-6" />
                 View Full Amazon Wishlist
                 <ExternalLink className="h-5 w-5" />
@@ -149,7 +149,7 @@ export default function SupportPage() {
           {/* Wishlist Categories */}
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {wishlistCategories.map((category) => (
-              <div 
+              <div
                 key={category.title}
                 className="bg-white rounded-3xl p-6 lg:p-8 border border-border/50 shadow-sm hover:shadow-lg transition-shadow relative overflow-hidden"
               >
@@ -170,37 +170,13 @@ export default function SupportPage() {
               </div>
             ))}
           </div>
-
-          {/* Additional Info */}
-          <div className="mt-12 bg-amber-50 rounded-2xl p-6 lg:p-8 border border-amber-200">
-            <div className="flex flex-col lg:flex-row items-center gap-6">
-              <div className="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
-                <Truck className="h-8 w-8 text-amber-600" />
-              </div>
-              <div className="text-center lg:text-left">
-                <h4 className="text-lg font-semibold text-foreground mb-2">
-                  Items Ship Directly to Us
-                </h4>
-                <p className="text-muted-foreground">
-                  When you purchase from our wishlist, Amazon ships items directly to our facility. 
-                  You can choose to include a gift message, and we&apos;ll send you a thank you note!
-                </p>
-              </div>
-              <Button asChild className="shrink-0 gap-2 rounded-full bg-amber-500 text-white hover:bg-amber-600">
-                <a href="https://www.amazon.com/hz/wishlist/ls/example" target="_blank" rel="noopener noreferrer">
-                  Shop Now
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </Button>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Donate Section */}
       <section id="donate" className="py-20 lg:py-28 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6">
                 Monetary Donations
@@ -209,16 +185,16 @@ export default function SupportPage() {
                 Make a Tax-Deductible Donation
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Your donation goes directly to animal care, including food, 
-                medicine, veterinary visits, and facility maintenance. As an all-volunteer 
+                Your donation goes directly to animal care, including food,
+                medicine, veterinary visits, and facility maintenance. As an all-volunteer
                 organization, 100% of your gift supports our animals.
               </p>
-              
+
               {/* Impact Grid */}
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {impactCards.map((card) => (
-                  <div 
-                    key={card.amount} 
+                  <div
+                    key={card.amount}
                     className="bg-secondary rounded-2xl p-5 hover:bg-secondary/80 transition-colors group"
                   >
                     <div className="w-10 h-10 rounded-xl bg-background flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
@@ -231,15 +207,34 @@ export default function SupportPage() {
               </div>
 
               {/* Donation buttons */}
-              <div className="space-y-4">
-                <Button size="lg" className="w-full sm:w-auto gap-2 rounded-full px-8 h-14 gradient-brand text-white border-0 hover:opacity-90 font-semibold">
-                  <Heart className="h-5 w-5" />
-                  Donate via PayPal
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button asChild size="lg" className="gap-2 rounded-full px-8 h-14 bg-[#3D95CE] text-white hover:bg-[#2e7ab0] font-semibold border-0">
+                  <a
+                    href="https://paypal.com/biz/profile/geauxwild#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Donate with PayPal (opens in new tab)"
+                  >
+                    <Heart className="h-5 w-5" />
+                    Donate with PayPal
+                  </a>
                 </Button>
-                <p className="text-sm text-muted-foreground">
-                  Or mail a check to: Geaux Wild Rehab, P.O. Box 12345, Louisiana 70000
-                </p>
+                <Button asChild size="lg" className="gap-2 rounded-full px-8 h-14 bg-[#008CFF] text-white hover:bg-[#006dd1] font-semibold border-0">
+                  <a
+                    href="https://venmo.com/u/GeauxWildRehab"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Donate with Venmo (opens in new tab)"
+                  >
+                    <Heart className="h-5 w-5" />
+                    Donate with Venmo
+                  </a>
+                </Button>
               </div>
+
+              <p className="text-sm text-muted-foreground mt-4">
+                Geaux Wild Rehab is a registered 501(c)(3) nonprofit. All donations are tax-deductible.
+              </p>
             </div>
 
             {/* Other Ways to Give */}
@@ -284,10 +279,20 @@ export default function SupportPage() {
                     <Star className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground mb-1">Legacy Giving</p>
+                    <p className="font-semibold text-foreground mb-1">Shop Our Wishlist</p>
                     <p className="text-sm text-muted-foreground">
-                      Include Geaux Wild Rehab in your estate plans to protect wildlife for generations.
+                      Purchase supplies directly from our Amazon Wishlist and have them shipped right to us.
                     </p>
+                    <a
+                      href="https://amazon.com/hz/wishlist/ls/1U43EOQ2AS8LA?ref_=wl_share"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-primary font-medium hover:underline mt-2"
+                      aria-label="Shop Our Amazon Wishlist (opens in new tab)"
+                    >
+                      Shop Our Wishlist
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -303,7 +308,7 @@ export default function SupportPage() {
             Every Contribution Makes a Difference
           </h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Whether you donate or shop our wishlist, you are helping 
+            Whether you donate or shop our wishlist, you are helping
             give Louisiana wildlife a second chance at life in the wild.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

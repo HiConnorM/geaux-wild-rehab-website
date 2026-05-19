@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 const contactInfo = [
   {
     icon: Phone,
-    label: 'Emergency Hotline',
-    value: 'Call or Text',
-    description: 'For wildlife emergencies',
-    href: 'tel:+15551234567',
+    label: 'Phone',
+    value: '504-491-8036',
+    description: 'Call or text for wildlife guidance',
+    href: 'tel:5044918036',
   },
   {
     icon: Mail,
@@ -26,21 +26,21 @@ const contactInfo = [
   },
   {
     icon: MapPin,
-    label: 'Service Area',
-    value: 'Louisiana',
-    description: 'Serving the greater Louisiana area',
+    label: 'Location',
+    value: 'Hammond, Louisiana',
+    description: 'Serving native wildlife across Louisiana',
   },
   {
     icon: Clock,
-    label: 'Response Hours',
-    value: 'Daily',
-    description: 'We respond as quickly as possible',
+    label: 'Response Times',
+    value: 'Response times may vary',
+    description: 'Depending on current animal care needs',
   },
 ]
 
 const socialLinks = [
-  { href: 'https://instagram.com/geauxwildrehab', label: 'Instagram', icon: Instagram },
-  { href: 'https://facebook.com/geauxwildrehab', label: 'Facebook', icon: Facebook },
+  { href: 'https://www.instagram.com/geauxwildrehab/', label: 'Instagram', icon: Instagram },
+  { href: 'https://www.facebook.com/p/Geaux-Wild-Rehab-100087779529674/', label: 'Facebook', icon: Facebook },
 ]
 
 export default function ContactPage() {

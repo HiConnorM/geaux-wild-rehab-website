@@ -99,7 +99,7 @@ export function AnimalsWeHelpSection() {
               </div>
               <div>
                 <h3 className="font-bold text-xl md:text-2xl text-white mb-1">Found an injured animal?</h3>
-                <p className="text-white/80 text-sm md:text-base">Don&apos;t wait — call our 24/7 hotline or submit a report online.</p>
+                <p className="text-white/80 text-sm md:text-base">If you have found injured or orphaned wildlife, please reach out — we are here to help.</p>
               </div>
             </div>
             <Button asChild size="lg" className="rounded-full h-12 md:h-14 px-6 md:px-8 bg-white text-[#26C9AA] hover:bg-white/90 font-bold shrink-0 w-full sm:w-auto">

@@ -100,9 +100,9 @@ export default function FAQPage() {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 gap-2 rounded-full px-8 h-14">
-                <a href="tel:+12255055050">
+                <a href="tel:5044918036" aria-label="Call Geaux Wild Rehab at 504-491-8036">
                   <Phone className="h-4 w-4" />
-                  Call Hotline
+                  504-491-8036
                 </a>
               </Button>
             </div>

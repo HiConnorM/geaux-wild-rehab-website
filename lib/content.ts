@@ -40,34 +40,6 @@ export interface Story {
 // Comprehensive Species data - Mammals only (no birds)
 export const species: Species[] = [
   {
-    id: 'raccoon',
-    name: 'Raccoon',
-    scientificName: 'Procyon lotor',
-    description: 'Intelligent and adaptable mammals known for their distinctive black mask and ringed tail. Raccoons are highly curious and have remarkable problem-solving abilities.',
-    image: '/images/animals/raccoon.svg',
-    category: 'mammal',
-    habitat: 'Raccoons are incredibly adaptable and thrive in diverse environments across Louisiana, including forests, wetlands, marshes, and urban areas. They prefer areas near water sources and often den in hollow trees, rock crevices, abandoned burrows, or even attics and chimneys in urban settings.',
-    diet: 'Omnivorous and opportunistic feeders, raccoons eat crayfish, frogs, fish, insects, fruits, nuts, eggs, and small mammals. In urban areas, they often raid garbage cans and pet food bowls. Their "washing" behavior before eating helps them identify food through their sensitive paws.',
-    behavior: 'Primarily nocturnal, raccoons are solitary except for mothers with young or during mating season. They are excellent climbers and swimmers. Their dexterous front paws allow them to manipulate objects with remarkable precision. Raccoons are known for their intelligence and can remember solutions to tasks for up to three years.',
-    lifespan: '2-3 years in the wild, up to 20 years in captivity',
-    foundWildTips: [
-      'Baby raccoons with eyes closed need immediate help - contact us right away',
-      'If you find a baby raccoon alone, observe from a distance for several hours - the mother may return',
-      'Never attempt to feed raccoons cow\'s milk - it can be fatal',
-      'Adult raccoons active during the day are not necessarily sick, especially mothers foraging for babies',
-      'If a raccoon appears disoriented, circling, or aggressive, do not approach - contact animal control'
-    ],
-    funFacts: [
-      'Raccoons have some of the most dexterous paws in the animal kingdom, with sensitivity comparable to human hands',
-      'A group of raccoons is called a "gaze" or "nursery"',
-      'They can rotate their hind feet 180 degrees, allowing them to climb down trees headfirst',
-      'Raccoons can remember solutions to tasks for at least 3 years',
-      'Their distinctive black mask actually helps reduce glare and enhances night vision'
-    ],
-    conservationStatus: 'Least Concern - Raccoon populations are stable and thriving across North America',
-    commonInjuries: ['Vehicle strikes', 'Dog attacks', 'Orphaned babies (nest destruction)', 'Mange', 'Distemper']
-  },
-  {
     id: 'opossum',
     name: 'Virginia Opossum',
     scientificName: 'Didelphis virginiana',
@@ -303,7 +275,7 @@ export const faqs: FAQ[] = [
     id: '5',
     category: 'Care & Handling',
     question: 'Is it safe to touch the animal?',
-    answer: 'Use caution when handling any wild animal. Wear gloves when possible. Even small animals can bite when scared. If you are bitten, seek medical attention. Some species can carry rabies, so never handle bats, raccoons, foxes, or skunks without proper protection.',
+    answer: 'Use caution when handling any wild animal. Wear gloves when possible. Even small animals can bite when scared. If you are bitten, seek medical attention. Some species can carry rabies, so never handle bats, foxes, or skunks without proper protection.',
   },
   {
     id: '6',
@@ -330,21 +302,21 @@ export const stories: Story[] = [
   {
     id: '1',
     slug: 'rocky-raccoon-recovery',
-    title: "Rocky's Road to Recovery",
-    excerpt: 'Found orphaned after a storm, this tiny raccoon kit beat the odds and returned to the wild.',
+    title: "A Fox Kit's Road to Recovery",
+    excerpt: 'Found orphaned after a storm, this tiny fox kit beat the odds and returned to the wild.',
     content: `
-      <p>During a severe spring storm, a concerned citizen found a tiny raccoon kit, barely a week old, crying beside a fallen tree. The mother was nowhere to be found after extensive searching.</p>
+      <p>During a severe spring storm, a concerned citizen found a tiny fox kit, barely two weeks old, crying beside a fallen tree. The mother was nowhere to be found after extensive searching.</p>
       
-      <p>When Rocky arrived at Geaux Wild Rehab, he weighed just 120 grams and was severely dehydrated. Our team immediately began round-the-clock care, feeding him specialized formula every 2-3 hours.</p>
+      <p>When the kit arrived at Geaux Wild Rehab, he weighed just 150 grams and was severely dehydrated. Our team immediately began attentive care, feeding him specialized formula every 2-3 hours.</p>
       
-      <p>Over the following months, Rocky grew stronger. He learned essential survival skills alongside other orphaned raccoons, foraging for food and climbing with confidence.</p>
+      <p>Over the following months, the kit grew stronger. He learned essential survival skills alongside other orphaned foxes, foraging for food and developing natural hunting instincts.</p>
       
-      <p>After four months of rehabilitation, Rocky was ready for release. He was returned to a protected wooded area where he could thrive. This is why we do what we do.</p>
+      <p>After four months of rehabilitation, he was ready for release. He was returned to a protected wooded area where he could thrive. This is why we do what we do.</p>
     `,
     heroImage: '/images/stories/rocky-raccoon.jpg',
     date: '2024-08-15',
     tags: ['success-story', 'release'],
-    species: ['raccoon'],
+    species: ['fox'],
   },
   {
     id: '2',
@@ -425,7 +397,7 @@ export const impactStats = {
   animalsRescued: 1247,
   speciesHelped: 24,
   volunteersActive: 58,
-  yearsServing: 9,
+  yearsServing: 6,
   releaseRate: 78,
   callsAnswered: 3500,
 }
