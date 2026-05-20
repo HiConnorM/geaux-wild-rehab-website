@@ -28,10 +28,8 @@ export function Hero() {
       <div
         className={`absolute bottom-0 right-0 z-0 transition-all duration-1000 delay-300 ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}`}
         style={{
-          /* Width: generous on large screens so the fox fills the right column */
-          width: 'clamp(340px, 55vw, 820px)',
-          /* Height: tall enough that the full fox (head to stump-bottom) is visible */
-          height: 'clamp(360px, 90vh, 900px)',
+          width: 'clamp(420px, 62vw, 1000px)',
+          height: 'clamp(500px, 105vh, 1100px)',
         }}
       >
         <Image
