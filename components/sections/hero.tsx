@@ -105,7 +105,7 @@ export function Hero() {
             src="/images/hero-fox.png"
             alt="Gray Fox on tree stump"
             fill
-            className="object-contain object-bottom drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+            className="object-contain object-bottom drop-shadow-[0_4px_20px_rgba(255,255,255,0.4)] [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.3))_drop-shadow(0_0_2px_rgba(255,255,255,0.5))]"
             priority
             sizes="(max-width:768px) 90vw, 45vw"
           />
