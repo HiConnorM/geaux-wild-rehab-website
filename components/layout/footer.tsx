@@ -104,9 +104,9 @@ export function Footer() {
               <Image
                 src="/images/logo.png"
                 alt="Geaux Wild Rehab"
-                width={220}
-                height={81}
-                className="h-16 w-auto brightness-0 invert"
+                width={140}
+                height={44}
+                className="h-10 w-auto"
               />
             </Link>
             <p className="text-white/60 mb-3 max-w-sm leading-relaxed">

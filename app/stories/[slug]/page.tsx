@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Calendar, ArrowLeft, Share2, Heart, ArrowRight } from 'lucide-react'
-import { getStoryBySlug, getStories } from '@/lib/content'
+import { getStoryBySlug, getStories, formatDate } from '@/lib/content'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { ArticleSchema } from '@/lib/seo'
@@ -103,11 +103,7 @@ export default async function StoryPage({ params }: Props) {
             <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4" />
-                {new Date(story.date).toLocaleDateString('en-US', {
-                  month: 'long',
-                  day: 'numeric',
-                  year: 'numeric',
-                })}
+                {formatDate(story.date, { month: 'long', day: 'numeric', year: 'numeric' })}
               </div>
             </div>
           </div>
@@ -201,11 +197,7 @@ export default async function StoryPage({ params }: Props) {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-xs text-muted-foreground mb-1">
-                      {new Date(relatedStory.date).toLocaleDateString('en-US', {
-                        month: 'short',
-                        day: 'numeric',
-                        year: 'numeric',
-                      })}
+                      {formatDate(relatedStory.date, { month: 'short', day: 'numeric', year: 'numeric' })}
                     </p>
                     <h3 className="font-semibold text-card-foreground mb-1 group-hover:text-primary transition-colors line-clamp-2">
                       {relatedStory.title}
