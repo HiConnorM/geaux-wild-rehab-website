@@ -98,20 +98,17 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Fox image - z-0 so wave (z-20) sits in front of it */}
-      <div className={`relative z-0 max-w-7xl mx-auto px-4 sm:px-6 transition-all duration-1000 delay-300 -mt-[264px] ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-        <div className="relative w-[85%] sm:w-[70%] md:w-[55%] lg:w-[45%] mx-auto">
-          <div className="relative aspect-[3/4]">
-            <Image
-              src="/images/animals/fox.svg"
-              alt="Red Fox"
-              fill
-              className="object-contain object-bottom drop-shadow-2xl"
-              style={{ marginTop: '-25px' }}
-              priority
-              sizes="(max-width:768px) 85vw, 45vw"
-            />
-          </div>
+      {/* Fox image - positioned right, z-0 so wave (z-20) sits in front of it */}
+      <div className={`absolute bottom-0 right-0 z-0 w-[90%] sm:w-[70%] md:w-[55%] lg:w-[50%] xl:w-[45%] transition-all duration-1000 delay-300 ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
+        <div className="relative aspect-square">
+          <Image
+            src="/images/hero-fox.jpg"
+            alt="Gray Fox on tree stump"
+            fill
+            className="object-contain object-bottom"
+            priority
+            sizes="(max-width:768px) 90vw, 45vw"
+          />
         </div>
       </div>
 
