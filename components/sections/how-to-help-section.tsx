@@ -17,13 +17,15 @@ export function HowToHelpSection() {
   }, [])
 
   return (
-    <section ref={ref} className="relative z-0 bg-[#3B468E] overflow-hidden pt-8 pb-0 -mt-16 md:-mt-24">
+    /* -mt-px closes any sub-pixel gap with the about-section wave */
+    <section ref={ref} className="relative z-0 bg-[#3B468E] overflow-hidden -mt-px">
       {/* Decorative diamonds */}
       <div className="absolute top-32 left-[8%] w-6 h-6 bg-white/10 rotate-45 rounded hidden md:block" />
       <div className="absolute top-48 right-[12%] w-4 h-4 bg-[#26C9AA]/30 rotate-45 rounded-sm hidden md:block" />
       <div className="absolute bottom-60 left-[15%] w-5 h-5 border-2 border-white/10 rotate-45 rounded hidden md:block" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6" style={{ marginTop: '44px' }}>
+      {/* Content — top padding accounts for the incoming navy wave height */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-14 md:pt-20 pb-0">
         {/* Header */}
         <div className={`text-center max-w-2xl mx-auto mb-10 md:mb-14 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-3">Make a Difference</span>
@@ -95,7 +97,7 @@ export function HowToHelpSection() {
             </div>
           </div>
 
-          {/* Opossum - z-0 so bottom wave sits IN FRONT of its feet */}
+          {/* Opossum — z-0 so bottom wave sits IN FRONT of its feet */}
           <div className={`lg:col-span-5 relative h-[260px] sm:h-[300px] md:h-[360px] z-0 transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Image
               src="/images/animals/opossum.svg"
@@ -109,9 +111,9 @@ export function HowToHelpSection() {
         </div>
       </div>
 
-      {/* Wave at bottom - z-20 sits IN FRONT of opossum (z-0) */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 md:h-16" preserveAspectRatio="none">
+      {/* Wave at bottom — white bites up; z-20 sits IN FRONT of opossum (z-0) */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0 }}>
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)' }} preserveAspectRatio="none">
           <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="white"/>
         </svg>
       </div>

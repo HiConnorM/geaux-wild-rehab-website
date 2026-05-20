@@ -17,18 +17,19 @@ export function AboutSection() {
   }, [])
 
   return (
-    <section ref={ref} className="relative z-10 bg-[#F8F4F4] overflow-hidden pt-16 pb-6 md:pt-20 md:pb-6 lg:pt-28" style={{ marginTop: '-2px', paddingBottom: '25px' }}>
-      {/* Decorative diamonds - hidden on mobile */}
+    /* -mt-px closes any sub-pixel gap between the hero wave and this section */
+    <section ref={ref} className="relative z-10 bg-[#F8F4F4] overflow-hidden -mt-px">
+      {/* Decorative diamonds */}
       <div className="hidden md:block absolute top-20 right-[10%] w-5 h-5 bg-[#26C9AA]/20 rotate-45 rounded" />
       <div className="hidden md:block absolute top-40 right-[5%] w-3 h-3 bg-[#3B468E]/20 rotate-45 rounded-sm" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6" style={{ marginBottom: '-10px' }}>
+      {/* Content — generous top padding so cards sit below the hero wave curve */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-6 md:pt-16 md:pb-8 lg:pt-20">
         <div className="grid lg:grid-cols-12 gap-4 md:gap-5 lg:items-start">
 
-          {/* Left side image - beaver */}
-          {/* self-stretch + min-h makes column fill full right-column height.        */}
-          {/* overflow-visible + -mb-16 lets the bottom bleed behind the wave (z-0). */}
-          <div className={`lg:col-span-5 relative self-stretch min-h-[260px] sm:min-h-[320px] z-0 order-last lg:order-first overflow-visible -mb-16 transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* Left column — beaver */}
+          {/* overflow-visible + pb lets the beaver bleed into the bottom wave area */}
+          <div className={`lg:col-span-5 relative self-stretch min-h-[260px] sm:min-h-[320px] z-0 order-last lg:order-first transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Image
               src="/images/animals/beaver.svg"
               alt="Beaver"
@@ -39,7 +40,7 @@ export function AboutSection() {
           </div>
 
           {/* Right column: title card + stats card stacked */}
-          <div className="lg:col-span-7 flex flex-col gap-4 md:gap-5 order-first lg:order-last">
+          <div className="lg:col-span-7 flex flex-col gap-4 md:gap-5 order-first lg:order-last pb-20 md:pb-28">
 
             {/* Title card */}
             <div className={`bg-white rounded-xl md:rounded-[2rem] p-6 md:p-8 shadow-lg shadow-black/5 border border-gray-100 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -105,9 +106,9 @@ export function AboutSection() {
         </div>
       </div>
 
-      {/* Wave at bottom — navy bites up, lives in z-10 About so it always shows */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 md:h-16" preserveAspectRatio="none">
+      {/* Wave at bottom — navy section bites up; z-20 so it sits above beaver (z-0) */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0 }}>
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)' }} preserveAspectRatio="none">
           <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#3B468E"/>
         </svg>
       </div>

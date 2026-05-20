@@ -20,12 +20,31 @@ export function Hero() {
       {/* Decorative diamonds - hidden on mobile */}
       <div className="hidden md:block absolute top-32 left-[10%] w-6 h-6 bg-white/20 rotate-45 rounded" />
       <div className="hidden md:block absolute top-48 left-[5%] w-4 h-4 bg-white/30 rotate-45 rounded-sm" />
-      <div className="hidden md:block absolute top-40 right-[15%] w-8 h-8 bg-white/15 rotate-45 rounded" />
-      <div className="hidden md:block absolute top-72 right-[8%] w-5 h-5 bg-white/25 rotate-45 rounded-sm" />
       <div className="hidden md:block absolute bottom-[35%] left-[8%] w-10 h-10 border-2 border-white/20 rotate-45 rounded" />
       <div className="hidden md:block absolute bottom-[45%] right-[12%] w-6 h-6 border-2 border-white/15 rotate-45 rounded-sm" />
 
-      {/* Main content */}
+      {/* Fox image — absolutely positioned so it fills the right half, bottom-anchored */}
+      {/* z-0 keeps it behind the wave (z-20) and behind the content (z-10) */}
+      <div
+        className={`absolute bottom-0 right-0 z-0 transition-all duration-1000 delay-300 ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}`}
+        style={{
+          /* Width: generous on large screens so the fox fills the right column */
+          width: 'clamp(340px, 55vw, 820px)',
+          /* Height: tall enough that the full fox (head to stump-bottom) is visible */
+          height: 'clamp(360px, 90vh, 900px)',
+        }}
+      >
+        <Image
+          src="/images/hero-fox.png"
+          alt="Gray Fox on tree stump"
+          fill
+          className="object-contain object-bottom [filter:drop-shadow(0_0_12px_rgba(255,255,255,0.35))_drop-shadow(0_0_3px_rgba(255,255,255,0.6))]"
+          priority
+          sizes="(max-width:768px) 90vw, 55vw"
+        />
+      </div>
+
+      {/* Main content — z-10 so it sits above the fox but below the wave */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 md:pt-28 lg:pt-36 pb-0">
 
         {/* Top bar - badge and phone */}
@@ -62,9 +81,9 @@ export function Hero() {
           </h1>
         </div>
 
-        {/* Subtitle and CTAs */}
-        <div className={`flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-8 mb-6 md:mb-8 transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="max-w-md">
+        {/* Subtitle and CTAs — constrained to left half so they don't overlap the fox */}
+        <div className={`flex flex-col gap-6 mb-6 md:mb-8 transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="max-w-md lg:max-w-lg">
             <p className="text-base md:text-xl text-white/90 leading-relaxed mb-4 md:mb-6">
               Based in Hammond, Louisiana, Geaux Wild Rehab gives injured and orphaned native wildlife a second chance through licensed rehabilitation, compassionate care, and release back into the wild whenever possible.
             </p>
@@ -84,7 +103,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Stats cards — use impactStats as the single source of truth */}
+          {/* Stats cards */}
           <div className="flex gap-3">
             <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-5 shadow-lg flex-1 sm:flex-initial">
               <p className="text-2xl md:text-4xl font-black text-[#3B468E]">{impactStats.animalsRescued.toLocaleString()}+</p>
@@ -96,25 +115,14 @@ export function Hero() {
             </div>
           </div>
         </div>
+
+        {/* Spacer so the section is tall enough for the fox image to show fully */}
+        <div className="h-[180px] sm:h-[220px] md:h-[260px] lg:h-[300px]" />
       </div>
 
-      {/* Fox image - positioned right, z-0 so wave (z-20) sits in front of it */}
-      <div className={`absolute bottom-0 right-0 z-0 w-[90%] sm:w-[70%] md:w-[55%] lg:w-[50%] xl:w-[45%] transition-all duration-1000 delay-300 ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
-        <div className="relative aspect-square">
-          <Image
-            src="/images/hero-fox.png"
-            alt="Gray Fox on tree stump"
-            fill
-            className="object-contain object-bottom drop-shadow-[0_4px_20px_rgba(255,255,255,0.4)] [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.3))_drop-shadow(0_0_2px_rgba(255,255,255,0.5))]"
-            priority
-            sizes="(max-width:768px) 90vw, 45vw"
-          />
-        </div>
-      </div>
-
-      {/* Wavy bottom divider - z-20 so it sits IN FRONT of the fox (z-0) */}
-      <div className="absolute bottom-0 left-0 right-0 z-20" style={{ marginTop: '1px' }}>
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16 md:h-24 lg:h-auto" preserveAspectRatio="none">
+      {/* Wavy bottom divider — z-20 so it overlays the fox bottom */}
+      <div className="absolute bottom-0 left-0 right-0 z-20" style={{ lineHeight: 0 }}>
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(60px, 8vw, 120px)' }} preserveAspectRatio="none">
           <path d="M0 120V60C240 100 480 20 720 60C960 100 1200 20 1440 60V120H0Z" fill="#F8F4F4"/>
         </svg>
       </div>

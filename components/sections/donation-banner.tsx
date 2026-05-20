@@ -16,17 +16,12 @@ export function DonationBanner() {
   }, [])
 
   return (
-    <section ref={bannerRef} className="relative pt-28 pb-16 md:pt-36 md:pb-20 lg:pb-28 bg-[#F8F4F4] overflow-hidden">
-      {/* Wavy top divider */}
-      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-14 md:h-20" preserveAspectRatio="none">
-          <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="#F8F4F4"/>
-        </svg>
-      </div>
+    /* -mt-px closes the sub-pixel gap after the ImpactStats wave */
+    <section ref={bannerRef} className="relative pt-16 pb-16 md:pt-20 md:pb-20 lg:pb-28 bg-[#F8F4F4] overflow-hidden -mt-px">
 
       {/* Decorative diamonds */}
-      <div className="absolute top-20 left-[10%] w-5 h-5 bg-[#26C9AA]/10 rotate-45 rounded hidden md:block" />
-      <div className="absolute top-32 right-[8%] w-4 h-4 bg-[#3B468E]/10 rotate-45 rounded-sm hidden md:block" />
+      <div className="absolute top-8 left-[10%] w-5 h-5 bg-[#26C9AA]/10 rotate-45 rounded hidden md:block" />
+      <div className="absolute top-20 right-[8%] w-4 h-4 bg-[#3B468E]/10 rotate-45 rounded-sm hidden md:block" />
       <div className="absolute bottom-24 left-[6%] w-6 h-6 border-2 border-[#26C9AA]/10 rotate-45 rounded hidden md:block" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -44,7 +39,7 @@ export function DonationBanner() {
         {/* Bento grid */}
         <div className="grid md:grid-cols-2 gap-4 md:gap-5 max-w-4xl mx-auto">
           {/* Donate Card */}
-          <div 
+          <div
             className={`group bg-white rounded-xl md:rounded-[2rem] p-6 md:p-8 shadow-lg shadow-black/5 border border-gray-100 hover:shadow-xl hover:border-[#26C9AA]/30 transition-all duration-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: '150ms' }}
           >
@@ -71,7 +66,7 @@ export function DonationBanner() {
           </div>
 
           {/* Wishlist Card */}
-          <div 
+          <div
             className={`group bg-[#3B468E] rounded-xl md:rounded-[2rem] p-6 md:p-8 shadow-lg transition-all duration-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: '250ms' }}
           >
