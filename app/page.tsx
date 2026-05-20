@@ -10,7 +10,7 @@ import { TikTokSection } from '@/components/sections/tiktok-section'
 
 export default function HomePage() {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Hero />
       <AboutSection />
       <HowToHelpSection />
@@ -20,6 +20,6 @@ export default function HomePage() {
       <ImpactStats />
       <DonationBanner />
       <TikTokSection />
-    </>
+    </div>
   )
 }

@@ -29,14 +29,8 @@ export function TikTokSection() {
 
 
   return (
-    <section ref={ref} className="relative bg-[#1a1f3d] overflow-hidden py-20 md:py-28">
-
-      {/* Wavy top divider */}
-      <div className="absolute top-0 left-0 right-0 z-10 pointer-events-none">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 md:h-16" preserveAspectRatio="none">
-          <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="#F8F4F4"/>
-        </svg>
-      </div>
+    /* -mt-px closes the sub-pixel gap after the DonationBanner */
+    <section ref={ref} className="relative bg-[#1a1f3d] overflow-hidden -mt-[3px] pt-16 pb-20 md:pt-20 md:pb-28">
 
       {/* Decorative accents */}
       <div className="absolute top-24 left-[5%] w-3 h-3 rounded-full bg-[#26C9AA]/20 hidden md:block" />

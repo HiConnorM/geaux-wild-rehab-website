@@ -50,17 +50,18 @@ export function ImpactStats() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative z-0 overflow-hidden bg-[#26C9AA] pt-8 pb-0 -mt-16 md:-mt-24">
+    /* -mt-px closes the sub-pixel gap after the FAQ wave */
+    <section ref={sectionRef} className="relative z-0 overflow-hidden bg-[#26C9AA] -mt-[3px]">
 
       {/* Decorative diamonds */}
-      <div className="absolute top-32 left-[8%] w-6 h-6 bg-white/15 rotate-45 rounded hidden md:block" />
-      <div className="absolute top-48 right-[12%] w-4 h-4 bg-[#3B468E]/20 rotate-45 rounded-sm hidden md:block" />
+      <div className="absolute top-12 left-[8%] w-6 h-6 bg-white/15 rotate-45 rounded hidden md:block" />
+      <div className="absolute top-28 right-[12%] w-4 h-4 bg-[#3B468E]/20 rotate-45 rounded-sm hidden md:block" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6" style={{ marginTop: '44px', paddingTop: '28px' }}>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 md:pt-20 pb-0">
         {/* Bento grid */}
         <div className="grid lg:grid-cols-12 gap-5 lg:gap-8">
 
-          {/* Header + stats - 7 cols */}
+          {/* Header + stats — 7 cols */}
           <div className="lg:col-span-7">
             <div className={`mb-8 md:mb-10 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <span className="inline-block text-sm font-bold text-white/70 uppercase tracking-wider mb-3">By the Numbers</span>
@@ -73,14 +74,14 @@ export function ImpactStats() {
             </div>
 
             {/* Stats row */}
-            <div className="grid grid-cols-3 gap-3 md:gap-4 pb-16 md:pb-20">
+            <div className="grid grid-cols-3 gap-3 md:gap-4 pb-20 md:pb-28">
               {stats.map((stat, i) => (
                 <StatCard key={stat.label} {...stat} delay={200 + i * 100} vis={vis} />
               ))}
             </div>
           </div>
 
-          {/* Beaver - 5 cols, z-0 so bottom wave covers its feet */}
+          {/* Beaver — 5 cols, z-0 so bottom wave covers its feet */}
           <div className={`lg:col-span-5 relative z-0 transition-all duration-700 delay-300 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {/* Floating badge */}
             <div className={`absolute top-0 left-0 bg-white rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 shadow-xl z-10 transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -102,9 +103,9 @@ export function ImpactStats() {
         </div>
       </div>
 
-      {/* Wave at bottom - z-20 sits IN FRONT of beaver (z-0) */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 md:h-16" preserveAspectRatio="none">
+      {/* Wave at bottom — off-white bites up; z-20 sits IN FRONT of beaver (z-0) */}
+      <div className="absolute left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
           <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#F8F4F4"/>
         </svg>
       </div>

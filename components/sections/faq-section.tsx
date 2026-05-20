@@ -21,16 +21,18 @@ export function FAQSection() {
   const topFaqs = faqs.filter(f => f.category === 'Found Wildlife').slice(0, 4)
 
   return (
-    <section ref={ref} className="relative z-10 bg-white overflow-hidden pt-16 pb-6 md:pt-20 md:pb-8 lg:pt-28" style={{ paddingBottom: '25px' }}>
-      {/* Decorative diamonds */}
-      <div className="absolute top-28 right-[8%] w-5 h-5 bg-[#26C9AA]/15 rotate-45 rounded hidden md:block" />
-      <div className="absolute top-48 left-[12%] w-4 h-4 bg-[#3B468E]/15 rotate-45 rounded-sm hidden md:block" />
+    /* -mt-px closes the sub-pixel gap after the Stories wave */
+    <section ref={ref} className="relative z-10 bg-white overflow-hidden -mt-px">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      {/* Decorative diamonds */}
+      <div className="absolute top-8 right-[8%] w-5 h-5 bg-[#26C9AA]/15 rotate-45 rounded hidden md:block" />
+      <div className="absolute top-24 left-[12%] w-4 h-4 bg-[#3B468E]/15 rotate-45 rounded-sm hidden md:block" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 md:pt-20 lg:pt-24">
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
 
-          {/* FAQ content - 7 cols, order last on desktop (right side) */}
-          <div className="lg:col-span-7 order-last lg:order-last pb-16 md:pb-20">
+          {/* FAQ content — 7 cols, right side */}
+          <div className="lg:col-span-7 order-last lg:order-last pb-20 md:pb-28">
             <div className={`mb-6 md:mb-8 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-3">Quick Answers</span>
               <h2 className="font-serif font-black text-3xl sm:text-4xl md:text-5xl text-[#1a1f3d] leading-[1.1] mb-4">
@@ -70,7 +72,7 @@ export function FAQSection() {
             </Link>
           </div>
 
-          {/* Bobcat column - 5 cols LEFT side, animal at bottom z-0, wave covers its feet */}
+          {/* Bobcat — 5 cols LEFT side, animal at bottom z-0, wave covers its feet */}
           <div className={`lg:col-span-5 relative order-first lg:order-first transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
 
             {/* Hotline badge */}
@@ -92,7 +94,7 @@ export function FAQSection() {
               </Button>
             </div>
 
-            {/* Bobcat image - z-0 so the wave appears in front of its feet */}
+            {/* Bobcat image — z-0 so the wave appears in front of its feet */}
             <div className="relative h-[320px] sm:h-[380px] md:h-[440px] lg:h-full min-h-[400px] z-0">
               <Image
                 src="/images/animals/bobcat.svg"
@@ -108,9 +110,9 @@ export function FAQSection() {
         </div>
       </div>
 
-      {/* Wave at bottom — teal bites up, lives in z-10 FAQ so it always shows */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 md:h-16" preserveAspectRatio="none">
+      {/* Wave at bottom — teal bites up; z-20 sits IN FRONT of bobcat (z-0) */}
+      <div className="absolute left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
           <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#26C9AA"/>
         </svg>
       </div>

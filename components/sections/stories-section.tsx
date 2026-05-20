@@ -20,24 +20,19 @@ export function StoriesSection() {
   const latest = stories.slice(0, 3)
 
   return (
-    <section ref={ref} className="relative bg-[#F8F4F4] overflow-hidden pt-28 pb-0 md:pt-36">
-      {/* Wavy top divider */}
-      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-14 md:h-20" preserveAspectRatio="none">
-          <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="white"/>
-        </svg>
-      </div>
+    <section ref={ref} className="relative bg-[#F8F4F4] overflow-hidden -mt-px">
 
       {/* Decorative diamonds */}
-      <div className="absolute top-32 left-[5%] w-5 h-5 bg-[#3B468E]/15 rotate-45 rounded hidden md:block" />
-      <div className="absolute top-48 right-[15%] w-4 h-4 bg-[#26C9AA]/20 rotate-45 rounded-sm hidden md:block" />
+      <div className="absolute top-12 left-[5%] w-5 h-5 bg-[#3B468E]/15 rotate-45 rounded hidden md:block" />
+      <div className="absolute top-28 right-[15%] w-4 h-4 bg-[#26C9AA]/20 rotate-45 rounded-sm hidden md:block" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-0 md:pt-20">
+
         {/* Bento layout */}
         <div className="grid lg:grid-cols-12 gap-5 lg:gap-8">
 
-          {/* Header + story cards - 7 cols */}
-          <div className="lg:col-span-7 pb-16 md:pb-20">
+          {/* Header + story cards — 7 cols */}
+          <div className="lg:col-span-7 pb-20 md:pb-28">
             <div className={`mb-6 md:mb-8 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-3">From the Field</span>
               <h2 className="font-serif font-black text-3xl sm:text-4xl md:text-5xl text-[#1a1f3d] leading-[1.1] mb-4">
@@ -96,7 +91,7 @@ export function StoriesSection() {
             </div>
           </div>
 
-          {/* Coyote - 5 cols, z-0 so bottom wave covers its feet */}
+          {/* Coyote — 5 cols, z-0 so bottom wave covers its feet */}
           <div className={`lg:col-span-5 relative z-0 transition-all duration-700 delay-300 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {/* Floating badge */}
             <div className={`absolute top-0 right-0 bg-white rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 shadow-xl border border-gray-100 z-10 transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -119,9 +114,9 @@ export function StoriesSection() {
         </div>
       </div>
 
-      {/* Wave at bottom - z-20 sits IN FRONT of coyote (z-0) */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 md:h-16" preserveAspectRatio="none">
+      {/* Wave at bottom — white bites up; z-20 sits IN FRONT of coyote (z-0) */}
+      <div className="absolute left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
           <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="white"/>
         </svg>
       </div>

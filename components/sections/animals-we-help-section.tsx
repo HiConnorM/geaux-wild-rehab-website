@@ -18,20 +18,17 @@ export function AnimalsWeHelpSection() {
   }, [])
 
   return (
-    <section ref={ref} className="relative bg-white overflow-hidden pt-28 pb-16 md:pt-36 md:pb-20 lg:pb-28">
-      {/* Wavy top divider — matches white wave from HowToHelp bottom */}
-      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-14 md:h-20" preserveAspectRatio="none">
-          <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="white"/>
-        </svg>
-      </div>
+    /* -mt-px + relative z-10 so this section sits directly on top of the HowToHelp wave */
+    <section ref={ref} className="relative z-10 bg-white overflow-hidden -mt-px">
 
-      {/* Decorative diamonds */}
-      <div className="absolute top-28 left-[6%] w-5 h-5 bg-[#26C9AA]/15 rotate-45 rounded hidden md:block" />
-      <div className="absolute top-48 right-[10%] w-4 h-4 bg-[#3B468E]/15 rotate-45 rounded-sm hidden md:block" />
-      <div className="absolute bottom-40 right-[8%] w-6 h-6 border-2 border-[#26C9AA]/15 rotate-45 rounded hidden md:block" />
+      {/* Content — generous top padding so content clears the incoming white wave */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-28">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Decorative diamonds */}
+        <div className="absolute top-8 left-[6%] w-5 h-5 bg-[#26C9AA]/15 rotate-45 rounded hidden md:block" />
+        <div className="absolute top-24 right-[10%] w-4 h-4 bg-[#3B468E]/15 rotate-45 rounded-sm hidden md:block" />
+        <div className="absolute bottom-40 right-[8%] w-6 h-6 border-2 border-[#26C9AA]/15 rotate-45 rounded hidden md:block" />
+
         {/* Header */}
         <div className={`text-center max-w-2xl mx-auto mb-10 md:mb-14 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-3">Native Louisiana Wildlife</span>
