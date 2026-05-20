@@ -51,7 +51,7 @@ export function ImpactStats() {
 
   return (
     /* -mt-px closes the sub-pixel gap after the FAQ wave */
-    <section ref={sectionRef} className="relative z-0 overflow-hidden bg-[#26C9AA] -mt-px">
+    <section ref={sectionRef} className="relative z-0 overflow-hidden bg-[#26C9AA] -mt-[3px]">
 
       {/* Decorative diamonds */}
       <div className="absolute top-12 left-[8%] w-6 h-6 bg-white/15 rotate-45 rounded hidden md:block" />
@@ -104,8 +104,8 @@ export function ImpactStats() {
       </div>
 
       {/* Wave at bottom — off-white bites up; z-20 sits IN FRONT of beaver (z-0) */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0 }}>
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)' }} preserveAspectRatio="none">
+      <div className="absolute left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
           <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#F8F4F4"/>
         </svg>
       </div>

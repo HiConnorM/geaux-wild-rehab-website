@@ -17,7 +17,7 @@ export function DonationBanner() {
 
   return (
     /* -mt-px closes the sub-pixel gap after the ImpactStats wave */
-    <section ref={bannerRef} className="relative pt-16 pb-16 md:pt-20 md:pb-20 lg:pb-28 bg-[#F8F4F4] overflow-hidden -mt-px">
+    <section ref={bannerRef} className="relative pt-16 pb-16 md:pt-20 md:pb-20 lg:pb-28 bg-[#F8F4F4] overflow-hidden -mt-[3px]">
 
       {/* Decorative diamonds */}
       <div className="absolute top-8 left-[10%] w-5 h-5 bg-[#26C9AA]/10 rotate-45 rounded hidden md:block" />

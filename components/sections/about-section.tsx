@@ -27,9 +27,8 @@ export function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-6 md:pt-16 md:pb-8 lg:pt-20">
         <div className="grid lg:grid-cols-12 gap-4 md:gap-5 lg:items-start">
 
-          {/* Left column — beaver */}
-          {/* overflow-visible + pb lets the beaver bleed into the bottom wave area */}
-          <div className={`lg:col-span-5 relative self-stretch min-h-[260px] sm:min-h-[320px] z-0 order-last lg:order-first transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* Left column — beaver, pushed down slightly so it doesn't crowd the top */}
+          <div className={`lg:col-span-5 relative self-stretch min-h-[220px] sm:min-h-[280px] z-0 order-last lg:order-first transition-all duration-700 delay-200 pt-8 md:pt-12 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Image
               src="/images/animals/beaver.svg"
               alt="Beaver"
@@ -107,8 +106,8 @@ export function AboutSection() {
       </div>
 
       {/* Wave at bottom — navy section bites up; z-20 so it sits above beaver (z-0) */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0 }}>
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)' }} preserveAspectRatio="none">
+      <div className="absolute left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
           <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#3B468E"/>
         </svg>
       </div>

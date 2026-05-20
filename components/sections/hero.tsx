@@ -16,7 +16,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen bg-[#26C9AA] overflow-hidden">
+    <section className="relative min-h-screen bg-[#26C9AA] overflow-x-hidden overflow-y-visible">
       {/* Decorative diamonds - hidden on mobile */}
       <div className="hidden md:block absolute top-32 left-[10%] w-6 h-6 bg-white/20 rotate-45 rounded" />
       <div className="hidden md:block absolute top-48 left-[5%] w-4 h-4 bg-white/30 rotate-45 rounded-sm" />
@@ -28,8 +28,8 @@ export function Hero() {
       <div
         className={`absolute bottom-0 right-0 z-0 transition-all duration-1000 delay-300 ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}`}
         style={{
-          width: 'clamp(600px, 90vw, 1400px)',
-          height: 'clamp(700px, 150vh, 1600px)',
+          width: 'clamp(280px, 90vw, 1400px)',
+          height: 'clamp(380px, 150vh, 1600px)',
         }}
       >
         <Image
@@ -115,12 +115,13 @@ export function Hero() {
         </div>
 
         {/* Spacer so the section is tall enough for the fox image to show fully */}
-        <div className="h-[180px] sm:h-[220px] md:h-[260px] lg:h-[300px]" />
+        <div className="h-[240px] sm:h-[280px] md:h-[320px] lg:h-[360px]" />
       </div>
 
       {/* Wavy bottom divider — z-20 so it overlays the fox bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-20" style={{ lineHeight: 0 }}>
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(60px, 8vw, 120px)' }} preserveAspectRatio="none">
+      {/* -bottom-px ensures no sub-pixel gap between wave and next section */}
+      <div className="absolute left-0 right-0 z-20" style={{ lineHeight: 0, bottom: '-2px' }}>
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(60px, 8vw, 120px)', display: 'block' }} preserveAspectRatio="none">
           <path d="M0 120V60C240 100 480 20 720 60C960 100 1200 20 1440 60V120H0Z" fill="#F8F4F4"/>
         </svg>
       </div>

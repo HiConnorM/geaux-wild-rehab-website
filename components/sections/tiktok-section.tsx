@@ -30,7 +30,7 @@ export function TikTokSection() {
 
   return (
     /* -mt-px closes the sub-pixel gap after the DonationBanner */
-    <section ref={ref} className="relative bg-[#1a1f3d] overflow-hidden -mt-px pt-16 pb-20 md:pt-20 md:pb-28">
+    <section ref={ref} className="relative bg-[#1a1f3d] overflow-hidden -mt-[3px] pt-16 pb-20 md:pt-20 md:pb-28">
 
       {/* Decorative accents */}
       <div className="absolute top-24 left-[5%] w-3 h-3 rounded-full bg-[#26C9AA]/20 hidden md:block" />
