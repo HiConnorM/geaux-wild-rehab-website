@@ -102,10 +102,10 @@ export function Hero() {
       <div className={`absolute bottom-0 right-0 z-0 w-[90%] sm:w-[70%] md:w-[55%] lg:w-[50%] xl:w-[45%] transition-all duration-1000 delay-300 ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
         <div className="relative aspect-square">
           <Image
-            src="/images/hero-fox.jpg"
+            src="/images/hero-fox.png"
             alt="Gray Fox on tree stump"
             fill
-            className="object-contain object-bottom"
+            className="object-contain object-bottom drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
             priority
             sizes="(max-width:768px) 90vw, 45vw"
           />
