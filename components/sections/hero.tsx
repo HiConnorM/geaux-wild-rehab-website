@@ -28,8 +28,8 @@ export function Hero() {
       <div
         className={`absolute bottom-0 right-0 z-0 transition-all duration-1000 delay-300 ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}`}
         style={{
-          width: 'clamp(280px, 90vw, 1400px)',
-          height: 'clamp(380px, 150vh, 1600px)',
+          width: 'clamp(340px, 95vw, 1400px)',
+          height: 'clamp(520px, 150vh, 1600px)',
         }}
       >
         <Image
