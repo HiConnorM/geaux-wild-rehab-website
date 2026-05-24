@@ -3,10 +3,9 @@ import { AboutSection } from '@/components/sections/about-section'
 import { HowToHelpSection } from '@/components/sections/how-to-help-section'
 import { AnimalsWeHelpSection } from '@/components/sections/animals-we-help-section'
 import { StoriesSection } from '@/components/sections/stories-section'
-import { FAQSection } from '@/components/sections/faq-section'
-import { DonationBanner } from '@/components/sections/donation-banner'
-import { ImpactStats } from '@/components/sections/impact-stats'
 import { TikTokSection } from '@/components/sections/tiktok-section'
+import { FAQSection } from '@/components/sections/faq-section'
+import { ImpactStats } from '@/components/sections/impact-stats'
 
 export default function HomePage() {
   return (
@@ -16,10 +15,9 @@ export default function HomePage() {
       <HowToHelpSection />
       <AnimalsWeHelpSection />
       <StoriesSection />
+      <TikTokSection />
       <FAQSection />
       <ImpactStats />
-      <DonationBanner />
-      <TikTokSection />
     </div>
   )
 }

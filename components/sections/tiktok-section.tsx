@@ -30,7 +30,14 @@ export function TikTokSection() {
 
   return (
     /* -mt-px closes the sub-pixel gap after the DonationBanner */
-    <section ref={ref} className="relative bg-[#1a1f3d] overflow-hidden -mt-[3px] pt-16 pb-20 md:pt-20 md:pb-28">
+    <section ref={ref} className="relative bg-[#1a1f3d] overflow-hidden -mt-[3px] pt-0 pb-20 md:pb-28">
+
+      {/* Top wave — white shape from StoriesSection fades into dark bg */}
+      <div className="w-full pointer-events-none" style={{ lineHeight: 0 }}>
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
+          <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="white"/>
+        </svg>
+      </div>
 
       {/* Decorative accents */}
       <div className="absolute top-24 left-[5%] w-3 h-3 rounded-full bg-[#26C9AA]/20 hidden md:block" />
@@ -38,7 +45,7 @@ export function TikTokSection() {
       <div className="absolute bottom-20 left-[10%] w-4 h-4 border-2 border-[#26C9AA]/20 rotate-45 rounded-sm hidden md:block" />
       <div className="absolute bottom-32 right-[6%] w-3 h-3 rounded-full bg-white/10 hidden md:block" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 pt-8 md:pt-12">
 
         {/* Header */}
         <div className={`text-center max-w-2xl mx-auto mb-12 md:mb-16 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
