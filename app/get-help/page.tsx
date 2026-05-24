@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { AlertTriangle, Check, X, Phone, ArrowRight } from 'lucide-react'
+import { AlertTriangle, Check, X, Phone, ArrowRight, Bird } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { HelpRequestForm } from '@/components/forms/help-request-form'
 import { FAQPageSchema } from '@/lib/seo'
@@ -19,7 +19,7 @@ const steps = [
   {
     number: '2',
     title: 'Secure the Animal',
-    description: 'If help is needed, gently place the animal in a ventilated box with soft cloth.',
+    description: 'If help is needed, gently place the animal in a carrier or ventilated box with soft cloth.',
   },
   {
     number: '3',
@@ -43,10 +43,10 @@ const doList = [
 
 const dontList = [
   'Feed or give water (unless instructed)',
-  'Keep the animal as a pet',
+  'Keep the animal as a pet — it is illegal',
   'Post on social media asking for advice',
   'Release the animal elsewhere',
-  'Handle bats, foxes, or skunks without proper protection',
+  'Handle any wildlife without proper PPE (gloves, long sleeves)',
 ]
 
 const scenarios = [
@@ -63,11 +63,6 @@ const scenarios = [
   {
     title: 'Baby Opossum',
     description: 'Under 7 inches (not including tail): needs help. Check nearby for deceased mother.',
-    urgent: true,
-  },
-  {
-    title: 'Injured Bird',
-    description: 'Any bird with visible injury, blood, or that cannot fly needs immediate care.',
     urgent: true,
   },
 ]
@@ -227,6 +222,28 @@ export default function GetHelpPage() {
               View more FAQs about specific species
             </Link>
           </p>
+
+          {/* Bird disclaimer */}
+          <div className="mt-8 bg-amber-50 border border-amber-200 rounded-xl p-5 flex items-start gap-4">
+            <div className="shrink-0 p-2 rounded-lg bg-amber-100">
+              <Bird className="h-5 w-5 text-amber-600" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-amber-900 mb-1">Found an Injured Bird?</h3>
+              <p className="text-sm text-amber-800">
+                Geaux Wild Rehab does not currently accept or treat birds. For injured or orphaned birds, please contact a permitted avian rehabilitator in Louisiana.{' '}
+                <a
+                  href="https://www.wlf.louisiana.gov/page/permitted-wildlife-rehabilitators"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold underline hover:text-amber-700"
+                >
+                  Find a permitted rehabilitator at wlf.louisiana.gov
+                </a>
+                .
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

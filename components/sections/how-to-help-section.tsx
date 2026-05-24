@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Heart, Gift, Share2 } from 'lucide-react'
+import { ArrowRight, Heart, Gift, Share2, Youtube, Facebook, Instagram } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export function HowToHelpSection() {
@@ -60,7 +60,7 @@ export function HowToHelpSection() {
               ))}
             </div>
 
-            <Button asChild size="lg" className="rounded-full h-12 md:h-14 px-6 md:px-8 bg-[#26C9AA] hover:bg-[#1eb89a] text-white font-bold w-full sm:w-auto">
+            <Button asChild size="lg" className="rounded-full h-12 md:h-14 px-6 md:px-8 bg-[#3B468E] hover:bg-[#2d366d] text-white font-bold w-full sm:w-auto">
               <Link href="/support">
                 Donate Now
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -75,11 +75,11 @@ export function HowToHelpSection() {
             </div>
             <h3 className="font-bold text-xl md:text-2xl text-white mb-2">Shop Our Wishlist</h3>
             <p className="text-white/80 mb-6 text-sm md:text-base">Purchase supplies we need most — formula, heating pads, cages &amp; more.</p>
-            <Button asChild variant="outline" size="lg" className="rounded-full h-11 md:h-12 px-5 md:px-6 border-2 border-white text-white hover:bg-white hover:text-[#26C9AA] font-bold w-full sm:w-auto">
-              <Link href="/support#wishlist">
+            <Button asChild variant="outline" size="lg" className="rounded-full h-11 md:h-12 px-5 md:px-6 border-2 border-white bg-white text-[#26C9AA] hover:bg-white/90 font-bold w-full sm:w-auto">
+              <a href="https://www.amazon.com/hz/wishlist/ls/1HO01EY1HD0TS?ref_=wl_share" target="_blank" rel="noopener noreferrer" aria-label="View our Amazon Wishlist (opens in new tab)">
                 View Wishlist
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              </a>
             </Button>
           </div>
 
@@ -87,8 +87,23 @@ export function HowToHelpSection() {
           <div className={`lg:col-span-7 grid sm:grid-cols-2 gap-3 md:gap-4 transition-all duration-700 delay-300 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="bg-white/10 backdrop-blur-sm rounded-[1.5rem] md:rounded-[2rem] p-5 md:p-6 border border-white/10">
               <Share2 className="h-5 w-5 md:h-6 md:w-6 text-[#26C9AA] mb-3" />
-              <h3 className="font-bold text-base md:text-lg text-white mb-1">Spread the Word</h3>
-              <p className="text-white/60 text-xs md:text-sm">Follow us on social media and share our mission.</p>
+              <h3 className="font-bold text-base md:text-lg text-white mb-2">Spread the Word</h3>
+              <p className="text-white/60 text-xs md:text-sm mb-4">Follow us and share our mission across social media.</p>
+              <div className="flex flex-wrap gap-2">
+                <a href="https://www.youtube.com/@geauxwildrehab" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white text-xs font-medium">
+                  <Youtube className="h-3.5 w-3.5" /> YouTube
+                </a>
+                <a href="https://www.facebook.com/geauxwildrehab" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white text-xs font-medium">
+                  <Facebook className="h-3.5 w-3.5" /> Facebook
+                </a>
+                <a href="https://www.instagram.com/geauxwildrehab" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white text-xs font-medium">
+                  <Instagram className="h-3.5 w-3.5" /> Instagram
+                </a>
+                <a href="https://www.tiktok.com/@geauxwildrehab" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white text-xs font-medium">
+                  <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-white" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.16 8.16 0 004.77 1.52V6.77a4.85 4.85 0 01-1-.08z"/></svg>
+                  TikTok
+                </a>
+              </div>
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-[1.5rem] md:rounded-[2rem] p-5 md:p-6 border border-white/10">

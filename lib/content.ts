@@ -274,31 +274,31 @@ export const faqs: FAQ[] = [
     id: '3',
     category: 'Found Wildlife',
     question: 'Can I keep the wild animal as a pet?',
-    answer: 'No. It is illegal to keep native wildlife as pets in Louisiana without proper permits. Wild animals have specialized needs and belong in the wild. Our goal is always to rehabilitate and release animals back to their natural habitat.',
+    answer: 'No. It is illegal to keep native wildlife as pets in Louisiana. Wild animals have highly specialized needs and suffer greatly in captivity. Our goal is always to rehabilitate and release animals back to their natural habitat where they belong.',
   },
   {
     id: '4',
     category: 'Care & Handling',
     question: 'What should I do while waiting for help?',
-    answer: 'Place the animal in a ventilated box lined with soft cloth (no loops or threads). Keep it in a warm, dark, quiet place away from children and pets. Do NOT give food or water unless specifically instructed by a rehabilitator.',
+    answer: 'Place the animal in a carrier or ventilated box lined with soft cloth (no loops or threads). Keep it in a warm, dark, quiet place away from children and pets. Do NOT give food or water unless specifically instructed by a rehabilitator.',
   },
   {
     id: '5',
     category: 'Care & Handling',
     question: 'Is it safe to touch the animal?',
-    answer: 'Use caution when handling any wild animal. Wear gloves when possible. Even small animals can bite when scared. If you are bitten, seek medical attention. Some species can carry rabies, so never handle bats, foxes, or skunks without proper protection.',
+    answer: 'Use caution when handling any wild animal. Always wear gloves when possible. Even small animals can bite when scared or in pain. If you are bitten or scratched, seek medical attention. Never handle wildlife without proper PPE (gloves, long sleeves).',
   },
   {
     id: '6',
     category: 'Support & Volunteering',
     question: 'How can I help Geaux Wild Rehab?',
-    answer: 'You can support us by donating, purchasing items from our Amazon Wishlist, volunteering your time, or spreading awareness. Every contribution helps us save more Louisiana wildlife.',
+    answer: 'You can support us by donating, purchasing items from our Amazon Wishlist, volunteering your time, or spreading awareness on social media. Every contribution helps us save more Louisiana wildlife.',
   },
   {
     id: '7',
     category: 'Support & Volunteering',
     question: 'Do you accept volunteers?',
-    answer: 'Yes! We are always looking for dedicated volunteers to help with animal care, transport, facility maintenance, and administrative tasks. Fill out our volunteer interest form to get started.',
+    answer: 'Yes! We currently accept volunteers for two roles: wildlife transport (picking up and delivering animals to our facility) and facility maintenance (cleaning and disinfecting enclosures). Fill out our volunteer interest form to get started.',
   },
   {
     id: '8',
@@ -405,10 +405,10 @@ export async function getStoriesBySpecies(speciesId: string): Promise<Story[]> {
 
 // Impact stats
 export const impactStats = {
-  animalsRescued: 1247,
+  animalsRescued: 2146,
   speciesHelped: 24,
   volunteersActive: 58,
   yearsServing: 6,
-  releaseRate: 78,
+  releaseRate: 82,
   callsAnswered: 3500,
 }
