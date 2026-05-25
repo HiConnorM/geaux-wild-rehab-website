@@ -107,7 +107,7 @@ export function FAQSection() {
                 src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Coyote/transparent-coyote.png"
                 alt="Coyote"
                 fill
-                className="object-contain object-bottom drop-shadow-2xl"
+                className="object-contain object-bottom drop-shadow-2xl scale-120 origin-bottom"
                 sizes="(max-width:768px) 100vw, 40vw"
               />
             </div>
