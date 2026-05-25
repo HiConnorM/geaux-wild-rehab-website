@@ -34,7 +34,7 @@ export function AboutSection() {
               alt="Beaver"
               fill
               className="object-contain object-bottom drop-shadow-2xl scale-150 origin-bottom"
-              style={{ marginLeft: '22px', paddingRight: '-9px', paddingBottom: '-3px' }}
+              style={{ marginLeft: '22px', marginTop: '20px', paddingRight: '-9px', paddingBottom: '-3px' }}
               sizes="(max-width:768px) 80vw, 42vw"
             />
           </div>
