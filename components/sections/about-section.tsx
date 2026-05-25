@@ -28,12 +28,12 @@ export function AboutSection() {
         <div className="grid lg:grid-cols-12 gap-4 md:gap-5 lg:items-start">
 
           {/* Left column — beaver, pushed down slightly so it doesn't crowd the top */}
-          <div className={`lg:col-span-5 relative self-stretch min-h-[220px] sm:min-h-[280px] z-0 order-last lg:order-first transition-all duration-700 delay-200 pt-8 md:pt-12 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className={`lg:col-span-5 relative self-stretch min-h-[260px] sm:min-h-[340px] lg:min-h-[480px] z-0 order-last lg:order-first transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Image
               src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Beaver/transparent-beaver.png"
               alt="Beaver"
               fill
-              className="object-contain object-bottom drop-shadow-2xl"
+              className="object-contain object-bottom drop-shadow-2xl scale-110 origin-bottom"
               sizes="(max-width:768px) 80vw, 42vw"
             />
           </div>

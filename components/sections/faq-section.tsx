@@ -101,14 +101,13 @@ export function FAQSection() {
               </Button>
             </div>
 
-            {/* Bobcat image — z-0 so the wave appears in front of its feet */}
-            <div className="relative h-[320px] sm:h-[380px] md:h-[440px] lg:h-full min-h-[400px] z-0">
+            {/* Coyote image — z-0 so the wave appears in front of its feet */}
+            <div className="relative h-[360px] sm:h-[420px] md:h-[500px] lg:h-full min-h-[460px] z-0">
               <Image
                 src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Coyote/transparent-coyote.png"
                 alt="Coyote"
                 fill
                 className="object-contain object-bottom drop-shadow-2xl"
-                style={{ marginLeft: '-25px', marginRight: '9px' }}
                 sizes="(max-width:768px) 100vw, 40vw"
               />
             </div>

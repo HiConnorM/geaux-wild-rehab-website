@@ -89,12 +89,12 @@ export function ImpactStats() {
               <p className="text-lg md:text-xl font-black text-[#26C9AA]">Goes to animals</p>
             </div>
 
-            <div className="relative h-[320px] sm:h-[380px] md:h-[480px] lg:h-[560px]">
+            <div className="relative h-[380px] sm:h-[440px] md:h-[540px] lg:h-[620px]">
               <Image
                 src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Squirrel/transparent-squirrel.png"
                 alt="Squirrel"
                 fill
-                className="object-contain object-bottom drop-shadow-2xl"
+                className="object-contain object-bottom drop-shadow-2xl scale-125 origin-bottom"
                 sizes="(max-width:768px) 100vw, 40vw"
               />
             </div>
