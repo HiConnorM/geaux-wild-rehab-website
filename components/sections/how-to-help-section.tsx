@@ -18,7 +18,7 @@ export function HowToHelpSection() {
 
   return (
     /* -mt-px closes any sub-pixel gap with the about-section wave */
-    <section ref={ref} className="relative z-0 bg-[#3B468E] overflow-hidden -mt-px">
+    <section ref={ref} className="relative z-0 bg-[#3B468E] overflow-hidden -mt-[3px]">
       {/* Decorative diamonds */}
       <div className="absolute top-32 left-[8%] w-6 h-6 bg-white/10 rotate-45 rounded hidden md:block" />
       <div className="absolute top-48 right-[12%] w-4 h-4 bg-[#26C9AA]/30 rotate-45 rounded-sm hidden md:block" />

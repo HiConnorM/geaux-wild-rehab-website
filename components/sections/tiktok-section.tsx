@@ -29,15 +29,9 @@ export function TikTokSection() {
 
 
   return (
-    /* -mt-px closes the sub-pixel gap after the DonationBanner */
-    <section ref={ref} className="relative bg-[#1a1f3d] overflow-hidden -mt-[3px] pt-0 pb-20 md:pb-28">
-
-      {/* Top wave — white shape from StoriesSection fades into dark bg */}
-      <div className="w-full pointer-events-none" style={{ lineHeight: 0 }}>
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
-          <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="white"/>
-        </svg>
-      </div>
+    /* -mt-px closes the sub-pixel gap; Stories wave (fill=#1a1f3d) already creates the
+       seamless boundary — no additional top wave needed here */
+    <section ref={ref} className="relative bg-[#1a1f3d] overflow-visible -mt-[3px] pt-16 md:pt-20 pb-20 md:pb-28">
 
       {/* Decorative accents */}
       <div className="absolute top-24 left-[5%] w-3 h-3 rounded-full bg-[#26C9AA]/20 hidden md:block" />
@@ -143,6 +137,13 @@ export function TikTokSection() {
           </div>
         </div>
 
+      </div>
+
+      {/* Wave at bottom — white bites up; z-20 sits IN FRONT of TikTok content */}
+      <div className="absolute left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
+          <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="white"/>
+        </svg>
       </div>
     </section>
   )

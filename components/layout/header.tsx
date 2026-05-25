@@ -45,7 +45,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="shrink-0">
           <Image
-            src="/images/logo.png"
+            src="/images/logo.svg"
             alt="Geaux Wild Rehab"
             width={140}
             height={44}
@@ -121,7 +121,7 @@ export function MobileHeader() {
           {/* Logo */}
           <Link href="/" className="shrink-0">
             <Image
-              src="/images/logo.png"
+              src="/images/logo.svg"
               alt="Geaux Wild Rehab"
               width={140}
               height={44}
