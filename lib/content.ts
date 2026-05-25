@@ -253,6 +253,35 @@ export const species: Species[] = [
     ],
     conservationStatus: 'Least Concern - Populations have recovered well from historical overhunting',
     commonInjuries: ['Vehicle strikes', 'Orphaned kits', 'Dog attacks', 'Trap injuries', 'Illegal shooting']
+  },
+  {
+    id: 'raccoon',
+    name: 'Raccoon',
+    scientificName: 'Procyon lotor',
+    description: 'Highly intelligent and adaptable mammals, raccoons are one of the most common wildlife rehabilitation patients in Louisiana. Their dexterous front paws and curious nature make them fascinating animals.',
+    image: '/images/species/raccoon.jpg',
+    category: 'mammal',
+    habitat: 'Found throughout Louisiana in forests, marshes, prairies, and urban areas. They den in tree hollows, brush piles, under decks, and in attics. Raccoons are highly adaptable to human-altered environments.',
+    diet: 'Omnivorous opportunists eating crayfish, frogs, fish, insects, fruits, nuts, seeds, eggs, and human food waste. They are famous for "washing" food in water, which is actually a sensory behavior to enhance their sense of touch.',
+    behavior: 'Primarily nocturnal and solitary outside of family groups. Females raise young alone — litters of 2–5 kits born in spring. Raccoons do not truly hibernate but may sleep for weeks during cold snaps. They are highly intelligent and can remember solutions to tasks for up to 3 years.',
+    lifespan: '2–3 years in the wild, up to 20 years in captivity',
+    foundWildTips: [
+      'Baby raccoons separated from their mother will cry loudly — the mother may return',
+      'A raccoon active during the day is not necessarily sick, especially a nursing mother',
+      'Never handle a raccoon without thick gloves — they can carry rabies',
+      'Orphaned kits need specialized care from a licensed rehabilitator immediately',
+      'Keep pets indoors if raccoons are frequenting your yard'
+    ],
+    funFacts: [
+      'Raccoons have over 400 million sensory receptors in their front paws',
+      'They can open latches, jars, and even door handles',
+      'Raccoons can run up to 15 mph and are excellent climbers and swimmers',
+      'Their distinctive "mask" may help reduce glare and enhance night vision',
+      'Raccoon kits stay with their mother for up to a year',
+      'They are one of the few medium-sized animals that has thrived alongside human development'
+    ],
+    conservationStatus: 'Least Concern — Populations are abundant and expanding',
+    commonInjuries: ['Orphaned kits', 'Vehicle strikes', 'Dog attacks', 'Distemper', 'Mange']
   }
 ]
 
