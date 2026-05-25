@@ -51,18 +51,18 @@ export function ImpactStats() {
 
   return (
     /* -mt-px closes the sub-pixel gap after the FAQ wave */
-    <section ref={sectionRef} className="relative z-0 overflow-hidden bg-[#26C9AA] -mt-[3px] pb-20 md:pb-28">
+    <section ref={sectionRef} className="relative z-0 overflow-hidden bg-[#26C9AA] -mt-[3px]">
 
       {/* Decorative diamonds */}
       <div className="absolute top-12 left-[8%] w-6 h-6 bg-white/15 rotate-45 rounded hidden md:block" />
       <div className="absolute top-28 right-[12%] w-4 h-4 bg-[#3B468E]/20 rotate-45 rounded-sm hidden md:block" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 md:pt-20 pb-0">
-        {/* Bento grid */}
-        <div className="grid lg:grid-cols-12 gap-5 lg:gap-8">
+        {/* Bento grid — items-end so beaver column aligns to the grid bottom */}
+        <div className="grid lg:grid-cols-12 gap-5 lg:gap-8 items-end">
 
           {/* Header + stats — 7 cols */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 pb-16 md:pb-20">
             <div className={`mb-8 md:mb-10 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <span className="inline-block text-sm font-bold text-white/70 uppercase tracking-wider mb-3">By the Numbers</span>
               <h2 className="font-serif font-black text-3xl sm:text-4xl md:text-5xl text-white leading-[1.1] mb-4">
@@ -81,7 +81,7 @@ export function ImpactStats() {
             </div>
           </div>
 
-          {/* Beaver — 5 cols, z-0 so bottom wave covers its feet */}
+          {/* Beaver — 5 cols, flush to section bottom */}
           <div className={`lg:col-span-5 relative z-0 transition-all duration-700 delay-300 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {/* Floating badge */}
             <div className={`absolute top-0 left-0 bg-white rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 shadow-xl z-10 transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -89,7 +89,7 @@ export function ImpactStats() {
               <p className="text-lg md:text-xl font-black text-[#26C9AA]">Goes to animals</p>
             </div>
 
-            <div className="relative h-[280px] sm:h-[320px] md:h-[420px] lg:h-[500px] min-h-[280px]">
+            <div className="relative h-[320px] sm:h-[380px] md:h-[480px] lg:h-[560px]">
               <Image
                 src="/images/animals/beaver.svg"
                 alt="Beaver"
