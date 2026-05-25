@@ -19,7 +19,7 @@ export function AnimalsWeHelpSection() {
 
   return (
     /* -mt-px + relative z-10 so this section sits directly on top of the HowToHelp wave */
-    <section ref={ref} className="relative z-10 bg-white overflow-hidden -mt-px">
+    <section ref={ref} className="relative z-0 bg-white overflow-hidden -mt-px">
 
       {/* Content — generous top padding so content clears the incoming white wave */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-28">
