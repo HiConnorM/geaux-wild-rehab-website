@@ -118,7 +118,7 @@ export function HowToHelpSection() {
               src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
               alt="Armadillo"
               fill
-              className="object-contain object-bottom drop-shadow-2xl scale-125 origin-bottom"
+              className="object-contain object-bottom drop-shadow-2xl scale-140 origin-bottom"
               sizes="(max-width:768px) 100vw, 40vw"
             />
           </div>
