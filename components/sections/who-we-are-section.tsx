@@ -6,12 +6,23 @@ import { ExternalLink } from 'lucide-react'
 
 const dodoStories = [
   {
-    title: 'She Was Lifeless And Couldn\'t Move — Then A Kind Woman Decided To Help',
+    title: "She Was Lifeless And Couldn't Move — Then A Kind Woman Decided To Help",
     url: 'https://www.thedodo.com/daily-dodo/she-was-lifeless-and-couldnt-move-then-a-kind-woman-decided-to-help',
   },
   {
     title: 'Little Boy Spots Fuzzy Lump Near Storm Drain And Runs To Get Help',
     url: 'https://www.thedodo.com/daily-dodo/little-boy-spots-fuzzy-lump-near-storm-drain-and-runs-to-get-help',
+  },
+]
+
+const earthRangersStories = [
+  {
+    title: 'Can a 3-Legged Bobcat Survive in the Wild?',
+    url: 'https://www.earthrangers.com/EN/US/youtube/can-a-3-legged-bobcat-survive-in-the-wild-2/',
+  },
+  {
+    title: 'This Coyote Couldn\'t Stand — But She Refused to Give Up',
+    url: 'https://www.earthrangers.com/EN/US/videos/this-coyote-couldnt-stand-but-she-refused-to-give-up/',
   },
 ]
 
@@ -58,45 +69,75 @@ export function WhoWeAreSection() {
             </p>
           </div>
 
-          {/* Featured on The Dodo card */}
+          {/* Featured on The Dodo + Earth Rangers card */}
           <div className={`bg-white rounded-xl md:rounded-[2rem] p-6 md:p-8 shadow-lg shadow-black/10 transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <p className="text-xs font-bold text-[#3B468E] uppercase tracking-wider mb-4">
+            <p className="text-xs font-bold text-[#3B468E] uppercase tracking-wider mb-6">
               Featured On
             </p>
 
-            {/* Dodo logo */}
+            {/* --- The Dodo --- */}
             <div className="mb-6">
-              <Image
-                src="/images/dodo-logo.png"
-                alt="The Dodo"
-                width={180}
-                height={72}
-                className="object-contain"
-              />
+              <div className="mb-4">
+                <Image
+                  src="/images/dodo-logo.png"
+                  alt="The Dodo"
+                  width={160}
+                  height={64}
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex flex-col gap-3">
+                {dodoStories.map((story, i) => (
+                  <a
+                    key={i}
+                    href={story.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-start gap-3 p-4 rounded-xl md:rounded-2xl border border-gray-100 hover:border-[#26C9AA] hover:bg-[#26C9AA]/5 transition-all duration-200"
+                  >
+                    <div className="shrink-0 mt-0.5 w-8 h-8 rounded-full bg-[#26C9AA]/10 flex items-center justify-center group-hover:bg-[#26C9AA]/20 transition-colors">
+                      <ExternalLink className="h-3.5 w-3.5 text-[#26C9AA]" />
+                    </div>
+                    <span className="text-sm font-medium text-[#1a1f3d] leading-snug group-hover:text-[#26C9AA] transition-colors">
+                      {story.title}
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
 
-            <p className="text-sm text-gray-500 mb-5 leading-relaxed">
-              Geaux Wild Rehab has been featured in two stories on The Dodo, one of the world&apos;s largest animal and wildlife media brands.
-            </p>
+            {/* Divider */}
+            <div className="border-t border-gray-100 my-6" />
 
-            {/* Story links */}
-            <div className="flex flex-col gap-3">
-              {dodoStories.map((story, i) => (
-                <a
-                  key={i}
-                  href={story.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-start gap-3 p-4 rounded-xl md:rounded-2xl border border-gray-100 hover:border-[#26C9AA] hover:bg-[#26C9AA]/5 transition-all duration-200"
-                >
-                  <div className="shrink-0 mt-0.5 w-8 h-8 rounded-full bg-[#26C9AA]/10 flex items-center justify-center group-hover:bg-[#26C9AA]/20 transition-colors">
-                    <ExternalLink className="h-3.5 w-3.5 text-[#26C9AA]" />
-                  </div>
-                  <span className="text-sm font-medium text-[#1a1f3d] leading-snug group-hover:text-[#26C9AA] transition-colors">
-                    {story.title}
-                  </span>
-                </a>
-              ))}
+            {/* --- Earth Rangers --- */}
+            <div>
+              <div className="mb-4">
+                <Image
+                  src="/images/earth-rangers-logo.png"
+                  alt="Earth Rangers"
+                  width={160}
+                  height={64}
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex flex-col gap-3">
+                {earthRangersStories.map((story, i) => (
+                  <a
+                    key={i}
+                    href={story.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-start gap-3 p-4 rounded-xl md:rounded-2xl border border-gray-100 hover:border-[#26C9AA] hover:bg-[#26C9AA]/5 transition-all duration-200"
+                  >
+                    <div className="shrink-0 mt-0.5 w-8 h-8 rounded-full bg-[#26C9AA]/10 flex items-center justify-center group-hover:bg-[#26C9AA]/20 transition-colors">
+                      <ExternalLink className="h-3.5 w-3.5 text-[#26C9AA]" />
+                    </div>
+                    <span className="text-sm font-medium text-[#1a1f3d] leading-snug group-hover:text-[#26C9AA] transition-colors">
+                      {story.title}
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
