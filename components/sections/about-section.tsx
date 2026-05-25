@@ -30,7 +30,7 @@ export function AboutSection() {
           {/* Left column — beaver, pushed down slightly so it doesn't crowd the top */}
           <div className={`lg:col-span-5 relative self-stretch min-h-[220px] sm:min-h-[280px] z-0 order-last lg:order-first transition-all duration-700 delay-200 pt-8 md:pt-12 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Image
-              src="/images/animals/beaver.svg"
+              src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Beaver/transparent-beaver.png"
               alt="Beaver"
               fill
               className="object-contain object-bottom drop-shadow-2xl"

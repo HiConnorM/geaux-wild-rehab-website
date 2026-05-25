@@ -115,8 +115,8 @@ export function HowToHelpSection() {
           {/* Opossum — z-0 so bottom wave sits IN FRONT of its feet */}
           <div className={`lg:col-span-5 relative h-[260px] sm:h-[300px] md:h-[360px] z-0 transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Image
-              src="/images/animals/opossum.svg"
-              alt="Opossum"
+              src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
+              alt="Armadillo"
               fill
               className="object-contain object-bottom drop-shadow-2xl"
               sizes="(max-width:768px) 100vw, 40vw"

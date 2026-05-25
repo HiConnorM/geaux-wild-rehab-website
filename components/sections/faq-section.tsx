@@ -104,8 +104,8 @@ export function FAQSection() {
             {/* Bobcat image — z-0 so the wave appears in front of its feet */}
             <div className="relative h-[320px] sm:h-[380px] md:h-[440px] lg:h-full min-h-[400px] z-0">
               <Image
-                src="/images/animals/bobcat.svg"
-                alt="Bobcat"
+                src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Coyote/transparent-coyote.png"
+                alt="Coyote"
                 fill
                 className="object-contain object-bottom drop-shadow-2xl"
                 style={{ marginLeft: '-25px', marginRight: '9px' }}

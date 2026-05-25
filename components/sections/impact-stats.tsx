@@ -91,8 +91,8 @@ export function ImpactStats() {
 
             <div className="relative h-[320px] sm:h-[380px] md:h-[480px] lg:h-[560px]">
               <Image
-                src="/images/animals/beaver.svg"
-                alt="Beaver"
+                src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Squirrel/transparent-squirrel.png"
+                alt="Squirrel"
                 fill
                 className="object-contain object-bottom drop-shadow-2xl"
                 sizes="(max-width:768px) 100vw, 40vw"
