@@ -112,13 +112,14 @@ export function HowToHelpSection() {
             </div>
           </div>
 
-          {/* Opossum — z-0 so bottom wave sits IN FRONT of its feet (hides the crop line) */}
-          <div className={`lg:col-span-5 relative h-[300px] sm:h-[360px] md:h-[440px] z-0 transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* Armadillo — z-40 so it sits in front of cards and wave; pointer-events-none so cards below remain clickable */}
+          <div className={`lg:col-span-5 relative h-[300px] sm:h-[360px] md:h-[420px] z-40 pointer-events-none transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Image
-              src="/images/animals/opossum.svg"
-              alt="Opossum"
+              src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
+              alt="Armadillo"
               fill
-              className="object-contain object-bottom drop-shadow-2xl"
+              className="object-contain object-bottom drop-shadow-2xl scale-170 origin-bottom"
+              style={{ marginLeft: '53px' }}
               sizes="(max-width:768px) 100vw, 40vw"
             />
           </div>
@@ -126,8 +127,8 @@ export function HowToHelpSection() {
         </div>
       </div>
 
-      {/* Wave at bottom — white bites up; z-20 sits IN FRONT of opossum (z-0) */}
-      <div className="absolute left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
+      {/* Wave at bottom — white bites up; z-10 sits BEHIND armadillo (z-40) */}
+      <div className="absolute left-0 right-0 z-10 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
           <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="white"/>
         </svg>

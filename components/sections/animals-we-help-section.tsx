@@ -19,7 +19,7 @@ export function AnimalsWeHelpSection() {
 
   return (
     /* -mt-px + relative z-10 so this section sits directly on top of the HowToHelp wave */
-    <section ref={ref} className="relative z-10 bg-white overflow-visible -mt-px">
+    <section ref={ref} className="relative z-0 bg-white overflow-hidden -mt-px">
 
       {/* Content — generous padding; bottom gives clearance for the outgoing wave */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-28 md:pt-20 md:pb-36 lg:pt-24 lg:pb-40">
@@ -40,8 +40,8 @@ export function AnimalsWeHelpSection() {
           </p>
         </div>
 
-        {/* Animals grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 lg:gap-5 mb-10 md:mb-12">
+        {/* Animals grid — real species photos */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4 lg:gap-5 mb-10 md:mb-12">
           {species.slice(0, 8).map((animal, i) => (
             <Link
               key={animal.id}
@@ -49,28 +49,26 @@ export function AnimalsWeHelpSection() {
               className={`group relative bg-[#F8F4F4] rounded-xl md:rounded-[1.5rem] overflow-hidden hover:shadow-xl hover:shadow-black/10 transition-all duration-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: `${150 + i * 75}ms` }}
             >
-              <div className={`${i === 0 || i === 5 ? 'aspect-[3/4]' : 'aspect-square'} relative`}>
+              <div className="aspect-square relative">
                 <Image
                   src={animal.image}
                   alt={animal.name}
                   fill
-                  className="object-contain p-2 md:p-3 group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width:768px) 50vw, 25vw"
-                  style={{
-                    marginTop: i === 1 ? '36px' : i === 2 ? '22px' : i === 3 ? '17px' : '0px',
-                    marginBottom: i === 1 ? '5px' : i === 2 ? '9px' : '0px',
-                  }}
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width:640px) 50vw, (max-width:1024px) 33vw, 25vw"
                 />
+                {/* Dark gradient overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-white via-white/95 to-transparent">
-                <h3 className="font-bold text-[#1a1f3d] text-sm md:text-lg group-hover:text-[#26C9AA] transition-colors">
+              <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+                <h3 className="font-bold text-white text-sm md:text-base group-hover:text-[#26C9AA] transition-colors leading-tight">
                   {animal.name}
                 </h3>
-                <p className="text-[10px] md:text-xs text-gray-500 italic hidden sm:block">{animal.scientificName}</p>
+                <p className="text-white/60 text-[10px] md:text-xs italic hidden sm:block">{animal.scientificName}</p>
               </div>
 
               {/* Hover arrow */}
-              <div className="absolute top-2 right-2 md:top-4 md:right-4 w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#26C9AA] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute top-2 right-2 md:top-3 md:right-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#26C9AA] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <ArrowRight className="h-3 w-3 md:h-4 md:w-4 text-white" />
               </div>
             </Link>

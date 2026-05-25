@@ -45,7 +45,7 @@ export function Hero() {
   const releaseCount = useCountUp(impactStats.releaseRate, 1600, statsStarted)
 
   return (
-    <section className="relative min-h-screen bg-[#26C9AA] overflow-x-hidden overflow-y-visible">
+    <section className="relative min-h-screen bg-[#26C9AA] overflow-hidden">
       {/* Decorative diamonds - hidden on mobile */}
       <div className="hidden md:block absolute top-32 left-[10%] w-6 h-6 bg-white/20 rotate-45 rounded" />
       <div className="hidden md:block absolute top-48 left-[5%] w-4 h-4 bg-white/30 rotate-45 rounded-sm" />
