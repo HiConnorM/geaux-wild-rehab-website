@@ -1,5 +1,6 @@
 import { Hero } from '@/components/sections/hero'
 import { AboutSection } from '@/components/sections/about-section'
+import { WhoWeAreSection } from '@/components/sections/who-we-are-section'
 import { HowToHelpSection } from '@/components/sections/how-to-help-section'
 import { AnimalsWeHelpSection } from '@/components/sections/animals-we-help-section'
 import { StoriesSection } from '@/components/sections/stories-section'
@@ -12,6 +13,7 @@ export default function HomePage() {
     <div className="overflow-x-hidden">
       <Hero />
       <AboutSection />
+      <WhoWeAreSection />
       <HowToHelpSection />
       <AnimalsWeHelpSection />
       <StoriesSection />
