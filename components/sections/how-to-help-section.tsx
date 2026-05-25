@@ -18,7 +18,7 @@ export function HowToHelpSection() {
 
   return (
     /* -mt-px closes any sub-pixel gap with the about-section wave */
-    <section ref={ref} className="relative z-0 bg-[#3B468E] overflow-hidden -mt-px">
+    <section ref={ref} className="relative z-0 bg-[#3B468E] overflow-hidden -mt-[3px]">
       {/* Decorative diamonds */}
       <div className="absolute top-32 left-[8%] w-6 h-6 bg-white/10 rotate-45 rounded hidden md:block" />
       <div className="absolute top-48 right-[12%] w-4 h-4 bg-[#26C9AA]/30 rotate-45 rounded-sm hidden md:block" />
@@ -112,8 +112,8 @@ export function HowToHelpSection() {
             </div>
           </div>
 
-          {/* Opossum — z-0 so bottom wave sits IN FRONT of its feet */}
-          <div className={`lg:col-span-5 relative h-[260px] sm:h-[300px] md:h-[360px] z-0 transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* Opossum — z-0 so bottom wave sits IN FRONT of its feet (hides the crop line) */}
+          <div className={`lg:col-span-5 relative h-[300px] sm:h-[360px] md:h-[440px] z-0 transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Image
               src="/images/animals/opossum.svg"
               alt="Opossum"

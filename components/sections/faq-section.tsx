@@ -22,24 +22,17 @@ export function FAQSection() {
 
   return (
     /* -mt-px closes the sub-pixel gap after the Stories wave */
-    <section ref={ref} className="relative z-10 bg-white overflow-hidden -mt-[3px]">
-
-      {/* Top wave — dark bg shape fades into white */}
-      <div className="w-full pointer-events-none" style={{ lineHeight: 0 }}>
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
-          <path d="M0 0H1440V40C1200 80 960 0 720 40C480 80 240 0 0 40V0Z" fill="#1a1f3d"/>
-        </svg>
-      </div>
+    <section ref={ref} className="relative z-10 bg-white overflow-visible -mt-[3px]">
 
       {/* Decorative diamonds */}
       <div className="absolute top-8 right-[8%] w-5 h-5 bg-[#26C9AA]/15 rotate-45 rounded hidden md:block" />
       <div className="absolute top-24 left-[12%] w-4 h-4 bg-[#3B468E]/15 rotate-45 rounded-sm hidden md:block" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 md:pt-20 lg:pt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 md:pt-20">
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
 
           {/* FAQ content — 7 cols, right side */}
-          <div className="lg:col-span-7 order-last lg:order-last pb-20 md:pb-28">
+          <div className="lg:col-span-7 order-last lg:order-last pb-28 md:pb-36">
             <div className={`mb-6 md:mb-8 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-3">Quick Answers</span>
               <h2 className="font-serif font-black text-3xl sm:text-4xl md:text-5xl text-[#1a1f3d] leading-[1.1] mb-4">
@@ -102,7 +95,7 @@ export function FAQSection() {
             </div>
 
             {/* Bobcat image — z-0 so the wave appears in front of its feet */}
-            <div className="relative h-[320px] sm:h-[380px] md:h-[440px] lg:h-full min-h-[400px] z-0">
+            <div className="relative h-[360px] sm:h-[420px] md:h-[500px] lg:h-full min-h-[440px] z-0">
               <Image
                 src="/images/animals/bobcat.svg"
                 alt="Bobcat"

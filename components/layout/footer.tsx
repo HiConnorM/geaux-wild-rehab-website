@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Heart, ExternalLink, Instagram, Facebook, Mail, ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+import { Instagram, Facebook, ArrowRight } from 'lucide-react'
 
 const footerLinks = {
   help: [
@@ -40,61 +38,6 @@ export function Footer() {
 
   return (
     <footer className="bg-[#1a1f3d] text-white">
-      {/* CTA Band */}
-      <div className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #26C9AA 0%, #2a7fb8 50%, #3B468E 100%)' }}>
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4 text-balance">
-                Help Us Save Louisiana Wildlife
-              </h2>
-              <p className="text-white/90 text-lg max-w-xl mb-8">
-                Every donation helps us provide critical care for injured and orphaned animals. 
-                Join our community of wildlife advocates today.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-white text-[#3B468E] hover:bg-white/90 gap-2 rounded-full px-8 h-14 font-semibold shadow-lg">
-                  <Link href="/support">
-                    <Heart className="h-5 w-5" />
-                    Donate Now
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-white/40 text-white hover:bg-white/10 hover:border-white/60 gap-2 rounded-full px-8 h-14 font-medium bg-transparent"
-                >
-                  <a href="https://amazon.com/hz/wishlist/ls/1U43EOQ2AS8LA?ref_=wl_share" target="_blank" rel="noopener noreferrer" aria-label="Shop Our Amazon Wishlist (opens in new tab)">
-                    <ExternalLink className="h-5 w-5" />
-                    Shop Our Wishlist
-                  </a>
-                </Button>
-              </div>
-            </div>
-            
-            {/* Newsletter signup */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
-              <h3 className="text-xl font-bold text-white mb-2">Stay Connected</h3>
-              <p className="text-white/80 mb-6">Get updates on our rescues and ways to help.</p>
-              <form className="flex gap-3">
-                <div className="flex-1 relative">
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-                  <Input 
-                    type="email" 
-                    placeholder="Enter your email" 
-                    className="pl-12 h-12 rounded-full bg-white border-0 text-[#1a1f3d] placeholder:text-gray-400"
-                  />
-                </div>
-                <Button type="submit" size="lg" className="rounded-full px-6 h-12 bg-[#1a1f3d] text-white hover:bg-[#1a1f3d]/90">
-                  <ArrowRight className="h-5 w-5" />
-                </Button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
@@ -102,7 +45,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
               <Image
-                src="/images/logo.png"
+                src="/images/logo.svg"
                 alt="Geaux Wild Rehab"
                 width={140}
                 height={44}

@@ -52,21 +52,25 @@ export function Hero() {
       <div className="hidden md:block absolute bottom-[35%] left-[8%] w-10 h-10 border-2 border-white/20 rotate-45 rounded" />
       <div className="hidden md:block absolute bottom-[45%] right-[12%] w-6 h-6 border-2 border-white/15 rotate-45 rounded-sm" />
 
-      {/* Fox image */}
+      {/* Fox image — large focal point on right, transparent PNG, wave hides the base */}
       <div
-        className={`absolute bottom-0 right-0 z-0 transition-all duration-1000 delay-300 ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}`}
+        className={`absolute bottom-0 right-0 z-0 transition-all duration-1000 delay-300 ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}
         style={{
-          width: 'clamp(260px, 95vw, 1400px)',
-          height: 'clamp(360px, 150vh, 1600px)',
+          /* Wide enough to be a real focal point, but capped so left-side text stays readable */
+          width: 'clamp(340px, 72vw, 1100px)',
+          /* Tall enough to fill most of the hero vertically */
+          height: 'clamp(520px, 105vh, 1300px)',
         }}
       >
+        {/* Subtle white glow ring so the fox "pops" against the teal bg */}
+        <div className="absolute inset-0 rounded-full pointer-events-none" style={{ boxShadow: '0 0 80px 20px rgba(255,255,255,0.08)' }} />
         <Image
           src="/images/hero-fox.png"
           alt="Gray Fox on tree stump"
           fill
-          className="object-contain object-bottom [filter:drop-shadow(0_0_12px_rgba(255,255,255,0.35))_drop-shadow(0_0_3px_rgba(255,255,255,0.6))]"
+          className="object-contain object-bottom [filter:drop-shadow(0_0_18px_rgba(255,255,255,0.45))_drop-shadow(0_0_4px_rgba(255,255,255,0.7))]"
           priority
-          sizes="(max-width:768px) 95vw, 55vw"
+          sizes="(max-width:640px) 90vw, (max-width:1024px) 60vw, 50vw"
         />
       </div>
 

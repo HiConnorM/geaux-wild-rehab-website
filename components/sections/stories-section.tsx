@@ -20,7 +20,7 @@ export function StoriesSection() {
   const latest = stories.slice(0, 3)
 
   return (
-    <section ref={ref} className="relative bg-[#F8F4F4] overflow-hidden -mt-px">
+    <section ref={ref} className="relative bg-[#F8F4F4] overflow-visible -mt-px">
 
       {/* Decorative diamonds */}
       <div className="absolute top-12 left-[5%] w-5 h-5 bg-[#3B468E]/15 rotate-45 rounded hidden md:block" />
@@ -99,7 +99,7 @@ export function StoriesSection() {
               <p className="text-xl md:text-2xl font-black text-[#26C9AA]">Weekly</p>
             </div>
 
-            <div className="relative h-[320px] sm:h-[400px] md:h-[500px] lg:h-full min-h-[400px]">
+            <div className="relative h-[360px] sm:h-[440px] md:h-[540px] lg:h-full min-h-[440px]">
               <Image
                 src="/images/animals/coyote.svg"
                 alt="Coyote"
@@ -114,10 +114,11 @@ export function StoriesSection() {
         </div>
       </div>
 
-      {/* Wave at bottom — white bites up; z-20 sits IN FRONT of coyote (z-0) */}
+      {/* Wave at bottom — dark navy bites up; z-20 sits IN FRONT of coyote (z-0),
+          fill matches TikTokSection bg so the transition is seamless */}
       <div className="absolute left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
-          <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="white"/>
+          <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#1a1f3d"/>
         </svg>
       </div>
     </section>

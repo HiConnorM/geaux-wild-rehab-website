@@ -19,10 +19,10 @@ export function AnimalsWeHelpSection() {
 
   return (
     /* -mt-px + relative z-10 so this section sits directly on top of the HowToHelp wave */
-    <section ref={ref} className="relative z-10 bg-white overflow-hidden -mt-px">
+    <section ref={ref} className="relative z-10 bg-white overflow-visible -mt-px">
 
-      {/* Content — generous top padding so content clears the incoming white wave */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-28">
+      {/* Content — generous padding; bottom gives clearance for the outgoing wave */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-28 md:pt-20 md:pb-36 lg:pt-24 lg:pb-40">
 
         {/* Decorative diamonds */}
         <div className="absolute top-8 left-[6%] w-5 h-5 bg-[#26C9AA]/15 rotate-45 rounded hidden md:block" />
@@ -107,6 +107,13 @@ export function AnimalsWeHelpSection() {
             </Button>
           </div>
         </div>
+      </div>
+
+      {/* Wave at bottom — offwhite bites up into white section, flows into StoriesSection bg */}
+      <div className="absolute left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
+          <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#F8F4F4"/>
+        </svg>
       </div>
     </section>
   )
