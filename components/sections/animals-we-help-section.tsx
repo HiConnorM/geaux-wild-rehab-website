@@ -51,7 +51,7 @@ export function AnimalsWeHelpSection() {
             >
               <div className="aspect-square relative">
                 <Image
-                  src={`/images/species/${animal.id}.jpg`}
+                  src={animal.image}
                   alt={animal.name}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
