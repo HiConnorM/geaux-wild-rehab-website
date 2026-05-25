@@ -112,8 +112,8 @@ export function HowToHelpSection() {
             </div>
           </div>
 
-          {/* Armadillo — z-40 so it sits in front of cards and wave */}
-          <div className={`lg:col-span-5 relative h-[300px] sm:h-[360px] md:h-[420px] z-40 transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* Armadillo — z-40 so it sits in front of cards and wave; pointer-events-none so cards below remain clickable */}
+          <div className={`lg:col-span-5 relative h-[300px] sm:h-[360px] md:h-[420px] z-40 pointer-events-none transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Image
               src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
               alt="Armadillo"
