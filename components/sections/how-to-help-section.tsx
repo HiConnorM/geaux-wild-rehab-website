@@ -33,7 +33,20 @@ export function HowToHelpSection() {
           width={540}
           height={540}
           className="h-auto w-full object-contain object-right-bottom drop-shadow-2xl translate-x-6"
-          sizes="(min-width: 1536px) 540px, (min-width: 1280px) 460px, 380px"
+          sizes="(min-width: 1536px) 800px, (min-width: 1280px) 680px, 560px"
+        />
+      </div>
+
+      {/* Armadillo — mobile: absolute, pinned to right edge, big */}
+      <div className="pointer-events-none absolute right-0 bottom-0 z-40 block lg:hidden w-[220px] sm:w-[300px]">
+        <Image
+          src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
+          alt=""
+          aria-hidden="true"
+          width={300}
+          height={300}
+          className="h-auto w-full object-contain object-right-bottom drop-shadow-xl translate-x-4"
+          sizes="(max-width: 640px) 220px, 300px"
         />
       </div>
 
@@ -123,18 +136,6 @@ export function HowToHelpSection() {
               <div className="text-2xl md:text-3xl font-black text-[#26C9AA] mb-2">501(c)(3)</div>
               <p className="text-white/60 text-xs md:text-sm">All donations are tax-deductible. EIN available upon request.</p>
             </div>
-          </div>
-
-          {/* Armadillo — mobile in-flow version */}
-          <div className="lg:col-span-5 relative z-0 h-[220px] overflow-hidden lg:hidden">
-            <Image
-              src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
-              alt=""
-              aria-hidden="true"
-              fill
-              className="object-contain object-bottom drop-shadow-xl"
-              sizes="(max-width: 640px) 85vw, 400px"
-            />
           </div>
 
         </div>
