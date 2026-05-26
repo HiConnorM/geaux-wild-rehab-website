@@ -79,18 +79,17 @@ export default function WildlifePage() {
                 className="group relative bg-white rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
                 style={{ transitionDelay: `${index * 50}ms` }}
               >
-                {/* Animal Image - Big and centered */}
-                <div className="relative aspect-square overflow-hidden bg-gradient-to-b from-secondary/30 to-secondary/10">
-                  {/* Soft background glow */}
-                  <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent" />
-                  
+                {/* Animal Image - Big and fills card */}
+                <div className="relative aspect-square overflow-hidden">
                   <Image
                     src={animal.image}
                     alt={animal.name}
                     fill
-                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 50vw, 25vw"
                   />
+                  {/* Subtle gradient at bottom for text readability */}
+                  <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
 
                 {/* Content */}
