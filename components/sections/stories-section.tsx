@@ -27,7 +27,7 @@ export function StoriesSection() {
       <div className="absolute top-28 right-[15%] w-4 h-4 bg-[#26C9AA]/20 rotate-45 rounded-sm hidden md:block" />
 
       {/* Coyote — anchored to right browser edge, desktop only */}
-      <div className="pointer-events-none absolute right-0 bottom-0 z-0 hidden lg:block w-[420px] xl:w-[520px] 2xl:w-[620px]">
+      <div className="pointer-events-none absolute right-0 bottom-0 z-0 hidden lg:block w-[620px] xl:w-[760px] 2xl:w-[900px]">
         <Image
           src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Coyote/transparent-coyote.png"
           alt=""

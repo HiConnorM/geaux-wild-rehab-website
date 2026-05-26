@@ -25,7 +25,7 @@ export function HowToHelpSection() {
       <div className="absolute bottom-60 left-[15%] w-5 h-5 border-2 border-white/10 rotate-45 rounded hidden md:block" />
 
       {/* Armadillo — anchored to right browser edge, desktop only */}
-      <div className="pointer-events-none absolute right-0 bottom-0 z-40 hidden lg:block w-[380px] xl:w-[460px] 2xl:w-[540px]">
+      <div className="pointer-events-none absolute right-0 bottom-0 z-40 hidden lg:block w-[560px] xl:w-[680px] 2xl:w-[800px]">
         <Image
           src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
           alt=""

@@ -58,7 +58,7 @@ export function ImpactStats() {
       <div className="absolute top-28 right-[12%] w-4 h-4 bg-[#3B468E]/20 rotate-45 rounded-sm hidden md:block" />
 
       {/* Squirrel — anchored to right browser edge, desktop only */}
-      <div className="pointer-events-none absolute right-0 bottom-0 z-0 hidden lg:block w-[400px] xl:w-[500px] 2xl:w-[580px]">
+      <div className="pointer-events-none absolute right-0 bottom-0 z-0 hidden lg:block w-[600px] xl:w-[740px] 2xl:w-[860px]">
         <Image
           src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Squirrel/transparent-squirrel.png"
           alt=""

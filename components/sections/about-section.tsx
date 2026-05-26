@@ -24,7 +24,7 @@ export function AboutSection() {
       <div className="hidden md:block absolute top-40 right-[5%] w-3 h-3 bg-[#3B468E]/20 rotate-45 rounded-sm" />
 
       {/* Beaver — anchored to left browser edge, desktop only */}
-      <div className="pointer-events-none absolute left-0 bottom-0 z-0 hidden lg:block w-[420px] xl:w-[520px] 2xl:w-[600px]">
+      <div className="pointer-events-none absolute left-0 bottom-0 z-0 hidden lg:block w-[620px] xl:w-[760px] 2xl:w-[880px]">
         <Image
           src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Beaver/transparent-beaver.png"
           alt=""
