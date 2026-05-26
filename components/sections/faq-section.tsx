@@ -79,7 +79,7 @@ export function FAQSection() {
             <div className={`absolute top-0 right-0 bg-white rounded-xl md:rounded-2xl px-3 md:px-4 py-2 md:py-3 shadow-lg border border-gray-100 z-10 transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="flex items-center gap-2">
                 <Phone className="h-3 w-3 md:h-4 md:w-4 text-[#26C9AA]" />
-                <span className="font-bold text-[#1a1f3d] text-xs md:text-sm">(225) 505-5050</span>
+                <span className="font-bold text-[#1a1f3d] text-xs md:text-sm">504-491-8036</span>
               </div>
             </div>
 
