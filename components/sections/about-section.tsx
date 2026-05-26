@@ -36,8 +36,8 @@ export function AboutSection() {
         />
       </div>
 
-      {/* Beaver — mobile: absolute, pinned to left edge, big */}
-      <div className="pointer-events-none absolute left-0 bottom-0 z-0 block lg:hidden w-[260px] sm:w-[340px]">
+      {/* Beaver — mobile: absolute, pinned to left edge, big, z-20 so it shows above cards */}
+      <div className="pointer-events-none absolute left-0 bottom-0 z-20 block lg:hidden w-[260px] sm:w-[340px]">
         <Image
           src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Beaver/transparent-beaver.png"
           alt=""
@@ -57,7 +57,7 @@ export function AboutSection() {
           <div className="hidden lg:block lg:col-span-5" aria-hidden="true" />
 
           {/* Right column: title card + stats card stacked */}
-          <div className="lg:col-span-7 flex flex-col gap-4 md:gap-5 pb-28 md:pb-36">
+          <div className="lg:col-span-7 flex flex-col gap-4 md:gap-5 pb-56 sm:pb-48 md:pb-36">
 
             {/* Title card */}
             <div className={`bg-white rounded-xl md:rounded-[2rem] p-6 md:p-8 shadow-lg shadow-black/5 border border-gray-100 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
