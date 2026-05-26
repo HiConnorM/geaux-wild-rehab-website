@@ -75,8 +75,8 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/about-team.jpg"
-                  alt="Tisha Raiford, licensed Louisiana wildlife rehabilitator"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/scale-vP3hV6R2UU9YDb6yKt2nTv2vq9Qltz.jpg"
+                  alt="Tisha Raiford releasing a coyote back into the wild"
                   fill
                   className="object-cover"
                   priority
@@ -262,8 +262,8 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/hero-wildlife.jpg"
-                  alt="Wildlife rehabilitation in action"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0312-P7UiODJukVXZZRs46JeY0vSdv7zYuG.jpg"
+                  alt="Tisha Raiford with volunteers and staff at the wildlife rehabilitation center"
                   fill
                   className="object-cover"
                 />

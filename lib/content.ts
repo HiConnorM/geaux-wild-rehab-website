@@ -311,6 +311,93 @@ export const species: Species[] = [
     ],
     conservationStatus: 'Least Concern — Populations have rebounded strongly after mid-20th century declines',
     commonInjuries: ['Fishing line entanglement', 'Vehicle strikes', 'Orphaned pups', 'Oil contamination', 'Trap injuries']
+  },
+  {
+    id: 'armadillo',
+    name: 'Nine-banded Armadillo',
+    scientificName: 'Dasypus novemcinctus',
+    description: "Louisiana's armored oddity, the nine-banded armadillo is one of the most distinctive mammals in the state. Though they look prehistoric, they are gentle insectivores that pose no threat to humans.",
+    image: 'https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png',
+    category: 'mammal',
+    habitat: 'Common throughout Louisiana in forests, brushy areas, grasslands, and suburban neighborhoods. They prefer loose, moist soil for digging burrows and foraging for insects. Armadillos can have up to 12 active burrows in their home range, often sharing them with other wildlife.',
+    diet: 'Primarily insectivorous, eating beetles, grubs, ants, termites, worms, and other invertebrates found by digging in soil and leaf litter. They use their excellent sense of smell to locate prey up to 6 inches underground. They occasionally eat small vertebrates, berries, and fungi.',
+    behavior: 'Mostly solitary and crepuscular to nocturnal, armadillos have poor eyesight but an exceptional sense of smell. When threatened, they curl slightly and rely on their armor for protection, or flee in a surprising burst of speed. They are strong swimmers and can walk along river bottoms.',
+    lifespan: '7–10 years in the wild, up to 23 years in captivity',
+    foundWildTips: [
+      'Armadillos seen during daylight may be sick — healthy ones are usually nocturnal',
+      'A disoriented or lethargic armadillo needs professional help immediately',
+      'Baby armadillos found alone without a mother nearby need a rehabilitator',
+      'Do not handle armadillos with bare hands — they can carry leprosy bacteria',
+      'An armadillo crossing a road is not injured — give it time and space to pass'
+    ],
+    funFacts: [
+      'Armadillos always give birth to identical quadruplets from a single fertilized egg',
+      'Their name is Spanish for "little armored one"',
+      'They can hold their breath for up to 6 minutes, allowing them to walk underwater',
+      'Armadillos are one of only two known mammals that can contract leprosy',
+      'Their armor is made of bone covered with tough skin — not scales',
+      'Armadillos expanded into Louisiana in the early 20th century from Texas'
+    ],
+    conservationStatus: 'Least Concern — Populations are expanding throughout the southeastern United States',
+    commonInjuries: ['Vehicle strikes', 'Dog attacks', 'Orphaned young', 'Disorientation from illness', 'Trap injuries']
+  },
+  {
+    id: 'muskrat',
+    name: 'Muskrat',
+    scientificName: 'Ondatra zibethicus',
+    description: 'Semi-aquatic rodents that are a cornerstone of Louisiana marsh ecosystems. Muskrats build distinctive dome-shaped lodges from vegetation and play a vital role in managing wetland plant growth.',
+    image: 'https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Muskrat/muskrat.jpg',
+    category: 'mammal',
+    habitat: "Found in marshes, swamps, ponds, streams, and coastal wetlands throughout Louisiana. They prefer areas with shallow water and abundant emergent vegetation like cattails and bulrush. Louisiana's coastal marshes provide ideal habitat, and the state historically supported one of the largest muskrat populations in North America.",
+    diet: 'Primarily herbivorous, eating aquatic plants including cattails, sedges, rushes, and water lilies — consuming both roots and above-ground parts. They occasionally eat mussels, crayfish, frogs, and fish. Muskrats are important marsh managers, pruning vegetation and keeping waterways open.',
+    behavior: 'Semi-aquatic and active year-round, muskrats are most active at dawn and dusk. They build dome-shaped lodges from vegetation or burrow into bank walls, with underwater entrances. They are strong swimmers and can remain submerged for up to 15 minutes. They live in family groups and defend territories aggressively.',
+    lifespan: '3–4 years in the wild',
+    foundWildTips: [
+      'Baby muskrats found alone and crying are likely orphaned and need help',
+      'Muskrats found far from water may be lost or injured — observe before intervening',
+      'A muskrat active during midday is unusual and may need attention',
+      'Wear gloves when handling muskrats — they bite hard when frightened',
+      'Contact a licensed rehabilitator before attempting to capture or transport a muskrat'
+    ],
+    funFacts: [
+      'Muskrats produce a musky odor from glands near the base of their tail — hence the name',
+      'They can swim backwards as well as forwards',
+      'A muskrat can eat approximately one-third of its body weight in vegetation per day',
+      'Muskrat lodges provide nesting sites for Canada geese, ducks, and turtles',
+      'Louisiana muskrats were once the foundation of the state\'s fur trade industry',
+      'They have partially webbed hind feet and use their flattened tail as a rudder'
+    ],
+    conservationStatus: 'Least Concern — Common throughout their range, though coastal wetland loss threatens Louisiana populations',
+    commonInjuries: ['Vehicle strikes', 'Orphaned young', 'Trap injuries', 'Predator attacks', 'Habitat loss displacement']
+  },
+  {
+    id: 'weasel',
+    name: 'Long-tailed Weasel',
+    scientificName: 'Neogale frenata',
+    description: 'The long-tailed weasel is Louisiana\'s smallest carnivore — a fierce and agile hunter that punches far above its weight. Despite their tiny size, they are formidable predators that play an important role in controlling rodent populations.',
+    image: 'https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Weasel/weasel.jpg',
+    category: 'mammal',
+    habitat: 'Found in a variety of habitats across Louisiana including forests, open fields, farmland, and marshes — anywhere that supports adequate prey populations. They typically den in burrows abandoned by other animals, under tree roots, or in rock crevices, often lining the nest with fur from their prey.',
+    diet: 'Obligate carnivores with a diet dominated by small mammals, especially mice, voles, rats, and rabbits. They also eat birds, eggs, frogs, and insects. Weasels hunt by scent and can follow prey into burrows. They often kill more than they can eat immediately and cache excess prey.',
+    behavior: 'Solitary and highly active, weasels have a very high metabolism and must eat frequently. They are active day and night and do not hibernate. Despite their small size they are bold, fearless hunters that will attack prey many times their own size. They communicate through scent marking and high-pitched squeaks and trills.',
+    lifespan: '1–3 years in the wild, up to 10 years in captivity',
+    foundWildTips: [
+      'Weasel kits found without a mother are fragile and need immediate professional care',
+      'A weasel seen in daylight is not necessarily sick — they are active around the clock',
+      'Do not handle weasels bare-handed — they deliver a surprisingly powerful bite',
+      'An injured or lethargic weasel requires prompt attention from a licensed rehabilitator',
+      'Keep domestic animals away from any found weasel to reduce additional stress'
+    ],
+    funFacts: [
+      'Long-tailed weasels can kill prey up to ten times their own body weight',
+      'Their slender bodies allow them to chase mice and voles directly into burrows',
+      'In northern states their coat turns white in winter — in Louisiana it stays brown year-round',
+      'They have a distinctive bounding gallop and often stand upright on their hind legs to survey surroundings',
+      'A group of weasels is called a "colony," "gang," or "pack"',
+      'Weasels can enter a torpor-like state to conserve energy during food scarcity'
+    ],
+    conservationStatus: 'Least Concern — Populations are generally stable, though rarely seen due to their secretive nature',
+    commonInjuries: ['Vehicle strikes', 'Cat and dog attacks', 'Orphaned kits', 'Trap injuries', 'Rodenticide poisoning']
   }
 ]
 
