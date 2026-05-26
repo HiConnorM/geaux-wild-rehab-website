@@ -262,8 +262,8 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/hero-wildlife.jpg"
-                  alt="Wildlife rehabilitation in action"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0312-P7UiODJukVXZZRs46JeY0vSdv7zYuG.jpg"
+                  alt="Tisha Raiford with volunteers and staff at the wildlife rehabilitation center"
                   fill
                   className="object-cover"
                 />
