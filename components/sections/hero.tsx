@@ -56,10 +56,8 @@ export function Hero() {
       <div
         className={`absolute bottom-0 right-0 z-0 transition-all duration-1000 delay-300 ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}
         style={{
-          /* Wide enough to be a real focal point, but capped so left-side text stays readable */
-          width: 'clamp(340px, 72vw, 1100px)',
-          /* Tall enough to fill most of the hero vertically */
-          height: 'clamp(520px, 105vh, 1300px)',
+          width: 'clamp(480px, 90vw, 1400px)',
+          height: 'clamp(680px, 130vh, 1600px)',
         }}
       >
         {/* Subtle white glow ring so the fox "pops" against the teal bg */}
