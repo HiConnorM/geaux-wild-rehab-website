@@ -66,7 +66,33 @@ export function ImpactStats() {
           width={580}
           height={680}
           className="h-auto w-full object-contain object-right-bottom drop-shadow-2xl translate-x-6"
-          sizes="(min-width: 1536px) 580px, (min-width: 1280px) 500px, 400px"
+          sizes="(min-width: 1536px) 860px, (min-width: 1280px) 740px, 600px"
+        />
+      </div>
+
+      {/* Squirrel — mobile: absolute, pinned to right edge, big */}
+      <div className="pointer-events-none absolute right-0 bottom-0 z-0 block lg:hidden w-[240px] sm:w-[320px]">
+        <Image
+          src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Squirrel/transparent-squirrel.png"
+          alt=""
+          aria-hidden="true"
+          width={320}
+          height={380}
+          className="h-auto w-full object-contain object-right-bottom drop-shadow-xl translate-x-4"
+          sizes="(max-width: 640px) 240px, 320px"
+        />
+      </div>
+
+      {/* Squirrel — mobile: absolute, pinned to right edge, big */}
+      <div className="pointer-events-none absolute right-0 bottom-0 z-0 block lg:hidden w-[240px] sm:w-[320px]">
+        <Image
+          src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Squirrel/transparent-squirrel.png"
+          alt=""
+          aria-hidden="true"
+          width={320}
+          height={380}
+          className="h-auto w-full object-contain object-right-bottom drop-shadow-xl translate-x-4"
+          sizes="(max-width: 640px) 240px, 320px"
         />
       </div>
 
@@ -103,18 +129,6 @@ export function ImpactStats() {
           <div className="hidden lg:block lg:col-span-5" aria-hidden="true" />
 
         </div>
-      </div>
-
-      {/* Squirrel — mobile in-flow version */}
-      <div className="relative z-0 mx-auto mt-6 h-[200px] w-full max-w-[300px] overflow-hidden lg:hidden">
-        <Image
-          src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Squirrel/transparent-squirrel.png"
-          alt=""
-          aria-hidden="true"
-          fill
-          className="object-contain object-bottom drop-shadow-xl"
-          sizes="(max-width: 640px) 85vw, 300px"
-        />
       </div>
 
       {/* Wave at bottom — dark navy matches footer bg for a seamless section-to-footer handoff */}

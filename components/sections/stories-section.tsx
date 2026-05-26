@@ -35,7 +35,20 @@ export function StoriesSection() {
           width={620}
           height={720}
           className="h-auto w-full object-contain object-right-bottom drop-shadow-2xl translate-x-6"
-          sizes="(min-width: 1536px) 620px, (min-width: 1280px) 520px, 420px"
+          sizes="(min-width: 1536px) 900px, (min-width: 1280px) 760px, 620px"
+        />
+      </div>
+
+      {/* Coyote — mobile: absolute, pinned to right edge, big */}
+      <div className="pointer-events-none absolute right-0 bottom-0 z-0 block lg:hidden w-[260px] sm:w-[340px]">
+        <Image
+          src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Coyote/transparent-coyote.png"
+          alt=""
+          aria-hidden="true"
+          width={340}
+          height={400}
+          className="h-auto w-full object-contain object-right-bottom drop-shadow-xl translate-x-4"
+          sizes="(max-width: 640px) 260px, 340px"
         />
       </div>
 

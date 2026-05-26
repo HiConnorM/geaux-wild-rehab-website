@@ -32,19 +32,20 @@ export function AboutSection() {
           width={600}
           height={700}
           className="h-auto w-full object-contain object-left-bottom drop-shadow-2xl -translate-x-8"
-          sizes="(min-width: 1536px) 600px, (min-width: 1280px) 520px, 420px"
+          sizes="(min-width: 1536px) 880px, (min-width: 1280px) 760px, 620px"
         />
       </div>
 
-      {/* Beaver — mobile in-flow version */}
-      <div className="relative z-0 mx-auto mb-6 h-[180px] w-full max-w-[280px] overflow-hidden lg:hidden">
+      {/* Beaver — mobile: absolute, pinned to left edge, big */}
+      <div className="pointer-events-none absolute left-0 bottom-0 z-0 block lg:hidden w-[260px] sm:w-[340px]">
         <Image
           src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Beaver/transparent-beaver.png"
           alt=""
           aria-hidden="true"
-          fill
-          className="object-contain object-bottom drop-shadow-xl"
-          sizes="(max-width: 640px) 85vw, 280px"
+          width={340}
+          height={400}
+          className="h-auto w-full object-contain object-left-bottom drop-shadow-xl"
+          sizes="(max-width: 640px) 260px, 340px"
         />
       </div>
 
