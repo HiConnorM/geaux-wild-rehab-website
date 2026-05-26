@@ -57,8 +57,20 @@ export function ImpactStats() {
       <div className="absolute top-12 left-[8%] w-6 h-6 bg-white/15 rotate-45 rounded hidden md:block" />
       <div className="absolute top-28 right-[12%] w-4 h-4 bg-[#3B468E]/20 rotate-45 rounded-sm hidden md:block" />
 
+      {/* Squirrel — anchored to right browser edge, desktop only */}
+      <div className="pointer-events-none absolute right-0 bottom-0 z-0 hidden lg:block w-[400px] xl:w-[500px] 2xl:w-[580px]">
+        <Image
+          src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Squirrel/transparent-squirrel.png"
+          alt=""
+          aria-hidden="true"
+          width={580}
+          height={680}
+          className="h-auto w-full object-contain object-right-bottom drop-shadow-2xl translate-x-6"
+          sizes="(min-width: 1536px) 580px, (min-width: 1280px) 500px, 400px"
+        />
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 md:pt-20 pb-0">
-        {/* Bento grid — items-end so beaver column aligns to the grid bottom */}
         <div className="grid lg:grid-cols-12 gap-5 lg:gap-8 items-end">
 
           {/* Header + stats — 7 cols */}
@@ -79,29 +91,30 @@ export function ImpactStats() {
                 <StatCard key={stat.label} {...stat} delay={200 + i * 100} vis={vis} />
               ))}
             </div>
-          </div>
 
-          {/* Beaver — 5 cols, flush to section bottom */}
-          <div className={`lg:col-span-5 relative z-0 transition-all duration-700 delay-300 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            {/* Floating badge */}
-            <div className={`absolute top-0 left-0 bg-white rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 shadow-xl z-10 transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            {/* Floating badge — moved into content area */}
+            <div className={`inline-block bg-white rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 shadow-xl transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <p className="text-xs md:text-sm text-gray-500">100% of donations</p>
               <p className="text-lg md:text-xl font-black text-[#26C9AA]">Goes to animals</p>
             </div>
-
-            <div className="relative h-[380px] sm:h-[440px] md:h-[540px] lg:h-[620px]">
-              <Image
-                src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Squirrel/transparent-squirrel.png"
-                alt="Squirrel"
-                fill
-                className="object-contain object-bottom drop-shadow-2xl scale-125 origin-bottom"
-                style={{ marginLeft: '33px' }}
-                sizes="(max-width:768px) 100vw, 40vw"
-              />
-            </div>
           </div>
 
+          {/* Right spacer so content doesn't collide with the absolute squirrel on desktop */}
+          <div className="hidden lg:block lg:col-span-5" aria-hidden="true" />
+
         </div>
+      </div>
+
+      {/* Squirrel — mobile in-flow version */}
+      <div className="relative z-0 mx-auto mt-6 h-[200px] w-full max-w-[300px] overflow-hidden lg:hidden">
+        <Image
+          src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Squirrel/transparent-squirrel.png"
+          alt=""
+          aria-hidden="true"
+          fill
+          className="object-contain object-bottom drop-shadow-xl"
+          sizes="(max-width: 640px) 85vw, 300px"
+        />
       </div>
 
       {/* Wave at bottom — dark navy matches footer bg for a seamless section-to-footer handoff */}

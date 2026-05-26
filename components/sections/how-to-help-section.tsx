@@ -24,6 +24,19 @@ export function HowToHelpSection() {
       <div className="absolute top-48 right-[12%] w-4 h-4 bg-[#26C9AA]/30 rotate-45 rounded-sm hidden md:block" />
       <div className="absolute bottom-60 left-[15%] w-5 h-5 border-2 border-white/10 rotate-45 rounded hidden md:block" />
 
+      {/* Armadillo — anchored to right browser edge, desktop only */}
+      <div className="pointer-events-none absolute right-0 bottom-0 z-40 hidden lg:block w-[380px] xl:w-[460px] 2xl:w-[540px]">
+        <Image
+          src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
+          alt=""
+          aria-hidden="true"
+          width={540}
+          height={540}
+          className="h-auto w-full object-contain object-right-bottom drop-shadow-2xl translate-x-6"
+          sizes="(min-width: 1536px) 540px, (min-width: 1280px) 460px, 380px"
+        />
+      </div>
+
       {/* Content — top padding accounts for the incoming navy wave height */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-14 md:pt-20 pb-0">
         {/* Header */}
@@ -37,8 +50,8 @@ export function HowToHelpSection() {
           </p>
         </div>
 
-        {/* Bento grid */}
-        <div className="grid lg:grid-cols-12 gap-4 md:gap-5">
+        {/* Bento grid — 7 cols wide so it doesn't collide with absolute armadillo */}
+        <div className="grid lg:grid-cols-12 gap-4 md:gap-5 pb-24 md:pb-32">
 
           {/* Donate card - large */}
           <div className={`lg:col-span-7 bg-white rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 shadow-xl transition-all duration-700 delay-100 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -112,22 +125,22 @@ export function HowToHelpSection() {
             </div>
           </div>
 
-          {/* Armadillo — z-40 so it sits in front of cards and wave; pointer-events-none so cards below remain clickable */}
-          <div className={`lg:col-span-5 relative h-[300px] sm:h-[360px] md:h-[420px] z-40 pointer-events-none transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* Armadillo — mobile in-flow version */}
+          <div className="lg:col-span-5 relative z-0 h-[220px] overflow-hidden lg:hidden">
             <Image
               src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
-              alt="Armadillo"
+              alt=""
+              aria-hidden="true"
               fill
-              className="object-contain object-bottom drop-shadow-2xl scale-170 origin-bottom"
-              style={{ marginLeft: '53px' }}
-              sizes="(max-width:768px) 100vw, 40vw"
+              className="object-contain object-bottom drop-shadow-xl"
+              sizes="(max-width: 640px) 85vw, 400px"
             />
           </div>
 
         </div>
       </div>
 
-      {/* Wave at bottom — white bites up; z-10 sits BEHIND armadillo (z-40) */}
+      {/* Wave at bottom — white; z-10 sits BEHIND armadillo (z-40) */}
       <div className="absolute left-0 right-0 z-10 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
           <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="white"/>

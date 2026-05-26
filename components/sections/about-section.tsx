@@ -18,29 +18,45 @@ export function AboutSection() {
 
   return (
     /* -mt-px closes any sub-pixel gap between the hero wave and this section */
-    <section ref={ref} className="relative z-10 bg-[#F8F4F4] overflow-visible -mt-px">
+    <section ref={ref} className="relative z-10 bg-[#F8F4F4] overflow-hidden -mt-px">
       {/* Decorative diamonds */}
       <div className="hidden md:block absolute top-20 right-[10%] w-5 h-5 bg-[#26C9AA]/20 rotate-45 rounded" />
       <div className="hidden md:block absolute top-40 right-[5%] w-3 h-3 bg-[#3B468E]/20 rotate-45 rounded-sm" />
 
+      {/* Beaver — anchored to left browser edge, desktop only */}
+      <div className="pointer-events-none absolute left-0 bottom-0 z-0 hidden lg:block w-[420px] xl:w-[520px] 2xl:w-[600px]">
+        <Image
+          src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Beaver/transparent-beaver.png"
+          alt=""
+          aria-hidden="true"
+          width={600}
+          height={700}
+          className="h-auto w-full object-contain object-left-bottom drop-shadow-2xl -translate-x-8"
+          sizes="(min-width: 1536px) 600px, (min-width: 1280px) 520px, 420px"
+        />
+      </div>
+
+      {/* Beaver — mobile in-flow version */}
+      <div className="relative z-0 mx-auto mb-6 h-[180px] w-full max-w-[280px] overflow-hidden lg:hidden">
+        <Image
+          src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Beaver/transparent-beaver.png"
+          alt=""
+          aria-hidden="true"
+          fill
+          className="object-contain object-bottom drop-shadow-xl"
+          sizes="(max-width: 640px) 85vw, 280px"
+        />
+      </div>
+
       {/* Content — generous top padding so cards sit below the hero wave curve */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-6 md:pt-16 md:pb-8 lg:pt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-6 md:pt-16 md:pb-8 lg:pt-20">
         <div className="grid lg:grid-cols-12 gap-4 md:gap-5 lg:items-start">
 
-          {/* Left column — beaver, pushed down slightly so it doesn't crowd the top */}
-          <div className={`lg:col-span-5 relative self-stretch min-h-[260px] sm:min-h-[340px] lg:min-h-[480px] z-0 order-last lg:order-first transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <Image
-              src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Beaver/transparent-beaver.png"
-              alt="Beaver"
-              fill
-              className="object-contain object-bottom drop-shadow-2xl scale-150 origin-bottom"
-              style={{ marginLeft: '22px', marginTop: '20px', paddingRight: '-9px', paddingBottom: '-3px' }}
-              sizes="(max-width:768px) 80vw, 42vw"
-            />
-          </div>
+          {/* Left spacer on desktop so content sits to the right of the beaver */}
+          <div className="hidden lg:block lg:col-span-5" aria-hidden="true" />
 
           {/* Right column: title card + stats card stacked */}
-          <div className="lg:col-span-7 flex flex-col gap-4 md:gap-5 order-first lg:order-last pb-28 md:pb-36">
+          <div className="lg:col-span-7 flex flex-col gap-4 md:gap-5 pb-28 md:pb-36">
 
             {/* Title card */}
             <div className={`bg-white rounded-xl md:rounded-[2rem] p-6 md:p-8 shadow-lg shadow-black/5 border border-gray-100 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
