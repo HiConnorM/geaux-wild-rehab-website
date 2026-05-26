@@ -20,18 +20,44 @@ export function StoriesSection() {
   const latest = stories.slice(0, 3)
 
   return (
-    <section ref={ref} className="relative bg-[#F8F4F4] overflow-visible -mt-px">
+    <section ref={ref} className="relative bg-[#F8F4F4] overflow-hidden -mt-px">
 
       {/* Decorative diamonds */}
       <div className="absolute top-12 left-[5%] w-5 h-5 bg-[#3B468E]/15 rotate-45 rounded hidden md:block" />
       <div className="absolute top-28 right-[15%] w-4 h-4 bg-[#26C9AA]/20 rotate-45 rounded-sm hidden md:block" />
 
+      {/* Coyote — anchored to right browser edge, desktop only */}
+      <div className="pointer-events-none absolute right-0 bottom-0 z-0 hidden lg:block w-[620px] xl:w-[760px] 2xl:w-[900px]">
+        <Image
+          src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Coyote/transparent-coyote.png"
+          alt=""
+          aria-hidden="true"
+          width={620}
+          height={720}
+          className="h-auto w-full object-contain object-right-bottom drop-shadow-2xl translate-x-6"
+          sizes="(min-width: 1536px) 900px, (min-width: 1280px) 760px, 620px"
+        />
+      </div>
+
+      {/* Coyote — mobile: absolute, pinned to right edge, big */}
+      <div className="pointer-events-none absolute right-0 bottom-0 z-0 block lg:hidden w-[260px] sm:w-[340px]">
+        <Image
+          src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Coyote/transparent-coyote.png"
+          alt=""
+          aria-hidden="true"
+          width={340}
+          height={400}
+          className="h-auto w-full object-contain object-right-bottom drop-shadow-xl translate-x-4"
+          sizes="(max-width: 640px) 260px, 340px"
+        />
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-0 md:pt-20">
 
-        {/* Bento layout */}
+        {/* Content — full width on desktop now that coyote is absolute */}
         <div className="grid lg:grid-cols-12 gap-5 lg:gap-8">
 
-          {/* Header + story cards — 7 cols */}
+          {/* Header + story cards — 7 cols, with right spacer leaving room for coyote */}
           <div className="lg:col-span-7 pb-20 md:pb-28">
             <div className={`mb-6 md:mb-8 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-3">From the Field</span>
@@ -81,41 +107,28 @@ export function StoriesSection() {
               ))}
             </div>
 
-            <div className={`mt-6 md:mt-8 transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className={`mt-6 md:mt-8 flex flex-wrap items-center gap-4 transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <Button asChild size="lg" className="rounded-full h-11 md:h-12 px-5 md:px-6 bg-[#3B468E] hover:bg-[#2d366d] text-white font-bold w-full sm:w-auto">
                 <Link href="/stories">
                   All Stories
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
+              {/* Updated Weekly badge — moved into content flow */}
+              <div className="bg-white rounded-xl px-4 py-2 shadow-md border border-gray-100">
+                <p className="text-xs text-gray-500">Updated</p>
+                <p className="text-lg font-black text-[#26C9AA] leading-none">Weekly</p>
+              </div>
             </div>
           </div>
 
-          {/* Coyote — 5 cols, z-0 so bottom wave covers its feet */}
-          <div className={`lg:col-span-5 relative z-0 transition-all duration-700 delay-300 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            {/* Floating badge */}
-            <div className={`absolute top-0 right-0 bg-white rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 shadow-xl border border-gray-100 z-10 transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <p className="text-xs md:text-sm text-gray-500">Updated</p>
-              <p className="text-xl md:text-2xl font-black text-[#26C9AA]">Weekly</p>
-            </div>
-
-            <div className="relative h-[360px] sm:h-[440px] md:h-[540px] lg:h-full min-h-[440px]">
-              <Image
-                src="/images/animals/coyote.svg"
-                alt="Coyote"
-                fill
-                className="object-contain object-bottom drop-shadow-2xl"
-                style={{ marginLeft: '24px' }}
-                sizes="(max-width:768px) 100vw, 45vw"
-              />
-            </div>
-          </div>
+          {/* Right spacer — keeps content from colliding with the absolute coyote */}
+          <div className="hidden lg:block lg:col-span-5" aria-hidden="true" />
 
         </div>
       </div>
 
-      {/* Wave at bottom — dark navy bites up; z-20 sits IN FRONT of coyote (z-0),
-          fill matches TikTokSection bg so the transition is seamless */}
+      {/* Wave at bottom */}
       <div className="absolute left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
           <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#1a1f3d"/>
