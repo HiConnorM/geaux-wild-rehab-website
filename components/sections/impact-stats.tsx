@@ -1,9 +1,10 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { impactStats } from '@/lib/content'
 import { Heart, TrendingUp, Calendar } from 'lucide-react'
+import { prefersReducedMotion, ST_DEFAULTS, EASE_OUT } from '@/lib/gsap-utils'
 
 function useCountUp(end: number, duration = 2000) {
   const [count, setCount] = useState(0)
@@ -41,23 +42,60 @@ const stats = [
 
 export function ImpactStats() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [vis, setVis] = useState(true)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const statsRowRef = useRef<HTMLDivElement>(null)
+  const badgeRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVis(true), { threshold: 0.1, rootMargin: '50px' })
-    if (sectionRef.current) obs.observe(sectionRef.current)
-    return () => obs.disconnect()
+    let ctx: import('gsap').Context | undefined
+    ;(async () => {
+      const gsap = (await import('gsap')).default
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+      gsap.registerPlugin(ScrollTrigger)
+
+      if (prefersReducedMotion()) return
+
+      ctx = gsap.context(() => {
+        gsap.set([headerRef.current, badgeRef.current], { opacity: 0, y: 32 })
+
+        gsap.to(headerRef.current, {
+          opacity: 1, y: 0,
+          duration: 0.7, ease: EASE_OUT,
+          scrollTrigger: { trigger: headerRef.current, ...ST_DEFAULTS },
+        })
+
+        // Stat cards stagger in
+        if (statsRowRef.current) {
+          const cards = Array.from(statsRowRef.current.children)
+          gsap.set(cards, { opacity: 0, y: 28 })
+          gsap.to(cards, {
+            opacity: 1, y: 0,
+            duration: 0.65, ease: EASE_OUT,
+            stagger: 0.1,
+            scrollTrigger: { trigger: statsRowRef.current, ...ST_DEFAULTS },
+          })
+        }
+
+        gsap.to(badgeRef.current, {
+          opacity: 1, y: 0,
+          duration: 0.6, ease: EASE_OUT,
+          delay: 0.1,
+          scrollTrigger: { trigger: badgeRef.current, ...ST_DEFAULTS },
+        })
+      }, sectionRef)
+    })()
+
+    return () => ctx?.revert()
   }, [])
 
   return (
-    /* -mt-px closes the sub-pixel gap after the FAQ wave */
     <section ref={sectionRef} className="relative z-0 overflow-hidden bg-[#26C9AA] -mt-[3px]">
 
       {/* Decorative diamonds */}
       <div className="absolute top-12 left-[8%] w-6 h-6 bg-white/15 rotate-45 rounded hidden md:block" />
       <div className="absolute top-28 right-[12%] w-4 h-4 bg-[#3B468E]/20 rotate-45 rounded-sm hidden md:block" />
 
-      {/* Squirrel — anchored to right browser edge, desktop only */}
+      {/* Squirrel — desktop */}
       <div className="pointer-events-none absolute right-0 bottom-0 z-0 hidden lg:block w-[600px] xl:w-[740px] 2xl:w-[860px]">
         <Image
           src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Squirrel/transparent-squirrel.png"
@@ -70,20 +108,7 @@ export function ImpactStats() {
         />
       </div>
 
-      {/* Squirrel — mobile: absolute, pinned to right edge, big */}
-      <div className="pointer-events-none absolute right-0 bottom-0 z-0 block lg:hidden w-[240px] sm:w-[320px]">
-        <Image
-          src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Squirrel/transparent-squirrel.png"
-          alt=""
-          aria-hidden="true"
-          width={320}
-          height={380}
-          className="h-auto w-full object-contain object-right-bottom drop-shadow-xl translate-x-4"
-          sizes="(max-width: 640px) 240px, 320px"
-        />
-      </div>
-
-      {/* Squirrel — mobile: absolute, pinned to right edge, big */}
+      {/* Squirrel — mobile */}
       <div className="pointer-events-none absolute right-0 bottom-0 z-0 block lg:hidden w-[240px] sm:w-[320px]">
         <Image
           src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Squirrel/transparent-squirrel.png"
@@ -99,9 +124,8 @@ export function ImpactStats() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 md:pt-20 pb-0">
         <div className="grid lg:grid-cols-12 gap-5 lg:gap-8 items-end">
 
-          {/* Header + stats — 7 cols */}
           <div className="lg:col-span-7 pb-16 md:pb-20">
-            <div className={`mb-8 md:mb-10 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div ref={headerRef} className="mb-8 md:mb-10" style={{ opacity: 0 }}>
               <span className="inline-block text-sm font-bold text-white/70 uppercase tracking-wider mb-3">By the Numbers</span>
               <h2 className="font-serif font-black text-3xl sm:text-4xl md:text-5xl text-white leading-[1.1] mb-4">
                 Our Impact on<br className="hidden sm:block" />Louisiana Wildlife
@@ -112,26 +136,22 @@ export function ImpactStats() {
             </div>
 
             {/* Stats row */}
-            <div className="grid grid-cols-3 gap-3 md:gap-4 pb-8">
-              {stats.map((stat, i) => (
-                <StatCard key={stat.label} {...stat} delay={200 + i * 100} vis={vis} />
+            <div ref={statsRowRef} className="grid grid-cols-3 gap-3 md:gap-4 pb-8">
+              {stats.map((stat) => (
+                <StatCard key={stat.label} {...stat} />
               ))}
             </div>
 
-            {/* Floating badge — moved into content area */}
-            <div className={`inline-block bg-white rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 shadow-xl transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div ref={badgeRef} className="inline-block bg-white rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 shadow-xl" style={{ opacity: 0 }}>
               <p className="text-xs md:text-sm text-gray-500">100% of donations</p>
               <p className="text-lg md:text-xl font-black text-[#26C9AA]">Goes to animals</p>
             </div>
           </div>
 
-          {/* Right spacer so content doesn't collide with the absolute squirrel on desktop */}
           <div className="hidden lg:block lg:col-span-5" aria-hidden="true" />
-
         </div>
       </div>
 
-      {/* Wave at bottom — dark navy matches footer bg for a seamless section-to-footer handoff */}
       <div className="absolute left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
           <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#1a1f3d"/>
@@ -141,15 +161,15 @@ export function ImpactStats() {
   )
 }
 
-function StatCard({ value, label, suffix, icon: Icon, delay, vis }: {
-  value: number; label: string; suffix: string; icon: typeof Heart; delay: number; vis: boolean
+function StatCard({ value, label, suffix, icon: Icon }: {
+  value: number; label: string; suffix: string; icon: typeof Heart
 }) {
   const { count, ref } = useCountUp(value)
   return (
     <div
       ref={ref}
-      className={`bg-white rounded-xl md:rounded-[1.5rem] p-4 md:p-5 shadow-lg text-center transition-all duration-700 ease-out ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className="bg-white rounded-xl md:rounded-[1.5rem] p-4 md:p-5 shadow-lg text-center"
+      style={{ opacity: 0 }}
     >
       <div className="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-[#26C9AA]/10 mb-2 md:mb-3">
         <Icon className="h-4 w-4 md:h-5 md:w-5 text-[#26C9AA]" />

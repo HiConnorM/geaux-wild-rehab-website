@@ -1,9 +1,10 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { ExternalLink, Play } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { prefersReducedMotion, ST_DEFAULTS, EASE_OUT } from '@/lib/gsap-utils'
 
 const TIKTOK_VIDEOS = [
   '7632140781658148126',
@@ -16,21 +17,51 @@ const TIKTOK_VIDEOS = [
 
 export function TikTokSection() {
   const ref = useRef<HTMLElement>(null)
-  const [vis, setVis] = useState(true)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const gridRef = useRef<HTMLDivElement>(null)
+  const ctaCardRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => e.isIntersecting && setVis(true),
-      { threshold: 0.05, rootMargin: '80px' }
-    )
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
+    let ctx: import('gsap').Context | undefined
+    ;(async () => {
+      const gsap = (await import('gsap')).default
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+      gsap.registerPlugin(ScrollTrigger)
+
+      if (prefersReducedMotion()) return
+
+      ctx = gsap.context(() => {
+        gsap.set([headerRef.current, ctaCardRef.current], { opacity: 0, y: 32 })
+
+        gsap.to(headerRef.current, {
+          opacity: 1, y: 0,
+          duration: 0.7, ease: EASE_OUT,
+          scrollTrigger: { trigger: headerRef.current, ...ST_DEFAULTS },
+        })
+
+        if (gridRef.current) {
+          const embeds = Array.from(gridRef.current.children)
+          gsap.set(embeds, { opacity: 0, y: 28 })
+          gsap.to(embeds, {
+            opacity: 1, y: 0,
+            duration: 0.65, ease: EASE_OUT,
+            stagger: 0.08,
+            scrollTrigger: { trigger: gridRef.current, ...ST_DEFAULTS },
+          })
+        }
+
+        gsap.to(ctaCardRef.current, {
+          opacity: 1, y: 0,
+          duration: 0.65, ease: EASE_OUT,
+          scrollTrigger: { trigger: ctaCardRef.current, ...ST_DEFAULTS },
+        })
+      }, ref)
+    })()
+
+    return () => ctx?.revert()
   }, [])
 
-
-
   return (
-    /* -mt-px closes the sub-pixel gap; Stories wave (fill=#1a1f3d) already creates the
-       seamless boundary — no additional top wave needed here */
     <section ref={ref} className="relative bg-[#1a1f3d] overflow-visible -mt-[3px] pt-16 md:pt-20 pb-20 md:pb-28">
 
       {/* Decorative accents */}
@@ -42,7 +73,7 @@ export function TikTokSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 pt-8 md:pt-12">
 
         {/* Header */}
-        <div className={`text-center max-w-2xl mx-auto mb-12 md:mb-16 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-12 md:mb-16" style={{ opacity: 0 }}>
           <div className="flex items-center justify-center gap-3 mb-4">
             <svg viewBox="0 0 24 24" className="w-7 h-7 fill-white" xmlns="http://www.w3.org/2000/svg">
               <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.16 8.16 0 004.77 1.52V6.77a4.85 4.85 0 01-1-.08z"/>
@@ -66,19 +97,10 @@ export function TikTokSection() {
           </p>
         </div>
 
-        {/* TikTok embeds grid — 3 cols with fixed 9:16 aspect ratio iframes */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 md:mb-16">
-          {TIKTOK_VIDEOS.map((id, i) => (
-            <div
-              key={id}
-              className="mx-auto w-full max-w-[320px]"
-              style={{
-                opacity: vis ? 1 : 0,
-                transform: vis ? 'translateY(0)' : 'translateY(2rem)',
-                transition: `opacity 700ms ${100 + i * 80}ms, transform 700ms ${100 + i * 80}ms`,
-              }}
-            >
-              {/* 9:16 aspect ratio wrapper */}
+        {/* TikTok embeds grid */}
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 md:mb-16">
+          {TIKTOK_VIDEOS.map((id) => (
+            <div key={id} className="mx-auto w-full max-w-[320px]" style={{ opacity: 0 }}>
               <div className="relative w-full overflow-hidden rounded-2xl" style={{ paddingBottom: '177.78%' }}>
                 <iframe
                   src={`https://www.tiktok.com/embed/v2/${id}?lang=en-US`}
@@ -94,7 +116,7 @@ export function TikTokSection() {
         </div>
 
         {/* Profile CTA card */}
-        <div className={`transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div ref={ctaCardRef} style={{ opacity: 0 }}>
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-[#26C9AA]/20 border border-[#26C9AA]/30 flex items-center justify-center shrink-0">
@@ -108,26 +130,13 @@ export function TikTokSection() {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-              <Button
-                asChild
-                size="lg"
-                className="rounded-full h-12 px-7 bg-white text-[#1a1f3d] hover:bg-white/90 font-bold w-full sm:w-auto"
-              >
-                <a
-                  href="https://www.tiktok.com/@geauxwildrehab"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+              <Button asChild size="lg" className="rounded-full h-12 px-7 bg-white text-[#1a1f3d] hover:bg-white/90 font-bold w-full sm:w-auto">
+                <a href="https://www.tiktok.com/@geauxwildrehab" target="_blank" rel="noopener noreferrer">
                   <Play className="mr-2 h-4 w-4 fill-current" />
                   Follow on TikTok
                 </a>
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="rounded-full h-12 px-7 border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 font-bold w-full sm:w-auto"
-              >
+              <Button asChild variant="outline" size="lg" className="rounded-full h-12 px-7 border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 font-bold w-full sm:w-auto">
                 <Link href="/support">
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Support Our Work
@@ -139,7 +148,6 @@ export function TikTokSection() {
 
       </div>
 
-      {/* Wave at bottom — white bites up; z-20 sits IN FRONT of TikTok content */}
       <div className="absolute left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
           <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="white"/>

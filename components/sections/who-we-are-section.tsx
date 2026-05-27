@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { ExternalLink } from 'lucide-react'
+import { prefersReducedMotion, ST_DEFAULTS, EASE_OUT } from '@/lib/gsap-utils'
 
 const dodoStories = [
   {
@@ -21,22 +22,51 @@ const earthRangersStories = [
     url: 'https://www.earthrangers.com/EN/US/youtube/can-a-3-legged-bobcat-survive-in-the-wild-2/',
   },
   {
-    title: 'This Coyote Couldn\'t Stand — But She Refused to Give Up',
+    title: "This Coyote Couldn't Stand — But She Refused to Give Up",
     url: 'https://www.earthrangers.com/EN/US/videos/this-coyote-couldnt-stand-but-she-refused-to-give-up/',
   },
 ]
 
 export function WhoWeAreSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const [vis, setVis] = useState(false)
+  const ref = useRef<HTMLElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const missionCardRef = useRef<HTMLDivElement>(null)
+  const featuredCardRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => e.isIntersecting && setVis(true),
-      { threshold: 0.1, rootMargin: '50px' }
-    )
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
+    let ctx: import('gsap').Context | undefined
+    ;(async () => {
+      const gsap = (await import('gsap')).default
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+      gsap.registerPlugin(ScrollTrigger)
+
+      if (prefersReducedMotion()) return
+
+      ctx = gsap.context(() => {
+        gsap.set([headerRef.current, missionCardRef.current, featuredCardRef.current], { opacity: 0, y: 36 })
+
+        gsap.to(headerRef.current, {
+          opacity: 1, y: 0,
+          duration: 0.7, ease: EASE_OUT,
+          scrollTrigger: { trigger: headerRef.current, ...ST_DEFAULTS },
+        })
+
+        gsap.to(missionCardRef.current, {
+          opacity: 1, y: 0,
+          duration: 0.7, ease: EASE_OUT,
+          scrollTrigger: { trigger: missionCardRef.current, ...ST_DEFAULTS },
+        })
+
+        gsap.to(featuredCardRef.current, {
+          opacity: 1, y: 0,
+          duration: 0.7, ease: EASE_OUT,
+          delay: 0.1,
+          scrollTrigger: { trigger: featuredCardRef.current, ...ST_DEFAULTS },
+        })
+      }, ref)
+    })()
+
+    return () => ctx?.revert()
   }, [])
 
   return (
@@ -44,7 +74,7 @@ export function WhoWeAreSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-24 md:pt-20 md:pb-32">
 
         {/* Section header */}
-        <div className={`mb-10 md:mb-12 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div ref={headerRef} className="mb-10 md:mb-12" style={{ opacity: 0 }}>
           <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-3">
             Our Story
           </span>
@@ -57,7 +87,7 @@ export function WhoWeAreSection() {
         <div className="grid lg:grid-cols-2 gap-4 md:gap-5">
 
           {/* Mission card */}
-          <div className={`bg-white/10 border border-white/10 backdrop-blur-sm rounded-xl md:rounded-[2rem] p-6 md:p-8 transition-all duration-700 delay-100 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div ref={missionCardRef} className="bg-white/10 border border-white/10 backdrop-blur-sm rounded-xl md:rounded-[2rem] p-6 md:p-8" style={{ opacity: 0 }}>
             <h3 className="font-bold text-xl md:text-2xl text-white mb-4">
               Dedicated to Louisiana Wildlife
             </h3>
@@ -69,13 +99,13 @@ export function WhoWeAreSection() {
             </p>
           </div>
 
-          {/* Featured on The Dodo + Earth Rangers card */}
-          <div className={`bg-white rounded-xl md:rounded-[2rem] p-6 md:p-8 shadow-lg shadow-black/10 transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* Featured on card */}
+          <div ref={featuredCardRef} className="bg-white rounded-xl md:rounded-[2rem] p-6 md:p-8 shadow-lg shadow-black/10" style={{ opacity: 0 }}>
             <p className="text-xs font-bold text-[#3B468E] uppercase tracking-wider mb-6">
               Featured On
             </p>
 
-            {/* --- The Dodo --- */}
+            {/* The Dodo */}
             <div className="mb-6">
               <div className="mb-4">
                 <Image
@@ -106,10 +136,9 @@ export function WhoWeAreSection() {
               </div>
             </div>
 
-            {/* Divider */}
             <div className="border-t border-gray-100 my-6" />
 
-            {/* --- Earth Rangers --- */}
+            {/* Earth Rangers */}
             <div>
               <div className="mb-4">
                 <Image
@@ -144,7 +173,6 @@ export function WhoWeAreSection() {
         </div>
       </div>
 
-      {/* Wave at bottom — transitions into the next section (HowToHelp = #3B468E → stays, so white for next section) */}
       <div className="absolute left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
           <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#3B468E"/>

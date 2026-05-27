@@ -1,30 +1,64 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Heart, Gift, Share2, Youtube, Facebook, Instagram } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { prefersReducedMotion, ST_DEFAULTS, EASE_OUT } from '@/lib/gsap-utils'
 
 export function HowToHelpSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const [vis, setVis] = useState(true)
+  const ref = useRef<HTMLElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const donateCardRef = useRef<HTMLDivElement>(null)
+  const wishlistCardRef = useRef<HTMLDivElement>(null)
+  const bottomRowRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVis(true), { threshold: 0.1, rootMargin: '50px' })
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
+    let ctx: import('gsap').Context | undefined
+    ;(async () => {
+      const gsap = (await import('gsap')).default
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+      gsap.registerPlugin(ScrollTrigger)
+
+      if (prefersReducedMotion()) return
+
+      ctx = gsap.context(() => {
+        gsap.set([headerRef.current, donateCardRef.current, wishlistCardRef.current, bottomRowRef.current], { opacity: 0, y: 36 })
+
+        gsap.to(headerRef.current, {
+          opacity: 1, y: 0,
+          duration: 0.7, ease: EASE_OUT,
+          scrollTrigger: { trigger: headerRef.current, ...ST_DEFAULTS },
+        })
+
+        // Bento cards stagger in
+        gsap.to([donateCardRef.current, wishlistCardRef.current], {
+          opacity: 1, y: 0,
+          duration: 0.7, ease: EASE_OUT,
+          stagger: 0.12,
+          scrollTrigger: { trigger: donateCardRef.current, ...ST_DEFAULTS },
+        })
+
+        gsap.to(bottomRowRef.current, {
+          opacity: 1, y: 0,
+          duration: 0.65, ease: EASE_OUT,
+          scrollTrigger: { trigger: bottomRowRef.current, ...ST_DEFAULTS },
+        })
+      }, ref)
+    })()
+
+    return () => ctx?.revert()
   }, [])
 
   return (
-    /* -mt-px closes any sub-pixel gap with the about-section wave */
     <section ref={ref} className="relative z-0 bg-[#3B468E] lg:overflow-hidden -mt-[3px]">
       {/* Decorative diamonds */}
       <div className="absolute top-32 left-[8%] w-6 h-6 bg-white/10 rotate-45 rounded hidden md:block" />
       <div className="absolute top-48 right-[12%] w-4 h-4 bg-[#26C9AA]/30 rotate-45 rounded-sm hidden md:block" />
       <div className="absolute bottom-60 left-[15%] w-5 h-5 border-2 border-white/10 rotate-45 rounded hidden md:block" />
 
-      {/* Armadillo — anchored to right browser edge, desktop only */}
+      {/* Armadillo — desktop */}
       <div className="pointer-events-none absolute right-0 bottom-0 z-40 hidden lg:block w-[560px] xl:w-[680px] 2xl:w-[800px]">
         <Image
           src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
@@ -37,7 +71,7 @@ export function HowToHelpSection() {
         />
       </div>
 
-      {/* Armadillo — mobile: absolute, pinned to right edge, z-40 so it sits in front of wave */}
+      {/* Armadillo — mobile */}
       <div className="pointer-events-none absolute right-0 bottom-0 z-40 block lg:hidden w-[320px] sm:w-[400px]">
         <Image
           src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
@@ -50,10 +84,9 @@ export function HowToHelpSection() {
         />
       </div>
 
-      {/* Content — top padding accounts for the incoming navy wave height */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-14 md:pt-20 pb-0">
         {/* Header */}
-        <div className={`text-center max-w-2xl mx-auto mb-10 md:mb-14 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-10 md:mb-14" style={{ opacity: 0 }}>
           <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-3">Make a Difference</span>
           <h2 className="font-serif font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-4">
             How You Can Help
@@ -63,11 +96,11 @@ export function HowToHelpSection() {
           </p>
         </div>
 
-        {/* Bento grid — 7 cols wide so it doesn't collide with absolute armadillo */}
-        <div className="grid lg:grid-cols-12 gap-4 md:gap-5 pb-64 sm:pb-56 md:pb-32">
+        {/* Bento grid */}
+        <div className="grid lg:grid-cols-12 gap-4 md:gap-5 pb-[269px] sm:pb-56 md:pb-32">
 
-          {/* Donate card - large */}
-          <div className={`lg:col-span-7 bg-white rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 shadow-xl transition-all duration-700 delay-100 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* Donate card */}
+          <div ref={donateCardRef} className="lg:col-span-7 bg-white rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 shadow-xl" style={{ opacity: 0 }}>
             <div className="flex flex-col sm:flex-row gap-4 md:gap-5 mb-6">
               <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-[#26C9AA] flex items-center justify-center shrink-0">
                 <Heart className="h-7 w-7 md:h-8 md:w-8 text-white" />
@@ -95,7 +128,7 @@ export function HowToHelpSection() {
           </div>
 
           {/* Wishlist card */}
-          <div className={`lg:col-span-5 bg-[#26C9AA] rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 shadow-xl transition-all duration-700 delay-200 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div ref={wishlistCardRef} className="lg:col-span-5 bg-[#26C9AA] rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 shadow-xl" style={{ opacity: 0 }}>
             <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-4 md:mb-5">
               <Gift className="h-6 w-6 md:h-7 md:w-7 text-white" />
             </div>
@@ -109,8 +142,8 @@ export function HowToHelpSection() {
             </Button>
           </div>
 
-          {/* Share + Tax info */}
-          <div className={`lg:col-span-7 grid sm:grid-cols-2 gap-3 md:gap-4 transition-all duration-700 delay-300 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* Bottom row */}
+          <div ref={bottomRowRef} className="lg:col-span-7 grid sm:grid-cols-2 gap-3 md:gap-4" style={{ opacity: 0 }}>
             <div className="bg-white/10 backdrop-blur-sm rounded-[1.5rem] md:rounded-[2rem] p-5 md:p-6 border border-white/10">
               <Share2 className="h-5 w-5 md:h-6 md:w-6 text-[#26C9AA] mb-3" />
               <h3 className="font-bold text-base md:text-lg text-white mb-2">Spread the Word</h3>
@@ -141,7 +174,7 @@ export function HowToHelpSection() {
         </div>
       </div>
 
-      {/* Wave at bottom — white; z-10 sits BEHIND armadillo (z-40) */}
+      {/* Wave */}
       <div className="absolute left-0 right-0 z-10 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
           <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="white"/>
