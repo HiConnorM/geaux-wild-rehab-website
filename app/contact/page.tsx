@@ -57,8 +57,8 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="text-lg text-muted-foreground">
-              Have questions about wildlife in your area? Need help with an injured animal? 
-              Want to learn more about volunteering? We are here to help.
+              Have questions about wildlife in your area? Need help with an injured animal?
+              We are here to help.
             </p>
           </div>
         </div>

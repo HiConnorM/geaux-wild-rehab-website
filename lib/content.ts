@@ -437,13 +437,13 @@ export const faqs: FAQ[] = [
     id: '6',
     category: 'Support & Volunteering',
     question: 'How can I help Geaux Wild Rehab?',
-    answer: 'You can support us by donating, purchasing items from our Amazon Wishlist, volunteering your time, or spreading awareness on social media. Every contribution helps us save more Louisiana wildlife.',
+    answer: 'You can support us by donating, purchasing items from our Amazon Wishlist, or spreading awareness on social media. Every contribution helps us save more Louisiana wildlife.',
   },
   {
     id: '7',
     category: 'Support & Volunteering',
-    question: 'Do you accept volunteers?',
-    answer: 'Yes! We currently accept volunteers for two roles: wildlife transport (picking up and delivering animals to our facility) and facility maintenance (cleaning and disinfecting enclosures). Fill out our volunteer interest form to get started.',
+    question: 'Do you offer wildlife transport assistance?',
+    answer: 'Yes! We accept transport volunteers who can help pick up and deliver injured or orphaned animals to our facility. If you are interested in helping with transport, please reach out via our contact page.',
   },
   {
     id: '8',

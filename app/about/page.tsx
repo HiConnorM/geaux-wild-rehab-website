@@ -263,7 +263,7 @@ export default function AboutPage() {
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0312-P7UiODJukVXZZRs46JeY0vSdv7zYuG.jpg"
-                  alt="Tisha Raiford with volunteers and staff at the wildlife rehabilitation center"
+                  alt="Tisha Raiford with staff at the wildlife rehabilitation center"
                   fill
                   className="object-cover"
                 />
@@ -288,7 +288,7 @@ export default function AboutPage() {
             Join Us in Making a Difference
           </h2>
           <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
-            Whether you&apos;ve found an injured animal, want to volunteer, or would like to
+            Whether you&apos;ve found an injured animal or would like to
             support our work, we&apos;d love to hear from you.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

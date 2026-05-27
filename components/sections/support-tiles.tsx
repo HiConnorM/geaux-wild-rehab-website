@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Heart, Gift, Users, ArrowRight } from 'lucide-react'
+import { Heart, Gift, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const supportOptions = [
@@ -21,15 +21,6 @@ const supportOptions = [
     external: true,
     accent: 'bg-amber-500',
     hoverBg: 'group-hover:bg-amber-50',
-  },
-  {
-    icon: Users,
-    title: 'Become a Volunteer',
-    description: 'Join our team of dedicated volunteers helping with animal care, transport, and more.',
-    href: '/support#volunteer',
-    cta: 'Get Involved',
-    accent: 'bg-primary',
-    hoverBg: 'group-hover:bg-primary/5',
   },
 ]
 

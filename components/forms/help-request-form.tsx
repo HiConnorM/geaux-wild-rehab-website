@@ -267,8 +267,8 @@ export function HelpRequestForm() {
             onCheckedChange={(checked) => setValue('consent', checked === true)}
           />
           <Label htmlFor="consent" className="text-sm font-normal leading-relaxed cursor-pointer">
-            I understand that Geaux Wild Rehab is a volunteer organization and response times 
-            may vary. I consent to being contacted regarding this wildlife inquiry. *
+            I understand that response times may vary depending on current animal care needs.
+            I consent to being contacted regarding this wildlife inquiry. *
           </Label>
         </div>
         {errors.consent && (

@@ -37,8 +37,8 @@ export function HowToHelpSection() {
         />
       </div>
 
-      {/* Armadillo — mobile: absolute, pinned to right edge, big */}
-      <div className="pointer-events-none absolute right-0 bottom-0 z-40 block lg:hidden w-[220px] sm:w-[300px]">
+      {/* Armadillo — mobile: absolute, pinned to right edge, z-0 so cards stay readable */}
+      <div className="pointer-events-none absolute right-0 bottom-0 z-0 block lg:hidden w-[220px] sm:w-[300px]">
         <Image
           src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
           alt=""
@@ -74,7 +74,7 @@ export function HowToHelpSection() {
               </div>
               <div>
                 <h3 className="font-bold text-xl md:text-2xl text-[#1a1f3d] mb-1">Make a Donation</h3>
-                <p className="text-gray-600 text-sm md:text-base">Every dollar goes directly to animal care. We are 100% volunteer-run.</p>
+                <p className="text-gray-600 text-sm md:text-base">Every dollar goes directly to animal care. 100% of donations support the animals.</p>
               </div>
             </div>
 
