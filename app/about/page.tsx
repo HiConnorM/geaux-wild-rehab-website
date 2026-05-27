@@ -116,8 +116,8 @@ export default function AboutPage() {
                 <p>
                   For 30 years, I was a stay-at-home mom, devoting my time fully to raising my family. I homeschooled
                   my two younger children for 10 years, and now my youngest is in college. My husband and I have been
-                  married for almost 31 years, and together we raised three children. We are proud grandparents to one
-                  grandchild, with another on the way.
+                  married for almost 32 years, and together we raised three children. We are proud grandparents to two
+                  grandchildren.
                 </p>
                 <p>
                   When our children were younger, we also opened our home as a foster family and cared for 78 babies
