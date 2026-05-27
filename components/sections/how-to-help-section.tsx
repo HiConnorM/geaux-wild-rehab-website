@@ -64,7 +64,7 @@ export function HowToHelpSection() {
         </div>
 
         {/* Bento grid — 7 cols wide so it doesn't collide with absolute armadillo */}
-        <div className="grid lg:grid-cols-12 gap-4 md:gap-5 pb-40 sm:pb-44 md:pb-32">
+        <div className="grid lg:grid-cols-12 gap-4 md:gap-5 pb-64 sm:pb-56 md:pb-32">
 
           {/* Donate card - large */}
           <div className={`lg:col-span-7 bg-white rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 shadow-xl transition-all duration-700 delay-100 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
