@@ -107,10 +107,10 @@ export function AnimalsWeHelpSection() {
         </div>
       </div>
 
-      {/* Wave at bottom — offwhite bites up into white section, flows into StoriesSection bg */}
+      {/* Wave at bottom — matches TikTok section bg (#1a1f3d) for seamless transition */}
       <div className="absolute left-0 right-0 z-20 pointer-events-none" style={{ lineHeight: 0, bottom: '-2px' }}>
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 'clamp(48px, 6vw, 80px)', display: 'block' }} preserveAspectRatio="none">
-          <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#F8F4F4"/>
+          <path d="M0 80V40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0Z" fill="#1a1f3d"/>
         </svg>
       </div>
     </section>
