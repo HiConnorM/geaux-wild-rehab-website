@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Heart, Gift, Package, Briefcase, ArrowRight, ExternalLink, Check, Star, Sparkles } from 'lucide-react'
+import { Heart, Gift, Package, Briefcase, ArrowRight, ExternalLink, Check, Star, TrendingUp, Calendar } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
@@ -34,12 +34,12 @@ const impactCards = [
 const wishlistCategories = [
   {
     title: 'Feeding Supplies',
-    items: ['Kitten Milk Replacer (KMR)', 'Esbilac Puppy Milk', 'Miracle Nipples', 'Feeding syringes (1ml, 3ml, 5ml)', 'Feeding tubes'],
+    items: ['Esbilac Puppy Milk', 'Miracle Nipples', 'Feeding syringes (1ml, 3ml, 5ml)', 'Feeding tubes'],
     priority: 'high',
   },
   {
     title: 'Heating & Bedding',
-    items: ['Heating pads (no auto shut-off)', 'Heat lamps & bulbs', 'Fleece blankets', 'Puppy pads', 'Paper towels'],
+    items: ['Heating pads (no auto shut-off)', 'Fleece blankets', 'Puppy pads', 'Paper towels'],
     priority: 'high',
   },
   {
@@ -58,19 +58,16 @@ export default function SupportPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pb-28 overflow-hidden">
-        <div className="absolute inset-0 gradient-brand" />
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-40 h-40 bg-white/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-10 right-20 w-60 h-60 bg-white/5 rounded-full blur-3xl animate-float animation-delay-300" />
-        </div>
+      <section className="relative pt-32 pb-20 lg:pb-28 overflow-hidden bg-[#3B468E]">
+        <div className="absolute top-20 left-10 w-40 h-40 bg-white/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-20 w-60 h-60 bg-[#26C9AA]/10 rounded-full blur-3xl" />
+        {/* Decorative diamonds */}
+        <div className="absolute top-24 right-[15%] w-5 h-5 bg-white/10 rotate-45 rounded hidden md:block" />
+        <div className="absolute top-48 left-[10%] w-3 h-3 bg-[#26C9AA]/30 rotate-45 rounded-sm hidden md:block" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
-            <Sparkles className="h-4 w-4 text-white" />
-            <span className="text-white/90 text-sm font-medium">Make a Difference Today</span>
-          </div>
-          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-white mb-6 text-balance">
+          <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-4">Make a Difference</span>
+          <h1 className="font-serif font-black text-4xl lg:text-5xl xl:text-6xl text-white leading-[1.1] mb-6 text-balance">
             Help Us Save Louisiana Wildlife
           </h1>
           <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -78,13 +75,13 @@ export default function SupportPage() {
             on the animals in our care. Choose how you would like to help.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 rounded-full px-8 h-14 font-semibold shadow-lg">
+            <Button asChild size="lg" className="bg-[#26C9AA] text-white hover:bg-[#1ea88e] gap-2 rounded-full px-8 h-14 font-bold shadow-lg border-0">
               <a href="#donate">
                 <Heart className="h-5 w-5" />
                 Donate Now
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 gap-2 rounded-full px-8 h-14 font-medium">
+            <Button asChild size="lg" className="bg-white/10 border-2 border-white text-white hover:bg-white/20 gap-2 rounded-full px-8 h-14 font-medium">
               <a href="#wishlist">
                 <Gift className="h-5 w-5" />
                 Shop Wishlist
@@ -99,19 +96,19 @@ export default function SupportPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
-              <p className="text-3xl font-bold text-primary">100%</p>
+              <p className="text-3xl font-black text-[#26C9AA] font-serif">100%</p>
               <p className="text-sm text-muted-foreground">Goes to Animal Care</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-primary">1,247+</p>
+              <p className="text-3xl font-black text-[#26C9AA] font-serif">2,146+</p>
               <p className="text-sm text-muted-foreground">Animals Rescued</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-primary">78%</p>
+              <p className="text-3xl font-black text-[#26C9AA] font-serif">82%</p>
               <p className="text-sm text-muted-foreground">Release Rate</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-primary">501(c)(3)</p>
+              <p className="text-3xl font-black text-[#26C9AA] font-serif">501(c)(3)</p>
               <p className="text-sm text-muted-foreground">Tax Deductible</p>
             </div>
           </div>
@@ -119,14 +116,11 @@ export default function SupportPage() {
       </section>
 
       {/* Amazon Wishlist Section */}
-      <section id="wishlist" className="py-20 lg:py-28 bg-gradient-to-b from-amber-50 to-background scroll-mt-24">
+      <section id="wishlist" className="py-20 lg:py-28 bg-[#F8F4F4] scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-100 text-amber-700 mb-6">
-              <Star className="h-4 w-4 fill-amber-500 text-amber-500" />
-              <span className="text-sm font-semibold">Most Popular Way to Help</span>
-            </div>
-            <h2 className="text-3xl lg:text-5xl font-serif font-bold text-foreground mb-6 text-balance">
+            <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-4">Most Popular Way to Help</span>
+            <h2 className="font-serif font-black text-3xl lg:text-5xl text-[#1a1f3d] leading-[1.1] mb-6 text-balance">
               Shop Our Amazon Wishlist
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -137,7 +131,7 @@ export default function SupportPage() {
 
           {/* Featured Wishlist Button */}
           <div className="flex justify-center mb-16">
-            <Button asChild size="lg" className="gap-3 rounded-full px-12 h-16 bg-amber-500 text-white hover:bg-amber-600 font-bold text-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
+            <Button asChild size="lg" className="gap-3 rounded-full px-12 h-16 bg-[#26C9AA] text-white hover:bg-[#1ea88e] font-bold text-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 border-0">
               <a href="https://amazon.com/hz/wishlist/ls/1U43EOQ2AS8LA?ref_=wl_share" target="_blank" rel="noopener noreferrer" aria-label="View our full Amazon Wishlist (opens in new tab)">
                 <Gift className="h-6 w-6" />
                 View Full Amazon Wishlist
@@ -151,18 +145,18 @@ export default function SupportPage() {
             {wishlistCategories.map((category) => (
               <div
                 key={category.title}
-                className="bg-white rounded-3xl p-6 lg:p-8 border border-border/50 shadow-sm hover:shadow-lg transition-shadow relative overflow-hidden"
+                className="bg-white rounded-[2rem] p-6 lg:p-8 border border-border/50 shadow-sm hover:shadow-lg transition-shadow relative overflow-hidden"
               >
                 {category.priority === 'high' && (
-                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-rose-100 text-rose-700 text-xs font-semibold">
+                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#26C9AA]/10 text-[#26C9AA] text-xs font-semibold">
                     Urgently Needed
                   </div>
                 )}
-                <h3 className="text-xl font-bold text-foreground mb-4">{category.title}</h3>
+                <h3 className="font-bold text-xl text-[#1a1f3d] mb-4">{category.title}</h3>
                 <ul className="space-y-3">
                   {category.items.map((item) => (
                     <li key={item} className="flex items-center gap-3 text-muted-foreground">
-                      <Check className="h-4 w-4 text-primary shrink-0" />
+                      <Check className="h-4 w-4 text-[#26C9AA] shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -174,14 +168,14 @@ export default function SupportPage() {
       </section>
 
       {/* Donate Section */}
-      <section id="donate" className="py-20 lg:py-28 scroll-mt-24">
+      <section id="donate" className="py-20 lg:py-28 bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6">
+              <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-4">
                 Monetary Donations
               </span>
-              <h2 className="text-3xl lg:text-4xl font-serif font-bold text-foreground mb-6">
+              <h2 className="font-serif font-black text-3xl lg:text-4xl text-[#1a1f3d] leading-[1.1] mb-6">
                 Make a Tax-Deductible Donation
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
@@ -195,12 +189,12 @@ export default function SupportPage() {
                 {impactCards.map((card) => (
                   <div
                     key={card.amount}
-                    className="bg-secondary rounded-2xl p-5 hover:bg-secondary/80 transition-colors group"
+                    className="bg-[#F8F4F4] rounded-2xl p-5 hover:bg-[#e8faf6] transition-colors group border border-border/50"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-background flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                      <card.icon className="h-5 w-5 text-primary" />
+                    <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-sm">
+                      <card.icon className="h-5 w-5 text-[#26C9AA]" />
                     </div>
-                    <p className="text-2xl font-bold text-foreground mb-1">{card.amount}</p>
+                    <p className="text-2xl font-black text-[#1a1f3d] font-serif mb-1">{card.amount}</p>
                     <p className="text-sm text-muted-foreground">{card.impact}</p>
                   </div>
                 ))}
@@ -238,48 +232,48 @@ export default function SupportPage() {
             </div>
 
             {/* Other Ways to Give */}
-            <div className="bg-secondary/50 rounded-3xl p-8 lg:p-10">
-              <h3 className="text-2xl font-bold text-foreground mb-6">Other Ways to Give</h3>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <Heart className="h-5 w-5 text-primary" />
+            <div className="bg-[#F8F4F4] rounded-[2rem] p-8 lg:p-10 border border-border/50">
+              <h3 className="font-serif font-black text-2xl text-[#1a1f3d] mb-6">Other Ways to Give</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm border border-border/30">
+                  <div className="w-12 h-12 rounded-xl bg-[#26C9AA]/10 flex items-center justify-center shrink-0">
+                    <Heart className="h-5 w-5 text-[#26C9AA]" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground mb-1">Monthly Giving</p>
+                    <p className="font-bold text-[#1a1f3d] mb-1">Monthly Giving</p>
                     <p className="text-sm text-muted-foreground">
                       Become a Wildlife Guardian with automatic monthly donations for sustained support.
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <Gift className="h-5 w-5 text-primary" />
+                <div className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm border border-border/30">
+                  <div className="w-12 h-12 rounded-xl bg-[#26C9AA]/10 flex items-center justify-center shrink-0">
+                    <Gift className="h-5 w-5 text-[#26C9AA]" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground mb-1">In-Kind Donations</p>
+                    <p className="font-bold text-[#1a1f3d] mb-1">In-Kind Donations</p>
                     <p className="text-sm text-muted-foreground">
                       We accept gently used cages, carriers, heating pads, blankets, and more.
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <Briefcase className="h-5 w-5 text-primary" />
+                <div className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm border border-border/30">
+                  <div className="w-12 h-12 rounded-xl bg-[#26C9AA]/10 flex items-center justify-center shrink-0">
+                    <Briefcase className="h-5 w-5 text-[#26C9AA]" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground mb-1">Corporate Sponsorship</p>
+                    <p className="font-bold text-[#1a1f3d] mb-1">Corporate Sponsorship</p>
                     <p className="text-sm text-muted-foreground">
                       Partner with us for meaningful community impact and employee engagement.
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <Star className="h-5 w-5 text-primary" />
+                <div className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm border border-border/30">
+                  <div className="w-12 h-12 rounded-xl bg-[#26C9AA]/10 flex items-center justify-center shrink-0">
+                    <Star className="h-5 w-5 text-[#26C9AA]" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground mb-1">Shop Our Wishlist</p>
+                    <p className="font-bold text-[#1a1f3d] mb-1">Shop Our Wishlist</p>
                     <p className="text-sm text-muted-foreground">
                       Purchase supplies directly from our Amazon Wishlist and have them shipped right to us.
                     </p>
@@ -287,7 +281,7 @@ export default function SupportPage() {
                       href="https://amazon.com/hz/wishlist/ls/1U43EOQ2AS8LA?ref_=wl_share"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-primary font-medium hover:underline mt-2"
+                      className="inline-flex items-center gap-1 text-sm text-[#26C9AA] font-medium hover:underline mt-2"
                       aria-label="Shop Our Amazon Wishlist (opens in new tab)"
                     >
                       Shop Our Wishlist
@@ -302,25 +296,26 @@ export default function SupportPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 gradient-brand">
+      <section className="py-20 bg-[#3B468E]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-serif font-bold text-white mb-6">
+          <span className="inline-block text-sm font-bold text-[#26C9AA] uppercase tracking-wider mb-4">Every Action Counts</span>
+          <h2 className="font-serif font-black text-3xl lg:text-4xl text-white leading-[1.1] mb-6">
             Every Contribution Makes a Difference
           </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed">
             Whether you donate or shop our wishlist, you are helping
             give Louisiana wildlife a second chance at life in the wild.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 rounded-full px-8 h-14 font-semibold">
-              <Link href="/stories">
-                Read Success Stories
+            <Button asChild size="lg" className="bg-[#26C9AA] text-white hover:bg-[#1ea88e] gap-2 rounded-full px-8 h-14 font-bold border-0">
+              <Link href="/wildlife">
+                Meet Our Wildlife
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 gap-2 rounded-full px-8 h-14">
-              <Link href="/wildlife">
-                Meet Our Wildlife
+            <Button asChild size="lg" className="bg-white/10 border-2 border-white text-white hover:bg-white/20 gap-2 rounded-full px-8 h-14">
+              <Link href="/contact">
+                Get in Touch
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
