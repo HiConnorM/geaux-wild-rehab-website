@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Mail, Phone, MapPin, Clock, ExternalLink, Instagram, Facebook } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, ExternalLink, Instagram, Facebook, Youtube } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ContactForm } from '@/components/forms/contact-form'
 
@@ -38,9 +38,20 @@ const contactInfo = [
   },
 ]
 
+// TikTok icon (not in lucide-react)
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.78a8.16 8.16 0 0 0 4.77 1.52V6.85a4.85 4.85 0 0 1-1-.16z" />
+    </svg>
+  )
+}
+
 const socialLinks = [
-  { href: 'https://www.instagram.com/geauxwildrehab/', label: 'Instagram', icon: Instagram },
+  { href: 'https://www.youtube.com/@geauxwildrehab', label: 'YouTube', icon: Youtube },
   { href: 'https://www.facebook.com/p/Geaux-Wild-Rehab-100087779529674/', label: 'Facebook', icon: Facebook },
+  { href: 'https://www.instagram.com/geauxwildrehab/', label: 'Instagram', icon: Instagram },
+  { href: 'https://www.tiktok.com/@geauxwildrehab', label: 'TikTok', icon: TikTokIcon },
 ]
 
 export default function ContactPage() {
@@ -118,12 +129,12 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Wildlife Emergency Banner */}
+              {/* Wildlife Guidance Banner */}
               <div className="p-6 rounded-xl gradient-brand text-white">
-                <h3 className="font-semibold mb-2">Wildlife Emergency?</h3>
+                <h3 className="font-semibold mb-2">Found Wildlife?</h3>
                 <p className="text-sm text-white/80 mb-4">
-                  If you have found injured or orphaned wildlife, please visit our Get Help page 
-                  for immediate guidance.
+                  If you have found injured or orphaned wildlife, visit our Get Help page for next steps 
+                  or call/text 504-491-8036 for the fastest response.
                 </p>
                 <Button asChild variant="secondary" size="sm" className="gap-2">
                   <Link href="/get-help">

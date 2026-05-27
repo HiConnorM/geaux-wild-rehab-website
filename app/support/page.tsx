@@ -26,7 +26,7 @@ const impactCards = [
   },
   {
     amount: '$250',
-    impact: 'Provides a month of formula for orphans',
+    impact: 'Sponsors specialized care for a recovering animal',
     icon: Star,
   },
 ]
@@ -34,12 +34,12 @@ const impactCards = [
 const wishlistCategories = [
   {
     title: 'Feeding Supplies',
-    items: ['Kitten Milk Replacer (KMR)', 'Esbilac Puppy Milk', 'Miracle Nipples', 'Feeding syringes (1ml, 3ml, 5ml)', 'Feeding tubes'],
+    items: ['Esbilac Puppy Milk', 'Miracle Nipples', 'Feeding syringes (1ml, 3ml, 5ml)', 'Feeding tubes'],
     priority: 'high',
   },
   {
     title: 'Heating & Bedding',
-    items: ['Heating pads (no auto shut-off)', 'Heat lamps & bulbs', 'Fleece blankets', 'Puppy pads', 'Paper towels'],
+    items: ['Heating pads (no auto shut-off)', 'Fleece blankets', 'Puppy pads', 'Paper towels'],
     priority: 'high',
   },
   {
@@ -103,11 +103,11 @@ export default function SupportPage() {
               <p className="text-sm text-muted-foreground">Goes to Animal Care</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-primary">1,247+</p>
+              <p className="text-3xl font-bold text-primary">2,146+</p>
               <p className="text-sm text-muted-foreground">Animals Rescued</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-primary">78%</p>
+              <p className="text-3xl font-bold text-primary">82%</p>
               <p className="text-sm text-muted-foreground">Release Rate</p>
             </div>
             <div>

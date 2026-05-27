@@ -5,8 +5,8 @@ import { Heart, Award, Users, MapPin, ArrowRight, Shield, BookOpen } from 'lucid
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
-  title: 'About Geaux Wild Rehab | Meet Tisha Raiford',
-  description: 'Meet Tisha Raiford, licensed Louisiana wildlife rehabilitator and founder of Geaux Wild Rehab, a 501(c)(3) nonprofit dedicated to helping native wildlife recover and return to the wild.',
+  title: 'About Geaux Wild Rehab',
+  description: 'Learn about Geaux Wild Rehab, a 501(c)(3) nonprofit wildlife rehabilitation center in Hammond, Louisiana, licensed to care for all native mammal species.',
 }
 
 const values = [
@@ -47,7 +47,7 @@ export default function AboutPage() {
                 About Us
               </span>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
-                Meet Tisha Raiford
+                About Geaux Wild Rehab
               </h1>
               <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
                 Geaux Wild Rehab is a 501(c)(3) nonprofit wildlife rehabilitation center dedicated to giving

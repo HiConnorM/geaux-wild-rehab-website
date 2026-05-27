@@ -419,19 +419,19 @@ export const faqs: FAQ[] = [
     id: '3',
     category: 'Found Wildlife',
     question: 'Can I keep the wild animal as a pet?',
-    answer: 'No. It is illegal to keep native wildlife as pets in Louisiana. Wild animals have highly specialized needs and suffer greatly in captivity. Our goal is always to rehabilitate and release animals back to their natural habitat where they belong.',
+    answer: 'No.',
   },
   {
     id: '4',
     category: 'Care & Handling',
     question: 'What should I do while waiting for help?',
-    answer: 'Place the animal in a carrier or ventilated box lined with soft cloth (no loops or threads). Keep it in a warm, dark, quiet place away from children and pets. Do NOT give food or water unless specifically instructed by a rehabilitator.',
+    answer: 'Place the animal in a secure carrier with ventilation, lined with soft cloth (no loops or threads). Keep it in a warm, dark, quiet place away from children and pets. Do NOT give food or water unless specifically instructed by a rehabilitator.',
   },
   {
     id: '5',
     category: 'Care & Handling',
     question: 'Is it safe to touch the animal?',
-    answer: 'Use caution when handling any wild animal. Always wear gloves when possible. Even small animals can bite when scared or in pain. If you are bitten or scratched, seek medical attention. Never handle wildlife without proper PPE (gloves, long sleeves).',
+    answer: 'Never handle wildlife without proper PPE. Always wear gloves and long sleeves at minimum. Even small animals can bite or scratch when scared or in pain. If you are bitten or scratched, seek medical attention immediately.',
   },
   {
     id: '6',

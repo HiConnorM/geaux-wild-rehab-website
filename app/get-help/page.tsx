@@ -19,23 +19,23 @@ const steps = [
   {
     number: '2',
     title: 'Secure the Animal',
-    description: 'If help is needed, gently place the animal in a carrier or ventilated box with soft cloth.',
+    description: 'If help is needed, gently place the animal in a secure carrier with ventilation, lined with soft cloth.',
   },
   {
     number: '3',
     title: 'Keep Warm & Quiet',
-    description: 'Place the box in a warm, dark, quiet area away from children and pets.',
+    description: 'Place the carrier in a warm, dark, quiet area away from children and pets.',
   },
   {
     number: '4',
     title: 'Contact Us',
-    description: 'Fill out our form below or call/text our hotline for immediate guidance.',
+    description: 'Fill out our form below or call/text 504-491-8036 for the fastest response.',
   },
 ]
 
 const doList = [
   'Keep the animal warm and in a quiet, dark place',
-  'Wear gloves when handling wildlife',
+  'Never handle wildlife without proper PPE (gloves, long sleeves)',
   'Note where you found the animal',
   'Keep pets and children away',
   'Contact a licensed rehabilitator',
@@ -44,9 +44,8 @@ const doList = [
 const dontList = [
   'Feed or give water (unless instructed)',
   'Keep the animal as a pet — it is illegal',
-  'Post on social media asking for advice',
   'Release the animal elsewhere',
-  'Handle any wildlife without proper PPE (gloves, long sleeves)',
+  'Handle any wildlife without proper PPE',
 ]
 
 const scenarios = [
@@ -85,10 +84,10 @@ export default function GetHelpPage() {
               <AlertTriangle className="h-5 w-5 text-amber-600" />
             </div>
             <div>
-              <h2 className="font-semibold text-amber-900">Before You Act</h2>
+              <h3 className="font-semibold text-amber-900">Found Wildlife? Start Here</h3>
               <p className="text-sm text-amber-800">
                 Many baby animals are NOT orphaned. Parents often leave babies while foraging. 
-                Observe from a distance before intervening. When in doubt, contact us first.
+                Observe from a distance before intervening. When in doubt, call/text 504-491-8036.
               </p>
             </div>
           </div>
@@ -268,8 +267,8 @@ export default function GetHelpPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <h3 className="text-xl font-semibold text-white mb-1">Need Assistance?</h3>
-              <p className="text-white/80">Contact Geaux Wild Rehab for guidance on injured or orphaned wildlife.</p>
+              <h3 className="text-xl font-semibold text-white mb-1">Need Wildlife Guidance?</h3>
+              <p className="text-white/80">Call/text 504-491-8036 for the fastest response.</p>
             </div>
             <Button asChild size="lg" variant="secondary" className="gap-2">
               <a href="tel:5044918036" aria-label="Call Geaux Wild Rehab at 504-491-8036">
