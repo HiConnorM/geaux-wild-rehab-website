@@ -18,7 +18,7 @@ export function HowToHelpSection() {
 
   return (
     /* -mt-px closes any sub-pixel gap with the about-section wave */
-    <section ref={ref} className="relative z-0 bg-[#3B468E] overflow-hidden -mt-[3px]">
+    <section ref={ref} className="relative z-0 bg-[#3B468E] lg:overflow-hidden -mt-[3px]">
       {/* Decorative diamonds */}
       <div className="absolute top-32 left-[8%] w-6 h-6 bg-white/10 rotate-45 rounded hidden md:block" />
       <div className="absolute top-48 right-[12%] w-4 h-4 bg-[#26C9AA]/30 rotate-45 rounded-sm hidden md:block" />
@@ -37,8 +37,8 @@ export function HowToHelpSection() {
         />
       </div>
 
-      {/* Armadillo — mobile: absolute, pinned to right edge, z-40, shifted down so it clears the 501(c)(3) card */}
-      <div className="pointer-events-none absolute right-0 z-40 block lg:hidden w-[220px] sm:w-[300px]" style={{ bottom: '-60px' }}>
+      {/* Armadillo — mobile: absolute, pinned to right edge, z-40 so it sits in front of wave */}
+      <div className="pointer-events-none absolute right-0 bottom-0 z-40 block lg:hidden w-[220px] sm:w-[300px]">
         <Image
           src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
           alt=""
@@ -64,7 +64,7 @@ export function HowToHelpSection() {
         </div>
 
         {/* Bento grid — 7 cols wide so it doesn't collide with absolute armadillo */}
-        <div className="grid lg:grid-cols-12 gap-4 md:gap-5 pb-24 md:pb-32">
+        <div className="grid lg:grid-cols-12 gap-4 md:gap-5 pb-52 sm:pb-44 md:pb-32">
 
           {/* Donate card - large */}
           <div className={`lg:col-span-7 bg-white rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 shadow-xl transition-all duration-700 delay-100 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
