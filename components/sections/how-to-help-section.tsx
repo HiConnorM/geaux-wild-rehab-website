@@ -38,15 +38,15 @@ export function HowToHelpSection() {
       </div>
 
       {/* Armadillo — mobile: absolute, pinned to right edge, z-40 so it sits in front of wave */}
-      <div className="pointer-events-none absolute right-0 bottom-0 z-40 block lg:hidden w-[220px] sm:w-[300px]">
+      <div className="pointer-events-none absolute right-0 bottom-0 z-40 block lg:hidden w-[320px] sm:w-[400px]">
         <Image
           src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
           alt=""
           aria-hidden="true"
-          width={300}
-          height={300}
+          width={400}
+          height={400}
           className="h-auto w-full object-contain object-right-bottom drop-shadow-xl translate-x-4"
-          sizes="(max-width: 640px) 220px, 300px"
+          sizes="(max-width: 640px) 320px, 400px"
         />
       </div>
 
