@@ -37,8 +37,8 @@ export function HowToHelpSection() {
         />
       </div>
 
-      {/* Armadillo — mobile: absolute, pinned to right edge, z-0 so cards stay readable */}
-      <div className="pointer-events-none absolute right-0 bottom-0 z-0 block lg:hidden w-[220px] sm:w-[300px]">
+      {/* Armadillo — mobile: absolute, pinned to right edge, z-40, shifted down so it clears the 501(c)(3) card */}
+      <div className="pointer-events-none absolute right-0 z-40 block lg:hidden w-[220px] sm:w-[300px]" style={{ bottom: '-60px' }}>
         <Image
           src="https://47nfhzdy2aifew9v.public.blob.vercel-storage.com/Armadillo/transparent-armadillo.png"
           alt=""
