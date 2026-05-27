@@ -5,8 +5,8 @@ import { Heart, Award, Users, MapPin, ArrowRight, Shield, BookOpen } from 'lucid
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
-  title: 'About Geaux Wild Rehab | Meet Tisha Raiford',
-  description: 'Meet Tisha Raiford, licensed Louisiana wildlife rehabilitator and founder of Geaux Wild Rehab, a 501(c)(3) nonprofit dedicated to helping native wildlife recover and return to the wild.',
+  title: 'About Geaux Wild Rehab',
+  description: 'Learn about Geaux Wild Rehab, a 501(c)(3) nonprofit wildlife rehabilitation center in Hammond, Louisiana, licensed to care for all native mammal species.',
 }
 
 const values = [
@@ -47,7 +47,7 @@ export default function AboutPage() {
                 About Us
               </span>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
-                Meet Tisha Raiford
+                About Geaux Wild Rehab
               </h1>
               <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
                 Geaux Wild Rehab is a 501(c)(3) nonprofit wildlife rehabilitation center dedicated to giving
@@ -263,7 +263,7 @@ export default function AboutPage() {
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0312-P7UiODJukVXZZRs46JeY0vSdv7zYuG.jpg"
-                  alt="Tisha Raiford with volunteers and staff at the wildlife rehabilitation center"
+                  alt="Tisha Raiford with staff at the wildlife rehabilitation center"
                   fill
                   className="object-cover"
                 />
@@ -288,7 +288,7 @@ export default function AboutPage() {
             Join Us in Making a Difference
           </h2>
           <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
-            Whether you&apos;ve found an injured animal, want to volunteer, or would like to
+            Whether you&apos;ve found an injured animal or would like to
             support our work, we&apos;d love to hear from you.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

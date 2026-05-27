@@ -48,7 +48,7 @@ export function DonationBanner() {
             </div>
             <h3 className="text-xl md:text-2xl font-black text-[#1a1f3d] mb-2 md:mb-3">Make a Donation</h3>
             <p className="text-gray-600 mb-5 md:mb-6 text-sm md:text-base">
-              100% of your tax-deductible donation goes directly to animal care. We are an all-volunteer organization.
+              100% of your tax-deductible donation goes directly to animal care.
             </p>
             <div className="flex flex-wrap gap-2 mb-5 md:mb-6">
               {['$25', '$50', '$100', '$250'].map(amt => (

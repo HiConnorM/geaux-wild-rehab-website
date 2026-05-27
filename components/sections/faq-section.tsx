@@ -85,7 +85,7 @@ export function FAQSection() {
 
             {/* Floating CTA card */}
             <div className={`absolute top-12 right-0 bg-[#26C9AA] rounded-xl md:rounded-[1.5rem] p-4 md:p-5 shadow-xl z-10 transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <p className="text-white/90 text-xs md:text-sm mb-2 md:mb-3">Need immediate help?</p>
+              <p className="text-white/90 text-xs md:text-sm mb-2 md:mb-3">Need wildlife guidance?</p>
               <Button asChild size="sm" className="rounded-full bg-white text-[#26C9AA] hover:bg-white/90 font-bold text-xs md:text-sm h-9 md:h-10">
                 <Link href="/get-help">
                   <HelpCircle className="mr-2 h-3 w-3 md:h-4 md:w-4" />

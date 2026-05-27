@@ -60,7 +60,16 @@ export default function WildlifePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-amber-800 text-sm">
             <strong>Please note:</strong> Geaux Wild Rehab specializes in mammals only. 
-            For injured or orphaned birds, please contact a licensed avian rehabilitator.
+            For injured or orphaned birds, please contact a{' '}
+            <a
+              href="https://www.wlf.louisiana.gov/page/permitted-wildlife-rehabilitators"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold underline hover:text-amber-700"
+            >
+              licensed avian rehabilitator via wlf.louisiana.gov
+            </a>
+            .
           </p>
         </div>
       </section>
@@ -122,11 +131,11 @@ export default function WildlifePage() {
             Found Wildlife?
           </span>
           <h2 className="text-3xl lg:text-4xl font-serif font-bold text-foreground mb-6">
-            Every Second Counts
+            Found Wildlife? Start Here
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            If you&apos;ve found an injured or orphaned animal, time is critical. 
-            Contact us immediately for guidance on how to help.
+            If you&apos;ve found an injured or orphaned animal, we&apos;re here to help.
+            Call/text 504-491-8036 for the fastest response, or visit our Get Help page for next steps.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg" className="gap-2 rounded-full px-10 h-14 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
