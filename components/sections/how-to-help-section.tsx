@@ -97,7 +97,7 @@ export function HowToHelpSection() {
         </div>
 
         {/* Bento grid */}
-        <div className="grid lg:grid-cols-12 gap-4 md:gap-5 pb-64 sm:pb-56 md:pb-32">
+        <div className="grid lg:grid-cols-12 gap-4 md:gap-5 pb-[269px] sm:pb-56 md:pb-32">
 
           {/* Donate card */}
           <div ref={donateCardRef} className="lg:col-span-7 bg-white rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 shadow-xl" style={{ opacity: 0 }}>
