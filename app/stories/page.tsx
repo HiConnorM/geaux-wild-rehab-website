@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/badge'
 export const metadata: Metadata = {
   title: 'Success Stories',
   description: 'Read heartwarming stories about the animals we have rehabilitated and released back into the wild.',
+  robots: { index: false, follow: false },
 }
 
 export default async function StoriesPage() {

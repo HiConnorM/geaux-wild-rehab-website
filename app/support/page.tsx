@@ -313,8 +313,8 @@ export default function SupportPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 rounded-full px-8 h-14 font-semibold">
-              <Link href="/stories">
-                Read Success Stories
+              <Link href="/wildlife">
+                Meet Our Wildlife
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, MapPin, Utensils, Brain, Clock, Heart, Lightbulb, ShieldCheck, AlertTriangle } from 'lucide-react'
-import { species, getStoriesBySpecies, formatDate } from '@/lib/content'
+import { species } from '@/lib/content'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 
@@ -39,8 +39,6 @@ export default async function SpeciesDetailPage({ params }: Props) {
     notFound()
   }
 
-  const relatedStories = await getStoriesBySpecies(animal.id)
-  
   // Get adjacent species for navigation
   const currentIndex = species.findIndex((s) => s.id === id)
   const prevSpecies = currentIndex > 0 ? species[currentIndex - 1] : null
@@ -254,40 +252,6 @@ export default async function SpeciesDetailPage({ params }: Props) {
                 </div>
               </div>
 
-              {/* Related Stories */}
-              {relatedStories.length > 0 && (
-                <div className="bg-white rounded-3xl p-6 border border-border/50 shadow-sm">
-                  <h3 className="text-lg font-bold text-foreground mb-4">Related Stories</h3>
-                  <div className="space-y-4">
-                    {relatedStories.slice(0, 2).map((story) => (
-                      <Link 
-                        key={story.id}
-                        href={`/stories/${story.slug}`}
-                        className="block group"
-                      >
-                        <div className="flex gap-4">
-                          <div className="relative w-20 h-20 rounded-xl overflow-hidden shrink-0">
-                            <Image
-                              src={story.heroImage}
-                              alt={story.title}
-                              fill
-                              className="object-cover group-hover:scale-110 transition-transform duration-300"
-                            />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                              {story.title}
-                            </h4>
-                            <p className="text-sm text-muted-foreground mt-1">
-                            {formatDate(story.date, { month: 'short', year: 'numeric' })}
-                            </p>
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>

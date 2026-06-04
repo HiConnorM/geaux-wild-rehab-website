@@ -259,13 +259,22 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
-            <div className="relative">
+            <div className="relative flex flex-col gap-4">
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0312-P7UiODJukVXZZRs46JeY0vSdv7zYuG.jpg"
                   alt="Tisha Raiford with staff at the wildlife rehabilitation center"
                   fill
                   className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/tisha-and-doctor-ledet.jpeg"
+                  alt="Tisha Raiford and Dr. Ledet providing veterinary care to a wildlife patient"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl p-6 border border-border/50">
