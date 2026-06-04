@@ -268,18 +268,20 @@ export default function AboutPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/tisha-and-doctor-ledet.jpeg"
-                  alt="Tisha Raiford and Dr. Ledet providing veterinary care to a wildlife patient"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                {/* Translucent badge — sits inside the photo like the hero overlay cards */}
-                <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-xl px-4 py-2.5 shadow-sm">
+              <div className="relative aspect-[4/3] rounded-3xl overflow-visible shadow-xl">
+                <div className="relative w-full h-full rounded-3xl overflow-hidden">
+                  <Image
+                    src="/images/tisha-and-doctor-ledet.jpeg"
+                    alt="Tisha Raiford and Dr. Ledet providing veterinary care to a wildlife patient"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                {/* Translucent badge hanging off the top-right corner */}
+                <div className="absolute -top-3 -right-3 flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-xl px-3 py-2 shadow-sm">
                   <div className="w-2 h-2 rounded-full bg-[#26C9AA] shrink-0" />
-                  <p className="text-white text-sm font-semibold drop-shadow-sm">Veterinary Care Partner</p>
+                  <p className="text-foreground text-xs font-semibold">Veterinary Care Partner</p>
                 </div>
               </div>
             </div>
