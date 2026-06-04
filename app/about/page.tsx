@@ -276,10 +276,11 @@ export default function AboutPage() {
                   className="object-cover object-top"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-              </div>
-              <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl p-6 border border-border/50">
-                <p className="text-4xl font-bold text-primary mb-1">6+</p>
-                <p className="text-muted-foreground text-sm">Years of wildlife rehabilitation</p>
+                {/* Translucent badge — sits inside the photo like the hero overlay cards */}
+                <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-xl px-4 py-2.5 shadow-sm">
+                  <div className="w-2 h-2 rounded-full bg-[#26C9AA] shrink-0" />
+                  <p className="text-white text-sm font-semibold drop-shadow-sm">Veterinary Care Partner</p>
+                </div>
               </div>
             </div>
           </div>
