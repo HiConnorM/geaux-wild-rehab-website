@@ -107,77 +107,98 @@ export function MobileHeader() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [isOpen])
+
   return (
-    <header 
-      className={cn(
-        "lg:hidden fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled 
-          ? "bg-white/98 backdrop-blur-md shadow-sm border-b border-gray-100" 
-          : "bg-white"
-      )}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="shrink-0">
-            <Image
-              src="/images/logo.svg"
-              alt="Geaux Wild Rehab"
-              width={140}
-              height={44}
-              className="h-9 w-auto"
-              priority
-            />
-          </Link>
+    <>
+      {/* Header bar — fixed, never participates in stacking with the overlay */}
+      <header
+        className={cn(
+          "lg:hidden fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          isScrolled
+            ? "bg-white/98 backdrop-blur-md shadow-sm border-b border-gray-100"
+            : "bg-white"
+        )}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <Link href="/" className="shrink-0" onClick={() => setIsOpen(false)}>
+              <Image
+                src="/images/logo.svg"
+                alt="Geaux Wild Rehab"
+                width={140}
+                height={44}
+                className="h-9 w-auto"
+                priority
+              />
+            </Link>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="p-2 -mr-2 text-[#1a1f3d]"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div className={cn(
-        "fixed inset-0 top-16 bg-white z-40 transition-all duration-300",
-        isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
-      )}>
-        <div className="flex flex-col h-full">
-          {/* Mobile nav links */}
-          <div className="flex-1 overflow-y-auto px-4 py-4">
-            <div className="flex flex-col">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="px-2 py-4 text-base font-medium text-[#1a1f3d] hover:text-[#26C9AA] border-b border-gray-100 transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile CTAs */}
-          <div className="px-4 py-6 border-t border-gray-100 flex flex-col gap-3 bg-[#F8F4F4]">
-            <Button asChild size="lg" className="w-full justify-center rounded-full bg-[#26C9AA] text-white hover:bg-[#1eb89a] h-12 font-semibold">
-              <Link href="/support" onClick={() => setIsOpen(false)}>
-                Donate Now
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="w-full justify-center rounded-full border-2 border-[#3B468E] text-[#3B468E] hover:bg-[#3B468E] hover:text-white h-12 font-semibold">
-              <Link href="/get-help" onClick={() => setIsOpen(false)}>
-                Get Help
-              </Link>
-            </Button>
+            {/* Hamburger */}
+            <button
+              className="p-2 -mr-2 text-[#1a1f3d]"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
         </div>
+      </header>
+
+      {/*
+        Mobile menu overlay — rendered as a sibling of <header>, NOT inside it.
+        Uses its own `fixed` context so it is always anchored to the viewport
+        top regardless of how far the user has scrolled.
+      */}
+      <div
+        aria-hidden={!isOpen}
+        className={cn(
+          "lg:hidden fixed inset-0 z-40 bg-white flex flex-col transition-all duration-300",
+          // Push content below the 64 px header bar
+          "pt-16",
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+        )}
+      >
+        {/* Nav links */}
+        <div className="flex-1 overflow-y-auto px-4 py-4">
+          <div className="flex flex-col">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="px-2 py-4 text-base font-medium text-[#1a1f3d] hover:text-[#26C9AA] border-b border-gray-100 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* CTAs */}
+        <div className="px-4 py-6 border-t border-gray-100 flex flex-col gap-3 bg-[#F8F4F4]">
+          <Button asChild size="lg" className="w-full justify-center rounded-full bg-[#26C9AA] text-white hover:bg-[#1eb89a] h-12 font-semibold">
+            <Link href="/support" onClick={() => setIsOpen(false)}>
+              Donate Now
+            </Link>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="w-full justify-center rounded-full border-2 border-[#3B468E] text-[#3B468E] hover:bg-[#3B468E] hover:text-white h-12 font-semibold">
+            <Link href="/get-help" onClick={() => setIsOpen(false)}>
+              Get Help
+            </Link>
+          </Button>
+        </div>
       </div>
-    </header>
+    </>
   )
 }
