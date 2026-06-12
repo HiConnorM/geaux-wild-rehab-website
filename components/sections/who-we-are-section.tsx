@@ -5,6 +5,14 @@ import Image from 'next/image'
 import { ExternalLink } from 'lucide-react'
 import { prefersReducedMotion, ST_DEFAULTS, EASE_OUT } from '@/lib/gsap-utils'
 
+const fox8Story = {
+  title: 'Hammond wildlife rehab gives abandoned animals a second chance',
+  url: 'https://www.fox8live.com/2026/06/06/hammond-wildlife-rehab-gives-abandoned-animals-second-chance/',
+  summary: 'FOX 8 visited Geaux Wild Rehab near Hammond to share the people, volunteers, and specialized care behind the rehabilitation of Louisiana\'s native wildlife.',
+  date: 'June 5, 2026',
+  publisher: 'FOX 8 / WVUE',
+}
+
 const dodoStories = [
   {
     title: "She Was Lifeless And Couldn't Move — Then A Kind Woman Decided To Help",
@@ -95,7 +103,7 @@ export function WhoWeAreSection() {
               Geaux Wild Rehab is a 501(c)(3) licensed nonprofit wildlife rehabilitation center based in Hammond, Louisiana. We are permitted by the Louisiana Department of Wildlife &amp; Fisheries to care for all native mammal species.
             </p>
             <p className="text-white/80 text-sm md:text-base leading-relaxed">
-              Our mission is simple: rescue injured and orphaned wildlife, provide expert rehabilitative care, and release them back into their natural habitat whenever possible. With over 2,146 animals rescued and an 82% release rate, every life matters to us.
+              Our mission is simple: rescue injured and orphaned wildlife, provide expert rehabilitative care, and release them back into their natural habitat whenever possible. Every animal receives compassionate rehabilitation with the goal of returning to the wild whenever possible.
             </p>
           </div>
 
@@ -104,6 +112,33 @@ export function WhoWeAreSection() {
             <p className="text-xs font-bold text-[#3B468E] uppercase tracking-wider mb-6">
               Featured On
             </p>
+
+            {/* FOX 8 / WVUE */}
+            <div className="mb-6">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-sm font-black text-[#1a1f3d] tracking-tight">FOX 8 / WVUE</span>
+                <span className="text-xs text-gray-400">{fox8Story.date}</span>
+              </div>
+              <a
+                href={fox8Story.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-start gap-3 p-4 rounded-xl md:rounded-2xl border border-gray-100 hover:border-[#26C9AA] hover:bg-[#26C9AA]/5 transition-all duration-200"
+                aria-label={`${fox8Story.title} — ${fox8Story.publisher} (opens in new tab)`}
+              >
+                <div className="shrink-0 mt-0.5 w-8 h-8 rounded-full bg-[#26C9AA]/10 flex items-center justify-center group-hover:bg-[#26C9AA]/20 transition-colors">
+                  <ExternalLink className="h-3.5 w-3.5 text-[#26C9AA]" />
+                </div>
+                <div>
+                  <span className="text-sm font-medium text-[#1a1f3d] leading-snug group-hover:text-[#26C9AA] transition-colors block mb-1">
+                    {fox8Story.title}
+                  </span>
+                  <span className="text-xs text-gray-500 leading-relaxed">{fox8Story.summary}</span>
+                </div>
+              </a>
+            </div>
+
+            <div className="border-t border-gray-100 my-6" />
 
             {/* The Dodo */}
             <div className="mb-6">

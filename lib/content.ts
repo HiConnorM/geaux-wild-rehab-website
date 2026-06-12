@@ -550,10 +550,10 @@ export async function getStoriesBySpecies(speciesId: string): Promise<Story[]> {
 
 // Impact stats
 export const impactStats = {
-  animalsRescued: 2146,
+  animalsRescued: 1500,
   speciesHelped: 24,
   volunteersActive: 58,
-  yearsServing: 6,
+  yearsServing: 2021, // used as "Est. 2021"
   releaseRate: 82,
   callsAnswered: 3500,
 }

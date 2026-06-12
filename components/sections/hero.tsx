@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Phone, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { impactStats } from '@/lib/content'
 import { prefersReducedMotion, EASE_OUT, EASE_EXPO } from '@/lib/gsap-utils'
 
 function useCountUp(end: number, duration = 2000, started: boolean) {
@@ -120,8 +119,7 @@ export function Hero() {
     return () => ctx?.revert()
   }, [])
 
-  const rescuedCount = useCountUp(impactStats.animalsRescued, 2200, statsStarted)
-  const releaseCount = useCountUp(impactStats.releaseRate, 1600, statsStarted)
+  const rescuedCount = useCountUp(1500, 2200, statsStarted)
 
   return (
     <section ref={sectionRef} className="relative min-h-screen bg-[#26C9AA] overflow-hidden">
@@ -231,15 +229,15 @@ export function Hero() {
           </Button>
         </div>
 
-        {/* Animated stats cards */}
+        {/* Stat cards */}
         <div ref={statsRef} className="flex gap-3" style={{ opacity: 0 }}>
           <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-5 shadow-lg flex-1 sm:flex-initial">
             <p className="text-2xl md:text-4xl font-black text-[#3B468E]">{rescuedCount.toLocaleString()}+</p>
             <p className="text-xs md:text-sm text-gray-500">Animals rescued</p>
           </div>
           <div className="bg-[#3B468E] rounded-2xl md:rounded-3xl p-4 md:p-5 shadow-lg flex-1 sm:flex-initial">
-            <p className="text-2xl md:text-4xl font-black text-white">{releaseCount}%</p>
-            <p className="text-xs md:text-sm text-white/70">Release rate</p>
+            <p className="text-2xl md:text-4xl font-black text-white">Est. 2021</p>
+            <p className="text-xs md:text-sm text-white/70">Serving Louisiana</p>
           </div>
         </div>
 
