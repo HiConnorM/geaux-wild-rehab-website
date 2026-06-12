@@ -103,12 +103,12 @@ export default function SupportPage() {
               <p className="text-sm text-muted-foreground">Goes to Animal Care</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-primary">2,146+</p>
+              <p className="text-3xl font-bold text-primary">1,500+</p>
               <p className="text-sm text-muted-foreground">Animals Rescued</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-primary">82%</p>
-              <p className="text-sm text-muted-foreground">Release Rate</p>
+              <p className="text-3xl font-bold text-primary">Est. 2021</p>
+              <p className="text-sm text-muted-foreground">Serving Louisiana Wildlife</p>
             </div>
             <div>
               <p className="text-3xl font-bold text-primary">501(c)(3)</p>

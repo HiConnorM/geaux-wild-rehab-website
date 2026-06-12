@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import { impactStats } from '@/lib/content'
-import { Heart, TrendingUp, Calendar } from 'lucide-react'
+import { Heart, MapPin, RefreshCw } from 'lucide-react'
 import { prefersReducedMotion, ST_DEFAULTS, EASE_OUT } from '@/lib/gsap-utils'
 
 function useCountUp(end: number, duration = 2000) {
@@ -12,7 +11,10 @@ function useCountUp(end: number, duration = 2000) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting && !started) setStarted(true) }, { threshold: 0.1 })
+    const observer = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting && !started) setStarted(true) },
+      { threshold: 0.1 }
+    )
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
   }, [started])
@@ -33,12 +35,6 @@ function useCountUp(end: number, duration = 2000) {
 
   return { count, ref }
 }
-
-const stats = [
-  { value: impactStats.animalsRescued, label: 'Animals Rescued', suffix: '+', icon: Heart },
-  { value: impactStats.releaseRate, label: 'Release Rate', suffix: '%', icon: TrendingUp },
-  { value: impactStats.yearsServing, label: 'Years Serving', suffix: '+', icon: Calendar },
-]
 
 export function ImpactStats() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -64,7 +60,6 @@ export function ImpactStats() {
           scrollTrigger: { trigger: headerRef.current, ...ST_DEFAULTS },
         })
 
-        // Stat cards stagger in
         if (statsRowRef.current) {
           const cards = Array.from(statsRowRef.current.children)
           gsap.set(cards, { opacity: 0, y: 28 })
@@ -91,7 +86,6 @@ export function ImpactStats() {
   return (
     <section ref={sectionRef} className="relative z-0 overflow-hidden bg-[#26C9AA] -mt-[3px]">
 
-      {/* Decorative diamonds */}
       <div className="absolute top-12 left-[8%] w-6 h-6 bg-white/15 rotate-45 rounded hidden md:block" />
       <div className="absolute top-28 right-[12%] w-4 h-4 bg-[#3B468E]/20 rotate-45 rounded-sm hidden md:block" />
 
@@ -137,9 +131,17 @@ export function ImpactStats() {
 
             {/* Stats row */}
             <div ref={statsRowRef} className="grid grid-cols-3 gap-3 md:gap-4 pb-8">
-              {stats.map((stat) => (
-                <StatCard key={stat.label} {...stat} />
-              ))}
+              <AnimalsRescuedCard />
+              <StaticCard
+                icon={MapPin}
+                value="Est. 2021"
+                label="Serving Louisiana Wildlife"
+              />
+              <StaticCard
+                icon={RefreshCw}
+                value="Second Chances"
+                label="Rehabilitation & Release"
+              />
             </div>
 
             <div ref={badgeRef} className="inline-block bg-white rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 shadow-xl" style={{ opacity: 0 }}>
@@ -161,10 +163,8 @@ export function ImpactStats() {
   )
 }
 
-function StatCard({ value, label, suffix, icon: Icon }: {
-  value: number; label: string; suffix: string; icon: typeof Heart
-}) {
-  const { count, ref } = useCountUp(value)
+function AnimalsRescuedCard() {
+  const { count, ref } = useCountUp(1500)
   return (
     <div
       ref={ref}
@@ -172,9 +172,24 @@ function StatCard({ value, label, suffix, icon: Icon }: {
       style={{ opacity: 0 }}
     >
       <div className="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-[#26C9AA]/10 mb-2 md:mb-3">
+        <Heart className="h-4 w-4 md:h-5 md:w-5 text-[#26C9AA]" />
+      </div>
+      <p className="text-2xl md:text-3xl lg:text-4xl font-black text-[#1a1f3d] mb-1">{count.toLocaleString()}+</p>
+      <p className="text-gray-600 text-xs md:text-sm font-medium">Animals Rescued</p>
+    </div>
+  )
+}
+
+function StaticCard({ icon: Icon, value, label }: { icon: typeof Heart; value: string; label: string }) {
+  return (
+    <div
+      className="bg-white rounded-xl md:rounded-[1.5rem] p-4 md:p-5 shadow-lg text-center"
+      style={{ opacity: 0 }}
+    >
+      <div className="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-[#26C9AA]/10 mb-2 md:mb-3">
         <Icon className="h-4 w-4 md:h-5 md:w-5 text-[#26C9AA]" />
       </div>
-      <p className="text-2xl md:text-3xl lg:text-4xl font-black text-[#1a1f3d] mb-1">{count}{suffix}</p>
+      <p className="text-base md:text-lg lg:text-xl font-black text-[#1a1f3d] mb-1 leading-tight">{value}</p>
       <p className="text-gray-600 text-xs md:text-sm font-medium">{label}</p>
     </div>
   )
