@@ -115,8 +115,14 @@ export function WhoWeAreSection() {
 
             {/* FOX 8 / WVUE */}
             <div className="mb-6">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-sm font-black text-[#1a1f3d] tracking-tight">FOX 8 / WVUE</span>
+              <div className="flex items-center gap-3 mb-3">
+                <Image
+                  src="/images/fox8-logo.png"
+                  alt="FOX 8 Local First"
+                  width={96}
+                  height={48}
+                  className="object-contain"
+                />
                 <span className="text-xs text-gray-400">{fox8Story.date}</span>
               </div>
               <a
