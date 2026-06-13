@@ -215,13 +215,13 @@ export function Hero() {
           className="flex flex-col sm:flex-row gap-3 mb-6"
           style={{ opacity: 0 }}
         >
-          <Button asChild size="lg" className="rounded-full h-12 md:h-14 px-6 md:px-8 bg-white text-[#26C9AA] hover:bg-white/90 font-bold text-sm md:text-base shadow-lg w-full sm:w-auto justify-center">
+          <Button asChild size="lg" className="rounded-full h-12 md:h-14 px-5 md:px-8 bg-white text-[#26C9AA] hover:bg-white/90 font-bold text-sm md:text-base shadow-lg w-auto justify-center">
             <Link href="/get-help">
               Found Wildlife?
               <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="rounded-full h-12 md:h-14 px-6 md:px-8 border-2 border-white bg-transparent hover:bg-white/10 font-bold text-sm md:text-base w-full sm:w-auto justify-center">
+          <Button asChild variant="outline" size="lg" className="rounded-full h-12 md:h-14 px-5 md:px-8 border-2 border-white bg-transparent hover:bg-white/10 font-bold text-sm md:text-base w-auto justify-center">
             <Link href="/support" className="flex items-center text-white">
               <Heart className="mr-2 h-4 w-4 md:h-5 md:w-5 text-white" />
               <span className="text-white">Donate</span>
