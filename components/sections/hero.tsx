@@ -212,7 +212,7 @@ export function Hero() {
         {/* CTAs */}
         <div
           ref={ctaRef}
-          className="flex flex-col sm:flex-row gap-3 mb-6"
+          className="flex flex-row flex-wrap gap-3 mb-6"
           style={{ opacity: 0 }}
         >
           <Button asChild size="lg" className="rounded-full h-12 md:h-14 px-5 md:px-8 bg-white text-[#26C9AA] hover:bg-white/90 font-bold text-sm md:text-base shadow-lg w-auto justify-center">
