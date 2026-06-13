@@ -134,8 +134,8 @@ export function Hero() {
         ref={foxRef}
         className="absolute bottom-0 right-0 z-0"
         style={{
-          width: 'clamp(640px, 110vw, 1800px)',
-          height: 'clamp(900px, 160vh, 2000px)',
+          width: 'clamp(540px, 98vw, 1550px)',
+          height: 'clamp(760px, 140vh, 1750px)',
           opacity: 0,
         }}
       >
