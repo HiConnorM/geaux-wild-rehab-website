@@ -81,9 +81,16 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col">
         <PageTransitionProvider>
+          {/* Skip to main content – visible only on focus */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#26C9AA] focus:text-white focus:font-semibold focus:rounded-lg focus:shadow-lg focus:outline-none"
+          >
+            Skip to main content
+          </a>
           <Header />
           <MobileHeader />
-          <main className="flex-1">
+          <main id="main-content" className="flex-1">
             {children}
           </main>
           <Footer />

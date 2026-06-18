@@ -34,12 +34,12 @@ const impactCards = [
 const wishlistCategories = [
   {
     title: 'Feeding Supplies',
-    items: ['Esbilac Puppy Milk', 'Miracle Nipples', 'Feeding syringes (1ml, 3ml, 5ml)', 'Feeding tubes'],
+    items: ['Miracle Nipples', 'Feeding syringes (1ml, 3ml, 5ml)', 'Feeding tubes', 'Wildlife formula'],
     priority: 'high',
   },
   {
-    title: 'Heating & Bedding',
-    items: ['Heating pads (no auto shut-off)', 'Fleece blankets', 'Puppy pads', 'Paper towels'],
+    title: 'Bedding & Comfort',
+    items: ['Fleece blankets', 'Puppy pads', 'Paper towels', 'Soft cloth bedding'],
     priority: 'high',
   },
   {
@@ -97,11 +97,7 @@ export default function SupportPage() {
       {/* Quick Stats Band */}
       <section className="py-6 bg-white border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-              <p className="text-3xl font-bold text-primary">100%</p>
-              <p className="text-sm text-muted-foreground">Goes to Animal Care</p>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
             <div>
               <p className="text-3xl font-bold text-primary">1,500+</p>
               <p className="text-sm text-muted-foreground">Animals Rescued</p>
@@ -112,7 +108,7 @@ export default function SupportPage() {
             </div>
             <div>
               <p className="text-3xl font-bold text-primary">501(c)(3)</p>
-              <p className="text-sm text-muted-foreground">Tax Deductible</p>
+              <p className="text-sm text-muted-foreground">Nonprofit Organization</p>
             </div>
           </div>
         </div>
@@ -185,9 +181,8 @@ export default function SupportPage() {
                 Make a Tax-Deductible Donation
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Your donation goes directly to animal care, including food,
-                medicine, veterinary visits, and facility maintenance. As an all-volunteer
-                organization, 100% of your gift supports our animals.
+                Your support helps provide food, supplies, housing, transport, veterinary care,
+                and rehabilitation for Louisiana&apos;s native wildlife.
               </p>
 
               {/* Impact Grid */}
@@ -233,7 +228,7 @@ export default function SupportPage() {
               </div>
 
               <p className="text-sm text-muted-foreground mt-4">
-                Geaux Wild Rehab is a registered 501(c)(3) nonprofit. All donations are tax-deductible.
+                Geaux Wild Rehab is a 501(c)(3) nonprofit organization. Donations may be tax-deductible to the extent allowed by law. Please consult your tax advisor for guidance.
               </p>
             </div>
 

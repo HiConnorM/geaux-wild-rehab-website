@@ -152,8 +152,7 @@ export default function AboutPage() {
                   <div>
                     <h3 className="text-lg font-bold text-foreground mb-2">501(c)(3) Nonprofit</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      Geaux Wild Rehab is a registered 501(c)(3) nonprofit. All donations are tax-deductible and go
-                      directly to animal care.
+                      Geaux Wild Rehab is a 501(c)(3) nonprofit organization. Donations may be tax-deductible to the extent allowed by law. Your support helps provide food, supplies, veterinary care, and rehabilitation for Louisiana&apos;s native wildlife.
                     </p>
                   </div>
                 </div>

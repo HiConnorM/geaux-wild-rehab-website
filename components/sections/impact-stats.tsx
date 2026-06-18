@@ -145,8 +145,8 @@ export function ImpactStats() {
             </div>
 
             <div ref={badgeRef} className="inline-block bg-white rounded-xl md:rounded-2xl px-4 md:px-5 py-3 md:py-4 shadow-xl" style={{ opacity: 0 }}>
-              <p className="text-xs md:text-sm text-gray-500">100% of donations</p>
-              <p className="text-lg md:text-xl font-black text-[#26C9AA]">Goes to animals</p>
+              <p className="text-xs md:text-sm text-gray-500">Geaux Wild Rehab is a 501(c)(3) nonprofit.</p>
+              <p className="text-base md:text-lg font-black text-[#26C9AA]">Your support saves lives.</p>
             </div>
           </div>
 

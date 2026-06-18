@@ -136,9 +136,20 @@ export function Footer() {
         <div className="mt-16 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/40">
             <p>&copy; {currentYear} Geaux Wild Rehab. All rights reserved.</p>
-            <p>
-              Based in Hammond, Louisiana &mdash; serving native wildlife across the state.
-            </p>
+            <nav aria-label="Legal links" className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2">
+              <TransitionLink href="/privacy" className="hover:text-white/70 transition-colors">
+                Privacy Policy
+              </TransitionLink>
+              <TransitionLink href="/terms" className="hover:text-white/70 transition-colors">
+                Terms &amp; Conditions
+              </TransitionLink>
+              <TransitionLink href="/accessibility" className="hover:text-white/70 transition-colors">
+                Accessibility
+              </TransitionLink>
+              <TransitionLink href="/transparency" className="hover:text-white/70 transition-colors">
+                Transparency
+              </TransitionLink>
+            </nav>
           </div>
         </div>
       </div>
