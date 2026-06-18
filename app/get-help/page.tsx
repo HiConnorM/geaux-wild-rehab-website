@@ -254,8 +254,15 @@ export default function GetHelpPage() {
               Submit a Help Request
             </h2>
           <p className="text-muted-foreground mb-8">
-              If you have found injured or orphaned wildlife in Louisiana, follow the steps below
-              and contact us for guidance. Response times may vary depending on current animal care needs.
+              If you have found injured or orphaned wildlife in Louisiana, follow the steps below and contact us for guidance.
+            </p>
+            <p className="text-sm text-muted-foreground mb-6 p-4 rounded-lg bg-amber-50 border border-amber-200">
+              For the fastest response, please call or text{' '}
+              <a href="tel:5044918036" className="font-semibold text-amber-900 hover:underline">
+                504-491-8036
+              </a>
+              . If you cannot call, submit the form below with as much detail as possible.
+              Response times may vary depending on current animal care needs.
             </p>
             <HelpRequestForm />
           </div>

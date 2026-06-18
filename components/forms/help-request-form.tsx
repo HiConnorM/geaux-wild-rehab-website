@@ -61,6 +61,8 @@ export function HelpRequestForm() {
     resolver: zodResolver(helpRequestSchema),
     defaultValues: {
       contactMethod: 'phone',
+      // Set the form load timestamp for bot detection
+      _formLoadedAt: new Date().toISOString(),
     },
   })
 
@@ -74,9 +76,15 @@ export function HelpRequestForm() {
 
     if (result.success) {
       setIsSuccess(true)
-      reset()
+      reset({
+        contactMethod: 'phone',
+        _formLoadedAt: new Date().toISOString(),
+      })
     } else {
-      setServerError(result.error || 'Something went wrong. Please try again.')
+      setServerError(
+        result.error ||
+          'Something went wrong while sending your message. Please try again or contact Geaux Wild Rehab directly.',
+      )
     }
 
     setIsSubmitting(false)
@@ -86,14 +94,24 @@ export function HelpRequestForm() {
     return (
       <div className="text-center py-8">
         <div className="inline-flex p-4 rounded-full bg-primary/10 mb-4">
-          <CheckCircle className="h-8 w-8 text-primary" />
+          <CheckCircle className="h-8 w-8 text-primary" aria-hidden="true" />
         </div>
         <h3 className="text-xl font-semibold text-foreground mb-2">Request Submitted!</h3>
         <p className="text-muted-foreground mb-6">
-          Thank you for contacting us. We will reach out via your preferred contact method 
-          as soon as possible. In the meantime, please keep the animal warm and quiet.
+          Thank you for reaching out. Your message has been sent to Geaux Wild Rehab. For
+          the fastest response, please call or text{' '}
+          <a href="tel:5044918036" className="font-semibold text-primary hover:underline">
+            504-491-8036
+          </a>
+          . Response times may vary depending on current animal care needs.
         </p>
-        <Button onClick={() => setIsSuccess(false)} variant="outline">
+        <Button
+          onClick={() => {
+            setIsSuccess(false)
+            setValue('_formLoadedAt', new Date().toISOString())
+          }}
+          variant="outline"
+        >
           Submit Another Request
         </Button>
       </div>
@@ -101,85 +119,135 @@ export function HelpRequestForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      {/* Honeypot */}
-      <input
-        type="text"
-        {...register('website')}
-        className="sr-only"
-        tabIndex={-1}
-        autoComplete="off"
-      />
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
+      {/* Honeypot – visually hidden, aria-hidden, no tab stop */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', height: 0, overflow: 'hidden' }}>
+        <label htmlFor="hp-website-help">Website</label>
+        <input
+          id="hp-website-help"
+          type="text"
+          {...register('website')}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
+      {/* Hidden timing field */}
+      <input type="hidden" {...register('_formLoadedAt')} />
 
       {/* Contact Information */}
-      <div className="space-y-4">
-        <h3 className="font-semibold text-foreground">Your Information</h3>
+      <fieldset className="space-y-4 border-0 p-0 m-0">
+        <legend className="font-semibold text-foreground text-base mb-2">Your Information</legend>
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="name">Name *</Label>
+            <Label htmlFor="hr-name">
+              Name <span aria-hidden="true">*</span>
+              <span className="sr-only">(required)</span>
+            </Label>
             <Input
-              id="name"
+              id="hr-name"
               {...register('name')}
               placeholder="Your name"
+              autoComplete="name"
+              aria-required="true"
+              aria-describedby={errors.name ? 'hr-name-error' : undefined}
               className={errors.name ? 'border-destructive' : ''}
             />
             {errors.name && (
-              <p className="text-sm text-destructive">{errors.name.message}</p>
+              <p id="hr-name-error" role="alert" className="text-sm text-destructive">
+                {errors.name.message}
+              </p>
             )}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="phone">Phone *</Label>
+            <Label htmlFor="hr-phone">
+              Phone <span aria-hidden="true">*</span>
+              <span className="sr-only">(required)</span>
+            </Label>
             <Input
-              id="phone"
+              id="hr-phone"
               type="tel"
               {...register('phone')}
               placeholder="(555) 555-5555"
+              autoComplete="tel"
+              aria-required="true"
+              aria-describedby={errors.phone ? 'hr-phone-error' : undefined}
               className={errors.phone ? 'border-destructive' : ''}
             />
             {errors.phone && (
-              <p className="text-sm text-destructive">{errors.phone.message}</p>
+              <p id="hr-phone-error" role="alert" className="text-sm text-destructive">
+                {errors.phone.message}
+              </p>
             )}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="email">Email *</Label>
+            <Label htmlFor="hr-email">Email</Label>
             <Input
-              id="email"
+              id="hr-email"
               type="email"
               {...register('email')}
               placeholder="your@email.com"
+              autoComplete="email"
+              aria-describedby={errors.email ? 'hr-email-error' : undefined}
               className={errors.email ? 'border-destructive' : ''}
             />
             {errors.email && (
-              <p className="text-sm text-destructive">{errors.email.message}</p>
+              <p id="hr-email-error" role="alert" className="text-sm text-destructive">
+                {errors.email.message}
+              </p>
             )}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="location">City/Parish *</Label>
+            <Label htmlFor="hr-location">
+              City/Parish <span aria-hidden="true">*</span>
+              <span className="sr-only">(required)</span>
+            </Label>
             <Input
-              id="location"
+              id="hr-location"
               {...register('location')}
               placeholder="e.g., Baton Rouge, East Baton Rouge Parish"
+              aria-required="true"
+              aria-describedby={errors.location ? 'hr-location-error' : undefined}
               className={errors.location ? 'border-destructive' : ''}
             />
             {errors.location && (
-              <p className="text-sm text-destructive">{errors.location.message}</p>
+              <p id="hr-location-error" role="alert" className="text-sm text-destructive">
+                {errors.location.message}
+              </p>
             )}
           </div>
         </div>
-      </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="hr-landmark">Exact Location / Nearby Landmark</Label>
+          <Input
+            id="hr-landmark"
+            {...register('landmark')}
+            placeholder="e.g., Behind the Walmart on Hwy 190, near the park entrance"
+          />
+        </div>
+      </fieldset>
 
       {/* Animal Information */}
-      <div className="space-y-4">
-        <h3 className="font-semibold text-foreground">Animal Information</h3>
+      <fieldset className="space-y-4 border-0 p-0 m-0">
+        <legend className="font-semibold text-foreground text-base mb-2">Animal Information</legend>
 
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="species">Species *</Label>
+            <Label htmlFor="hr-species">
+              Species <span aria-hidden="true">*</span>
+              <span className="sr-only">(required)</span>
+            </Label>
             <Select onValueChange={(value) => setValue('species', value)}>
-              <SelectTrigger className={errors.species ? 'border-destructive' : ''}>
+              <SelectTrigger
+                id="hr-species"
+                aria-required="true"
+                aria-describedby={errors.species ? 'hr-species-error' : undefined}
+                className={errors.species ? 'border-destructive' : ''}
+              >
                 <SelectValue placeholder="Select species" />
               </SelectTrigger>
               <SelectContent>
@@ -191,14 +259,24 @@ export function HelpRequestForm() {
               </SelectContent>
             </Select>
             {errors.species && (
-              <p className="text-sm text-destructive">{errors.species.message}</p>
+              <p id="hr-species-error" role="alert" className="text-sm text-destructive">
+                {errors.species.message}
+              </p>
             )}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="condition">Condition *</Label>
+            <Label htmlFor="hr-condition">
+              Condition <span aria-hidden="true">*</span>
+              <span className="sr-only">(required)</span>
+            </Label>
             <Select onValueChange={(value) => setValue('condition', value)}>
-              <SelectTrigger className={errors.condition ? 'border-destructive' : ''}>
+              <SelectTrigger
+                id="hr-condition"
+                aria-required="true"
+                aria-describedby={errors.condition ? 'hr-condition-error' : undefined}
+                className={errors.condition ? 'border-destructive' : ''}
+              >
                 <SelectValue placeholder="Select condition" />
               </SelectTrigger>
               <SelectContent>
@@ -210,74 +288,131 @@ export function HelpRequestForm() {
               </SelectContent>
             </Select>
             {errors.condition && (
-              <p className="text-sm text-destructive">{errors.condition.message}</p>
+              <p id="hr-condition-error" role="alert" className="text-sm text-destructive">
+                {errors.condition.message}
+              </p>
             )}
           </div>
         </div>
 
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Label htmlFor="hr-contained">Is the animal contained?</Label>
+            <Select onValueChange={(value) => setValue('contained', value)}>
+              <SelectTrigger id="hr-contained">
+                <SelectValue placeholder="Select one" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="yes">Yes, in a box/carrier</SelectItem>
+                <SelectItem value="no">No, it is loose</SelectItem>
+                <SelectItem value="unsure">Not sure</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="hr-danger">Is the animal in immediate danger?</Label>
+            <Select onValueChange={(value) => setValue('immediateDanger', value)}>
+              <SelectTrigger id="hr-danger">
+                <SelectValue placeholder="Select one" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="yes">Yes</SelectItem>
+                <SelectItem value="no">No</SelectItem>
+                <SelectItem value="unsure">Not sure</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+
         <div className="space-y-2">
-          <Label htmlFor="notes">Additional Details</Label>
+          <Label htmlFor="hr-notes">
+            Additional Details <span aria-hidden="true">*</span>
+            <span className="sr-only">(required)</span>
+          </Label>
           <Textarea
-            id="notes"
+            id="hr-notes"
             {...register('notes')}
             placeholder="Please describe the situation in more detail. Where did you find the animal? What is it currently doing? Any visible injuries?"
             rows={4}
+            aria-describedby={errors.notes ? 'hr-notes-error' : undefined}
+            className={errors.notes ? 'border-destructive' : ''}
           />
+          {errors.notes && (
+            <p id="hr-notes-error" role="alert" className="text-sm text-destructive">
+              {errors.notes.message}
+            </p>
+          )}
         </div>
-      </div>
+      </fieldset>
 
       {/* Contact Preference */}
-      <div className="space-y-4">
-        <h3 className="font-semibold text-foreground">Preferred Contact Method *</h3>
+      <fieldset className="space-y-4 border-0 p-0 m-0">
+        <legend className="font-semibold text-foreground text-base">
+          Preferred Contact Method <span aria-hidden="true">*</span>
+          <span className="sr-only">(required)</span>
+        </legend>
         <RadioGroup
           defaultValue="phone"
-          onValueChange={(value) => setValue('contactMethod', value as 'phone' | 'text' | 'email')}
+          onValueChange={(value) =>
+            setValue('contactMethod', value as 'phone' | 'text' | 'email')
+          }
           className="flex flex-wrap gap-4"
         >
           <div className="flex items-center gap-2">
-            <RadioGroupItem value="phone" id="phone-call" />
-            <Label htmlFor="phone-call" className="font-normal cursor-pointer">
+            <RadioGroupItem value="phone" id="hr-contact-phone" />
+            <Label htmlFor="hr-contact-phone" className="font-normal cursor-pointer">
               Phone call
             </Label>
           </div>
           <div className="flex items-center gap-2">
-            <RadioGroupItem value="text" id="text" />
-            <Label htmlFor="text" className="font-normal cursor-pointer">
+            <RadioGroupItem value="text" id="hr-contact-text" />
+            <Label htmlFor="hr-contact-text" className="font-normal cursor-pointer">
               Text message
             </Label>
           </div>
           <div className="flex items-center gap-2">
-            <RadioGroupItem value="email" id="email-contact" />
-            <Label htmlFor="email-contact" className="font-normal cursor-pointer">
+            <RadioGroupItem value="email" id="hr-contact-email" />
+            <Label htmlFor="hr-contact-email" className="font-normal cursor-pointer">
               Email
             </Label>
           </div>
         </RadioGroup>
         {errors.contactMethod && (
-          <p className="text-sm text-destructive">{errors.contactMethod.message}</p>
+          <p role="alert" className="text-sm text-destructive">
+            {errors.contactMethod.message}
+          </p>
         )}
-      </div>
+      </fieldset>
 
       {/* Consent */}
       <div className="space-y-2">
         <div className="flex items-start gap-3">
           <Checkbox
-            id="consent"
+            id="hr-consent"
             checked={consent}
             onCheckedChange={(checked) => setValue('consent', checked === true)}
+            aria-required="true"
+            aria-describedby={errors.consent ? 'hr-consent-error' : undefined}
           />
-          <Label htmlFor="consent" className="text-sm font-normal leading-relaxed cursor-pointer">
+          <Label
+            htmlFor="hr-consent"
+            className="text-sm font-normal leading-relaxed cursor-pointer"
+          >
             I understand that response times may vary depending on current animal care needs.
-            I consent to being contacted regarding this wildlife inquiry. *
+            I consent to being contacted regarding this wildlife inquiry.{' '}
+            <span aria-hidden="true">*</span>
           </Label>
         </div>
         {errors.consent && (
-          <p className="text-sm text-destructive">{errors.consent.message}</p>
+          <p id="hr-consent-error" role="alert" className="text-sm text-destructive">
+            {errors.consent.message}
+          </p>
         )}
       </div>
 
       {serverError && (
-        <div className="p-4 rounded-lg bg-destructive/10 text-destructive text-sm">
+        <div role="alert" className="p-4 rounded-lg bg-destructive/10 text-destructive text-sm">
           {serverError}
         </div>
       )}
@@ -287,8 +422,9 @@ export function HelpRequestForm() {
         disabled={isSubmitting}
         size="lg"
         className="w-full sm:w-auto gap-2 gradient-brand text-white border-0 hover:opacity-90"
+        aria-label={isSubmitting ? 'Submitting help request, please wait' : 'Submit help request'}
       >
-        {isSubmitting && <Loader2 className="h-4 w-4 animate-spin" />}
+        {isSubmitting && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
         {isSubmitting ? 'Submitting...' : 'Submit Help Request'}
       </Button>
     </form>
