@@ -1,11 +1,10 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
 
-/**
- * Single paw print using the exact viewBox from the original SVG asset.
- */
-function PawPrint({ px }: { px: number }) {
+// ─── SVG Paw Print ────────────────────────────────────────────────────────────
+function PawPrint({ px, mirrored }: { px: number; mirrored?: boolean }) {
   return (
     <svg
       width={px}
@@ -14,6 +13,7 @@ function PawPrint({ px }: { px: number }) {
       fill="currentColor"
       aria-hidden="true"
       focusable="false"
+      style={mirrored ? { transform: 'scaleX(-1)' } : undefined}
     >
       <path
         transform="matrix(4.77079 0.60656 -0.602905 4.742045 159.050586 166.916854) translate(-35.392275 -36.44326)"
@@ -23,48 +23,97 @@ function PawPrint({ px }: { px: number }) {
   )
 }
 
-// ─── Size config ──────────────────────────────────────────────────────────────
-// px        = paw size in pixels
-// spread    = how far each paw moves left/right from center
-// rowGap    = vertical gap between each paw
-// Total height = px * 4 + rowGap * 3
-const SIZES = {
-  sm: { px: 20, spread: 16, rowGap: 14 },
-  md: { px: 34, spread: 26, rowGap: 22 },
-  lg: { px: 52, spread: 38, rowGap: 34 },
+// ─── Sizes ────────────────────────────────────────────────────────────────────
+const SIZE_CFG = {
+  sm: { px: 40,  W: 150, H: 280 },
+  md: { px: 58,  W: 210, H: 390 },
+  lg: { px: 76,  W: 270, H: 490 },
 } as const
 
-type Size = keyof typeof SIZES
+type Size = keyof typeof SIZE_CFG
 
-type PawLoaderProps = {
+// ─── Layout ───────────────────────────────────────────────────────────────────
+// Tuned to the reference image (640×900 source).
+// Left paws: toes face up-right (unmirrored).
+// Right paws: toes face up-left (mirrored scaleX(-1)).
+//
+// Animation order bottom → top: paw[0], paw[1], paw[2], paw[3].
+// After all 4 stamp in → hold together → all fade out → pause → repeat.
+const PAW_LAYOUT = [
+  // paw 0 — bottom-left
+  { xFrac: 0.03, yFrac: 0.70, mirrored: false },
+  // paw 1 — bottom-right (sits higher and to the right within pair)
+  { xFrac: 0.50, yFrac: 0.54, mirrored: true  },
+  // paw 2 — upper-left  (large gap above pair 1)
+  { xFrac: 0.03, yFrac: 0.24, mirrored: false },
+  // paw 3 — upper-right
+  { xFrac: 0.50, yFrac: 0.05, mirrored: true  },
+]
+
+// ─── Timing ───────────────────────────────────────────────────────────────────
+const STEP_MS   = 650   // gap between each paw stamping in
+const HOLD_MS   = 1000  // all 4 visible together
+const FADE_MS   = 500   // fade-out transition
+const PAUSE_MS  = 300   // blank pause before next cycle
+
+export type PawLoaderProps = {
   size?: Size
+  /** Show all 4 paws frozen (no animation) — useful for static previews */
+  static?: boolean
   fullScreen?: boolean
   color?: string
   className?: string
 }
 
-// Paw trail order: index 0 = topmost (first to stamp when reading top→bottom),
-// animates first. Left/right alternate. Right paw is mirrored via scaleX(-1)
-// so toes point inward and upward as in the reference.
-//
-// Delays fire top→bottom so it reads as the animal walking toward you (upward).
-const STEPS: { side: 'left' | 'right'; delay: number }[] = [
-  { side: 'right', delay: 0.0  },
-  { side: 'left',  delay: 0.5  },
-  { side: 'right', delay: 1.0  },
-  { side: 'left',  delay: 1.5  },
-]
-
 export function PawLoader({
   size = 'md',
+  static: isStatic = false,
   fullScreen = false,
   color,
   className,
 }: PawLoaderProps) {
-  const { px, spread, rowGap } = SIZES[size]
+  const { px, W, H } = SIZE_CFG[size]
 
-  const totalW = px + spread * 2
-  const totalH = px * 4 + rowGap * 3
+  const [visibleCount, setVisibleCount] = useState(isStatic ? 4 : 0)
+  const [fading, setFading]             = useState(false)
+  const timersRef = useRef<ReturnType<typeof setTimeout>[]>([])
+
+  useEffect(() => {
+    if (isStatic) return
+
+    function clearAll() {
+      timersRef.current.forEach(clearTimeout)
+      timersRef.current = []
+    }
+
+    function schedule(fn: () => void, ms: number) {
+      const id = setTimeout(fn, ms)
+      timersRef.current.push(id)
+    }
+
+    function runCycle() {
+      // Stamp in one paw at a time
+      PAW_LAYOUT.forEach((_, i) => {
+        schedule(() => setVisibleCount(i + 1), i * STEP_MS)
+      })
+
+      // After last paw, hold, then fade all out
+      const holdAt = PAW_LAYOUT.length * STEP_MS
+      schedule(() => setFading(true), holdAt + HOLD_MS)
+
+      // After fade, reset and restart
+      schedule(() => {
+        setVisibleCount(0)
+        setFading(false)
+        // Small delay then restart so the reset render flushes first
+        const restartId = setTimeout(runCycle, PAUSE_MS)
+        timersRef.current.push(restartId)
+      }, holdAt + HOLD_MS + FADE_MS)
+    }
+
+    runCycle()
+    return clearAll
+  }, [isStatic])
 
   const trail = (
     <div
@@ -72,36 +121,37 @@ export function PawLoader({
       aria-live="polite"
       style={{
         position: 'relative',
-        width: totalW,
-        height: totalH,
-        color: color ?? 'currentColor',
+        width: W,
+        height: H,
         flexShrink: 0,
+        color: color ?? 'currentColor',
       }}
       className={cn(className)}
     >
-      {STEPS.map(({ side, delay }, i) => {
-        const isRight = side === 'right'
-        // i=0 is top, i=3 is bottom
-        const top = i * (px + rowGap)
-        // Left paw: center - spread, Right paw: center + small offset
-        // Mirror right paw so both face toes-upward/inward like real tracks
-        const left = isRight
-          ? spread + px * 0.05
-          : spread - px * 0.05
-
+      {PAW_LAYOUT.map((paw, i) => {
+        const visible = isStatic || i < visibleCount
         return (
           <span
             key={i}
-            className="gw-paw"
             style={{
-              top,
-              left,
-              transform: isRight ? 'scaleX(-1)' : 'none',
-              animationDelay: `${delay}s`,
-              animationDuration: '2s',
+              position: 'absolute',
+              left:     Math.round(paw.xFrac * W),
+              top:      Math.round(paw.yFrac * H),
+              opacity:  fading ? 0 : visible ? 1 : 0,
+              transform: fading
+                ? 'scale(1)'
+                : visible
+                  ? 'scale(1)'
+                  : 'scale(0.7)',
+              transition: fading
+                ? `opacity ${FADE_MS}ms ease-in-out, transform ${FADE_MS}ms ease-in-out`
+                : visible
+                  ? 'opacity 160ms ease-out, transform 240ms cubic-bezier(0.34,1.56,0.64,1)'
+                  : 'none',
+              willChange: 'opacity, transform',
             }}
           >
-            <PawPrint px={px} />
+            <PawPrint px={px} mirrored={paw.mirrored} />
           </span>
         )
       })}
@@ -113,10 +163,7 @@ export function PawLoader({
     return (
       <div
         className="gw-paw-fullscreen fixed inset-0 z-50 flex items-center justify-center"
-        style={{
-          background: 'rgba(248,244,244,0.92)',
-          backdropFilter: 'blur(4px)',
-        }}
+        style={{ background: 'rgba(248,244,244,0.92)', backdropFilter: 'blur(4px)' }}
       >
         {trail}
       </div>
