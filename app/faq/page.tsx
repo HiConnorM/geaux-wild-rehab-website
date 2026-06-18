@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { ArrowRight, Phone, HelpCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { faqs } from '@/lib/content'
@@ -94,10 +94,10 @@ export default function FAQPage() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
       <Button asChild size="lg" className="bg-white text-[#3B468E] hover:bg-white/90 gap-2 rounded-full px-8 h-14 font-semibold">
-                <Link href="/contact">
+                <TransitionLink href="/contact">
                   Contact Us
                   <ArrowRight className="h-4 w-4" />
-                </Link>
+                </TransitionLink>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 gap-2 rounded-full px-8 h-14 font-semibold">
                 <a href="tel:5044918036" aria-label="Call Geaux Wild Rehab at 504-491-8036">

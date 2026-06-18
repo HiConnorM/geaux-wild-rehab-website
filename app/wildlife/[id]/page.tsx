@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, MapPin, Utensils, Brain, Clock, Heart, Lightbulb, ShieldCheck, AlertTriangle } from 'lucide-react'
 import { species } from '@/lib/content'
@@ -56,13 +56,13 @@ export default async function SpeciesDetailPage({ params }: Props) {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back button */}
-          <Link 
+          <TransitionLink 
             href="/wildlife" 
             className="inline-flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors mb-8 group"
           >
             <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
             All Wildlife
-          </Link>
+          </TransitionLink>
 
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center pb-16">
             {/* Large Animal Image - Centered */}
@@ -105,10 +105,10 @@ export default async function SpeciesDetailPage({ params }: Props) {
               </div>
 
               <Button asChild size="lg" className="gap-2 rounded-full px-8 h-14 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
-                <Link href="/get-help">
+                <TransitionLink href="/get-help">
                   Found a {animal.name}? Get Help
                   <ArrowRight className="h-4 w-4" />
-                </Link>
+                </TransitionLink>
               </Button>
             </div>
           </div>
@@ -180,10 +180,10 @@ export default async function SpeciesDetailPage({ params }: Props) {
                 </ul>
                 <div className="mt-8">
                   <Button asChild className="gap-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
-                    <Link href="/get-help">
+                    <TransitionLink href="/get-help">
                       Get Help Now
                       <ArrowRight className="h-4 w-4" />
-                    </Link>
+                    </TransitionLink>
                   </Button>
                 </div>
               </div>
@@ -244,10 +244,10 @@ export default async function SpeciesDetailPage({ params }: Props) {
                 {/* CTA */}
                 <div className="mt-6 pt-6 border-t border-border">
                   <Button asChild className="w-full gap-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
-                    <Link href="/support">
+                    <TransitionLink href="/support">
                       <Heart className="h-4 w-4" />
                       Support Our Work
-                    </Link>
+                    </TransitionLink>
                   </Button>
                 </div>
               </div>
@@ -262,7 +262,7 @@ export default async function SpeciesDetailPage({ params }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {prevSpecies ? (
-              <Link 
+              <TransitionLink 
                 href={`/wildlife/${prevSpecies.id}`}
                 className="group flex items-center gap-4"
               >
@@ -273,18 +273,18 @@ export default async function SpeciesDetailPage({ params }: Props) {
                   <p className="text-sm text-muted-foreground">Previous</p>
                   <p className="font-semibold text-foreground group-hover:text-primary transition-colors">{prevSpecies.name}</p>
                 </div>
-              </Link>
+              </TransitionLink>
             ) : <div />}
 
-            <Link 
+            <TransitionLink 
               href="/wildlife"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               View All Species
-            </Link>
+            </TransitionLink>
 
             {nextSpecies ? (
-              <Link 
+              <TransitionLink 
                 href={`/wildlife/${nextSpecies.id}`}
                 className="group flex items-center gap-4"
               >
@@ -295,7 +295,7 @@ export default async function SpeciesDetailPage({ params }: Props) {
                 <div className="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors">
                   <ArrowRight className="h-5 w-5" />
                 </div>
-              </Link>
+              </TransitionLink>
             ) : <div />}
           </div>
         </div>

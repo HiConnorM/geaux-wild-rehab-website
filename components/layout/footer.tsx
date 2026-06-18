@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import { Instagram, Facebook, ArrowRight } from 'lucide-react'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 
 const footerLinks = {
   help: [
@@ -42,7 +42,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-block mb-6">
+            <TransitionLink href="/" className="inline-block mb-6">
               <Image
                 src="/images/logo.svg"
                 alt="Geaux Wild Rehab"
@@ -50,7 +50,7 @@ export function Footer() {
                 height={44}
                 className="h-10 w-auto"
               />
-            </Link>
+            </TransitionLink>
             <p className="text-white/60 mb-3 max-w-sm leading-relaxed">
               A 501(c)(3) nonprofit dedicated to the rescue, rehabilitation, and release of injured and orphaned native Louisiana wildlife. Based in Hammond, Louisiana.
             </p>
@@ -83,13 +83,13 @@ export function Footer() {
             <ul className="space-y-4">
               {footerLinks.help.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <TransitionLink
                     href={link.href}
                     className="text-white/60 hover:text-white transition-colors inline-flex items-center gap-1 group"
                   >
                     {link.label}
                     <ArrowRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                  </Link>
+                  </TransitionLink>
                 </li>
               ))}
             </ul>
@@ -101,13 +101,13 @@ export function Footer() {
             <ul className="space-y-4">
               {footerLinks.support.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <TransitionLink
                     href={link.href}
                     className="text-white/60 hover:text-white transition-colors inline-flex items-center gap-1 group"
                   >
                     {link.label}
                     <ArrowRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                  </Link>
+                  </TransitionLink>
                 </li>
               ))}
             </ul>
@@ -119,13 +119,13 @@ export function Footer() {
             <ul className="space-y-4">
               {footerLinks.about.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <TransitionLink
                     href={link.href}
                     className="text-white/60 hover:text-white transition-colors inline-flex items-center gap-1 group"
                   >
                     {link.label}
                     <ArrowRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                  </Link>
+                  </TransitionLink>
                 </li>
               ))}
             </ul>

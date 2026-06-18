@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { ArrowRight, Calendar } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { stories, formatDate } from '@/lib/content'
@@ -72,7 +72,7 @@ export function StoriesSection() {
             {/* Story cards */}
             <div className="flex flex-col gap-3 md:gap-4">
               {latest.map((story, i) => (
-                <Link
+                <TransitionLink
                   key={story.id}
                   href={`/stories/${story.slug}`}
                   className={`group flex gap-3 md:gap-4 p-3 md:p-4 bg-white rounded-xl md:rounded-[1.5rem] shadow-sm border border-gray-100 hover:shadow-xl hover:border-[#26C9AA]/30 transition-all duration-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
@@ -103,16 +103,16 @@ export function StoriesSection() {
                       <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-white transition-colors" />
                     </div>
                   </div>
-                </Link>
+                </TransitionLink>
               ))}
             </div>
 
             <div className={`mt-6 md:mt-8 flex flex-wrap items-center gap-4 transition-all duration-700 delay-500 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <Button asChild size="lg" className="rounded-full h-11 md:h-12 px-5 md:px-6 bg-[#3B468E] hover:bg-[#2d366d] text-white font-bold w-full sm:w-auto">
-                <Link href="/stories">
+                <TransitionLink href="/stories">
                   All Stories
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                </TransitionLink>
               </Button>
               {/* Updated Weekly badge — moved into content flow */}
               <div className="bg-white rounded-xl px-4 py-2 shadow-md border border-gray-100">

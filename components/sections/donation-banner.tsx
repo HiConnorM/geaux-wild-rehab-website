@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { Heart, Gift, ExternalLink, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -58,10 +58,10 @@ export function DonationBanner() {
               ))}
             </div>
             <Button asChild size="lg" className="w-full rounded-full h-12 md:h-14 bg-[#26C9AA] hover:bg-[#1eb89a] text-white font-bold">
-              <Link href="/support#donate">
+              <TransitionLink href="/support#donate">
                 Donate Now
                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </TransitionLink>
             </Button>
           </div>
 

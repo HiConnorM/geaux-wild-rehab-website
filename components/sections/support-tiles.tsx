@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { Heart, Gift, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -75,10 +75,10 @@ export function SupportTiles() {
                   asChild 
                   className="gap-2 rounded-full px-6 h-12 font-semibold bg-foreground text-background hover:bg-foreground/90"
                 >
-                  <Link href={option.href}>
+                  <TransitionLink href={option.href}>
                     {option.cta}
                     <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  </TransitionLink>
                 </Button>
               )}
 
