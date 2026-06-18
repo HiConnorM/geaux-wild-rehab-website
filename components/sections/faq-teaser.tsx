@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { ArrowRight, HelpCircle, MessageCircle } from 'lucide-react'
 import { faqs } from '@/lib/content'
 import { Button } from '@/components/ui/button'
@@ -32,16 +32,16 @@ export function FAQTeaser() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-14 font-semibold">
-                <Link href="/get-help">
+                <TransitionLink href="/get-help">
                   I Found Wildlife
                   <ArrowRight className="h-4 w-4" />
-                </Link>
+                </TransitionLink>
               </Button>
               <Button asChild size="lg" variant="outline" className="gap-2 rounded-full px-8 h-14">
-                <Link href="/faq">
+                <TransitionLink href="/faq">
                   View All FAQs
                   <ArrowRight className="h-4 w-4" />
-                </Link>
+                </TransitionLink>
               </Button>
             </div>
 
@@ -54,9 +54,9 @@ export function FAQTeaser() {
                 <div>
                   <h3 className="font-bold text-foreground mb-1">Still have questions?</h3>
                   <p className="text-muted-foreground text-sm mb-3">Our team is here to help 7 days a week.</p>
-                  <Link href="/contact" className="text-primary font-semibold text-sm hover:underline inline-flex items-center gap-1">
+                  <TransitionLink href="/contact" className="text-primary font-semibold text-sm hover:underline inline-flex items-center gap-1">
                     Contact us <ArrowRight className="h-3 w-3" />
-                  </Link>
+                  </TransitionLink>
                 </div>
               </div>
             </div>

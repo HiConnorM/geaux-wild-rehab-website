@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { ArrowRight, HelpCircle, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { faqs } from '@/lib/content'
@@ -102,7 +102,7 @@ export function FAQSection() {
               </Accordion>
             </div>
 
-            <Link
+            <TransitionLink
               ref={faqLinkRef}
               href="/faq"
               className="inline-flex items-center gap-2 font-bold text-[#3B468E] hover:text-[#26C9AA] transition-colors text-sm md:text-base"
@@ -110,7 +110,7 @@ export function FAQSection() {
             >
               View All FAQs
               <ArrowRight className="h-4 w-4" />
-            </Link>
+            </TransitionLink>
           </div>
 
           {/* Coyote col */}
@@ -128,10 +128,10 @@ export function FAQSection() {
             <div className="absolute top-12 right-0 bg-[#26C9AA] rounded-xl md:rounded-[1.5rem] p-4 md:p-5 shadow-xl z-10">
               <p className="text-white/90 text-xs md:text-sm mb-2 md:mb-3">Need wildlife guidance?</p>
               <Button asChild size="sm" className="rounded-full bg-white text-[#26C9AA] hover:bg-white/90 font-bold text-xs md:text-sm h-9 md:h-10">
-                <Link href="/get-help">
+                <TransitionLink href="/get-help">
                   <HelpCircle className="mr-2 h-3 w-3 md:h-4 md:w-4" />
                   I Found Wildlife
-                </Link>
+                </TransitionLink>
               </Button>
             </div>
 

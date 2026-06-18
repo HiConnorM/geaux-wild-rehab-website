@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { notFound } from 'next/navigation'
 import { Calendar, ArrowLeft, Share2, Heart, ArrowRight } from 'lucide-react'
 import { getStoryBySlug, getStories, formatDate } from '@/lib/content'
@@ -69,10 +69,10 @@ export default async function StoryPage({ params }: Props) {
       <div className="pt-24 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Button asChild variant="ghost" size="sm" className="gap-2">
-            <Link href="/stories">
+            <TransitionLink href="/stories">
               <ArrowLeft className="h-4 w-4" />
               All Stories
-            </Link>
+            </TransitionLink>
           </Button>
         </div>
       </div>
@@ -164,10 +164,10 @@ export default async function StoryPage({ params }: Props) {
                 provide critical care for wildlife in need.
               </p>
               <Button asChild className="bg-white text-primary hover:bg-white/90 gap-2">
-                <Link href="/support">
+                <TransitionLink href="/support">
                   <Heart className="h-4 w-4" />
                   Donate Now
-                </Link>
+                </TransitionLink>
               </Button>
             </div>
           </div>
@@ -183,7 +183,7 @@ export default async function StoryPage({ params }: Props) {
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               {relatedStories.map((relatedStory) => (
-                <Link
+                <TransitionLink
                   key={relatedStory.id}
                   href={`/stories/${relatedStory.slug}`}
                   className="group flex gap-4 bg-card rounded-xl p-4 border border-border hover:shadow-md transition-all"
@@ -207,15 +207,15 @@ export default async function StoryPage({ params }: Props) {
                       {relatedStory.excerpt}
                     </p>
                   </div>
-                </Link>
+                </TransitionLink>
               ))}
             </div>
             <div className="text-center mt-8">
               <Button asChild variant="outline" className="gap-2">
-                <Link href="/stories">
+                <TransitionLink href="/stories">
                   View All Stories
                   <ArrowRight className="h-4 w-4" />
-                </Link>
+                </TransitionLink>
               </Button>
             </div>
           </div>

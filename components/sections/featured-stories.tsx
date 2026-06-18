@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { ArrowRight, Calendar } from 'lucide-react'
 import { stories, formatDate } from '@/lib/content'
 import { Button } from '@/components/ui/button'
@@ -49,17 +49,17 @@ export function FeaturedStories() {
             </p>
           </div>
           <Button asChild variant="outline" size="lg" className="shrink-0 gap-2 rounded-full px-8">
-            <Link href="/stories">
+            <TransitionLink href="/stories">
               View All Stories
               <ArrowRight className="h-4 w-4" />
-            </Link>
+            </TransitionLink>
           </Button>
         </div>
 
         {/* Stories Grid */}
         <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animate ${isVisible ? 'visible' : ''}`}>
           {featuredStories.map((story, index) => (
-            <Link
+            <TransitionLink
               key={story.id}
               href={`/stories/${story.slug}`}
               className="group block bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-border/50 hover:-translate-y-2"
@@ -106,7 +106,7 @@ export function FeaturedStories() {
                   {story.excerpt}
                 </p>
               </div>
-            </Link>
+            </TransitionLink>
           ))}
         </div>
       </div>

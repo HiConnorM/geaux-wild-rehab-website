@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { Mail, Phone, MapPin, Clock, ExternalLink, Instagram, Facebook, Youtube } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ContactForm } from '@/components/forms/contact-form'
@@ -137,10 +137,10 @@ export default function ContactPage() {
                   or call/text 504-491-8036 for the fastest response.
                 </p>
                 <Button asChild variant="secondary" size="sm" className="gap-2">
-                  <Link href="/get-help">
+                  <TransitionLink href="/get-help">
                     Get Help Now
                     <ExternalLink className="h-4 w-4" />
-                  </Link>
+                  </TransitionLink>
                 </Button>
               </div>
             </div>

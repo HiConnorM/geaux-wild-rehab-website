@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { Calendar, ArrowRight, Heart } from 'lucide-react'
 import { getStories, formatDate } from '@/lib/content'
 import { Button } from '@/components/ui/button'
@@ -45,7 +45,7 @@ export default async function StoriesPage() {
                   key={story.id}
                   className="group bg-card rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-all duration-300"
                 >
-                  <Link href={`/stories/${story.slug}`}>
+                  <TransitionLink href={`/stories/${story.slug}`}>
                     {/* Image */}
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <Image
@@ -84,7 +84,7 @@ export default async function StoriesPage() {
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </span>
                     </div>
-                  </Link>
+                  </TransitionLink>
                 </article>
               ))}
             </div>
@@ -106,10 +106,10 @@ export default async function StoriesPage() {
             Every donation helps us save more animals and create more success stories.
           </p>
           <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 gap-2">
-            <Link href="/support">
+            <TransitionLink href="/support">
               <Heart className="h-5 w-5" />
               Support Our Mission
-            </Link>
+            </TransitionLink>
           </Button>
         </div>
       </section>

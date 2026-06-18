@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { ExternalLink, Play } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { prefersReducedMotion, ST_DEFAULTS, EASE_OUT } from '@/lib/gsap-utils'
@@ -137,10 +137,10 @@ export function TikTokSection() {
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full h-12 px-7 border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 font-bold w-full sm:w-auto">
-                <Link href="/support">
+                <TransitionLink href="/support">
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Support Our Work
-                </Link>
+                </TransitionLink>
               </Button>
             </div>
           </div>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -114,10 +114,10 @@ function AnimalSection({ animal, index }: { animal: typeof animals[0], index: nu
             }`}
           >
             <Button asChild variant="outline" className="rounded-full gap-2 h-10 sm:h-12 px-5 sm:px-6 border-2 border-foreground/20 hover:bg-foreground hover:text-white">
-              <Link href={`/wildlife/${animal.id}`}>
+              <TransitionLink href={`/wildlife/${animal.id}`}>
                 Learn More
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </TransitionLink>
             </Button>
           </div>
         </>
@@ -166,10 +166,10 @@ function AnimalSection({ animal, index }: { animal: typeof animals[0], index: nu
             }`}
           >
             <Button asChild className="rounded-full gap-2 h-10 sm:h-12 px-5 sm:px-6 bg-primary text-primary-foreground hover:bg-primary/90">
-              <Link href={`/wildlife/${animal.id}`}>
+              <TransitionLink href={`/wildlife/${animal.id}`}>
                 Learn More
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </TransitionLink>
             </Button>
           </div>
         </>
@@ -210,10 +210,10 @@ function AnimalSection({ animal, index }: { animal: typeof animals[0], index: nu
             }`}
           >
             <Button asChild variant="outline" className="rounded-full gap-2 h-10 sm:h-12 px-5 sm:px-6 border-2 border-primary text-primary hover:bg-primary hover:text-white">
-              <Link href={`/wildlife/${animal.id}`}>
+              <TransitionLink href={`/wildlife/${animal.id}`}>
                 Learn More
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </TransitionLink>
             </Button>
           </div>
         </>
@@ -261,10 +261,10 @@ function AnimalSection({ animal, index }: { animal: typeof animals[0], index: nu
             }`}
           >
             <Button asChild className="rounded-full gap-2 h-10 sm:h-12 px-5 sm:px-6 bg-foreground text-background hover:bg-foreground/90">
-              <Link href={`/wildlife/${animal.id}`}>
+              <TransitionLink href={`/wildlife/${animal.id}`}>
                 Learn More
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </TransitionLink>
             </Button>
           </div>
         </>
@@ -308,10 +308,10 @@ export function AnimalShowcase() {
             We also rehabilitate foxes, coyotes, bobcats, beavers, and other native Louisiana wildlife.
           </p>
           <Button asChild size="lg" className="rounded-full gap-2 h-14 px-8 bg-primary text-primary-foreground hover:bg-primary/90">
-            <Link href="/wildlife">
+            <TransitionLink href="/wildlife">
               View All Species
               <ArrowRight className="h-5 w-5" />
-            </Link>
+            </TransitionLink>
           </Button>
         </div>
       </div>

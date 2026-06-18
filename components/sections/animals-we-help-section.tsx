@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { ArrowRight, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { species } from '@/lib/content'
@@ -85,7 +85,7 @@ export function AnimalsWeHelpSection() {
         {/* Animals grid */}
         <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4 lg:gap-5 mb-10 md:mb-12">
           {species.slice(0, 8).map((animal) => (
-            <Link
+            <TransitionLink
               key={animal.id}
               href={`/wildlife/${animal.id}`}
               className="group relative bg-[#F8F4F4] rounded-xl md:rounded-[1.5rem] overflow-hidden hover:shadow-xl hover:shadow-black/10 transition-shadow duration-500"
@@ -110,17 +110,17 @@ export function AnimalsWeHelpSection() {
               <div className="absolute top-2 right-2 md:top-3 md:right-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#26C9AA] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <ArrowRight className="h-3 w-3 md:h-4 md:w-4 text-white" />
               </div>
-            </Link>
+            </TransitionLink>
           ))}
         </div>
 
         {/* CTA */}
         <div ref={ctaRef} className="text-center mb-12 md:mb-16" style={{ opacity: 0 }}>
           <Button asChild size="lg" className="rounded-full h-12 md:h-14 px-6 md:px-8 bg-[#1a1f3d] hover:bg-[#0f1225] text-white font-bold w-full sm:w-auto">
-            <Link href="/wildlife">
+            <TransitionLink href="/wildlife">
               View All Species
               <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+            </TransitionLink>
           </Button>
         </div>
 
@@ -137,10 +137,10 @@ export function AnimalsWeHelpSection() {
               </div>
             </div>
             <Button asChild size="lg" className="rounded-full h-12 md:h-14 px-6 md:px-8 bg-white text-[#26C9AA] hover:bg-white/90 font-bold shrink-0 w-full sm:w-auto">
-              <Link href="/get-help">
+              <TransitionLink href="/get-help">
                 Get Help Now
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              </TransitionLink>
             </Button>
           </div>
         </div>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { ArrowRight, Shield, MapPin, Award } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { prefersReducedMotion, ST_DEFAULTS, EASE_OUT } from '@/lib/gsap-utils'
@@ -110,10 +110,10 @@ export function AboutSection() {
               </p>
               <div ref={btnRef} style={{ opacity: 0 }}>
                 <Button asChild size="lg" className="rounded-full h-11 md:h-12 px-5 md:px-6 bg-[#3B468E] hover:bg-[#2d366d] text-white font-semibold w-full sm:w-auto">
-                  <Link href="/about">
+                  <TransitionLink href="/about">
                     Our Story
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  </TransitionLink>
                 </Button>
               </div>
             </div>

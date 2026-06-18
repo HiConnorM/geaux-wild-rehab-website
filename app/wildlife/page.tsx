@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { ArrowRight } from 'lucide-react'
 import { species } from '@/lib/content'
 import { Button } from '@/components/ui/button'
@@ -82,7 +82,7 @@ export default function WildlifePage() {
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {species.map((animal, index) => (
-              <Link
+              <TransitionLink
                 key={animal.id}
                 href={`/wildlife/${animal.id}`}
                 className="group relative bg-white rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
@@ -118,7 +118,7 @@ export default function WildlifePage() {
 
                 {/* Hover accent bar */}
                 <div className="absolute bottom-0 left-0 right-0 h-1 gradient-brand transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-              </Link>
+              </TransitionLink>
             ))}
           </div>
         </div>
@@ -139,15 +139,15 @@ export default function WildlifePage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg" className="gap-2 rounded-full px-10 h-14 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
-              <Link href="/get-help">
+              <TransitionLink href="/get-help">
                 Get Help Now
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </TransitionLink>
             </Button>
             <Button asChild size="lg" variant="outline" className="gap-2 rounded-full px-10 h-14">
-              <Link href="/faq">
+              <TransitionLink href="/faq">
                 View FAQ
-              </Link>
+              </TransitionLink>
             </Button>
           </div>
         </div>

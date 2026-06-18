@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { AlertTriangle, Check, X, Phone, ArrowRight, Bird } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { HelpRequestForm } from '@/components/forms/help-request-form'
@@ -217,9 +217,9 @@ export default function GetHelpPage() {
             ))}
           </div>
           <p className="text-center mt-6">
-            <Link href="/faq" className="text-primary hover:underline">
+            <TransitionLink href="/faq" className="text-primary hover:underline">
               View more FAQs about specific species
-            </Link>
+            </TransitionLink>
           </p>
 
           {/* Bird disclaimer */}

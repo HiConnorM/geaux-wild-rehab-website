@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { ArrowRight } from 'lucide-react'
 import { species } from '@/lib/content'
 import { Button } from '@/components/ui/button'
@@ -52,7 +52,7 @@ export function SpeciesGrid() {
           className={`grid grid-cols-2 md:grid-cols-4 gap-5 lg:gap-6 stagger-animate ${isVisible ? 'visible' : ''}`}
         >
           {species.map((animal, index) => (
-            <Link
+            <TransitionLink
               key={animal.id}
               href={`/wildlife/${animal.id}`}
               className="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-muted shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
@@ -82,17 +82,17 @@ export function SpeciesGrid() {
 
               {/* Hover accent */}
               <div className="absolute bottom-0 left-0 right-0 h-1 gradient-brand transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-            </Link>
+            </TransitionLink>
           ))}
         </div>
 
         {/* CTA */}
         <div className="text-center mt-12">
           <Button asChild size="lg" className="rounded-full gap-2 px-8 h-14 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
-            <Link href="/wildlife">
+            <TransitionLink href="/wildlife">
               Explore All Species
               <ArrowRight className="h-4 w-4" />
-            </Link>
+            </TransitionLink>
           </Button>
         </div>
       </div>
