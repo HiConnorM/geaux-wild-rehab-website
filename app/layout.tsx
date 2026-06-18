@@ -5,6 +5,7 @@ import './globals.css'
 import { Header, MobileHeader } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { OrganizationSchema } from '@/lib/seo'
+import { PageTransitionProvider } from '@/components/page-transition/page-transition-provider'
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -88,12 +89,14 @@ export default function RootLayout({
         <OrganizationSchema />
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col">
-        <Header />
-        <MobileHeader />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <PageTransitionProvider>
+          <Header />
+          <MobileHeader />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </PageTransitionProvider>
         <Analytics />
       </body>
     </html>

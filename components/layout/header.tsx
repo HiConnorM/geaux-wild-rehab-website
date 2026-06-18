@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
+import { TransitionLink } from '@/components/page-transition/transition-link'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -43,7 +43,7 @@ export function Header() {
           : "bg-white shadow-lg shadow-black/5"
       )}>
         {/* Logo */}
-        <Link href="/" className="shrink-0">
+        <TransitionLink href="/" className="shrink-0">
           <Image
             src="/images/logo.svg"
             alt="Geaux Wild Rehab"
@@ -52,18 +52,18 @@ export function Header() {
             className="h-10 w-auto"
             priority
           />
-        </Link>
+        </TransitionLink>
 
         {/* Center Navigation */}
         <nav className="flex items-center gap-1">
           {navLinks.map((link) => (
-            <Link
+            <TransitionLink
               key={link.href}
               href={link.href}
               className="px-4 py-2 text-sm font-medium text-[#1a1f3d] hover:text-[#26C9AA] transition-colors rounded-lg hover:bg-[#F8F4F4]"
             >
               {link.label}
-            </Link>
+            </TransitionLink>
           ))}
         </nav>
 
@@ -74,9 +74,9 @@ export function Header() {
             size="sm" 
             className="rounded-full bg-[#26C9AA] text-white hover:bg-[#1eb89a] font-semibold px-5 h-9 shadow-sm"
           >
-            <Link href="/support">
+            <TransitionLink href="/support">
               Donate
-            </Link>
+            </TransitionLink>
           </Button>
           <Button 
             asChild 
@@ -84,9 +84,9 @@ export function Header() {
             size="sm" 
             className="rounded-full border-2 border-[#3B468E] text-[#3B468E] hover:bg-[#3B468E] hover:text-white font-semibold px-5 h-9"
           >
-            <Link href="/get-help">
+            <TransitionLink href="/get-help">
               Get Help
-            </Link>
+            </TransitionLink>
           </Button>
         </div>
       </div>
@@ -131,7 +131,7 @@ export function MobileHeader() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="shrink-0" onClick={() => setIsOpen(false)}>
+            <TransitionLink href="/" className="shrink-0" onClick={() => setIsOpen(false)}>
               <Image
                 src="/images/logo.svg"
                 alt="Geaux Wild Rehab"
@@ -140,7 +140,7 @@ export function MobileHeader() {
                 className="h-9 w-auto"
                 priority
               />
-            </Link>
+            </TransitionLink>
 
             {/* Hamburger */}
             <button
@@ -173,14 +173,14 @@ export function MobileHeader() {
         <div className="flex-1 overflow-y-auto px-4 py-4">
           <div className="flex flex-col">
             {navLinks.map((link) => (
-              <Link
+              <TransitionLink
                 key={link.href}
                 href={link.href}
                 className="px-2 py-4 text-base font-medium text-[#1a1f3d] hover:text-[#26C9AA] border-b border-gray-100 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
-              </Link>
+              </TransitionLink>
             ))}
           </div>
         </div>
@@ -188,14 +188,14 @@ export function MobileHeader() {
         {/* CTAs */}
         <div className="px-4 py-6 border-t border-gray-100 flex flex-col gap-3 bg-[#F8F4F4]">
           <Button asChild size="lg" className="w-full justify-center rounded-full bg-[#26C9AA] text-white hover:bg-[#1eb89a] h-12 font-semibold">
-            <Link href="/support" onClick={() => setIsOpen(false)}>
+            <TransitionLink href="/support" onClick={() => setIsOpen(false)}>
               Donate Now
-            </Link>
+            </TransitionLink>
           </Button>
           <Button asChild variant="outline" size="lg" className="w-full justify-center rounded-full border-2 border-[#3B468E] text-[#3B468E] hover:bg-[#3B468E] hover:text-white h-12 font-semibold">
-            <Link href="/get-help" onClick={() => setIsOpen(false)}>
+            <TransitionLink href="/get-help" onClick={() => setIsOpen(false)}>
               Get Help
-            </Link>
+            </TransitionLink>
           </Button>
         </div>
       </div>
