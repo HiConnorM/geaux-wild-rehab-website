@@ -9,6 +9,7 @@ import {
   useState,
 } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
+import { PawLoader } from '@/components/ui/paw-loader'
 
 type Origin = { x: number; y: number }
 
@@ -226,7 +227,7 @@ export function PageTransitionProvider({
               willChange: 'clip-path',
             }}
           />
-          {/* Brief centered mark while the screen is fully covered */}
+          {/* Paw loader shown while the iris is fully closed */}
           <div
             style={{
               position: 'absolute',
@@ -235,29 +236,15 @@ export function PageTransitionProvider({
               alignItems: 'center',
               justifyContent: 'center',
               opacity: phase === 'covered' ? 1 : 0,
-              transition: 'opacity 200ms ease-out',
+              transition: 'opacity 180ms ease-out',
+              pointerEvents: 'none',
             }}
           >
-            <span
-              style={{
-                width: 14,
-                height: 14,
-                borderRadius: '9999px',
-                background: CREAM,
-                boxShadow: `0 0 0 6px ${CREAM}33`,
-                animation: 'gw-iris-pulse 900ms ease-in-out infinite',
-              }}
+            <PawLoader
+              size="lg"
+              color={color === TEAL ? CREAM : TEAL}
             />
           </div>
-          <style>{`
-            @keyframes gw-iris-pulse {
-              0%, 100% { transform: scale(1); opacity: 0.85; }
-              50% { transform: scale(1.35); opacity: 1; }
-            }
-            @media (prefers-reduced-motion: reduce) {
-              [data-gw-iris] * { animation: none !important; transition: none !important; }
-            }
-          `}</style>
         </div>
       )}
     </TransitionContext.Provider>
