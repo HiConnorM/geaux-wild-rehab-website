@@ -20,9 +20,9 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'info@geauxwildrehab.org',
+    value: 'geauxwildrehab@gmail.com',
     description: 'General inquiries',
-    href: 'mailto:info@geauxwildrehab.org',
+    href: 'mailto:geauxwildrehab@gmail.com',
   },
   {
     icon: MapPin,

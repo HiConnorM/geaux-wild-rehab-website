@@ -44,8 +44,8 @@ export async function notifyHelpRequest(data: HelpRequestData): Promise<{ succes
 
     // TODO: Send email notification via Resend
     // const { data: emailData, error } = await resend.emails.send({
-    //   from: 'notifications@geauxwildrehab.org',
-    //   to: ['intake@geauxwildrehab.org'],
+    //   from: 'geauxwildrehab@gmail.com',
+    //   to: ['geauxwildrehab@gmail.com'],
     //   subject: `[URGENT] New Wildlife Help Request - ${data.species}`,
     //   html: generateHelpRequestEmail(data),
     // })
