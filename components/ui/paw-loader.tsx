@@ -3,10 +3,9 @@
 import { cn } from '@/lib/utils'
 
 /**
- * Single paw print rendered with the exact viewBox from the original asset.
- * The path + transform are taken verbatim so the shape is always correct.
+ * Single paw print using the exact viewBox from the original SVG asset.
  */
-function PawPrint({ px, className }: { px: number; className?: string }) {
+function PawPrint({ px }: { px: number }) {
   return (
     <svg
       width={px}
@@ -15,7 +14,6 @@ function PawPrint({ px, className }: { px: number; className?: string }) {
       fill="currentColor"
       aria-hidden="true"
       focusable="false"
-      className={className}
     >
       <path
         transform="matrix(4.77079 0.60656 -0.602905 4.742045 159.050586 166.916854) translate(-35.392275 -36.44326)"
@@ -25,62 +23,88 @@ function PawPrint({ px, className }: { px: number; className?: string }) {
   )
 }
 
+// ─── Size config ──────────────────────────────────────────────────────────────
+// px        = paw size in pixels
+// spread    = how far each paw moves left/right from center
+// rowGap    = vertical gap between each paw
+// Total height = px * 4 + rowGap * 3
 const SIZES = {
-  sm: { px: 16, gap: 5,  rise: 3, tilt: 10 },
-  md: { px: 28, gap: 8,  rise: 5, tilt: 10 },
-  lg: { px: 44, gap: 12, rise: 8, tilt: 10 },
+  sm: { px: 20, spread: 16, rowGap: 14 },
+  md: { px: 34, spread: 26, rowGap: 22 },
+  lg: { px: 52, spread: 38, rowGap: 34 },
 } as const
 
 type Size = keyof typeof SIZES
 
 type PawLoaderProps = {
   size?: Size
-  /** Render as a full-screen overlay */
   fullScreen?: boolean
   color?: string
   className?: string
 }
 
-/**
- * Animated paw-print walking trail.
- *
- * Four paw prints step in sequence — alternating left/right like actual
- * footprints — with a staggered fade-scale animation. Uses `currentColor`
- * so it inherits whatever text color is set on the parent.
- * Honors prefers-reduced-motion (paws render static).
- */
+// Paw trail order: index 0 = topmost (first to stamp when reading top→bottom),
+// animates first. Left/right alternate. Right paw is mirrored via scaleX(-1)
+// so toes point inward and upward as in the reference.
+//
+// Delays fire top→bottom so it reads as the animal walking toward you (upward).
+const STEPS: { side: 'left' | 'right'; delay: number }[] = [
+  { side: 'right', delay: 0.0  },
+  { side: 'left',  delay: 0.5  },
+  { side: 'right', delay: 1.0  },
+  { side: 'left',  delay: 1.5  },
+]
+
 export function PawLoader({
   size = 'md',
   fullScreen = false,
   color,
   className,
 }: PawLoaderProps) {
-  const { px, gap, rise, tilt } = SIZES[size]
+  const { px, spread, rowGap } = SIZES[size]
+
+  const totalW = px + spread * 2
+  const totalH = px * 4 + rowGap * 3
 
   const trail = (
     <div
       role="status"
       aria-live="polite"
-      className={cn('inline-flex items-center', className)}
       style={{
-        gap,
+        position: 'relative',
+        width: totalW,
+        height: totalH,
         color: color ?? 'currentColor',
+        flexShrink: 0,
       }}
+      className={cn(className)}
     >
-      {[0, 1, 2, 3].map((i) => (
-        <span
-          key={i}
-          className="gw-paw"
-          style={{
-            display: 'inline-flex',
-            /* Alternate left/right to mimic actual footprints */
-            transform: `translateY(${i % 2 === 0 ? -rise : rise}px) rotate(${i % 2 === 0 ? -tilt : tilt}deg)`,
-            animationDelay: `${i * 0.2}s`,
-          }}
-        >
-          <PawPrint px={px} />
-        </span>
-      ))}
+      {STEPS.map(({ side, delay }, i) => {
+        const isRight = side === 'right'
+        // i=0 is top, i=3 is bottom
+        const top = i * (px + rowGap)
+        // Left paw: center - spread, Right paw: center + small offset
+        // Mirror right paw so both face toes-upward/inward like real tracks
+        const left = isRight
+          ? spread + px * 0.05
+          : spread - px * 0.05
+
+        return (
+          <span
+            key={i}
+            className="gw-paw"
+            style={{
+              top,
+              left,
+              transform: isRight ? 'scaleX(-1)' : 'none',
+              animationDelay: `${delay}s`,
+              animationDuration: '2s',
+            }}
+          >
+            <PawPrint px={px} />
+          </span>
+        )
+      })}
       <span className="sr-only">Loading</span>
     </div>
   )
@@ -88,8 +112,11 @@ export function PawLoader({
   if (fullScreen) {
     return (
       <div
-        className="gw-paw-fullscreen fixed inset-0 z-50 flex flex-col items-center justify-center gap-3"
-        style={{ background: 'rgba(248,244,244,0.92)', backdropFilter: 'blur(4px)' }}
+        className="gw-paw-fullscreen fixed inset-0 z-50 flex items-center justify-center"
+        style={{
+          background: 'rgba(248,244,244,0.92)',
+          backdropFilter: 'blur(4px)',
+        }}
       >
         {trail}
       </div>

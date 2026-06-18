@@ -358,18 +358,21 @@ html {
 .animation-delay-400 { animation-delay: 400ms; }
 .animation-delay-500 { animation-delay: 500ms; }
 
-/* Paw-print walking loader */
+/* Paw-print walking loader — stamp in, hold, fade out */
 @keyframes pawStep {
-  0%   { opacity: 0;    transform: scale(0.94); }
-  18%  { opacity: 1;    transform: scale(1.04); }
-  45%  { opacity: 1;    transform: scale(1); }
-  75%  { opacity: 0.12; transform: scale(0.97); }
-  100% { opacity: 0;    transform: scale(0.94); }
+  0%   { opacity: 0;    transform: scale(0.72); }
+  12%  { opacity: 1;    transform: scale(1.08); }
+  22%  { opacity: 1;    transform: scale(0.97); }
+  60%  { opacity: 0.85; transform: scale(1); }
+  85%  { opacity: 0.2;  transform: scale(1); }
+  100% { opacity: 0;    transform: scale(1); }
 }
 
 .gw-paw {
+  position: absolute;
   display: inline-flex;
-  animation: pawStep 1.6s ease-in-out infinite;
+  opacity: 0;
+  animation: pawStep 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   will-change: opacity, transform;
 }
 
