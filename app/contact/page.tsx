@@ -6,7 +6,7 @@ import { ContactForm } from '@/components/forms/contact-form'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
-  description: 'Get in touch with Geaux Wild Rehab. We are here to help with wildlife emergencies and answer your questions.',
+  description: 'Get in touch with Geaux Wild Rehab. We are here to help with found wildlife and answer your questions.',
 }
 
 const contactInfo = [
@@ -20,9 +20,9 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'info@geauxwildrehab.org',
+    value: 'Geauxwildrehab@gmail.com',
     description: 'General inquiries',
-    href: 'mailto:info@geauxwildrehab.org',
+    href: 'mailto:Geauxwildrehab@gmail.com',
   },
   {
     icon: MapPin,
@@ -151,8 +151,12 @@ export default function ContactPage() {
                 <h2 className="text-2xl font-serif font-bold text-card-foreground mb-2">
                   Send Us a Message
                 </h2>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-muted-foreground mb-4">
                   Fill out the form below and we will get back to you as soon as possible.
+                </p>
+                <p className="text-xs text-muted-foreground mb-6 p-3 rounded-lg bg-secondary border border-border">
+                  By submitting this form, you agree that Geaux Wild Rehab may use the information provided to respond to your message.{' '}
+                  <a href="/privacy" className="text-primary hover:underline font-medium">View our Privacy Policy.</a>
                 </p>
                 <ContactForm />
               </div>

@@ -406,20 +406,20 @@ export const faqs: FAQ[] = [
   {
     id: '1',
     category: 'Found Wildlife',
-    question: 'I found a baby animal - what should I do?',
-    answer: 'First, observe from a distance. Many baby animals are not actually orphaned - the mother may be nearby. If the animal is injured, in immediate danger, or you have confirmed the mother is deceased, contact us immediately. Do not attempt to feed the animal.',
+    question: 'I found a baby animal — what should I do?',
+    answer: 'First, observe from a distance. Many baby animals are not actually orphaned — the mother may be nearby. If the animal is visibly injured, in immediate danger, or you have confirmed the mother is deceased, contact us for guidance. Do not attempt to feed the animal.',
   },
   {
     id: '2',
     category: 'Found Wildlife',
     question: 'How do I know if an animal needs help?',
-    answer: 'Signs that an animal needs help include: visible injuries, blood, or broken limbs; the animal is cold or wet; flies or maggots are present; the animal is crying continuously; a dead parent is nearby; or the animal was caught by a cat or dog.',
+    answer: 'Signs that an animal may need help include: visible injuries, blood, or broken limbs; the animal is cold or wet; flies or maggots are present; the animal is crying continuously; a dead parent is nearby; or the animal was caught by a cat or dog. When in doubt, call or text 504-491-8036 for guidance.',
   },
   {
     id: '3',
     category: 'Found Wildlife',
     question: 'Can I keep the wild animal as a pet?',
-    answer: 'No.',
+    answer: 'No. It is illegal to keep native wildlife as pets in Louisiana. Please contact a licensed rehabilitator for guidance on what to do.',
   },
   {
     id: '4',
@@ -431,25 +431,31 @@ export const faqs: FAQ[] = [
     id: '5',
     category: 'Care & Handling',
     question: 'Is it safe to touch the animal?',
-    answer: 'Never handle wildlife without proper PPE. Always wear gloves and long sleeves at minimum. Even small animals can bite or scratch when scared or in pain. If you are bitten or scratched, seek medical attention immediately.',
+    answer: 'Never handle wildlife without proper PPE. If possible, keep children and pets away, observe from a safe distance, and contact a licensed rehabilitator for guidance.',
   },
   {
     id: '6',
-    category: 'Support & Volunteering',
-    question: 'How can I help Geaux Wild Rehab?',
-    answer: 'You can support us by donating, purchasing items from our Amazon Wishlist, or spreading awareness on social media. Every contribution helps us save more Louisiana wildlife.',
+    category: 'About Our Work',
+    question: 'Are you available 24/7?',
+    answer: 'No. Geaux Wild Rehab is a volunteer-run wildlife rehabilitation nonprofit, and response times may vary depending on current animal care needs. Please call or text 504-491-8036, or submit the form with as much detail as possible, and someone will follow up when available.',
   },
   {
     id: '7',
     category: 'Support & Volunteering',
-    question: 'Do you offer wildlife transport assistance?',
-    answer: 'Yes! We accept transport volunteers who can help pick up and deliver injured or orphaned animals to our facility. If you are interested in helping with transport, please reach out via our contact page.',
+    question: 'Do you accept volunteers?',
+    answer: 'Geaux Wild Rehab may need help with transport and facility maintenance, including cleaning and disinfecting enclosures. Please contact us to ask about current needs.',
   },
   {
     id: '8',
+    category: 'Support & Volunteering',
+    question: 'How can I support Geaux Wild Rehab?',
+    answer: 'You can support us by donating through PayPal or Venmo, purchasing items from our Amazon Wishlist, or spreading awareness. Every contribution helps us care for Louisiana\'s native wildlife.',
+  },
+  {
+    id: '9',
     category: 'About Our Work',
     question: 'What happens to animals after rehabilitation?',
-    answer: 'Our ultimate goal is to release every animal back into the wild. Animals are carefully evaluated and must meet specific health and behavioral criteria before release. We choose release sites that provide appropriate habitat.',
+    answer: 'Our goal is to release every animal back into the wild whenever possible. Animals are carefully evaluated and must meet specific health and behavioral criteria before release. Every animal receives compassionate care with the goal of returning to the wild whenever possible.',
   },
 ]
 
@@ -553,7 +559,6 @@ export const impactStats = {
   animalsRescued: 1500,
   speciesHelped: 24,
   volunteersActive: 58,
-  yearsServing: 2021, // used as "Est. 2021"
-  releaseRate: 82,
+  estYear: 2021, // used as "Est. 2021"
   callsAnswered: 3500,
 }

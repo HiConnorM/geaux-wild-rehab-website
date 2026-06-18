@@ -19,7 +19,7 @@ const steps = [
   {
     number: '2',
     title: 'Secure the Animal',
-    description: 'If help is needed, gently place the animal in a secure carrier with ventilation, lined with soft cloth.',
+    description: 'If help is needed, gently place the animal in a secure carrier with ventilation, lined with soft cloth. Never handle wildlife without proper PPE.',
   },
   {
     number: '3',
@@ -35,10 +35,10 @@ const steps = [
 
 const doList = [
   'Keep the animal warm and in a quiet, dark place',
-  'Never handle wildlife without proper PPE (gloves, long sleeves)',
+  'Never handle wildlife without proper PPE',
+  'If possible, keep children and pets away and observe from a safe distance',
   'Note where you found the animal',
-  'Keep pets and children away',
-  'Contact a licensed rehabilitator',
+  'Contact a licensed rehabilitator for guidance',
 ]
 
 const dontList = [
@@ -67,7 +67,7 @@ const scenarios = [
 ]
 
 const faqSchemaData = [
-  { question: 'What should I do if I find injured wildlife?', answer: 'Assess the situation from a distance, then secure the animal in a ventilated box if help is needed. Keep it warm and quiet, and contact a licensed rehabilitator immediately.' },
+  { question: 'What should I do if I find injured wildlife?', answer: 'Assess the situation from a distance, then secure the animal in a secure carrier with ventilation if help is needed. Keep it warm and quiet, and contact a licensed rehabilitator for guidance as soon as you can.' },
   { question: 'Should I feed the animal I found?', answer: 'No. Do not feed or give water to wildlife unless specifically instructed by a licensed rehabilitator. Incorrect food can cause serious harm.' },
 ]
 
@@ -104,16 +104,25 @@ export default function GetHelpPage() {
             <h1 className="text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
               We Are Here to Help
             </h1>
-            <p className="text-lg text-muted-foreground mb-8">
-              If you have found injured or orphaned wildlife in Louisiana, follow the steps below 
-              and contact us for guidance. Our team is ready to help give wildlife a second chance.
+            <p className="text-lg text-muted-foreground mb-4">
+              For the fastest response, please call or text 504-491-8036. If you cannot call,
+              submit the form below with as much detail as possible. Response times may vary
+              depending on current animal care needs.
             </p>
-            <Button asChild size="lg" className="gap-2 gradient-brand text-white border-0 hover:opacity-90">
-              <a href="#help-form">
-                Submit Help Request
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button asChild size="lg" className="gap-2 gradient-brand text-white border-0 hover:opacity-90">
+                <a href="tel:5044918036" aria-label="Call or text Geaux Wild Rehab at 504-491-8036">
+                  <Phone className="h-4 w-4" />
+                  Call/Text 504-491-8036
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="gap-2">
+                <a href="#help-form">
+                  Submit Help Request
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -253,16 +262,21 @@ export default function GetHelpPage() {
             <h2 className="text-2xl lg:text-3xl font-serif font-bold text-card-foreground mb-2">
               Submit a Help Request
             </h2>
-          <p className="text-muted-foreground mb-8">
-              If you have found injured or orphaned wildlife in Louisiana, follow the steps below and contact us for guidance.
+            <p className="text-muted-foreground mb-4">
+              Found injured or orphaned wildlife in Louisiana? Submit the form below and we will
+              follow up as soon as possible.
             </p>
-            <p className="text-sm text-muted-foreground mb-6 p-4 rounded-lg bg-amber-50 border border-amber-200">
+            <p className="text-sm text-muted-foreground mb-4 p-4 rounded-lg bg-amber-50 border border-amber-200">
               For the fastest response, please call or text{' '}
               <a href="tel:5044918036" className="font-semibold text-amber-900 hover:underline">
                 504-491-8036
               </a>
               . If you cannot call, submit the form below with as much detail as possible.
               Response times may vary depending on current animal care needs.
+            </p>
+            <p className="text-xs text-muted-foreground mb-6 p-3 rounded-lg bg-secondary border border-border">
+              By submitting this form, you agree that Geaux Wild Rehab may use the information provided to respond to your wildlife help request. Response times may vary depending on current animal care needs. Geaux Wild Rehab is not a 24/7 emergency service.{' '}
+              <a href="/privacy" className="text-primary hover:underline font-medium">View our Privacy Policy.</a>
             </p>
             <HelpRequestForm />
           </div>

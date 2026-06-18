@@ -48,7 +48,7 @@ export function DonationBanner() {
             </div>
             <h3 className="text-xl md:text-2xl font-black text-[#1a1f3d] mb-2 md:mb-3">Make a Donation</h3>
             <p className="text-gray-600 mb-5 md:mb-6 text-sm md:text-base">
-              100% of your tax-deductible donation goes directly to animal care.
+              Your support helps provide food, supplies, housing, transport, veterinary care, and rehabilitation for Louisiana&apos;s native wildlife.
             </p>
             <div className="flex flex-wrap gap-2 mb-5 md:mb-6">
               {['$25', '$50', '$100', '$250'].map(amt => (
@@ -83,7 +83,7 @@ export function DonationBanner() {
               Purchase supplies we need and have them shipped directly to our facility.
             </p>
             <ul className="space-y-2 mb-5 md:mb-6">
-              {['Heating pads & lamps', 'Kitten milk replacer', 'Cages & carriers'].map(item => (
+              {['Heating pads', 'Feeding supplies', 'Cages & carriers'].map(item => (
                 <li key={item} className="flex items-center gap-2 text-xs md:text-sm text-white/80">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#26C9AA]" />
                   {item}
@@ -102,7 +102,7 @@ export function DonationBanner() {
         {/* Tax info */}
         <div className={`text-center mt-8 md:mt-10 transition-all duration-700 delay-400 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="text-xs md:text-sm text-gray-500 px-4">
-            Geaux Wild Rehab is a registered 501(c)(3) nonprofit. All donations are tax-deductible.
+            Geaux Wild Rehab is a 501(c)(3) nonprofit organization. Donations may be tax-deductible to the extent allowed by law. Please consult your tax advisor for guidance.
           </p>
         </div>
       </div>

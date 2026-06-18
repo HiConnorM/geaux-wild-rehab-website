@@ -36,20 +36,11 @@ export const metadata: Metadata = {
     siteName: 'Geaux Wild Rehab',
     title: 'Geaux Wild Rehab | Louisiana Wildlife Rehabilitation',
     description: 'Geaux Wild Rehab is a 501(c)(3) nonprofit wildlife rehabilitation center based in Hammond, Louisiana, dedicated to giving Louisiana\'s native wildlife a second chance.',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Geaux Wild Rehab — Louisiana Wildlife Rehabilitation',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Geaux Wild Rehab | Louisiana Wildlife Rehabilitation',
     description: 'Geaux Wild Rehab is a 501(c)(3) nonprofit wildlife rehabilitation center based in Hammond, Louisiana, dedicated to giving Louisiana\'s native wildlife a second chance.',
-    images: ['/og-image.png'],
   },
   icons: {
     icon: [
@@ -90,9 +81,16 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col">
         <PageTransitionProvider>
+          {/* Skip to main content – visible only on focus */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#26C9AA] focus:text-white focus:font-semibold focus:rounded-lg focus:shadow-lg focus:outline-none"
+          >
+            Skip to main content
+          </a>
           <Header />
           <MobileHeader />
-          <main className="flex-1">
+          <main id="main-content" className="flex-1">
             {children}
           </main>
           <Footer />
