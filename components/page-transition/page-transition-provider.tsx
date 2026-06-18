@@ -37,10 +37,12 @@ export function usePageTransition(): TransitionContextValue {
   return ctx
 }
 
-// Brand palette — used interchangeably so each navigation alternates lead color.
+// Brand palette — the iris uses ONE solid color per navigation and cycles
+// to the next color on each click.
 const NAVY = '#3B468E'
 const TEAL = '#26C9AA'
 const CREAM = '#F8F4F4'
+const IRIS_COLORS = [TEAL, NAVY] as const
 
 const COVER_MS = 620
 const REVEAL_MS = 680
@@ -81,7 +83,7 @@ export function PageTransitionProvider({
   const [phase, setPhase] = useState<Phase>('idle')
   const [origin, setOrigin] = useState<Origin>({ x: 0, y: 0 })
   const [radius, setRadius] = useState(0)
-  const [colors, setColors] = useState({ main: NAVY, accent: TEAL })
+  const [color, setColor] = useState<string>(IRIS_COLORS[0])
 
   const transitioningRef = useRef(false)
   const targetHrefRef = useRef<string | null>(null)
@@ -134,12 +136,9 @@ export function PageTransitionProvider({
       setOrigin(o)
       maxRadiusRef.current = farthestCorner(o.x, o.y)
 
-      // Alternate which brand color leads the iris on each navigation.
-      const lead = leadCountRef.current % 2 === 0
+      // Cycle to the next single brand color on each navigation.
+      setColor(IRIS_COLORS[leadCountRef.current % IRIS_COLORS.length])
       leadCountRef.current += 1
-      setColors(
-        lead ? { main: NAVY, accent: TEAL } : { main: TEAL, accent: NAVY },
-      )
 
       setRadius(0)
       setPhase('covering')
@@ -215,27 +214,15 @@ export function PageTransitionProvider({
             pointerEvents: 'none',
           }}
         >
-          {/* Main iris layer */}
+          {/* Single solid iris layer — color cycles each navigation */}
           <div
             style={{
               position: 'absolute',
               inset: 0,
-              background: colors.main,
+              background: color,
               clipPath: clip,
               WebkitClipPath: clip,
               transition: `clip-path ${transitionDuration}ms ${EASE}`,
-              willChange: 'clip-path',
-            }}
-          />
-          {/* Accent iris layer — slightly delayed to create a soft brand ring */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: colors.accent,
-              clipPath: clip,
-              WebkitClipPath: clip,
-              transition: `clip-path ${transitionDuration}ms ${EASE} ${ACCENT_DELAY_MS}ms`,
               willChange: 'clip-path',
             }}
           />
@@ -257,7 +244,7 @@ export function PageTransitionProvider({
                 height: 14,
                 borderRadius: '9999px',
                 background: CREAM,
-                boxShadow: `0 0 0 6px ${colors.accent}55`,
+                boxShadow: `0 0 0 6px ${CREAM}33`,
                 animation: 'gw-iris-pulse 900ms ease-in-out infinite',
               }}
             />
