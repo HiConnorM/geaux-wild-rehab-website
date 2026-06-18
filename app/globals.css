@@ -358,6 +358,25 @@ html {
 .animation-delay-400 { animation-delay: 400ms; }
 .animation-delay-500 { animation-delay: 500ms; }
 
+/* Paw-print walking loader — animation is JS-driven via state + CSS transitions */
+@keyframes pawFullscreenIn {
+  to { opacity: 1; }
+}
+
+/* Delay the full-screen fade-in so fast navigations never flash the loader
+   and it never visually fights the iris page transition. */
+.gw-paw-fullscreen {
+  opacity: 0;
+  animation: pawFullscreenIn 0.25s ease-out 0.3s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gw-paw-fullscreen {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
 /* Intersection Observer animations */
 .animate-on-scroll {
   opacity: 0;

@@ -3,8 +3,9 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Loader2, CheckCircle } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { PawLoader } from '@/components/ui/paw-loader'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
@@ -188,7 +189,7 @@ export function ContactForm() {
         className="w-full sm:w-auto gap-2 gradient-brand text-white border-0 hover:opacity-90"
         aria-label={isSubmitting ? 'Sending message, please wait' : 'Send message'}
       >
-        {isSubmitting && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
+        {isSubmitting && <PawLoader size="sm" className="text-white" />}
         {isSubmitting ? 'Sending...' : 'Send Message'}
       </Button>
     </form>
