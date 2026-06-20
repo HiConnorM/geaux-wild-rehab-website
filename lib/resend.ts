@@ -26,11 +26,38 @@ function getResendClient(): Resend {
 // Environment helpers
 // ---------------------------------------------------------------------------
 
-const FROM_EMAIL =
-  process.env.FROM_EMAIL ?? 'forms@geauxwildrehab.org'
+// FROM_EMAIL must be a valid Resend "from" address.
+// Acceptable formats: "user@domain.com" OR "Display Name <user@domain.com>"
+// The domain must be verified in your Resend dashboard.
+// Until verified, we fall back to Resend's built-in sandbox domain.
+function resolveFromEmail(): string {
+  const raw = (process.env.FROM_EMAIL ?? '').trim()
+
+  // If not set, use sandbox fallback
+  if (!raw) return 'Geaux Wild Rehab <onboarding@resend.dev>'
+
+  // Already in correct RFC format: "Name <email>" or bare "email"
+  if (raw.includes('<') && raw.includes('>')) return raw
+  if (/^[^\s]+@[^\s]+\.[^\s]+$/.test(raw)) return raw
+
+  // Common malformed: "Display Name user@domain.com" (missing angle brackets)
+  // Extract the email address from the end of the string
+  const emailMatch = raw.match(/([a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,})$/)
+  if (emailMatch) {
+    const email = emailMatch[1]
+    const displayName = raw.slice(0, raw.lastIndexOf(email)).trim()
+    return displayName ? `${displayName} <${email}>` : email
+  }
+
+  // Can't parse it — fall back to sandbox so emails still go out
+  console.error('[Geaux Wild] FROM_EMAIL is malformed, falling back to sandbox:', raw)
+  return 'Geaux Wild Rehab <onboarding@resend.dev>'
+}
+
+const FROM_EMAIL = resolveFromEmail()
 
 const TO_EMAIL =
-  process.env.TO_EMAIL ?? 'info@geauxwildrehab.org'
+  process.env.TO_EMAIL ?? 'Geauxwildrehab@gmail.com'
 
 const ALERT_EMAIL = process.env.ALERT_EMAIL ?? ''
 
@@ -370,7 +397,8 @@ export async function sendHelpRequestEmail(
     })
 
     if (error) {
-      console.error('[Geaux Wild] Resend error (help request):', error)
+      console.error('[Geaux Wild] Resend error (help request):', JSON.stringify(error))
+      console.error('[Geaux Wild] FROM:', FROM_EMAIL, '| TO:', to)
       return { success: false, error: 'Email delivery failed' }
     }
 
@@ -418,7 +446,8 @@ export async function sendContactEmail(
     })
 
     if (error) {
-      console.error('[Geaux Wild] Resend error (contact form):', error)
+      console.error('[Geaux Wild] Resend error (contact form):', JSON.stringify(error))
+      console.error('[Geaux Wild] FROM:', FROM_EMAIL, '| TO:', TO_EMAIL)
       return { success: false, error: 'Email delivery failed' }
     }
 
@@ -445,7 +474,8 @@ export async function sendVolunteerEmail(
     })
 
     if (error) {
-      console.error('[Geaux Wild] Resend error (volunteer form):', error)
+      console.error('[Geaux Wild] Resend error (volunteer form):', JSON.stringify(error))
+      console.error('[Geaux Wild] FROM:', FROM_EMAIL, '| TO:', TO_EMAIL)
       return { success: false, error: 'Email delivery failed' }
     }
 
