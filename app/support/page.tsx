@@ -134,7 +134,7 @@ export default function SupportPage() {
           {/* Featured Wishlist Button */}
           <div className="flex justify-center mb-16">
             <Button asChild size="lg" className="gap-3 rounded-full px-12 h-16 bg-amber-500 text-white hover:bg-amber-600 font-bold text-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
-              <a href="https://amazon.com/hz/wishlist/ls/1U43EOQ2AS8LA?ref_=wl_share" target="_blank" rel="noopener noreferrer" aria-label="View our full Amazon Wishlist (opens in new tab)">
+              <a href="https://www.amazon.com/hz/wishlist/ls/23OP3NB47RNH3?ref_=wl_share" target="_blank" rel="noopener noreferrer" aria-label="View our full Amazon Wishlist (opens in new tab)">
                 <Gift className="h-6 w-6" />
                 View Full Amazon Wishlist
                 <ExternalLink className="h-5 w-5" />
@@ -279,7 +279,7 @@ export default function SupportPage() {
                       Purchase supplies directly from our Amazon Wishlist and have them shipped right to us.
                     </p>
                     <a
-                      href="https://amazon.com/hz/wishlist/ls/1U43EOQ2AS8LA?ref_=wl_share"
+                      href="https://www.amazon.com/hz/wishlist/ls/23OP3NB47RNH3?ref_=wl_share"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-sm text-primary font-medium hover:underline mt-2"

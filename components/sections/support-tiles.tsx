@@ -16,7 +16,7 @@ const supportOptions = [
     icon: Gift,
     title: 'Shop Our Wishlist',
     description: 'Purchase much-needed supplies from our Amazon Wishlist and have them delivered directly to us.',
-    href: 'https://www.amazon.com/hz/wishlist/ls/example',
+    href: 'https://www.amazon.com/hz/wishlist/ls/23OP3NB47RNH3?ref_=wl_share',
     cta: 'View Wishlist',
     external: true,
     accent: 'bg-amber-500',

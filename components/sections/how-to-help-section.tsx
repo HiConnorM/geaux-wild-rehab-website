@@ -135,7 +135,7 @@ export function HowToHelpSection() {
             <h3 className="font-bold text-xl md:text-2xl text-white mb-2">Shop Our Wishlist</h3>
             <p className="text-white/80 mb-6 text-sm md:text-base">Purchase supplies we need most — formula, heating pads, cages &amp; more.</p>
             <Button asChild variant="outline" size="lg" className="rounded-full h-11 md:h-12 px-5 md:px-6 border-2 border-white bg-white text-[#26C9AA] hover:bg-white/90 font-bold w-full sm:w-auto">
-              <a href="https://www.amazon.com/hz/wishlist/ls/1HO01EY1HD0TS?ref_=wl_share" target="_blank" rel="noopener noreferrer" aria-label="View our Amazon Wishlist (opens in new tab)">
+              <a href="https://www.amazon.com/hz/wishlist/ls/23OP3NB47RNH3?ref_=wl_share" target="_blank" rel="noopener noreferrer" aria-label="View our Amazon Wishlist (opens in new tab)">
                 View Wishlist
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
